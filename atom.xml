@@ -4,9 +4,9 @@
   <subtitle>永不言弃</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://www.shenzjd.cn/"/>
   <updated>2016-07-02T13:10:10.926Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://www.shenzjd.cn/</id>
   
   <author>
     <name>wu529778790</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2016/07/02/hello-world/"/>
-    <id>http://yoursite.com/2016/07/02/hello-world/</id>
+    <link href="http://www.shenzjd.cn/2016/07/02/hello-world/"/>
+    <id>http://www.shenzjd.cn/2016/07/02/hello-world/</id>
     <published>2016-07-02T13:10:10.925Z</published>
     <updated>2016-07-02T13:10:10.926Z</updated>
     
