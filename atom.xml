@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shenzjd.cn/"/>
-  <updated>2016-07-04T14:20:24.564Z</updated>
+  <updated>2016-07-04T14:21:04.674Z</updated>
   <id>http://www.shenzjd.cn/</id>
   
   <author>
@@ -14,26 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>ionic简单应用</title>
-    <link href="http://www.shenzjd.cn/2015/07/04/ionic%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/"/>
-    <id>http://www.shenzjd.cn/2015/07/04/ionic简单应用/</id>
-    <published>2015-07-04T13:59:34.000Z</published>
-    <updated>2016-07-04T14:20:24.564Z</updated>
-    
-    <content type="html">&lt;p&gt;Ionic(ionicframework)一款接近原生的Html5移动App开发框架　会html css js就可以开发app　创建精彩的应用 从这里开始&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Ionic(ionicframework)一款接近原生的Html5移动App开发框架　会html css js就可以开发app　创建精彩的应用 从这里开始&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
