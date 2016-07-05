@@ -2241,7 +2241,7 @@ textarea {
 a {
   background-color: transparent;
   background-image: none;
-  color: #3F51B5;
+  color: #009688;
   text-decoration: none;
 }
 a:hover {
@@ -2387,7 +2387,7 @@ hr,
   z-index: 70;
   width: 100%;
   height: 3px;
-  background: #FF4081;
+  background: #009688;
 }
 #loading.active {
   -webkit-animation: loading-anim 1s ease-in-out infinite;
@@ -2587,7 +2587,7 @@ a.waves-effect .waves-ripple {
 }
 #menu .brand {
   padding: 40px 20px 2em;
-  background: rgba(63, 81, 181, 0.5);
+  background: rgba(0, 150, 136, 0.5);
 }
 #menu .avatar {
   display: block;
@@ -2632,7 +2632,7 @@ a.waves-effect .waves-ripple {
 #menu .nav li.active a,
 #menu .nav li:hover .icon,
 #menu .nav li.active .icon {
-  color: #3F51B5;
+  color: #009688;
 }
 #menu .nav a {
   display: block;
@@ -2732,7 +2732,7 @@ a[title="站长统计"] {
   width: 100%;
   color: #fff;
   height: 56px;
-  background: #3F51B5;
+  background: #009688;
   -webkit-transition: padding-left 0.6s ease-in-out, background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s linear;
   transition: padding-left 0.6s ease-in-out, background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s linear;
   z-index: 30;
@@ -2765,14 +2765,14 @@ a[title="站长统计"] {
   margin-left: -240px;
   padding: 104px 16px 48px 256px;
   color: #fff;
-  background: #3F51B5;
+  background: #009688;
 }
 .content-header .subtitle {
   padding-top: 6px;
   color: #C5CAE9;
 }
 .content-header .article-category-list-link {
-  color: #ff73a3;
+  color: #00c9b6;
 }
 @media screen and (max-width: 1240px) {
   .header-title {
@@ -2810,7 +2810,7 @@ a[title="站长统计"] {
   margin: 0 0 16px;
 }
 .post-title-link {
-  color: #3F51B5;
+  color: #009688;
   position: relative;
   display: inline-block;
 }
@@ -2821,7 +2821,7 @@ a[title="站长统计"] {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #3F51B5;
+  background-color: #009688;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -2861,10 +2861,10 @@ a[title="站长统计"] {
   display: inline;
 }
 .article-category-list a {
-  color: #FF4081;
+  color: #009688;
 }
 .article-category-list a:hover {
-  color: #FF4081;
+  color: #009688;
 }
 .article-tag-list {
   overflow: hidden;
@@ -2888,7 +2888,7 @@ a[title="站长统计"] {
 .article-tag-list-link:active {
   font-size: 13px;
   color: #fff;
-  background: #FF4081;
+  background: #009688;
 }
 .post-more {
   float: right;
@@ -2897,7 +2897,7 @@ a[title="站长统计"] {
   line-height: 32px;
   padding: 0 1.2em;
   color: #fff !important;
-  background: #3F51B5;
+  background: #009688;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
@@ -2908,7 +2908,7 @@ a[title="站长统计"] {
 }
 .post-more:hover,
 .post-more:active {
-  background: #3F51B5;
+  background: #009688;
 }
 #page-nav {
   margin: 30px 0 0;
@@ -2933,12 +2933,12 @@ a[title="站长统计"] {
 }
 #page-nav a:hover,
 #page-nav a:active {
-  color: #3F51B5;
+  color: #009688;
   background: #dadada;
 }
 #page-nav .current {
   color: #fff;
-  background: #3F51B5;
+  background: #009688;
 }
 @media screen and (max-width: 760px) {
   .post-title {
@@ -2961,7 +2961,7 @@ a[title="站长统计"] {
   line-height: 56px;
   text-align: center;
   color: #fff;
-  background: #3F51B5;
+  background: #009688;
   border-radius: 50%;
   opacity: 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -3072,7 +3072,7 @@ a[title="站长统计"] {
   white-space: nowrap;
   line-height: 20px;
   font-size: 12px;
-  color: #3F51B5;
+  color: #009688;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
@@ -3148,7 +3148,7 @@ a[title="站长统计"] {
   margin: 0 !important;
   padding-left: 20px;
   max-width: 226px;
-  border-left: 5px solid #3F51B5;
+  border-left: 5px solid #009688;
 }
 .post-toc-wrap .post-toc a {
   display: block;
@@ -3201,7 +3201,7 @@ a[title="站长统计"] {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #3F51B5;
+  background-color: #009688;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -3225,22 +3225,22 @@ a[title="站长统计"] {
 }
 .post-content p a,
 .post-content li a {
-  color: #FF4081;
-  border-bottom: 1px solid #ffe3ed;
+  color: #009688;
+  border-bottom: 1px solid #3affed;
   word-break: break-all;
 }
 .post-content p a:hover,
 .post-content li a:hover,
 .post-content p a:active,
 .post-content li a:active {
-  border-color: #FF4081;
+  border-color: #009688;
 }
 .post-content strong {
   font-weight: 600;
-  border-bottom: 1px solid #FF4081;
+  border-bottom: 1px solid #009688;
 }
 .post-content strong a {
-  border-color: #FF4081;
+  border-color: #009688;
 }
 .post-content h1 {
   font-size: 24px;
@@ -3284,7 +3284,7 @@ a[title="站长统计"] {
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-  color: #3F51B5;
+  color: #009688;
 }
 .post-content blockquote p:first-child,
 .post-content blockquote:first-child,
@@ -3320,7 +3320,7 @@ a[title="站长统计"] {
 .post-content blockquote {
   position: relative;
   padding: 16px 20px;
-  border-left: 4px solid #3F51B5;
+  border-left: 4px solid #009688;
   color: #6e6e6e;
   background: #f5f5f5;
   font-size: 14px;
@@ -3378,7 +3378,7 @@ a[title="站长统计"] {
 }
 .post-content p code,
 .post-content li code {
-  color: #FF4081;
+  color: #009688;
   line-height: 1;
   margin: 0 4px;
   font-size: 80%;
@@ -3409,7 +3409,7 @@ a[title="站长统计"] {
 }
 .archive-separator {
   margin: 35px 0 13px;
-  color: #3F51B5;
+  color: #009688;
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
@@ -3488,7 +3488,7 @@ a[title="站长统计"] {
          }*/
 }
 .tag-list-item:hover .tag-list-link {
-  color: #FF4081;
+  color: #009688;
 }
 .tag-list-item::after {
   content: "";
@@ -3497,7 +3497,7 @@ a[title="站长统计"] {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #FF4081;
+  background-color: #009688;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -3625,7 +3625,7 @@ a[title="站长统计"] {
   font: 0.85em Consolas, Monaco, courier, monospace;
 }
 .post-content .gist .gist-meta a {
-  color: #FF4081;
+  color: #009688;
   font-weight: normal;
 }
 .post-content .gist .gist-meta a:hover {
@@ -3771,7 +3771,7 @@ pre .javascript .function {
   padding: 10px 20px;
 }
 .search-result .title {
-  color: #3F51B5;
+  color: #009688;
 }
 .search-result .title:hover {
   color: #C5CAE9;
@@ -3810,7 +3810,7 @@ pre .javascript .function {
     z-index: 10;
     width: 100%;
     padding: 0 16px 0 56px;
-    background: #3F51B5;
+    background: #009688;
   }
   .search-wrap.in .search-input {
     width: 100%;
