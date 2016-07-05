@@ -5,14 +5,15 @@
 # Site
 title: 神族九帝
 subtitle: 永不言弃
-description: 
+description: 人生就像愤怒的小鸟，当你失意的时候总有几只猪在笑！
 author: wu529778790
-language: 
+language: zh-CN
 timezone:
+email: 529778790@qq.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www.shenzjd.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -50,6 +51,7 @@ feed:
   limit: 20
   hub:
 
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -70,7 +72,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: jacman
+theme: indigo
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
