@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shenzjd.cn/"/>
-  <updated>2016-07-07T11:42:25.769Z</updated>
+  <updated>2016-07-07T11:46:50.523Z</updated>
   <id>http://www.shenzjd.cn/</id>
   
   <author>
@@ -17,16 +17,16 @@
   
   <entry>
     <title>angularjs</title>
-    <link href="http://www.shenzjd.cn/2016/01/07/angularjs/"/>
-    <id>http://www.shenzjd.cn/2016/01/07/angularjs/</id>
-    <published>2016-01-07T10:22:39.000Z</published>
-    <updated>2016-07-07T11:42:25.769Z</updated>
+    <link href="http://www.shenzjd.cn/2016/01/06/angularjs/"/>
+    <id>http://www.shenzjd.cn/2016/01/06/angularjs/</id>
+    <published>2016-01-06T10:22:39.000Z</published>
+    <updated>2016-07-07T11:46:50.523Z</updated>
     
     <content type="html">&lt;h1 id=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;a href=&quot;#jQuery：用更少的代码，实现更强悍的功能&quot; class=&quot;headerlink&quot; title=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;/a&gt;jQuery：用更少的代码，实现更强悍的功能&lt;/h1&gt;&lt;p&gt;托互联网日新月异发展的福，浏览器变成了人们接入互联网的入口，而JavaScript 这个曾经的小语种，终于成功地站到了舞台的中央，唤起了开发者的兴趣。&lt;br&gt;浏览器里原生的JavaScript有点像汇编语言，不同的浏览器就像不同的CPU架构， 汇编语言各有千秋，这让前端开发者很恼火。聪明人很快发现了这个痛点，于是， 抹平浏览器差异的jQuery库出现了。&lt;br&gt;jQuery由一小撮对浏览器极其熟稔的极客负责抹平不同浏览器的差异，其他开发 者只需要基于jQuery进行开发，可以更好地关注业务实现，而不是把时间花在 适配不同的浏览器上。&lt;br&gt;这样的分工符合经济学原理，开启了一个不可忽视的jQuery时代&lt;/p&gt;
 &lt;h2 id=&quot;满眼的全是DOM&quot;&gt;&lt;a href=&quot;#满眼的全是DOM&quot; class=&quot;headerlink&quot; title=&quot;满眼的全是DOM&quot;&gt;&lt;/a&gt;满眼的全是DOM&lt;/h2&gt;&lt;p&gt;jQuery使得开发无刷新动态页面（AJAX）或者单页应用（SPA）变得 相当简单。&lt;br&gt;标准的HTML页面是静态的，被浏览器渲染后就产生了一个DOM树：&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;jQuery让静态的文档动起来，通过提供一系列的选择符，jQuery使开发者能够 极其方便地选中一组DOM节点，对其进行操作。&lt;br&gt;这就是jQuery的开发范式。jQuery没有引入什么新的概念，只是朴素地，让你能够更简单 地、低成本地操作DOM：&lt;br&gt;1.用选择符选定一组DOM节点&lt;br&gt;2.操作选中的DOM节点，比如：修改文本、改变属性、挂接事件监听函数、变换DOM等等。&lt;br&gt;3.基本不用考虑跨浏览器的兼容性&lt;/p&gt;
 &lt;p&gt;jQuery的API符合大多数开发者的预期，因此，很容易上手。&lt;/p&gt;
 &lt;h2 id=&quot;jQuery缺失的环节&quot;&gt;&lt;a href=&quot;#jQuery缺失的环节&quot; class=&quot;headerlink&quot; title=&quot;jQuery缺失的环节&quot;&gt;&lt;/a&gt;jQuery缺失的环节&lt;/h2&gt;&lt;p&gt;jQuery有点像C语言，威力很大，不过要弄出点像样的前端界面，还得花不少功夫 处理琐碎的事情。&lt;br&gt;还能再简单些吗？Misko Hevery认为在某些应用场景下可以。于是，AngularJS诞生了：&lt;/p&gt;
-&lt;p&gt;AngularJS引入了三个主要的概念，期望让前端开发更系统化一些：&lt;br&gt;&lt;b&gt;1.声明式界面开发&lt;br&gt;2.双向数据绑定&lt;br&gt;3.使用依赖注入解耦  &lt;/b&gt;&lt;br&gt;很多人在初次接触AngularJS时，都有些吃惊，因为它把前端开发搞的突然严肃起来 了。考虑到Misko曾经是一个Java程序员，这一切就好理解了。&lt;br&gt;Java程序员擅长引入复杂的架构来解决简单的问题，对吧？&lt;/p&gt;
+&lt;p&gt;AngularJS引入了三个主要的概念，期望让前端开发更系统化一些：&lt;br&gt;&lt;b&gt;1.声明式界面开发&lt;br&gt;2.双向数据绑定&lt;br&gt;3.使用依赖注入解耦  &lt;/b&gt;&lt;br&gt;很多人在初次接触AngularJS时，都有些吃惊，因为它把前端开发搞的突然严肃起来 了。考虑到Misko曾经是一个Java程序员，这一切就好理解了。&lt;br&gt;Java程序员擅长引入复杂的架构来解决简单的问题，对吧？&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;库-vs-框架&quot;&gt;&lt;a href=&quot;#库-vs-框架&quot; class=&quot;headerlink&quot; title=&quot;库 vs. 框架&quot;&gt;&lt;/a&gt;库 vs. 框架&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;jQuery是一个库，库总是被动的，就像工具，应用的开发逻辑是你的，在 某一点上需要用一下工具，就用好了。&lt;br&gt;框架则非常不同，这意味着AngularJS为应用已经搭起了一个架子，约定了 一些组成部分，并且实现了这些部分的拼装运行。换句话说， 应用的开发逻辑是AngularJS的，你得跟着它走。&lt;br&gt;所以，AngularJS难学一些，因为它有一个架子在那，你不了解这个架子， 基本没法下手。  &lt;/p&gt;
 &lt;h2 id=&quot;重写示例：模板、指令和视图&quot;&gt;&lt;a href=&quot;#重写示例：模板、指令和视图&quot; class=&quot;headerlink&quot; title=&quot;重写示例：模板、指令和视图&quot;&gt;&lt;/a&gt;重写示例：模板、指令和视图&lt;/h2&gt;&lt;p&gt;AngularJS最显著的特点是用静态的HTML文档，就可以生成具有动态行为的页面。&lt;br&gt;还是前面的小时钟示例，我们使用AngularJS模板来重写，示例已经嵌入→_→：&lt;br&gt;HTML文件看起来像普通的HTML，只是其中多了一些特别的标记 （比如：ng-app,ez-clock等等）。在Angular中，这个HTML文件被称为模板。&lt;br&gt;ng-app这样的标记我们称之为指令。模板通过指令指示AngularJS进行必要的操作。 比如：ng-app指令用来通知AngularJS自动引导应用；ez-clock 指令用来通知AngularJS生成指定的时钟组件。&lt;br&gt;当AngularJS启动应用时，它会通过一个编译器解析处理这个模板文件，生成的结果就是： 视图：&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;我们定义了两个部件：模板（包含指令的HTML文件）和指令实现 （JavaScript文件），AngularJS将这两部分拼装起来，生成了最终的视图。&lt;br&gt;有点理解框架的含义了吗？&lt;/p&gt;
@@ -74,7 +74,11 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;a href=&quot;#jQuery：用更少的代码，实现更强悍的功能&quot; class=&quot;headerlink&quot; title=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;/a&gt;jQuery：用更少的代码，实现更强悍的
+      &lt;h1 id=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;a href=&quot;#jQuery：用更少的代码，实现更强悍的功能&quot; class=&quot;headerlink&quot; title=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;/a&gt;jQuery：用更少的代码，实现更强悍的功能&lt;/h1&gt;&lt;p&gt;托互联网日新月异发展的福，浏览器变成了人们接入互联网的入口，而JavaScript 这个曾经的小语种，终于成功地站到了舞台的中央，唤起了开发者的兴趣。&lt;br&gt;浏览器里原生的JavaScript有点像汇编语言，不同的浏览器就像不同的CPU架构， 汇编语言各有千秋，这让前端开发者很恼火。聪明人很快发现了这个痛点，于是， 抹平浏览器差异的jQuery库出现了。&lt;br&gt;jQuery由一小撮对浏览器极其熟稔的极客负责抹平不同浏览器的差异，其他开发 者只需要基于jQuery进行开发，可以更好地关注业务实现，而不是把时间花在 适配不同的浏览器上。&lt;br&gt;这样的分工符合经济学原理，开启了一个不可忽视的jQuery时代&lt;/p&gt;
+&lt;h2 id=&quot;满眼的全是DOM&quot;&gt;&lt;a href=&quot;#满眼的全是DOM&quot; class=&quot;headerlink&quot; title=&quot;满眼的全是DOM&quot;&gt;&lt;/a&gt;满眼的全是DOM&lt;/h2&gt;&lt;p&gt;jQuery使得开发无刷新动态页面（AJAX）或者单页应用（SPA）变得 相当简单。&lt;br&gt;标准的HTML页面是静态的，被浏览器渲染后就产生了一个DOM树：&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;jQuery让静态的文档动起来，通过提供一系列的选择符，jQuery使开发者能够 极其方便地选中一组DOM节点，对其进行操作。&lt;br&gt;这就是jQuery的开发范式。jQuery没有引入什么新的概念，只是朴素地，让你能够更简单 地、低成本地操作DOM：&lt;br&gt;1.用选择符选定一组DOM节点&lt;br&gt;2.操作选中的DOM节点，比如：修改文本、改变属性、挂接事件监听函数、变换DOM等等。&lt;br&gt;3.基本不用考虑跨浏览器的兼容性&lt;/p&gt;
+&lt;p&gt;jQuery的API符合大多数开发者的预期，因此，很容易上手。&lt;/p&gt;
+&lt;h2 id=&quot;jQuery缺失的环节&quot;&gt;&lt;a href=&quot;#jQuery缺失的环节&quot; class=&quot;headerlink&quot; title=&quot;jQuery缺失的环节&quot;&gt;&lt;/a&gt;jQuery缺失的环节&lt;/h2&gt;&lt;p&gt;jQuery有点像C语言，威力很大，不过要弄出点像样的前端界面，还得花不少功夫 处理琐碎的事情。&lt;br&gt;还能再简单些吗？Misko Hevery认为在某些应用场景下可以。于是，AngularJS诞生了：&lt;/p&gt;
+&lt;p&gt;AngularJS引入了三个主要的概念，期望让前端开发更系统化一些：&lt;br&gt;&lt;b&gt;1.声明式界面开发&lt;br&gt;2.双向数据绑定&lt;br&gt;3.使用依赖注入解耦  &lt;/b&gt;&lt;br&gt;很多人在初次接触AngularJS时，都有些吃惊，因为它把前端开发搞的突然严肃起来 了。考虑到Misko曾经是一个Java程序员，这一切就好理解了。&lt;br&gt;Java程序员擅长引入复杂的架构来解决简单的问题，对吧？&lt;br&gt;
     
     </summary>
     
