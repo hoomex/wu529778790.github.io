@@ -134,4 +134,108 @@ git push origin hexo
     
   </entry>
   
+  <entry>
+    <title>MarkDown语法小记</title>
+    <link href="http://www.shenzjd.cn/2014/07/14/MarkDown%E8%AF%AD%E6%B3%95%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://www.shenzjd.cn/2014/07/14/MarkDown语法小记/</id>
+    <published>2014-07-14T11:53:22.000Z</published>
+    <updated>2016-07-14T12:06:44.158Z</updated>
+    
+    <content type="html">&lt;p&gt;刚开始不介绍下作者，内心都说不过去啊，那我就百度科普下。&lt;/p&gt;
+&lt;h1 id=&quot;什么是-Markdown？&quot;&gt;&lt;a href=&quot;#什么是-Markdown？&quot; class=&quot;headerlink&quot; title=&quot;什么是 Markdown？&quot;&gt;&lt;/a&gt;什么是 Markdown？&lt;/h1&gt;&lt;p&gt;Markdown 最初是由 John Gruber 和 Aaron Swartz 于 2004 年共同设计的（在这里插一句，Aaron Swartz 是一个富有传奇性的人物，绝对值得大家了解一下。他曾经利用麻省理工学院网络，伪造身份，侵入收费不菲的 JSTOR 论文数据库，总共下载480万篇论文，以供公众免费下载，他也因此被联邦政府起诉逮捕。他于 2013 年自杀，年仅 27 岁）。它是一种用来标记文字的语法，这种语法十分简单，十分钟左右的时间就可以完全掌握。只要使用少量的几个特殊字符（常用的有「#」和「*」）就可以完成一些加粗、斜体、引用等排版工作，因其易学性和便捷性而受到越来越多人的欢迎。使用 Markdown 进行排版可以大大地节省你在排版中所花费的时间，让你更加专注于写作。&lt;/p&gt;
+&lt;h1 id=&quot;Markdown-基本语法&quot;&gt;&lt;a href=&quot;#Markdown-基本语法&quot; class=&quot;headerlink&quot; title=&quot;Markdown 基本语法&quot;&gt;&lt;/a&gt;Markdown 基本语法&lt;/h1&gt;&lt;h2 id=&quot;1-设置标题&quot;&gt;&lt;a href=&quot;#1-设置标题&quot; class=&quot;headerlink&quot; title=&quot;1. 设置标题&quot;&gt;&lt;/a&gt;1. 设置标题&lt;/h2&gt;&lt;p&gt;Markdown 最多支持六个级别的标题设置，设置标题也十分简单，只要在在每一行的开始使用井号「#」就可以创建标题，「#」的数量决定了标题的级别。例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 我是小美
+
+## 我是小小美
+
+### 我是小小小美
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;2-斜体&quot;&gt;&lt;a href=&quot;#2-斜体&quot; class=&quot;headerlink&quot; title=&quot;2. 斜体&quot;&gt;&lt;/a&gt;2. 斜体&lt;/h2&gt;&lt;p&gt;在想要变斜体的文本两旁各加一个星号「*」就可以将该文本变为斜体了。例如：&lt;/p&gt;
+&lt;p&gt;你们知道没有喝脉动的小美长什么样子么？&lt;/p&gt;
+&lt;p&gt;长这样：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;*小美*
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;3-加粗&quot;&gt;&lt;a href=&quot;#3-加粗&quot; class=&quot;headerlink&quot; title=&quot;3.加粗&quot;&gt;&lt;/a&gt;3.加粗&lt;/h2&gt;&lt;p&gt;在想要加粗的文本两旁各加两个星号「**」就可以将该文本加粗了。例如：&lt;/p&gt;
+&lt;p&gt;你们知道成天吃肉的小美长什么样子么？&lt;/p&gt;
+&lt;p&gt;长这样：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;**小美**
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你又想加粗这个文本又想把这个文本变斜体的话，在该文本的两旁各加三个星号「&lt;em&gt;*&lt;/em&gt;」就可以了。比如说：&lt;/p&gt;
+&lt;p&gt;你们知道没有喝脉动又成天吃肉的小美长什么样子么？&lt;/p&gt;
+&lt;p&gt;长这样：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;***小美***
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;4-引用&quot;&gt;&lt;a href=&quot;#4-引用&quot; class=&quot;headerlink&quot; title=&quot;4.引用&quot;&gt;&lt;/a&gt;4.引用&lt;/h2&gt;&lt;p&gt;如果想要显示出别人说的话或者是引用其他人的观点的话，只需要在这段话的开头加一个大于号「&amp;gt;」即可。例如：&lt;/p&gt;
+&lt;p&gt;有一天，小最对正在疯狂减肥的小美说：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 你快别减肥了，肉没减下来多少，胸倒是快减没了。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果说想要在引用内再次引用的话，只需要敲下回车然后加两个大于号「&amp;gt;&amp;gt;」就好了，如果想要在引用内的引用继续引用的话（喘口气先）那就加三个大于号「&amp;gt;&amp;gt;&amp;gt;」。例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;有一天小美睡不着，她就缠着小最给她讲故事，于是小最就给她讲了一个故事：
+
+&amp;gt; 很久以前有只小美睡不着，要小最给她讲故事，小最就给她讲了下面这个故事：
+
+&amp;gt;&amp;gt; 很久以前有只小美睡不着，要小最给她讲故事，小最就给她讲了下面这个故事：
+
+&amp;gt;&amp;gt;&amp;gt; ……
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;效果：&lt;/p&gt;
+&lt;p&gt;有一天小美睡不着，她就缠着小最给她讲故事，于是小最就给她讲了一个故事：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;很久以前有只小美睡不着，要小最给她讲故事，小最就给她讲了下面这个故事：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;很久以前有只小美睡不着，要小最给她讲故事，小最就给她讲了下面这个故事：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;5-列表&quot;&gt;&lt;a href=&quot;#5-列表&quot; class=&quot;headerlink&quot; title=&quot;5.列表&quot;&gt;&lt;/a&gt;5.列表&lt;/h2&gt;&lt;p&gt;Markdown 支持无序列表和有序列表两种列表。无序列表只需要在列表项加一个减号「-」就可以了。此外，加一个星号「*」或者是一个加号「+」也会有同样的效果。建立有序列表也很简单，一个数字加一个英文句号「.」就可以搞定。如果你想在一个列表项中下设一个子列表的话，我建议大家在子列表前加两个空格，更有区分度。下面就给大家举个栗子：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;**本周小最要干的事情**
+
+- 继续赚好多钱给小美花！
+
+- 和小美一起去看 Zootopia！
+
+- 超市大采购！
+
+1. 搓衣板
+
+2. 一箱，不，两箱袋装泡面
+
+3. 遥控器
+
+4. 护膝/哭/
+
+- 给小美洗外套洗衬衫洗睡衣洗裙子洗毛衣洗内裤洗袜子……
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;显示效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本周小最要干的事情&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;继续赚好多钱给小美花！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;和小美一起去看 Zootopia！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;超市大采购！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;搓衣板&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一箱，不，两箱袋装泡面&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;遥控器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;护膝/哭/&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;给小美洗外套洗衬衫洗睡衣洗裙子洗毛衣洗内裤洗袜子……&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;刚开始不介绍下作者，内心都说不过去啊，那我就百度科普下。&lt;/p&gt;
+&lt;h1 id=&quot;什么是-Markdown？&quot;&gt;&lt;a href=&quot;#什么是-Markdown？&quot; class=&quot;headerlink&quot; title=&quot;什么是 Markdown？&quot;&gt;&lt;/a&gt;什么是 Markdow
+    
+    </summary>
+    
+    
+      <category term="MarkDown" scheme="http://www.shenzjd.cn/tags/MarkDown/"/>
+    
+  </entry>
+  
 </feed>
