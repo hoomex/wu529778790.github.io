@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shenzjd.cn/"/>
-  <updated>2016-07-30T02:40:06.919Z</updated>
+  <updated>2016-07-30T02:41:35.732Z</updated>
   <id>http://www.shenzjd.cn/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>nec规范</title>
-    <link href="http://www.shenzjd.cn/2016/07/29/css%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shenzjd.cn/2016/07/29/css规范总结/</id>
-    <published>2016-07-29T14:03:19.000Z</published>
-    <updated>2016-07-30T02:40:06.919Z</updated>
+    <title>css规范总结</title>
+    <link href="http://www.shenzjd.cn/2016/03/29/css%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.shenzjd.cn/2016/03/29/css规范总结/</id>
+    <published>2016-03-29T14:03:19.000Z</published>
+    <updated>2016-07-30T02:41:35.732Z</updated>
     
     <content type="html">&lt;h3 id=&quot;CSS文件的分类和引用顺序&quot;&gt;&lt;a href=&quot;#CSS文件的分类和引用顺序&quot; class=&quot;headerlink&quot; title=&quot;CSS文件的分类和引用顺序&quot;&gt;&lt;/a&gt;CSS文件的分类和引用顺序&lt;/h3&gt;&lt;p&gt;通常，一个项目我们只引用一个CSS，但是对于较大的项目，我们需要把CSS文件进行分类。&lt;/p&gt;
 &lt;p&gt;我们按照CSS的性质和用途，将CSS文件分成“公共型样式”、“特殊型样式”、“皮肤型样式”，并以此顺序引用（按需求决定是否添加版本号）。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
