@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shenzjd.cn/"/>
-  <updated>2016-07-30T02:41:35.732Z</updated>
+  <updated>2016-07-30T04:32:58.086Z</updated>
   <id>http://www.shenzjd.cn/</id>
   
   <author>
@@ -14,6 +14,135 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js通过Ajax异步操作后端xml数据的基本原理</title>
+    <link href="http://www.shenzjd.cn/2016/05/30/js%E9%80%9A%E8%BF%87Ajax%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E5%90%8E%E7%AB%AFxml%E6%95%B0%E6%8D%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+    <id>http://www.shenzjd.cn/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/</id>
+    <published>2016-05-30T04:20:31.000Z</published>
+    <updated>2016-07-30T04:32:58.086Z</updated>
+    
+    <content type="html">&lt;p&gt;/*&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ajax的核心操作对象是xmlHttpRequest&lt;/li&gt;
+&lt;li&gt;　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调&lt;br&gt;*/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;实例化对象&lt;/p&gt;
+&lt;p&gt;　　考虑到兼容问题,非IE5/IE6 使用 =&amp;gt; new XMLHttpRequest();&lt;/p&gt;
+&lt;p&gt;　　IE5/IE6使用 =&amp;gt; new ActiveXObject(Microsoft.XMLHTTP);    ☯神呐，请带走IE吧！&lt;/p&gt;
+&lt;p&gt;发送请求&lt;/p&gt;
+&lt;p&gt;　　使用 XMLHttpRequest 对象的 open(‘GET’,url,async) 和 send() 方法：&lt;/p&gt;
+&lt;p&gt;　　❶ open() 有三个参数：&lt;/p&gt;
+&lt;p&gt;　　　　分别为http请求方式(get/post) ==》与 POST 相比，GET 更简单也更快，POST 没有数据量限制，不会缓存，相对安全&lt;/p&gt;
+&lt;p&gt;　　　　http请求地址 ==》url(统一资源定位符)文件所在服务器的地址&lt;/p&gt;
+&lt;p&gt;　　　　async：true（异步）或 false（同步）&lt;/p&gt;
+&lt;p&gt;　　❷send(string)   string：仅用于 POST 请求&lt;/p&gt;
+&lt;p&gt;接受响应，执行回调&lt;/p&gt;
+&lt;p&gt;　　当readyState的值发生改变时，触发readystatechange事件，事件中就可以为所欲为了&lt;/p&gt;
+&lt;p&gt;　　readyState==4  =&amp;gt;请求加载完成  /    http的状态为200 =&amp;gt;响应成功&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+
+    &amp;lt;head&amp;gt;
+        &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+        &amp;lt;title&amp;gt;异步操作集合啦&amp;lt;/title&amp;gt;
+        &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+            /*
+             * Ajax的核心操作对象是xmlHttpRequest
+             *    简化操作步骤：实例化一个xmlHttpRequest对象  ==&amp;gt; 发送请求  ==&amp;gt; 接受响应 ==&amp;gt; 执行回调
+             */
+            var jsAjax = function() {
+                var xmlHttpR = null;
+                if(window.ActiveXObject) {
+                    //IE5/IE6把xmlHttpRequest封装在window的子对象ActiveXObject中
+                    xmlHttpR = new ActiveXObject(Microsoft.XMLHTTP);
+                } else if(window.XMLHttpRequest) {
+                    //非IE5、IE6
+                    xmlHttpR = new XMLHttpRequest();
+                }
+
+                if(xmlHttpR) {
+                    xmlHttpR.open(&amp;quot;GET&amp;quot;, &amp;quot;ajax.xml&amp;quot;, true);
+                    xmlHttpR.onreadystatechange = function(e) {
+                        if(xmlHttpR.readyState == 4) {
+                            if(xmlHttpR.status == 200) {
+                                console.log(xmlHttpR.responseText);
+                            }
+                        }
+                    }
+                    xmlHttpR.send(null);
+                }
+            }
+        &amp;lt;/script&amp;gt;
+    &amp;lt;/head&amp;gt;
+
+    &amp;lt;body&amp;gt;
+
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/html&amp;gt;
+
+01
+    &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+02
+    &amp;lt;bookstore&amp;gt;
+03
+    &amp;lt;book category=&amp;quot;COOKING&amp;quot;&amp;gt;
+04
+        &amp;lt;title lang=&amp;quot;en&amp;quot;&amp;gt;Everyday Italian&amp;lt;/title&amp;gt;
+05
+        &amp;lt;author&amp;gt;Giada De Laurentiis&amp;lt;/author&amp;gt;
+06
+        &amp;lt;year&amp;gt;2005&amp;lt;/year&amp;gt;
+07
+        &amp;lt;price&amp;gt;30.00&amp;lt;/price&amp;gt;
+08
+    &amp;lt;/book&amp;gt;
+09
+    &amp;lt;book category=&amp;quot;CHILDREN&amp;quot;&amp;gt;
+10
+        &amp;lt;title lang=&amp;quot;en&amp;quot;&amp;gt;Harry Potter&amp;lt;/title&amp;gt;
+11
+        &amp;lt;author&amp;gt;J K. Rowling&amp;lt;/author&amp;gt;
+12
+        &amp;lt;year&amp;gt;2005&amp;lt;/year&amp;gt;
+13
+        &amp;lt;price&amp;gt;29.99&amp;lt;/price&amp;gt;
+14
+    &amp;lt;/book&amp;gt;
+15
+    &amp;lt;book category=&amp;quot;WEB&amp;quot;&amp;gt;
+16
+        &amp;lt;title lang=&amp;quot;en&amp;quot;&amp;gt;Learning XML&amp;lt;/title&amp;gt;
+17
+        &amp;lt;author&amp;gt;Erik T. Ray&amp;lt;/author&amp;gt;
+18
+        &amp;lt;year&amp;gt;2003&amp;lt;/year&amp;gt;
+19
+        &amp;lt;price&amp;gt;39.95&amp;lt;/price&amp;gt;
+20
+    &amp;lt;/book&amp;gt;
+21
+    &amp;lt;/bookstore&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;/*&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ajax的核心操作对象是xmlHttpRequest&lt;/li&gt;
+&lt;li&gt;　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调&lt;br&gt;*/&lt;/li&gt;
+&lt;/ul&gt;
+
+    
+    </summary>
+    
+      <category term="Ajax" scheme="http://www.shenzjd.cn/categories/Ajax/"/>
+    
+    
+      <category term="Ajax" scheme="http://www.shenzjd.cn/tags/Ajax/"/>
+    
+  </entry>
   
   <entry>
     <title>css规范总结</title>
