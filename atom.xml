@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shenzjd.cn/"/>
-  <updated>2016-07-30T04:32:58.086Z</updated>
+  <updated>2016-07-30T04:35:08.166Z</updated>
   <id>http://www.shenzjd.cn/</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="http://www.shenzjd.cn/2016/05/30/js%E9%80%9A%E8%BF%87Ajax%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E5%90%8E%E7%AB%AFxml%E6%95%B0%E6%8D%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
     <id>http://www.shenzjd.cn/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/</id>
     <published>2016-05-30T04:20:31.000Z</published>
-    <updated>2016-07-30T04:32:58.086Z</updated>
+    <updated>2016-07-30T04:35:08.166Z</updated>
     
     <content type="html">&lt;p&gt;/*&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Ajax的核心操作对象是xmlHttpRequest&lt;/li&gt;
-&lt;li&gt;　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调&lt;br&gt;*/&lt;/li&gt;
+&lt;li&gt;　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调&lt;br&gt;*/&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+实例化对象&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;实例化对象&lt;/p&gt;
 &lt;p&gt;　　考虑到兼容问题,非IE5/IE6 使用 =&amp;gt; new XMLHttpRequest();&lt;/p&gt;
 &lt;p&gt;　　IE5/IE6使用 =&amp;gt; new ActiveXObject(Microsoft.XMLHTTP);    ☯神呐，请带走IE吧！&lt;/p&gt;
 &lt;p&gt;发送请求&lt;/p&gt;
@@ -131,9 +131,7 @@
       &lt;p&gt;/*&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Ajax的核心操作对象是xmlHttpRequest&lt;/li&gt;
-&lt;li&gt;　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调&lt;br&gt;*/&lt;/li&gt;
-&lt;/ul&gt;
-
+&lt;li&gt;　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调&lt;br&gt;*/
     
     </summary>
     
