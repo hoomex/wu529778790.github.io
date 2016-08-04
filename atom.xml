@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shenzjd.cn/"/>
-  <updated>2016-07-30T04:35:08.166Z</updated>
+  <updated>2016-08-04T03:42:03.239Z</updated>
   <id>http://www.shenzjd.cn/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS全局污染</title>
+    <link href="http://www.shenzjd.cn/2016/08/04/JS%E5%85%A8%E5%B1%80%E6%B1%A1%E6%9F%93/"/>
+    <id>http://www.shenzjd.cn/2016/08/04/JS全局污染/</id>
+    <published>2016-08-04T03:37:45.000Z</published>
+    <updated>2016-08-04T03:42:03.239Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;原则&quot;&gt;&lt;a href=&quot;#原则&quot; class=&quot;headerlink&quot; title=&quot;原则&quot;&gt;&lt;/a&gt;原则&lt;/h2&gt;&lt;p&gt;1.用匿名函数将脚本包起来；&lt;/p&gt;
+&lt;p&gt;2.使用多级命名空间。&lt;/p&gt;
+&lt;p&gt;这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;改进过程&quot;&gt;&lt;a href=&quot;#改进过程&quot; class=&quot;headerlink&quot; title=&quot;改进过程&quot;&gt;&lt;/a&gt;改进过程&lt;/h2&gt;&lt;h3 id=&quot;原始代码&quot;&gt;&lt;a href=&quot;#原始代码&quot; class=&quot;headerlink&quot; title=&quot;原始代码&quot;&gt;&lt;/a&gt;原始代码&lt;/h3&gt;&lt;p&gt;没有做过任何优化的满目疮痍的代码。a.js 和 b.js 都有全局变量 window.a ，导致冲突，全局变量属于 window 作用域下的。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//a.js
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    //都什么时代了，script标签还写type属性呢？黄牌警告！下次绝逼不写了。
+    var a = 123, b = &amp;quot;hello world&amp;quot;;
+&amp;lt;/script&amp;gt;
+
+//b.js
+&amp;lt;script&amp;gt;
+    //看！这把没有写了吧~就是这么任性，上面的那个写了的也绝逼不改！
+    var a, c = &amp;quot;abc&amp;quot;;
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;使用匿名函数&quot;&gt;&lt;a href=&quot;#使用匿名函数&quot; class=&quot;headerlink&quot; title=&quot;使用匿名函数&quot;&gt;&lt;/a&gt;使用匿名函数&lt;/h3&gt;&lt;p&gt;通过匿名函数改变了a.js 和 b.js 中的变量 a 的作用域，使得他们都不再是全局变量了，但是在 b.js 中无法访问在 a.js 中的变量 a， 换而言之，他们之间没办法通信了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//a.js
+(function() {
+    var a = 123, b = &amp;quot;hello world&amp;quot;;
+})();
+
+//b.js
+(function() {
+    var a, c = &amp;quot;abc&amp;quot;;
+})();
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;使用全局变量进行通信&quot;&gt;&lt;a href=&quot;#使用全局变量进行通信&quot; class=&quot;headerlink&quot; title=&quot;使用全局变量进行通信&quot;&gt;&lt;/a&gt;使用全局变量进行通信&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var str;
+//a.js
+(function() {
+    var a = 123,
+    b = &amp;quot;hello world&amp;quot;;
+    window.str = a;
+})();
+
+//b.js
+(function() {
+    var a, c = &amp;quot;abc&amp;quot;;
+    alert(window.str);
+})();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用 window.str 这种全局全局变量作为通信的媒介其实并不是一个好办法，这样做会导致全局变量越来越多，反而不好维护。&lt;/p&gt;
+&lt;h3 id=&quot;使用命名空间&quot;&gt;&lt;a href=&quot;#使用命名空间&quot; class=&quot;headerlink&quot; title=&quot;使用命名空间&quot;&gt;&lt;/a&gt;使用命名空间&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var GLOBAL = {};
+//a.js
+(function() {
+    var a = 123,
+    b = &amp;quot;hello world&amp;quot;;
+    GLOBAL.A.a = a;
+})();
+
+//b.js
+(function() {
+    var a, c = &amp;quot;abc&amp;quot;;
+    alert(GLOBAL.A.a);
+})();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用单一的全局变量 GlOBAL ，匿名空间里需要保存的属性都在全局变量 GLOBAL 的基础上使用命名空间的方式进行拓展。这里给命名空间起名字也需要很讲究，好的命名规则会对团队协同合作有很大的帮助&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;原则&quot;&gt;&lt;a href=&quot;#原则&quot; class=&quot;headerlink&quot; title=&quot;原则&quot;&gt;&lt;/a&gt;原则&lt;/h2&gt;&lt;p&gt;1.用匿名函数将脚本包起来；&lt;/p&gt;
+&lt;p&gt;2.使用多级命名空间。&lt;/p&gt;
+&lt;p&gt;这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="js" scheme="http://www.shenzjd.cn/categories/js/"/>
+    
+    
+      <category term="js" scheme="http://www.shenzjd.cn/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>js通过Ajax异步操作后端xml数据的基本原理</title>

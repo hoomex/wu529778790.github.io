@@ -3,39 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>js通过Ajax异步操作后端xml数据的基本原理 | 神族九帝 | 永不言弃</title>
+  <title>JS全局污染 | 神族九帝 | 永不言弃</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="Ajax">
-  <meta name="description" content="/*
-
-Ajax的核心操作对象是xmlHttpRequest
-　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调*/">
+  <meta name="keywords" content="js">
+  <meta name="description" content="原则1.用匿名函数将脚本包起来；
+2.使用多级命名空间。
+这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js通过Ajax异步操作后端xml数据的基本原理">
-<meta property="og:url" content="http://www.shenzjd.cn/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/index.html">
+<meta property="og:title" content="JS全局污染">
+<meta property="og:url" content="http://www.shenzjd.cn/2016/08/04/JS全局污染/index.html">
 <meta property="og:site_name" content="神族九帝">
-<meta property="og:description" content="/*
-
-Ajax的核心操作对象是xmlHttpRequest
-　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调*/">
-<meta property="og:updated_time" content="2016-07-30T04:35:08.166Z">
+<meta property="og:description" content="原则1.用匿名函数将脚本包起来；
+2.使用多级命名空间。
+这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。">
+<meta property="og:updated_time" content="2016-08-04T03:42:03.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js通过Ajax异步操作后端xml数据的基本原理">
-<meta name="twitter:description" content="/*
-
-Ajax的核心操作对象是xmlHttpRequest
-　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调*/">
+<meta name="twitter:title" content="JS全局污染">
+<meta name="twitter:description" content="原则1.用匿名函数将脚本包起来；
+2.使用多级命名空间。
+这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。">
   
     <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;p&gt;/*&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Ajax的核心操作对象是xmlHttpRequest&lt;/li&gt;
-&lt;li&gt;　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调&lt;br&gt;*/">
+  <meta name="summary" content="&lt;h2 id=&quot;原则&quot;&gt;&lt;a href=&quot;#原则&quot; class=&quot;headerlink&quot; title=&quot;原则&quot;&gt;&lt;/a&gt;原则&lt;/h2&gt;&lt;p&gt;1.用匿名函数将脚本包起来；&lt;/p&gt;
+&lt;p&gt;2.使用多级命名空间。&lt;/p&gt;
+&lt;p&gt;这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。&lt;/p&gt;">
   <link rel="shortcut icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -119,7 +115,7 @@ Ajax的核心操作对象是xmlHttpRequest
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">js通过Ajax异步操作后端xml数据的基本原理</div>
+        <div class="flex-col header-title ellipsis">JS全局污染</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -140,15 +136,15 @@ Ajax的核心操作对象是xmlHttpRequest
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">js通过Ajax异步操作后端xml数据的基本原理</h1>
+    <h1 class="author">JS全局污染</h1>
     <h5 class="subtitle">
           
-            <time datetime="2016-05-30T04:20:31.000Z" itemprop="datePublished" class="page-time">
-  2016-05-30
+            <time datetime="2016-08-04T03:37:45.000Z" itemprop="datePublished" class="page-time">
+  2016-08-04
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ajax/">Ajax</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/js/">js</a></li></ul>
  
         
     </h5>
@@ -156,11 +152,11 @@ Ajax的核心操作对象是xmlHttpRequest
 </header>
 
     <div class="container body-wrap">
-      <article id="post-js通过Ajax异步操作后端xml数据的基本原理" 
+      <article id="post-JS全局污染" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meat flex-row">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
     </div>
     <div class="post-body">
@@ -207,7 +203,7 @@ Ajax的核心操作对象是xmlHttpRequest
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原则"><span class="post-toc-number">1.</span> <span class="post-toc-text">原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改进过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">改进过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原始代码"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">原始代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用匿名函数"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">使用匿名函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用全局变量进行通信"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">使用全局变量进行通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用命名空间"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">使用命名空间</span></a></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -215,113 +211,65 @@ Ajax的核心操作对象是xmlHttpRequest
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>/*</p>
-<ul>
-<li>Ajax的核心操作对象是xmlHttpRequest</li>
-<li>　　 简化操作步骤：实例化一个xmlHttpRequest对象 ==&gt; 发送请求 ==&gt; 接受响应 ==&gt; 执行回调<br>*/<a id="more"></a>
-实例化对象</li>
-</ul>
-<p>　　考虑到兼容问题,非IE5/IE6 使用 =&gt; new XMLHttpRequest();</p>
-<p>　　IE5/IE6使用 =&gt; new ActiveXObject(Microsoft.XMLHTTP);    ☯神呐，请带走IE吧！</p>
-<p>发送请求</p>
-<p>　　使用 XMLHttpRequest 对象的 open(‘GET’,url,async) 和 send() 方法：</p>
-<p>　　❶ open() 有三个参数：</p>
-<p>　　　　分别为http请求方式(get/post) ==》与 POST 相比，GET 更简单也更快，POST 没有数据量限制，不会缓存，相对安全</p>
-<p>　　　　http请求地址 ==》url(统一资源定位符)文件所在服务器的地址</p>
-<p>　　　　async：true（异步）或 false（同步）</p>
-<p>　　❷send(string)   string：仅用于 POST 请求</p>
-<p>接受响应，执行回调</p>
-<p>　　当readyState的值发生改变时，触发readystatechange事件，事件中就可以为所欲为了</p>
-<p>　　readyState==4  =&gt;请求加载完成  /    http的状态为200 =&gt;响应成功</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+            <h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><p>1.用匿名函数将脚本包起来；</p>
+<p>2.使用多级命名空间。</p>
+<p>这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。</p>
+<a id="more"></a>
+<h2 id="改进过程"><a href="#改进过程" class="headerlink" title="改进过程"></a>改进过程</h2><h3 id="原始代码"><a href="#原始代码" class="headerlink" title="原始代码"></a>原始代码</h3><p>没有做过任何优化的满目疮痍的代码。a.js 和 b.js 都有全局变量 window.a ，导致冲突，全局变量属于 window 作用域下的。</p>
+<pre><code>//a.js
+&lt;script type=&quot;text/javascript&quot;&gt;
+    //都什么时代了，script标签还写type属性呢？黄牌警告！下次绝逼不写了。
+    var a = 123, b = &quot;hello world&quot;;
+&lt;/script&gt;
 
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot;&gt;
-        &lt;title&gt;异步操作集合啦&lt;/title&gt;
-        &lt;script type=&quot;text/javascript&quot;&gt;
-            /*
-             * Ajax的核心操作对象是xmlHttpRequest
-             *    简化操作步骤：实例化一个xmlHttpRequest对象  ==&gt; 发送请求  ==&gt; 接受响应 ==&gt; 执行回调
-             */
-            var jsAjax = function() {
-                var xmlHttpR = null;
-                if(window.ActiveXObject) {
-                    //IE5/IE6把xmlHttpRequest封装在window的子对象ActiveXObject中
-                    xmlHttpR = new ActiveXObject(Microsoft.XMLHTTP);
-                } else if(window.XMLHttpRequest) {
-                    //非IE5、IE6
-                    xmlHttpR = new XMLHttpRequest();
-                }
+//b.js
+&lt;script&gt;
+    //看！这把没有写了吧~就是这么任性，上面的那个写了的也绝逼不改！
+    var a, c = &quot;abc&quot;;
+&lt;/script&gt;
+</code></pre><h3 id="使用匿名函数"><a href="#使用匿名函数" class="headerlink" title="使用匿名函数"></a>使用匿名函数</h3><p>通过匿名函数改变了a.js 和 b.js 中的变量 a 的作用域，使得他们都不再是全局变量了，但是在 b.js 中无法访问在 a.js 中的变量 a， 换而言之，他们之间没办法通信了。</p>
+<pre><code>//a.js
+(function() {
+    var a = 123, b = &quot;hello world&quot;;
+})();
 
-                if(xmlHttpR) {
-                    xmlHttpR.open(&quot;GET&quot;, &quot;ajax.xml&quot;, true);
-                    xmlHttpR.onreadystatechange = function(e) {
-                        if(xmlHttpR.readyState == 4) {
-                            if(xmlHttpR.status == 200) {
-                                console.log(xmlHttpR.responseText);
-                            }
-                        }
-                    }
-                    xmlHttpR.send(null);
-                }
-            }
-        &lt;/script&gt;
-    &lt;/head&gt;
+//b.js
+(function() {
+    var a, c = &quot;abc&quot;;
+})();
+</code></pre><h3 id="使用全局变量进行通信"><a href="#使用全局变量进行通信" class="headerlink" title="使用全局变量进行通信"></a>使用全局变量进行通信</h3><pre><code>var str;
+//a.js
+(function() {
+    var a = 123,
+    b = &quot;hello world&quot;;
+    window.str = a;
+})();
 
-    &lt;body&gt;
+//b.js
+(function() {
+    var a, c = &quot;abc&quot;;
+    alert(window.str);
+})();
+</code></pre><p>使用 window.str 这种全局全局变量作为通信的媒介其实并不是一个好办法，这样做会导致全局变量越来越多，反而不好维护。</p>
+<h3 id="使用命名空间"><a href="#使用命名空间" class="headerlink" title="使用命名空间"></a>使用命名空间</h3><pre><code>var GLOBAL = {};
+//a.js
+(function() {
+    var a = 123,
+    b = &quot;hello world&quot;;
+    GLOBAL.A.a = a;
+})();
 
-&lt;/body&gt;
-</code></pre><p>.</p>
-<pre><code>&lt;/html&gt;
+//b.js
+(function() {
+    var a, c = &quot;abc&quot;;
+    alert(GLOBAL.A.a);
+})();
+</code></pre><p>使用单一的全局变量 GlOBAL ，匿名空间里需要保存的属性都在全局变量 GLOBAL 的基础上使用命名空间的方式进行拓展。这里给命名空间起名字也需要很讲究，好的命名规则会对团队协同合作有很大的帮助</p>
 
-01
-    &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-02
-    &lt;bookstore&gt;
-03
-    &lt;book category=&quot;COOKING&quot;&gt;
-04
-        &lt;title lang=&quot;en&quot;&gt;Everyday Italian&lt;/title&gt;
-05
-        &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
-06
-        &lt;year&gt;2005&lt;/year&gt;
-07
-        &lt;price&gt;30.00&lt;/price&gt;
-08
-    &lt;/book&gt;
-09
-    &lt;book category=&quot;CHILDREN&quot;&gt;
-10
-        &lt;title lang=&quot;en&quot;&gt;Harry Potter&lt;/title&gt;
-11
-        &lt;author&gt;J K. Rowling&lt;/author&gt;
-12
-        &lt;year&gt;2005&lt;/year&gt;
-13
-        &lt;price&gt;29.99&lt;/price&gt;
-14
-    &lt;/book&gt;
-15
-    &lt;book category=&quot;WEB&quot;&gt;
-16
-        &lt;title lang=&quot;en&quot;&gt;Learning XML&lt;/title&gt;
-17
-        &lt;author&gt;Erik T. Ray&lt;/author&gt;
-18
-        &lt;year&gt;2003&lt;/year&gt;
-19
-        &lt;price&gt;39.95&lt;/price&gt;
-20
-    &lt;/book&gt;
-21
-    &lt;/bookstore&gt;
-</code></pre>
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.shenzjd.cn/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/" target="_blank" rel="external">http://www.shenzjd.cn/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/</a>
+                <a href="http://www.shenzjd.cn/2016/08/04/JS全局污染/" target="_blank" rel="external">http://www.shenzjd.cn/2016/08/04/JS全局污染/</a>
                 </p>
                 <footer><cite><a href="http://www.shenzjd.cn">@神族九帝</a></cite></footer>
             </blockquote>
@@ -329,19 +277,12 @@ Ajax的核心操作对象是xmlHttpRequest
             
 <nav class="post-nav">
   
-    <div class="waves-block waves-effect prev fl">
-      <a href="/2016/08/04/JS全局污染/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">JS全局污染</h4>
-      </a>
-    </div>
-  
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2016/03/29/css规范总结/" id="post-next" class="post-nav-link">
+      <a href="/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">css规范总结</h4>
+        <h4 class="title">js通过Ajax异步操作后端xml数据的基本原理</h4>
       </a>
     </div>
   
@@ -352,7 +293,7 @@ Ajax的核心操作对象是xmlHttpRequest
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js通过Ajax异步操作后端xml数据的基本原理" data-title="js通过Ajax异步操作后端xml数据的基本原理" data-url="http://www.shenzjd.cn/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/index.html"></div>
+	<div class="ds-thread" data-thread-key="JS全局污染" data-title="JS全局污染" data-url="http://www.shenzjd.cn/2016/08/04/JS全局污染/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -383,10 +324,10 @@ Ajax的核心操作对象是xmlHttpRequest
 
 <script>
 var BLOG_SHARE = {
-    title: "js通过Ajax异步操作后端xml数据的基本原理",
+    title: "JS全局污染",
     pic: "/img/logo.gif",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.shenzjd.cn/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/index.html"
+    url: "http://www.shenzjd.cn/2016/08/04/JS全局污染/index.html"
 };
 </script>
 <div class="global-share" id="global-share">
