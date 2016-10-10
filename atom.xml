@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shenzjd.cn/"/>
-  <updated>2016-08-16T07:26:28.000Z</updated>
+  <updated>2016-10-10T07:52:44.000Z</updated>
   <id>http://www.shenzjd.cn/</id>
   
   <author>
@@ -14,6 +14,88 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试总结</title>
+    <link href="http://www.shenzjd.cn/2016/09/10/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.shenzjd.cn/2016/09/10/面试总结/</id>
+    <published>2016-09-10T12:49:23.000Z</published>
+    <updated>2016-10-10T07:52:44.000Z</updated>
+    
+    <content type="html">&lt;p&gt;1，用js写一个函数计算出字符串的长度&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;GBK字符集实际长度计算&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function getStrLeng(str) {
+    var realLength = 0;
+    var len = str.length;
+    var charCode = -1;
+    for (var i = 0; i &amp;lt; len; i++) {
+        charCode = str.charCodeAt(i);
+        if (charCode &amp;gt;= 0 &amp;amp;&amp;amp; charCode &amp;lt;= 128) {
+            realLength += 1;
+        }else{
+            //如果是中文则长度加2；
+            realLength += 2;
+        }
+    }
+    return realLength;
+}
+console.log(getStrLeng(&amp;apos;ahaak522中文&amp;apos;));//12
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;utf8字符集实际长度计算&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//utf8 字符集实际长度计算
+function getStrLeng(str) {
+    var realLength = 0;
+    var len = str.length;
+    var charCode = -1;
+    for(var i = 0; i &amp;lt; len; i++){
+        charCode = str.charCodeAt(i);
+        if (charCode &amp;gt;= 0 &amp;amp;&amp;amp; charCode &amp;lt;= 128) { 
+            realLength += 1;
+        }else{ 
+            // 如果是中文则长度加3
+            realLength += 3;
+        }
+    } 
+    return realLength;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在JS中字符串的长度不分中英文字符， 每一个字符都算一个长度，这跟PHP里的strlen()函数就不太一样。PHP里的strlen()函数根据字符集把GBK的中文每个2累加，把UTF-8的中文字符每个按3累加。主要是为了匹配数据库的长度范围内，比如GBK的数据库某字段是varchar(10)，那么就相当于5个汉字长度，一个汉字等于两个字母长度。如果是UTF8的数据库则是每个汉字长度为3    &lt;/p&gt;
+&lt;p&gt;2，html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和HTML5？  &lt;/p&gt;
+&lt;p&gt;HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。  &lt;/p&gt;
+&lt;p&gt;绘画 canvas  &lt;/p&gt;
+&lt;p&gt;用于媒介回放的 video 和 audio 元素  &lt;/p&gt;
+&lt;p&gt;本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；&lt;br&gt;sessionStorage 的数据在浏览器关闭后自动删除 &lt;/p&gt;
+&lt;p&gt;语意化更好的内容元素，比如 article、footer、header、nav、section  &lt;/p&gt;
+&lt;p&gt;表单控件，calendar、date、time、email、url、search  &lt;/p&gt;
+&lt;p&gt;新的技术webworker, websockt, Geolocation  &lt;/p&gt;
+&lt;p&gt;移除的元素  &lt;/p&gt;
+&lt;p&gt;纯表现的元素：basefont，big，center，font, s，strike，tt，u；  &lt;/p&gt;
+&lt;p&gt;对可用性产生负面影响的元素：frame，frameset，noframes；  &lt;/p&gt;
+&lt;p&gt;支持HTML5新标签：  &lt;/p&gt;
+&lt;p&gt;IE8/IE7/IE6支持通过document.createElement方法产生的标签，&lt;br&gt;可以利用这一特性让这些浏览器支持HTML5新标签，&lt;br&gt;浏览器支持新标签后，还需要添加标签默认的样式&lt;/p&gt;
+&lt;p&gt;3，&lt;br&gt;请描述一下 cookies，sessionStorage 和 localStorage 的区别？&lt;br&gt;cookies在浏览器之间来回传递，sessionStorage和localStorage不会，&lt;br&gt;sessionStorage和localStorage储存空间更大，有更多丰富易用的接口，有各自独立存储的空间，&lt;br&gt;4，如何实现浏览器内多个标签页之间的通信?&lt;br&gt;调用localstorge、cookies等本地存储方式&lt;br&gt;5，&lt;br&gt;添加 删除 替换 插入到某个接点的方法&lt;/p&gt;
+&lt;p&gt;obj.appendChidl()  &lt;/p&gt;
+&lt;p&gt;obj.innersetBefore  &lt;/p&gt;
+&lt;p&gt;obj.replaceChild  &lt;/p&gt;
+&lt;p&gt;obj.removeChild&lt;br&gt;5，说一下什么是javascript的同源策略？&lt;br&gt;一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合&lt;br&gt;6，编写一个b继承a的方法;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function A(name){
+    this.name = name;
+    this.sayHello = function(){alert(this.name+” say Hello!”);};
+}
+function B(name,id){
+    this.temp = A;
+    this.temp(name);        //相当于new A();
+    delete this.temp;       
+     this.id = id;   
+    this.checkId = function(ID){alert(this.id==ID)};
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1，用js写一个函数计算出字符串的长度&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>js通过Ajax异步操作后端xml数据的基本原理</title>
@@ -143,7 +225,7 @@
     <link href="http://www.shenzjd.cn/2016/03/29/css%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/"/>
     <id>http://www.shenzjd.cn/2016/03/29/css规范总结/</id>
     <published>2016-03-29T14:03:19.000Z</published>
-    <updated>2016-07-30T02:41:35.732Z</updated>
+    <updated>2016-07-30T02:41:36.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;CSS文件的分类和引用顺序&quot;&gt;&lt;a href=&quot;#CSS文件的分类和引用顺序&quot; class=&quot;headerlink&quot; title=&quot;CSS文件的分类和引用顺序&quot;&gt;&lt;/a&gt;CSS文件的分类和引用顺序&lt;/h3&gt;&lt;p&gt;通常，一个项目我们只引用一个CSS，但是对于较大的项目，我们需要把CSS文件进行分类。&lt;/p&gt;
 &lt;p&gt;我们按照CSS的性质和用途，将CSS文件分成“公共型样式”、“特殊型样式”、“皮肤型样式”，并以此顺序引用（按需求决定是否添加版本号）。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -418,7 +500,7 @@ strong,em{font-style:normal;font-weight:bold;}
     <link href="http://www.shenzjd.cn/2016/03/27/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
     <id>http://www.shenzjd.cn/2016/03/27/工作总结/</id>
     <published>2016-03-27T06:17:18.000Z</published>
-    <updated>2016-07-27T06:22:15.732Z</updated>
+    <updated>2016-07-27T06:22:16.000Z</updated>
     
     <content type="html">&lt;p&gt;总是碰到各种各样的问题，还老是被批评，时刻总结一下总是个好习惯。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;代码规范&quot;&gt;&lt;a href=&quot;#代码规范&quot; class=&quot;headerlink&quot; title=&quot;代码规范&quot;&gt;&lt;/a&gt;代码规范&lt;/h3&gt;&lt;p&gt;因为代码规范的问题，我没少挨骂，对于一名工程师来说，写出规范代码是基本的要求，不仅能方便你后期的维护，还能让别人看懂你的代码。同时，代码规范涉及很多方面的内容，在此作出总结：&lt;/p&gt;
@@ -453,7 +535,7 @@ strong,em{font-style:normal;font-weight:bold;}
     <link href="http://www.shenzjd.cn/2016/03/06/angularjs/"/>
     <id>http://www.shenzjd.cn/2016/03/06/angularjs/</id>
     <published>2016-03-06T10:22:39.000Z</published>
-    <updated>2016-07-14T12:14:21.595Z</updated>
+    <updated>2016-07-14T12:14:22.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;a href=&quot;#jQuery：用更少的代码，实现更强悍的功能&quot; class=&quot;headerlink&quot; title=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;/a&gt;jQuery：用更少的代码，实现更强悍的功能&lt;/h2&gt;&lt;p&gt;托互联网日新月异发展的福，浏览器变成了人们接入互联网的入口，而JavaScript 这个曾经的小语种，终于成功地站到了舞台的中央，唤起了开发者的兴趣。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;浏览器里原生的JavaScript有点像汇编语言，不同的浏览器就像不同的CPU架构， 汇编语言各有千秋，这让前端开发者很恼火。聪明人很快发现了这个痛点，于是， 抹平浏览器差异的jQuery库出现了。&lt;br&gt;jQuery由一小撮对浏览器极其熟稔的极客负责抹平不同浏览器的差异，其他开发 者只需要基于jQuery进行开发，可以更好地关注业务实现，而不是把时间花在 适配不同的浏览器上。&lt;br&gt;这样的分工符合经济学原理，开启了一个不可忽视的jQuery时代&lt;/p&gt;
 &lt;h2 id=&quot;满眼的全是DOM&quot;&gt;&lt;a href=&quot;#满眼的全是DOM&quot; class=&quot;headerlink&quot; title=&quot;满眼的全是DOM&quot;&gt;&lt;/a&gt;满眼的全是DOM&lt;/h2&gt;&lt;p&gt;jQuery使得开发无刷新动态页面（AJAX）或者单页应用（SPA）变得 相当简单。&lt;br&gt;标准的HTML页面是静态的，被浏览器渲染后就产生了一个DOM树：&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;jQuery让静态的文档动起来，通过提供一系列的选择符，jQuery使开发者能够 极其方便地选中一组DOM节点，对其进行操作。&lt;br&gt;这就是jQuery的开发范式。jQuery没有引入什么新的概念，只是朴素地，让你能够更简单 地、低成本地操作DOM：&lt;br&gt;1.用选择符选定一组DOM节点&lt;br&gt;2.操作选中的DOM节点，比如：修改文本、改变属性、挂接事件监听函数、变换DOM等等。&lt;br&gt;3.基本不用考虑跨浏览器的兼容性&lt;/p&gt;
@@ -599,7 +681,7 @@ strong,em{font-style:normal;font-weight:bold;}
     <link href="http://www.shenzjd.cn/2016/01/24/seo%E4%BC%98%E4%BC%98%E5%8C%96/"/>
     <id>http://www.shenzjd.cn/2016/01/24/seo优优化/</id>
     <published>2016-01-24T13:56:49.000Z</published>
-    <updated>2016-07-24T14:03:51.482Z</updated>
+    <updated>2016-07-24T14:03:52.000Z</updated>
     
     <content type="html">&lt;p&gt;这篇文章其实是我本人的总结，因为工作中做完了一个官方网站并成功上线，最后组长检查代码看到我的keyword等一系列信息都是空的，把我骂得狗血淋头。一言不合就作总结，总结一些简单但是我们能做的seo小技巧，送给想把网站做到极致的人。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;SEO要点：&lt;br&gt;1.语义化html标签，用合适的标签嵌套合适的内容，不可过分依赖div，对浏览器更友善就能更容易被抓取。&lt;/p&gt;
@@ -638,7 +720,7 @@ strong,em{font-style:normal;font-weight:bold;}
     <link href="http://www.shenzjd.cn/2015/07/14/MarkDown%E8%AF%AD%E6%B3%95%E5%B0%8F%E8%AE%B0/"/>
     <id>http://www.shenzjd.cn/2015/07/14/MarkDown语法小记/</id>
     <published>2015-07-14T11:53:22.000Z</published>
-    <updated>2016-07-14T12:14:11.179Z</updated>
+    <updated>2016-07-14T12:14:12.000Z</updated>
     
     <content type="html">&lt;p&gt;刚开始不介绍下作者，内心都说不过去啊，那我就百度科普下。&lt;/p&gt;
 &lt;h2 id=&quot;什么是-Markdown？&quot;&gt;&lt;a href=&quot;#什么是-Markdown？&quot; class=&quot;headerlink&quot; title=&quot;什么是 Markdown？&quot;&gt;&lt;/a&gt;什么是 Markdown？&lt;/h2&gt;&lt;p&gt;Markdown 最初是由 John Gruber 和 Aaron Swartz 于 2004 年共同设计的（在这里插一句，Aaron Swartz 是一个富有传奇性的人物，绝对值得大家了解一下。他曾经利用麻省理工学院网络，伪造身份，侵入收费不菲的 JSTOR 论文数据库，总共下载480万篇论文，以供公众免费下载，他也因此被联邦政府起诉逮捕。他于 2013 年自杀，年仅 27 岁）。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;它是一种用来标记文字的语法，这种语法十分简单，十分钟左右的时间就可以完全掌握。只要使用少量的几个特殊字符（常用的有「#」和「*」）就可以完成一些加粗、斜体、引用等排版工作，因其易学性和便捷性而受到越来越多人的欢迎。使用 Markdown 进行排版可以大大地节省你在排版中所花费的时间，让你更加专注于写作。&lt;/p&gt;
@@ -743,7 +825,7 @@ strong,em{font-style:normal;font-weight:bold;}
     <link href="http://www.shenzjd.cn/2015/03/06/Hexo%E5%8D%9A%E5%AE%A2%E5%A1%AB%E5%9D%91%E8%AE%B0/"/>
     <id>http://www.shenzjd.cn/2015/03/06/Hexo博客填坑记/</id>
     <published>2015-03-06T13:59:34.000Z</published>
-    <updated>2016-07-14T12:13:59.258Z</updated>
+    <updated>2016-07-14T12:14:00.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;　　博客搭建的流程这里就不多说了，都是各种填坑吧，网上的教程数不胜数，但是都是千篇一律，这里主要写下我自己的填坑过程吧。&lt;br&gt;ps：本人不是文科生，也不是什么作家，写作水平有限，就是简单的当个日记，记录下曾经填过的坑！&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;

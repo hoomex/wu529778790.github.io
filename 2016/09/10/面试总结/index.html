@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>categories | 神族九帝 | 永不言弃</title>
+  <title>面试总结 | 神族九帝 | 永不言弃</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="undefined">
-  <meta name="description" content="人生就像愤怒的小鸟，当你失意的时候总有几只猪在笑！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://www.shenzjd.cn/categories/index.html">
+  <meta name="keywords" content="">
+  <meta name="description" content="1，用js写一个函数计算出字符串的长度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试总结">
+<meta property="og:url" content="http://www.shenzjd.cn/2016/09/10/面试总结/index.html">
 <meta property="og:site_name" content="神族九帝">
-<meta property="og:description" content="人生就像愤怒的小鸟，当你失意的时候总有几只猪在笑！">
-<meta property="og:updated_time" content="2016-07-02T13:21:48.000Z">
+<meta property="og:description" content="1，用js写一个函数计算出字符串的长度">
+<meta property="og:updated_time" content="2016-10-10T07:52:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="人生就像愤怒的小鸟，当你失意的时候总有几只猪在笑！">
+<meta name="twitter:title" content="面试总结">
+<meta name="twitter:description" content="1，用js写一个函数计算出字符串的长度">
   
     <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
   
-  <meta name="summary" content="人生就像愤怒的小鸟，当你失意的时候总有几只猪在笑！">
+  <meta name="summary" content="&lt;p&gt;1，用js写一个函数计算出字符串的长度&lt;br&gt;">
   <link rel="shortcut icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -114,7 +114,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">categories</div>
+        <div class="flex-col header-title ellipsis">面试总结</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -135,11 +135,11 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">categories</h1>
+    <h1 class="author">面试总结</h1>
     <h5 class="subtitle">
           
-            <time datetime="1940-10-24T02:26:18.955Z" itemprop="datePublished" class="page-time">
-  1940-10-24
+            <time datetime="2016-09-10T12:49:23.000Z" itemprop="datePublished" class="page-time">
+  2016-09-10
 </time>
 
  
@@ -149,8 +149,8 @@
 </header>
 
     <div class="container body-wrap">
-      <article id="categories-undefined" 
-  class="article article-type-categories" itemprop="blogPost">
+      <article id="post-面试总结" 
+  class="article article-type-post" itemprop="blogPost">
     <div class="post-meat flex-row">
         
     </div>
@@ -206,22 +206,99 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            
+            <p>1，用js写一个函数计算出字符串的长度<br><a id="more"></a><br>GBK字符集实际长度计算</p>
+<pre><code>function getStrLeng(str) {
+    var realLength = 0;
+    var len = str.length;
+    var charCode = -1;
+    for (var i = 0; i &lt; len; i++) {
+        charCode = str.charCodeAt(i);
+        if (charCode &gt;= 0 &amp;&amp; charCode &lt;= 128) {
+            realLength += 1;
+        }else{
+            //如果是中文则长度加2；
+            realLength += 2;
+        }
+    }
+    return realLength;
+}
+console.log(getStrLeng(&apos;ahaak522中文&apos;));//12
+</code></pre><p>utf8字符集实际长度计算</p>
+<pre><code>//utf8 字符集实际长度计算
+function getStrLeng(str) {
+    var realLength = 0;
+    var len = str.length;
+    var charCode = -1;
+    for(var i = 0; i &lt; len; i++){
+        charCode = str.charCodeAt(i);
+        if (charCode &gt;= 0 &amp;&amp; charCode &lt;= 128) { 
+            realLength += 1;
+        }else{ 
+            // 如果是中文则长度加3
+            realLength += 3;
+        }
+    } 
+    return realLength;
+}
+</code></pre><p>在JS中字符串的长度不分中英文字符， 每一个字符都算一个长度，这跟PHP里的strlen()函数就不太一样。PHP里的strlen()函数根据字符集把GBK的中文每个2累加，把UTF-8的中文字符每个按3累加。主要是为了匹配数据库的长度范围内，比如GBK的数据库某字段是varchar(10)，那么就相当于5个汉字长度，一个汉字等于两个字母长度。如果是UTF8的数据库则是每个汉字长度为3    </p>
+<p>2，html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和HTML5？  </p>
+<p>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。  </p>
+<p>绘画 canvas  </p>
+<p>用于媒介回放的 video 和 audio 元素  </p>
+<p>本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；<br>sessionStorage 的数据在浏览器关闭后自动删除 </p>
+<p>语意化更好的内容元素，比如 article、footer、header、nav、section  </p>
+<p>表单控件，calendar、date、time、email、url、search  </p>
+<p>新的技术webworker, websockt, Geolocation  </p>
+<p>移除的元素  </p>
+<p>纯表现的元素：basefont，big，center，font, s，strike，tt，u；  </p>
+<p>对可用性产生负面影响的元素：frame，frameset，noframes；  </p>
+<p>支持HTML5新标签：  </p>
+<p>IE8/IE7/IE6支持通过document.createElement方法产生的标签，<br>可以利用这一特性让这些浏览器支持HTML5新标签，<br>浏览器支持新标签后，还需要添加标签默认的样式</p>
+<p>3，<br>请描述一下 cookies，sessionStorage 和 localStorage 的区别？<br>cookies在浏览器之间来回传递，sessionStorage和localStorage不会，<br>sessionStorage和localStorage储存空间更大，有更多丰富易用的接口，有各自独立存储的空间，<br>4，如何实现浏览器内多个标签页之间的通信?<br>调用localstorge、cookies等本地存储方式<br>5，<br>添加 删除 替换 插入到某个接点的方法</p>
+<p>obj.appendChidl()  </p>
+<p>obj.innersetBefore  </p>
+<p>obj.replaceChild  </p>
+<p>obj.removeChild<br>5，说一下什么是javascript的同源策略？<br>一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合<br>6，编写一个b继承a的方法;</p>
+<pre><code>function A(name){
+    this.name = name;
+    this.sayHello = function(){alert(this.name+” say Hello!”);};
+}
+function B(name,id){
+    this.temp = A;
+    this.temp(name);        //相当于new A();
+    delete this.temp;       
+     this.id = id;   
+    this.checkId = function(ID){alert(this.id==ID)};
+}
+</code></pre>
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://www.shenzjd.cn/categories/index.html" target="_blank" rel="external">http://www.shenzjd.cn/categories/index.html</a>
+                <a href="http://www.shenzjd.cn/2016/09/10/面试总结/" target="_blank" rel="external">http://www.shenzjd.cn/2016/09/10/面试总结/</a>
                 </p>
                 <footer><cite><a href="http://www.shenzjd.cn">@神族九帝</a></cite></footer>
             </blockquote>
             </div>
             
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js通过Ajax异步操作后端xml数据的基本原理</h4>
+      </a>
+    </div>
+  
+</nav>
+
 
             
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="categories" data-url="http://www.shenzjd.cn/categories/index.html"></div>
+	<div class="ds-thread" data-thread-key="面试总结" data-title="面试总结" data-url="http://www.shenzjd.cn/2016/09/10/面试总结/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -252,10 +329,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "categories",
+    title: "面试总结",
     pic: "/img/logo.gif",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://www.shenzjd.cn/categories/index.html"
+    url: "http://www.shenzjd.cn/2016/09/10/面试总结/index.html"
 };
 </script>
 <div class="global-share" id="global-share">
