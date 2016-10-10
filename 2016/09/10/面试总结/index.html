@@ -10,20 +10,21 @@
   
   
   <meta name="keywords" content="">
-  <meta name="description" content="1.用js写一个函数计算出字符串的长度">
+  <meta name="description" content="用js写一个函数计算出字符串的长度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试总结">
 <meta property="og:url" content="http://www.shenzjd.cn/2016/09/10/面试总结/index.html">
 <meta property="og:site_name" content="神族九帝">
-<meta property="og:description" content="1.用js写一个函数计算出字符串的长度">
-<meta property="og:updated_time" content="2016-10-10T07:55:40.000Z">
+<meta property="og:description" content="用js写一个函数计算出字符串的长度">
+<meta property="og:updated_time" content="2016-10-10T07:58:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试总结">
-<meta name="twitter:description" content="1.用js写一个函数计算出字符串的长度">
+<meta name="twitter:description" content="用js写一个函数计算出字符串的长度">
   
     <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;p&gt;1.用js写一个函数计算出字符串的长度&lt;br&gt;">
+  <meta name="summary" content="&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;用js写一个函数计算出字符串的长度&lt;/p&gt;">
   <link rel="shortcut icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -206,7 +207,10 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>1.用js写一个函数计算出字符串的长度<br><a id="more"></a><br>GBK字符集实际长度计算</p>
+            <ol>
+<li><p>用js写一个函数计算出字符串的长度</p>
+<a id="more"></a>
+<p>GBK字符集实际长度计算</p>
 <pre><code>function getStrLeng(str) {
     var realLength = 0;
     var len = str.length;
@@ -223,7 +227,9 @@
     return realLength;
 }
 console.log(getStrLeng(&apos;ahaak522中文&apos;));//12
-</code></pre><p>utf8字符集实际长度计算</p>
+</code></pre></li>
+</ol>
+<p>utf8字符集实际长度计算</p>
 <pre><code>//utf8 字符集实际长度计算
 function getStrLeng(str) {
     var realLength = 0;
@@ -241,7 +247,9 @@ function getStrLeng(str) {
     return realLength;
 }
 </code></pre><p>在JS中字符串的长度不分中英文字符， 每一个字符都算一个长度，这跟PHP里的strlen()函数就不太一样。PHP里的strlen()函数根据字符集把GBK的中文每个2累加，把UTF-8的中文字符每个按3累加。主要是为了匹配数据库的长度范围内，比如GBK的数据库某字段是varchar(10)，那么就相当于5个汉字长度，一个汉字等于两个字母长度。如果是UTF8的数据库则是每个汉字长度为3    </p>
-<p>2.html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和HTML5？  </p>
+<ol>
+<li>html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和HTML5？  </li>
+</ol>
 <p>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。  </p>
 <p>绘画 canvas  </p>
 <p>用于媒介回放的 video 和 audio 元素  </p>
@@ -254,23 +262,31 @@ function getStrLeng(str) {
 <p>对可用性产生负面影响的元素：frame，frameset，noframes；  </p>
 <p>支持HTML5新标签：  </p>
 <p>IE8/IE7/IE6支持通过document.createElement方法产生的标签，<br>可以利用这一特性让这些浏览器支持HTML5新标签，<br>浏览器支持新标签后，还需要添加标签默认的样式</p>
-<p>3.请描述一下 cookies，sessionStorage 和 localStorage 的区别？<br>cookies在浏览器之间来回传递，sessionStorage和localStorage不会，<br>sessionStorage和localStorage储存空间更大，有更多丰富易用的接口，有各自独立存储的空间，<br>4.如何实现浏览器内多个标签页之间的通信?<br>调用localstorge、cookies等本地存储方式<br>5.添加 删除 替换 插入到某个接点的方法</p>
+<ol>
+<li>请描述一下 cookies，sessionStorage 和 localStorage 的区别？<br>cookies在浏览器之间来回传递，sessionStorage和localStorage不会，<br>sessionStorage和localStorage储存空间更大，有更多丰富易用的接口，有各自独立存储的空间，  </li>
+<li>如何实现浏览器内多个标签页之间的通信?<br>调用localstorge、cookies等本地存储方式  </li>
+<li>添加 删除 替换 插入到某个接点的方法</li>
+</ol>
 <p>obj.appendChidl()  </p>
 <p>obj.innersetBefore  </p>
 <p>obj.replaceChild  </p>
-<p>obj.removeChild<br>6.说一下什么是javascript的同源策略？<br>一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合<br>7.编写一个b继承a的方法;</p>
-<pre><code>function A(name){
-    this.name = name;
-    this.sayHello = function(){alert(this.name+” say Hello!”);};
-}
-function B(name,id){
-    this.temp = A;
-    this.temp(name);        //相当于new A();
-    delete this.temp;       
-     this.id = id;   
-    this.checkId = function(ID){alert(this.id==ID)};
-}
-</code></pre>
+<p>obj.removeChild  </p>
+<ol>
+<li>说一下什么是javascript的同源策略？<br>一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合  </li>
+<li><p>编写一个b继承a的方法;</p>
+<p> function A(name){</p>
+<pre><code>this.name = name;
+this.sayHello = function(){alert(this.name+” say Hello!”);};
+</code></pre><p> }<br> function B(name,id){</p>
+<pre><code>this.temp = A;
+this.temp(name);        //相当于new A();
+delete this.temp;       
+ this.id = id;   
+this.checkId = function(ID){alert(this.id==ID)};
+</code></pre><p> }</p>
+</li>
+</ol>
+
             <blockquote>
                 <p>
                 本文地址：
