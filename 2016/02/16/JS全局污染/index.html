@@ -20,7 +20,7 @@
 <meta property="og:description" content="原则1.用匿名函数将脚本包起来；
 2.使用多级命名空间。
 这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。">
-<meta property="og:updated_time" content="2016-08-16T07:25:18.000Z">
+<meta property="og:updated_time" content="2016-10-10T09:04:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS全局污染">
 <meta name="twitter:description" content="原则1.用匿名函数将脚本包起来；
@@ -210,7 +210,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原则"><span class="post-toc-number">1.</span> <span class="post-toc-text">原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改进过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">改进过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原始代码"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">原始代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用匿名函数"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">使用匿名函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用全局变量进行通信"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">使用全局变量进行通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用命名空间"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">使用命名空间</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原则"><span class="post-toc-number">1.</span> <span class="post-toc-text">原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#改进过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">改进过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原始代码"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">原始代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用匿名函数"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">使用匿名函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用全局变量进行通信"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">使用全局变量进行通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用命名空间"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">使用命名空间</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js一些常用的封装"><span class="post-toc-number">3.</span> <span class="post-toc-text">js一些常用的封装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取元素的计算后样式属性"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">获取元素的计算后样式属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#scroll-top-or-scroll-left获取已经滚动到元素的左边界或上边界的像素数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">scroll().top or scroll().left获取已经滚动到元素的左边界或上边界的像素数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取可视窗口的大小"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">获取可视窗口的大小</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#event兼容"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">event兼容</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#监听事件兼容处理"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">监听事件兼容处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#清楚选择"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">清楚选择</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#trim去掉字符串两端的空格"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">trim去掉字符串两端的空格</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#十进制转其他进制-type类型有”bit”、”oct”、”hex”"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">十进制转其他进制 type类型有”bit”、”oct”、”hex”</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二进制、八进制、十六进制转十进制"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">二进制、八进制、十六进制转十进制;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#转动时钟"><span class="post-toc-number">3.10.</span> <span class="post-toc-text">转动时钟</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#匀速动画"><span class="post-toc-number">3.11.</span> <span class="post-toc-text">匀速动画</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缓动动画-单个数值属性"><span class="post-toc-number">3.12.</span> <span class="post-toc-text">缓动动画(单个数值属性)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#缓动动画-多个数值属性"><span class="post-toc-number">3.13.</span> <span class="post-toc-text">缓动动画(多个数值属性)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进度条"><span class="post-toc-number">3.14.</span> <span class="post-toc-text">进度条</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ajax封装"><span class="post-toc-number">3.15.</span> <span class="post-toc-text">ajax封装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#millisec是距离-GMT-时间-1970-年-1-月-1-日午夜的毫秒数-解析通过ajax返回的数据中的毫秒数值的日期"><span class="post-toc-number">3.16.</span> <span class="post-toc-text">millisec是距离 GMT 时间 1970 年 1 月 1 日午夜的毫秒数 (解析通过ajax返回的数据中的毫秒数值的日期)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#右键菜单"><span class="post-toc-number">3.17.</span> <span class="post-toc-text">右键菜单</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#根据传入的值获取目标"><span class="post-toc-number">3.18.</span> <span class="post-toc-text">根据传入的值获取目标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拖拽"><span class="post-toc-number">3.19.</span> <span class="post-toc-text">拖拽</span></a></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -272,7 +272,583 @@
     alert(GLOBAL.A.a);
 })();
 </code></pre><p>使用单一的全局变量 GlOBAL ，匿名空间里需要保存的属性都在全局变量 GLOBAL 的基础上使用命名空间的方式进行拓展。这里给命名空间起名字也需要很讲究，好的命名规则会对团队协同合作有很大的帮助</p>
+<h2 id="js一些常用的封装"><a href="#js一些常用的封装" class="headerlink" title="js一些常用的封装"></a>js一些常用的封装</h2><p>———————-解决兼容性方法———————–  </p>
+<h3 id="获取元素的计算后样式属性"><a href="#获取元素的计算后样式属性" class="headerlink" title="获取元素的计算后样式属性"></a>获取元素的计算后样式属性</h3><pre><code>function getStyle(element,attr) {
+    if (element.currentStyle) {
+        return element.currentStyle[attr];
+    }else{
+        return window.getComputedStyle(element,null){
+            return window.getComputedStyle(element,null)[attr];
+        }
+    }
+}
+</code></pre><h3 id="scroll-top-or-scroll-left获取已经滚动到元素的左边界或上边界的像素数"><a href="#scroll-top-or-scroll-left获取已经滚动到元素的左边界或上边界的像素数" class="headerlink" title="scroll().top or scroll().left获取已经滚动到元素的左边界或上边界的像素数"></a>scroll().top or scroll().left获取已经滚动到元素的左边界或上边界的像素数</h3><pre><code>function scroll() {
+        return {
+            top:window.pageYOffset || document.documentElement.scrollTop || document.body.scrollLeft || 0,
+            left:window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+        };
+    }
+</code></pre><h3 id="获取可视窗口的大小"><a href="#获取可视窗口的大小" class="headerlink" title="获取可视窗口的大小"></a>获取可视窗口的大小</h3><pre><code>function client() {
+    return {
+        width:window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth ||0,
+        height:window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0
+    };
+}
+</code></pre><h3 id="event兼容"><a href="#event兼容" class="headerlink" title="event兼容"></a>event兼容</h3><pre><code>//event兼容
+var eventCompatible = {
+    //event兼容
+    getEvent: function(event) {
+        return event || window.event;
+    },
 
+    //阻止冒泡事件
+    stopPropagation: function(event) {
+        var event = event || window.event;
+        if(event &amp;&amp; event.stopPropagation) {
+            return event.stopPropagation();
+        } else {
+            return event.cancelBubble = true;
+        }
+    },
+
+    //event.target 事件的目标 (事件委托)
+    getTarget: function(event) {
+        var event = event || window.event;
+        return event.target ? event.target : event.srcElement;
+    },
+
+    //鼠标页面坐标
+    page: function(event) {
+        var event = event || window.event;
+        return {
+            x: event.pageX || event.clientX + document.documentElement.scrollLeft,
+            y: event.pageY || event.clientY + document.documentElement.scrollTop
+        };
+    },
+
+    //阻止默认行为
+    prevent: function(event){
+        var event = event || window.event;
+        if (event.preventDefault) {
+            return event.preventDefault();
+        }else{
+            return event.returnValue = false;
+        }
+    }
+};
+</code></pre><h3 id="监听事件兼容处理"><a href="#监听事件兼容处理" class="headerlink" title="监听事件兼容处理"></a>监听事件兼容处理</h3><pre><code>function eventListener(obj, type, handler, unbind) {
+    if(unbind === true) {
+        if(obj.removeEventListener) {
+            obj.removeEventListener(type, handler);
+        } else {
+            obj.detachEvent(&quot;on&quot; + type, handler);
+        };
+    } else {
+        if(obj.addEventListener) {
+            obj.addEventListener(type, handler);
+        } else {
+            obj.attachEvent(&quot;on&quot; + type, handler);
+        };
+    };
+};
+</code></pre><h3 id="清楚选择"><a href="#清楚选择" class="headerlink" title="清楚选择"></a>清楚选择</h3><pre><code>function clearSelection() {
+    return window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+}
+</code></pre><p>##——————-自定义的方法—————————</p>
+<h3 id="trim去掉字符串两端的空格"><a href="#trim去掉字符串两端的空格" class="headerlink" title="trim去掉字符串两端的空格"></a>trim去掉字符串两端的空格</h3><pre><code>function trim(str) {
+    return str.replace(/^\s+|\s+$/g, &quot;&quot;);
+}
+</code></pre><h3 id="十进制转其他进制-type类型有”bit”、”oct”、”hex”"><a href="#十进制转其他进制-type类型有”bit”、”oct”、”hex”" class="headerlink" title="十进制转其他进制 type类型有”bit”、”oct”、”hex”"></a>十进制转其他进制 type类型有”bit”、”oct”、”hex”</h3><pre><code>function changeFromDec(type, value) {
+    var arr = [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;]    
+    var scale = 0;
+    var sys = &quot;&quot;;
+    if(!/^[\d]*$/g.test(value)) {
+        return &quot;&quot;;
+    }
+    if(!value) {
+        return &quot;&quot;;
+    }
+    if(type === &quot;bit&quot;) {
+        scale = 2;
+    } else if(type === &quot;oct&quot;) {
+        scale = 8;
+    } else if(type === &quot;hex&quot;) {
+        scale = 16;
+        while(true) {
+            sys = arr[value % 16] + sys;
+            value = parseInt(value / 16);
+            if(!value) {
+                break;
+            }
+        }
+        return sys;
+    }
+    while(true) {
+        sys = value % scale + sys;
+        value = parseInt(value / scale);
+        if(!value) {
+            break;
+        }
+    }
+    return sys;
+}
+</code></pre><h3 id="二进制、八进制、十六进制转十进制"><a href="#二进制、八进制、十六进制转十进制" class="headerlink" title="二进制、八进制、十六进制转十进制;"></a>二进制、八进制、十六进制转十进制;</h3><pre><code>function toDec(type, value) {
+    if(typeof value === &quot;number&quot;) value += &quot;&quot;;
+    var scale = 0;
+    var flag = false;
+    if(type === &quot;bit&quot;) {
+        flag = /^[01]*$/g.test(value);
+        scale = 2;
+    } else if(type === &quot;oct&quot;) {
+        flag = /^[0-7]*$/g.test(value)
+        scale = 8;
+    } else if(type === &quot;hex&quot;) {
+        flag = /^[0-9a-fA-F]*$/g.test(value)
+        scale = 16;
+    }
+    if(!flag || !value) return;
+    var arr = value.split(&quot;&quot;);
+    var dec = 0;
+    for(var i = 0; i &lt; arr.length; i++) {
+        if(isNaN(parseInt(arr[i]))) {
+            var charCode = arr[i].charCodeAt(0);
+            if(charCode &gt; 64 &amp;&amp; charCode &lt; 71) {
+                dec += (charCode - 55) * Math.pow(scale, arr.length - 1 - i)
+            } else if(charCode &gt; 96 &amp;&amp; charCode &lt; 103) {
+                dec += (charCode - 87) * Math.pow(scale, arr.length - 1 - i)
+            }
+        } else {
+            dec += arr[i] * Math.pow(scale, arr.length - 1 - i);
+        }
+    }
+    return dec;
+}
+</code></pre><h3 id="转动时钟"><a href="#转动时钟" class="headerlink" title="转动时钟"></a>转动时钟</h3><pre><code>function clock() {
+    var d = new Date();
+    var ms = d.getMilliseconds();
+    var s = d.getSeconds() + ms / 1000;
+    var m = d.getMinutes() + s / 60;
+    var h = d.getHours() + m / 60;
+    second.style.transform = &quot;rotate(&quot; + s * 6 + &quot;deg)&quot;;
+    minute.style.transform = &quot;rotate(&quot; + m * 6 + &quot;deg)&quot;;
+    hour.style.transform = &quot;rotate(&quot; + h * 30 + &quot;deg)&quot;;
+}
+</code></pre><h3 id="匀速动画"><a href="#匀速动画" class="headerlink" title="匀速动画"></a>匀速动画</h3><pre><code>function animate(obj, attr, distance) {
+    var step = 20;
+    var leader = parseInt(getStyle(obj, attr)) || 0
+    clearInterval(obj.atimer);
+    obj.atimer = setInterval(function() {
+        distance &gt; leader ? leader += step : leader -= step;
+        if(Math.abs(distance - leader) &gt; step) {
+            obj.style[attr] = leader + &quot;px&quot;;
+        } else {
+            obj.style[attr] = distance + &quot;px&quot;;
+            clearInterval(obj.atimer);
+        }
+    }, 15);
+}
+</code></pre><h3 id="缓动动画-单个数值属性"><a href="#缓动动画-单个数值属性" class="headerlink" title="缓动动画(单个数值属性)"></a>缓动动画(单个数值属性)</h3><pre><code>function slowSpeedAnimate(element, attr, distance) {
+    clearInterval(element.timer);
+    element.timer = setInterval(function() {
+        var removing = parseInt(getStyle(element, attr)) || 0; //element.offsetLeft;
+        var step = (distance - removing) / 20;
+        step = step &gt; 0 ? Math.ceil(step) : Math.floor(step);
+        removing = removing + step;
+        element.style[attr] = removing + &quot;px&quot;;
+        if(removing == distance) {
+            clearInterval(element.timer);
+        }
+    }, 15)
+}
+</code></pre><h3 id="缓动动画-多个数值属性"><a href="#缓动动画-多个数值属性" class="headerlink" title="缓动动画(多个数值属性)"></a>缓动动画(多个数值属性)</h3><pre><code>function moreAnimate(element, json, interval, fn) {
+    clearInterval(element.timer);
+    element.timer = setInterval(function() {
+        var flag = true;
+        for(var k in json) {
+            if(k === &quot;opacity&quot;) {
+                var removing = getStyle(element, k) * 100; //element.offsetLeft;
+                var distance = json[k] * 100;
+                var step = (distance - removing) / interval;
+                step = step &gt; 0 ? Math.ceil(step) : Math.floor(step);
+                removing = removing + step;
+                element.style[k] = removing / 100;
+            } else {
+                var removing = parseInt(getStyle(element, k)) || 0; //element.offsetLeft;
+                var distance = json[k];
+                var step = (distance - removing) / interval;
+                step = step &gt; 0 ? Math.ceil(step) : Math.floor(step);
+                removing = removing + step;
+                element.style[k] = removing + &quot;px&quot;;
+            }
+            if(removing != distance) {
+                flag = false;
+            }
+        }
+        if(flag) {
+            clearInterval(element.timer);
+            if(fn) {
+                fn();
+            }
+        }
+
+    }, 15)
+}
+</code></pre><h3 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h3><pre><code>    function Progress(id, width, height, outClass, inClass) {
+    this.width = width;
+    this.height = height;
+    this.color = &quot;#fff&quot;;
+    this.progress = document.createElement(&quot;div&quot;);
+    this.percentage = document.createElement(&quot;div&quot;);
+    this.filler = document.createElement(&quot;div&quot;);
+    var element = document.getElementById(id);
+    if(width) {
+        this.progress.style.width = this.width + &quot;px&quot;;
+    } else {
+        this.progress.style.width = &quot;200px&quot;;
+    }
+    if(height) {
+        this.progress.style.height = this.height + &quot;px&quot;;
+    } else {
+        this.progress.style.height = &quot;20px&quot;;
+    }
+    if(typeof outClass === &quot;string&quot; &amp;&amp; (/^[a-zA-Z](\w|[-])+$/g.test(outClass))) {
+        this.progress.className = outClass;
+    } else {
+        this.progress.style.border = &quot;1px solid #cccccc&quot;;
+        this.progress.style.backgroundImage = &quot;linear-gradient(to bottom, #ccc 0%, #fff 40%, #ccc 100%)&quot;;
+        this.progress.style.borderRadius = &quot;10px&quot;;
+    }
+    this.progress.style.overflow = &quot;hidden&quot;;
+    this.progress.style.position = &quot;relative&quot;;
+    element.appendChild(this.progress);
+    //
+    this.progress.appendChild(this.percentage);
+    this.percentage.style.width = &quot;100%&quot;;
+    this.percentage.style.height = &quot;100%&quot;;
+    this.percentage.style.textAlign = &quot;center&quot;;
+    this.percentage.style.position = &quot;absolute&quot;;
+    this.percentage.innerHTML = &quot;0%&quot;;
+    //
+    this.progress.appendChild(this.filler);
+    this.filler.style.height = &quot;100%&quot;;
+    this.filler.style.width = 0;
+    if(typeof inClass === &quot;string&quot; &amp;&amp; (/^[a-zA-Z](\w|[-])+$/g.test(inClass))) {
+        this.filler.className = inClass;
+    } else {
+        this.filler.style.backgroundColor = &quot;#DC7BBE&quot;;
+        this.filler.style.backgroundImage = &quot;linear-gradient(to bottom, #0AF 0%, #0ff 40%, #0AF 100%)&quot;;
+    }
+}
+Progress.prototype.fill = function(value) {
+    if(value) {
+        this.percentage.innerHTML = value + &quot;%&quot;;
+        this.percentage.style.color = this.color;
+        value = (this.progress.offsetWidth - 2) / 100 * value;
+        this.filler.style.width = value + &quot;px&quot;;
+    } else {
+        this.filler.style.width = 0;
+        this.percentage.innerHTML = &quot;0%&quot;;
+    }
+}
+</code></pre><h3 id="ajax封装"><a href="#ajax封装" class="headerlink" title="ajax封装"></a>ajax封装</h3><pre><code>function ajax(a, b) { 
+    //type, url, async, dataType, data, fn
+    var xhr = null,
+        type = &quot;get&quot;,
+        url = &quot;#&quot;,
+        async = true,
+        dataType = &quot;text&quot;,
+        data = &quot;&quot;,
+        jsonp = &quot;&quot;,
+        jsonpCallback = &quot;&quot;,
+        methodName = &quot;&quot;,
+        c = null;
+    if(typeof a === &quot;string&quot;) {
+        url = a;
+    }
+    if(typeof a === &quot;object&quot;) {
+        c = a;
+    } else if(typeof b == &quot;object&quot;) {
+        c = b;
+    }
+    if(c) {
+        if(c.type &amp;&amp; typeof c.type === &quot;string&quot;) {
+            type = c.type;
+        };
+        if(c.url &amp;&amp; typeof c.url === &quot;string&quot;) {
+            url = c.url;
+        };
+        if(c.async &amp;&amp; typeof c.async === &quot;boolean&quot;) {
+            async = c.async;
+        };
+        if(c.dataType &amp;&amp; typeof c.dataType === &quot;string&quot;) {
+            dataType = c.dataType;
+        };
+        if(c.data &amp;&amp; typeof c.data === &quot;object&quot;) {
+            var arr = [];
+            for(k in c.data) {
+                arr.push(k + &quot;=&quot; + c.data[k]);
+            }
+            data = arr.join(&quot;&amp;&quot;);
+        };
+        if(c.jsonp &amp;&amp; typeof c.jsonp === &quot;string&quot;) {
+            if(!c.dataType) {
+                dataType = &quot;jsonp&quot;;
+            }
+            jsonp = c.jsonp;
+            if(data) {
+                data += &quot;&amp;&quot;;
+            }
+        } else {
+            jsonp = &quot;callback&quot;;
+        }
+        if(c.jsonpCallback &amp;&amp; typeof c.jsonpCallback === &quot;string&quot;) {
+            methodName = c.jsonpCallback;
+        } else {
+            methodName = &quot;jquery&quot; + new Date().getTime() + &quot;_&quot; + (Math.random() + &quot;&quot;).substr(2);
+        }
+    };
+    if(dataType == &quot;jsonp&quot;) {
+        data += jsonp + &quot;=&quot; + methodName;
+        window[methodName] = function(data) {
+            c.success(data);
+        }
+        var script = document.createElement(&quot;script&quot;);
+        script.src = url + &quot;?&quot; + data;
+        var head = document.getElementsByTagName(&quot;head&quot;)[0];
+        head.appendChild(script);
+    } else {
+        //ajax部分
+        if(window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+        }
+        if(type == &quot;get&quot;) {
+            if(data) {
+                url += encodeURI(&quot;?&quot; + data);
+            }
+            data = null;
+        };
+        xhr.open(type, url, async);
+        if(type == &quot;post&quot;) {
+            xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+        };
+        xhr.send(data);
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4 &amp;&amp; xhr.status == 200) {
+                var obj = {
+                    text: xhr.responseText,
+                    json: JSON.parse(xhr.responseText),
+                };
+                var data = obj[dataType];
+                if(typeof c.success === &quot;function&quot;) {
+                    c.success(data);
+                }
+            }
+        }
+    }
+}
+</code></pre><h3 id="millisec是距离-GMT-时间-1970-年-1-月-1-日午夜的毫秒数-解析通过ajax返回的数据中的毫秒数值的日期"><a href="#millisec是距离-GMT-时间-1970-年-1-月-1-日午夜的毫秒数-解析通过ajax返回的数据中的毫秒数值的日期" class="headerlink" title="millisec是距离 GMT 时间 1970 年 1 月 1 日午夜的毫秒数 (解析通过ajax返回的数据中的毫秒数值的日期)"></a>millisec是距离 GMT 时间 1970 年 1 月 1 日午夜的毫秒数 (解析通过ajax返回的数据中的毫秒数值的日期)</h3><pre><code>function getFullDate(millisec, lang) {
+    var data = new Date();
+    data.setTime(millisec);
+    var year = data.getFullYear(),
+        month = data.getMonth(),
+        day = data.getDate(),
+        week = data.getDay(),
+        hour = data.getHours(),
+        minute = data.getMinutes(),
+        second = data.getSeconds(),
+        am = &quot;am&quot;,
+        pm = &quot;pm&quot;,
+        enWeek = [&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;],
+        cnWeek = [&quot;星期天&quot;, &quot;星期一&quot;, &quot;星期二&quot;, &quot;星期三&quot;, &quot;星期四&quot;, &quot;星期五&quot;, &quot;星期六&quot;],
+        enMonth = [&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;],
+        cnMonth = [&quot;一月&quot;, &quot;二月&quot;, &quot;三月&quot;, &quot;四月&quot;, &quot;五月&quot;, &quot;六月&quot;, &quot;七月&quot;, &quot;八月&quot;, &quot;九月&quot;, &quot;十月&quot;, &quot;十一月&quot;, &quot;十二月&quot;],
+        cnDay = [&quot;廿&quot;, &quot;一&quot;, &quot;二&quot;, &quot;三&quot;, &quot;四&quot;, &quot;五&quot;, &quot;六&quot;, &quot;七&quot;, &quot;八&quot;, &quot;九&quot;, &quot;十&quot;]    if(lang == &quot;cn&quot;) {
+        am = &quot;上午&quot;;
+        pm = &quot;下午&quot;;
+    };
+    day = day &lt; 10 ? &quot;0&quot; + day : day;
+    var obj = {
+        year: year,
+        month: lang ? (lang == &quot;cn&quot; ? cnMonth[month] : enMonth[month]) : (month &lt; 10 ? &quot;0&quot; + (month + 1) : (month + 1)),
+        day: day,
+        week: lang == &quot;en&quot; ? enWeek[week] : cnWeek[week],
+        hour: hour &lt; 10 ? &quot;0&quot; + hour : hour,
+        minute: minute &lt; 10 ? &quot;0&quot; + minute : minute,
+        second: second &lt; 10 ? &quot;0&quot; + second : second,
+        ms: data.getMilliseconds(),
+        am: am,
+        pm: pm,
+        Hour: hour + minute / 60 &gt; 12 ? (hour == 12 ? pm + hour : pm + hour % 12) : am + hour,
+    };
+    return obj;
+}
+</code></pre><h3 id="右键菜单"><a href="#右键菜单" class="headerlink" title="右键菜单"></a>右键菜单</h3><pre><code>function RightMenu(area) {
+    this.area = area;
+    this.menu = null;
+}
+</code></pre><h3 id="根据传入的值获取目标"><a href="#根据传入的值获取目标" class="headerlink" title="根据传入的值获取目标"></a>根据传入的值获取目标</h3><pre><code>RightMenu.prototype.target = function(area) {
+    if(typeof area === &quot;string&quot;) {
+        return document.getElementById(area);
+    } else if(typeof area === &quot;object&quot;) {
+        return area;
+    }
+}
+
+RightMenu.prototype.init = function(data,defaultStyle, userStyle, hoverStyle) {
+    this.createMenu(data, defaultStyle, userStyle, hoverStyle);
+    this.showMenu();
+}
+
+RightMenu.prototype.createMenu = function(data, defaultStyle, userStyle, hoverStyle) {
+    if(typeof defaultStyle == &quot;string&quot; &amp;&amp; !defaultStyle) {
+        hoverStyle = userStyle;
+        userStyle = defaultStyle;
+        defaultStyle = true;
+    }
+    //创建菜单及样式
+    this.menu = document.createElement(&quot;ul&quot;);
+    this.menu.style.position = &quot;absolute&quot;;
+    this.menu.style.margin = 0;
+    this.menu.style.padding = &quot;2px&quot;;
+    this.menu.style.listStyle = &quot;none&quot;;
+    this.menu.style.display = &quot;none&quot;;
+    if(!defaultStyle) {
+        this.menu.style.border = &quot;1px solid #DDDDDD&quot;;
+        this.menu.style.backgroundColor = &quot;#CCCCCC&quot;;
+        this.menu.style.boxShadow = &quot;5px 5px 5px #ccc&quot;;
+    } else {
+        this.menu.className = userStyle;
+    }
+    //选中项样式
+    var hover = document.createElement(&quot;span&quot;);
+    hover.style.display = &quot;block&quot;;
+    hover.style.position = &quot;absolute&quot;
+    hover.style.top = 0;
+    hover.style.left = 0;
+    hover.style.boxSizing = &quot;border-box&quot;;
+    hover.style.width = &quot;100%&quot;;
+    hover.style.height = &quot;100%&quot;;
+    if((!defaultStyle) || (defaultStyle &amp;&amp; !hoverStyle)) {
+        hover.style.border = &quot;1px solid #aaa&quot;;
+        hover.style.borderRadius = &quot;5px&quot;;
+        hover.style.backgroundImage = &quot;linear-gradient(to bottom,rgba(255,255,255,0.5)0%,rgba(255,255,255,0.1)50%,rgba(255,255,255,0.1)100%)&quot;;
+
+    } else {
+        hover.className = hoverStyle;
+    }
+    //创建菜单项
+    for(var item in data) {
+        var li = document.createElement(&quot;li&quot;);
+        li.style.position = &quot;relative&quot;;
+        li.style.padding = &quot;5px 10px&quot;;
+        li.style.cursor = &quot;pointer&quot;;
+        //绑定事件
+        li.addEventListener(&quot;mouseenter&quot;, function() {
+            this.appendChild(hover);
+        });
+        li.addEventListener(&quot;mouseleave&quot;, function() {
+            this.removeChild(hover);
+        });
+        var itemData = data[item]        for(var obj in itemData) {
+            if(typeof itemData[obj] === &quot;string&quot;) {
+                li.innerHTML = itemData[obj];
+            } else if(typeof itemData[obj] === &quot;object&quot;) {
+                var handlerData = itemData[obj];
+                for(var type in handlerData) {
+                    li.addEventListener(type, handlerData[type]);
+                }
+            }
+        }
+        this.menu.appendChild(li);
+    }
+    this.target(this.area).appendChild(this.menu);
+}
+
+RightMenu.prototype.showMenu = function() {
+    var that = this;
+    this.menu.parentNode.oncontextmenu = function(ev) {
+        that.menu.style.display = &quot;block&quot;;
+        that.menu.style.left = ev.pageX + &quot;px&quot;;
+        that.menu.style.top = ev.pageY + &quot;px&quot;;
+        if(that.menu.parentNode.offsetWidth &lt; that.menu.offsetLeft + that.menu.offsetWidth) {
+            that.menu.style.left = ev.pageX - that.menu.offsetWidth + &quot;px&quot;;
+        };
+        if(that.menu.parentNode.offsetHeight &lt; that.menu.offsetTop + that.menu.offsetHeight) {
+            that.menu.style.top = ev.pageY - that.menu.offsetHeight + &quot;px&quot;;
+        };
+        return false;
+    }
+    this.menu.parentNode.onclick = function() {
+        that.menu.style.display = &quot;none&quot;;
+    }
+    document.onkeydown = function(e) {
+        if(e.keyCode == 18 || e.keyCode == 27) {
+            that.menu.style.display = &quot;none&quot;;
+        }
+    }
+}
+</code></pre><h3 id="拖拽"><a href="#拖拽" class="headerlink" title="拖拽"></a>拖拽</h3><pre><code>function Drag(target, area) {
+    this.target = target;
+    this.area = area;
+}
+
+//根据传入的值获取目标
+Drag.prototype.dragTarget = function(target) {
+    if(typeof target === &quot;string&quot;) {
+        return document.getElementById(target);
+    } else if(typeof target === &quot;object&quot;) {
+        return target;
+    }
+}
+
+Drag.prototype.init = function() {
+    this.target = this.dragTarget(this.target);
+    this.target.style.position = &quot;absolute&quot;;
+    this.target.setAttribute(&quot;draggable&quot;,&quot;true&quot;);
+    this.dragEvent();
+}
+
+Drag.prototype.dragEvent = function() {
+    var that = this;
+    this.target.onmousedown = function(e) {
+        e = e || window.event;
+        that.disX = e.clientX - that.target.offsetLeft;
+        that.disY = e.clientY - that.target.offsetTop;
+        document.onmousemove = function(e) {
+            that.moveEvent(e);
+        }
+        document.onmouseup = function(){
+            that.target.style.opacity = &quot;1&quot;;
+            document.onmousemove = document.onmouseup = null;
+        }
+        return false;
+    }
+}
+Drag.prototype.moveEvent = function(e) {
+    var limitX = e.clientX - this.disX;
+    var limitY = e.clientY - this.disY;
+    //没有指定区域则用document
+
+    if (!this.area) {
+        this.area = document.documentElement;
+    }
+    if(limitX &lt; this.area.offsetLeft) {
+        limitX = this.area.offsetLeft;
+    } else if(limitX &gt; this.area.clientWidth + this.area.offsetLeft - this.target.offsetWidth) {
+        limitX =  this.area.clientWidth + this.area.offsetLeft - this.target.offsetWidth;
+    }
+    if(limitY &lt; this.area.offsetTop) {
+        limitY = this.area.offsetTop;
+    } else if(limitY &gt; this.area.clientHeight + this.area.offsetTop - this.target.offsetHeight) {
+        limitY = this.area.clientHeight + this.area.offsetTop - this.target.offsetHeight;
+    }
+    this.target.style.left = limitX + &quot;px&quot;;
+    this.target.style.top = limitY + &quot;px&quot;;
+    this.target.style.opacity = &quot;0.8&quot;;
+}
+</code></pre>
             <blockquote>
                 <p>
                 本文地址：

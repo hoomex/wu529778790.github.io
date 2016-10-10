@@ -607,7 +607,7 @@ strong,em{font-style:normal;font-weight:bold;}
     <link href="http://www.shenzjd.cn/2016/02/16/JS%E5%85%A8%E5%B1%80%E6%B1%A1%E6%9F%93/"/>
     <id>http://www.shenzjd.cn/2016/02/16/JS全局污染/</id>
     <published>2016-02-16T03:37:45.000Z</published>
-    <updated>2016-08-16T07:25:18.000Z</updated>
+    <updated>2016-10-10T09:04:16.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;原则&quot;&gt;&lt;a href=&quot;#原则&quot; class=&quot;headerlink&quot; title=&quot;原则&quot;&gt;&lt;/a&gt;原则&lt;/h2&gt;&lt;p&gt;1.用匿名函数将脚本包起来；&lt;/p&gt;
 &lt;p&gt;2.使用多级命名空间。&lt;/p&gt;
@@ -663,7 +663,583 @@ strong,em{font-style:normal;font-weight:bold;}
     alert(GLOBAL.A.a);
 })();
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用单一的全局变量 GlOBAL ，匿名空间里需要保存的属性都在全局变量 GLOBAL 的基础上使用命名空间的方式进行拓展。这里给命名空间起名字也需要很讲究，好的命名规则会对团队协同合作有很大的帮助&lt;/p&gt;
-</content>
+&lt;h2 id=&quot;js一些常用的封装&quot;&gt;&lt;a href=&quot;#js一些常用的封装&quot; class=&quot;headerlink&quot; title=&quot;js一些常用的封装&quot;&gt;&lt;/a&gt;js一些常用的封装&lt;/h2&gt;&lt;p&gt;———————-解决兼容性方法———————–  &lt;/p&gt;
+&lt;h3 id=&quot;获取元素的计算后样式属性&quot;&gt;&lt;a href=&quot;#获取元素的计算后样式属性&quot; class=&quot;headerlink&quot; title=&quot;获取元素的计算后样式属性&quot;&gt;&lt;/a&gt;获取元素的计算后样式属性&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function getStyle(element,attr) {
+    if (element.currentStyle) {
+        return element.currentStyle[attr];
+    }else{
+        return window.getComputedStyle(element,null){
+            return window.getComputedStyle(element,null)[attr];
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;scroll-top-or-scroll-left获取已经滚动到元素的左边界或上边界的像素数&quot;&gt;&lt;a href=&quot;#scroll-top-or-scroll-left获取已经滚动到元素的左边界或上边界的像素数&quot; class=&quot;headerlink&quot; title=&quot;scroll().top or scroll().left获取已经滚动到元素的左边界或上边界的像素数&quot;&gt;&lt;/a&gt;scroll().top or scroll().left获取已经滚动到元素的左边界或上边界的像素数&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function scroll() {
+        return {
+            top:window.pageYOffset || document.documentElement.scrollTop || document.body.scrollLeft || 0,
+            left:window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+        };
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;获取可视窗口的大小&quot;&gt;&lt;a href=&quot;#获取可视窗口的大小&quot; class=&quot;headerlink&quot; title=&quot;获取可视窗口的大小&quot;&gt;&lt;/a&gt;获取可视窗口的大小&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function client() {
+    return {
+        width:window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth ||0,
+        height:window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0
+    };
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;event兼容&quot;&gt;&lt;a href=&quot;#event兼容&quot; class=&quot;headerlink&quot; title=&quot;event兼容&quot;&gt;&lt;/a&gt;event兼容&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;//event兼容
+var eventCompatible = {
+    //event兼容
+    getEvent: function(event) {
+        return event || window.event;
+    },
+
+    //阻止冒泡事件
+    stopPropagation: function(event) {
+        var event = event || window.event;
+        if(event &amp;amp;&amp;amp; event.stopPropagation) {
+            return event.stopPropagation();
+        } else {
+            return event.cancelBubble = true;
+        }
+    },
+
+    //event.target 事件的目标 (事件委托)
+    getTarget: function(event) {
+        var event = event || window.event;
+        return event.target ? event.target : event.srcElement;
+    },
+
+    //鼠标页面坐标
+    page: function(event) {
+        var event = event || window.event;
+        return {
+            x: event.pageX || event.clientX + document.documentElement.scrollLeft,
+            y: event.pageY || event.clientY + document.documentElement.scrollTop
+        };
+    },
+
+    //阻止默认行为
+    prevent: function(event){
+        var event = event || window.event;
+        if (event.preventDefault) {
+            return event.preventDefault();
+        }else{
+            return event.returnValue = false;
+        }
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;监听事件兼容处理&quot;&gt;&lt;a href=&quot;#监听事件兼容处理&quot; class=&quot;headerlink&quot; title=&quot;监听事件兼容处理&quot;&gt;&lt;/a&gt;监听事件兼容处理&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function eventListener(obj, type, handler, unbind) {
+    if(unbind === true) {
+        if(obj.removeEventListener) {
+            obj.removeEventListener(type, handler);
+        } else {
+            obj.detachEvent(&amp;quot;on&amp;quot; + type, handler);
+        };
+    } else {
+        if(obj.addEventListener) {
+            obj.addEventListener(type, handler);
+        } else {
+            obj.attachEvent(&amp;quot;on&amp;quot; + type, handler);
+        };
+    };
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;清楚选择&quot;&gt;&lt;a href=&quot;#清楚选择&quot; class=&quot;headerlink&quot; title=&quot;清楚选择&quot;&gt;&lt;/a&gt;清楚选择&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function clearSelection() {
+    return window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;##——————-自定义的方法—————————&lt;/p&gt;
+&lt;h3 id=&quot;trim去掉字符串两端的空格&quot;&gt;&lt;a href=&quot;#trim去掉字符串两端的空格&quot; class=&quot;headerlink&quot; title=&quot;trim去掉字符串两端的空格&quot;&gt;&lt;/a&gt;trim去掉字符串两端的空格&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function trim(str) {
+    return str.replace(/^\s+|\s+$/g, &amp;quot;&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;十进制转其他进制-type类型有”bit”、”oct”、”hex”&quot;&gt;&lt;a href=&quot;#十进制转其他进制-type类型有”bit”、”oct”、”hex”&quot; class=&quot;headerlink&quot; title=&quot;十进制转其他进制 type类型有”bit”、”oct”、”hex”&quot;&gt;&lt;/a&gt;十进制转其他进制 type类型有”bit”、”oct”、”hex”&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function changeFromDec(type, value) {
+    var arr = [&amp;quot;0&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;3&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;5&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;7&amp;quot;, &amp;quot;8&amp;quot;, &amp;quot;9&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;E&amp;quot;, &amp;quot;F&amp;quot;]    
+    var scale = 0;
+    var sys = &amp;quot;&amp;quot;;
+    if(!/^[\d]*$/g.test(value)) {
+        return &amp;quot;&amp;quot;;
+    }
+    if(!value) {
+        return &amp;quot;&amp;quot;;
+    }
+    if(type === &amp;quot;bit&amp;quot;) {
+        scale = 2;
+    } else if(type === &amp;quot;oct&amp;quot;) {
+        scale = 8;
+    } else if(type === &amp;quot;hex&amp;quot;) {
+        scale = 16;
+        while(true) {
+            sys = arr[value % 16] + sys;
+            value = parseInt(value / 16);
+            if(!value) {
+                break;
+            }
+        }
+        return sys;
+    }
+    while(true) {
+        sys = value % scale + sys;
+        value = parseInt(value / scale);
+        if(!value) {
+            break;
+        }
+    }
+    return sys;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;二进制、八进制、十六进制转十进制&quot;&gt;&lt;a href=&quot;#二进制、八进制、十六进制转十进制&quot; class=&quot;headerlink&quot; title=&quot;二进制、八进制、十六进制转十进制;&quot;&gt;&lt;/a&gt;二进制、八进制、十六进制转十进制;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function toDec(type, value) {
+    if(typeof value === &amp;quot;number&amp;quot;) value += &amp;quot;&amp;quot;;
+    var scale = 0;
+    var flag = false;
+    if(type === &amp;quot;bit&amp;quot;) {
+        flag = /^[01]*$/g.test(value);
+        scale = 2;
+    } else if(type === &amp;quot;oct&amp;quot;) {
+        flag = /^[0-7]*$/g.test(value)
+        scale = 8;
+    } else if(type === &amp;quot;hex&amp;quot;) {
+        flag = /^[0-9a-fA-F]*$/g.test(value)
+        scale = 16;
+    }
+    if(!flag || !value) return;
+    var arr = value.split(&amp;quot;&amp;quot;);
+    var dec = 0;
+    for(var i = 0; i &amp;lt; arr.length; i++) {
+        if(isNaN(parseInt(arr[i]))) {
+            var charCode = arr[i].charCodeAt(0);
+            if(charCode &amp;gt; 64 &amp;amp;&amp;amp; charCode &amp;lt; 71) {
+                dec += (charCode - 55) * Math.pow(scale, arr.length - 1 - i)
+            } else if(charCode &amp;gt; 96 &amp;amp;&amp;amp; charCode &amp;lt; 103) {
+                dec += (charCode - 87) * Math.pow(scale, arr.length - 1 - i)
+            }
+        } else {
+            dec += arr[i] * Math.pow(scale, arr.length - 1 - i);
+        }
+    }
+    return dec;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;转动时钟&quot;&gt;&lt;a href=&quot;#转动时钟&quot; class=&quot;headerlink&quot; title=&quot;转动时钟&quot;&gt;&lt;/a&gt;转动时钟&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function clock() {
+    var d = new Date();
+    var ms = d.getMilliseconds();
+    var s = d.getSeconds() + ms / 1000;
+    var m = d.getMinutes() + s / 60;
+    var h = d.getHours() + m / 60;
+    second.style.transform = &amp;quot;rotate(&amp;quot; + s * 6 + &amp;quot;deg)&amp;quot;;
+    minute.style.transform = &amp;quot;rotate(&amp;quot; + m * 6 + &amp;quot;deg)&amp;quot;;
+    hour.style.transform = &amp;quot;rotate(&amp;quot; + h * 30 + &amp;quot;deg)&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;匀速动画&quot;&gt;&lt;a href=&quot;#匀速动画&quot; class=&quot;headerlink&quot; title=&quot;匀速动画&quot;&gt;&lt;/a&gt;匀速动画&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function animate(obj, attr, distance) {
+    var step = 20;
+    var leader = parseInt(getStyle(obj, attr)) || 0
+    clearInterval(obj.atimer);
+    obj.atimer = setInterval(function() {
+        distance &amp;gt; leader ? leader += step : leader -= step;
+        if(Math.abs(distance - leader) &amp;gt; step) {
+            obj.style[attr] = leader + &amp;quot;px&amp;quot;;
+        } else {
+            obj.style[attr] = distance + &amp;quot;px&amp;quot;;
+            clearInterval(obj.atimer);
+        }
+    }, 15);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;缓动动画-单个数值属性&quot;&gt;&lt;a href=&quot;#缓动动画-单个数值属性&quot; class=&quot;headerlink&quot; title=&quot;缓动动画(单个数值属性)&quot;&gt;&lt;/a&gt;缓动动画(单个数值属性)&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function slowSpeedAnimate(element, attr, distance) {
+    clearInterval(element.timer);
+    element.timer = setInterval(function() {
+        var removing = parseInt(getStyle(element, attr)) || 0; //element.offsetLeft;
+        var step = (distance - removing) / 20;
+        step = step &amp;gt; 0 ? Math.ceil(step) : Math.floor(step);
+        removing = removing + step;
+        element.style[attr] = removing + &amp;quot;px&amp;quot;;
+        if(removing == distance) {
+            clearInterval(element.timer);
+        }
+    }, 15)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;缓动动画-多个数值属性&quot;&gt;&lt;a href=&quot;#缓动动画-多个数值属性&quot; class=&quot;headerlink&quot; title=&quot;缓动动画(多个数值属性)&quot;&gt;&lt;/a&gt;缓动动画(多个数值属性)&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function moreAnimate(element, json, interval, fn) {
+    clearInterval(element.timer);
+    element.timer = setInterval(function() {
+        var flag = true;
+        for(var k in json) {
+            if(k === &amp;quot;opacity&amp;quot;) {
+                var removing = getStyle(element, k) * 100; //element.offsetLeft;
+                var distance = json[k] * 100;
+                var step = (distance - removing) / interval;
+                step = step &amp;gt; 0 ? Math.ceil(step) : Math.floor(step);
+                removing = removing + step;
+                element.style[k] = removing / 100;
+            } else {
+                var removing = parseInt(getStyle(element, k)) || 0; //element.offsetLeft;
+                var distance = json[k];
+                var step = (distance - removing) / interval;
+                step = step &amp;gt; 0 ? Math.ceil(step) : Math.floor(step);
+                removing = removing + step;
+                element.style[k] = removing + &amp;quot;px&amp;quot;;
+            }
+            if(removing != distance) {
+                flag = false;
+            }
+        }
+        if(flag) {
+            clearInterval(element.timer);
+            if(fn) {
+                fn();
+            }
+        }
+
+    }, 15)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;进度条&quot;&gt;&lt;a href=&quot;#进度条&quot; class=&quot;headerlink&quot; title=&quot;进度条&quot;&gt;&lt;/a&gt;进度条&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;    function Progress(id, width, height, outClass, inClass) {
+    this.width = width;
+    this.height = height;
+    this.color = &amp;quot;#fff&amp;quot;;
+    this.progress = document.createElement(&amp;quot;div&amp;quot;);
+    this.percentage = document.createElement(&amp;quot;div&amp;quot;);
+    this.filler = document.createElement(&amp;quot;div&amp;quot;);
+    var element = document.getElementById(id);
+    if(width) {
+        this.progress.style.width = this.width + &amp;quot;px&amp;quot;;
+    } else {
+        this.progress.style.width = &amp;quot;200px&amp;quot;;
+    }
+    if(height) {
+        this.progress.style.height = this.height + &amp;quot;px&amp;quot;;
+    } else {
+        this.progress.style.height = &amp;quot;20px&amp;quot;;
+    }
+    if(typeof outClass === &amp;quot;string&amp;quot; &amp;amp;&amp;amp; (/^[a-zA-Z](\w|[-])+$/g.test(outClass))) {
+        this.progress.className = outClass;
+    } else {
+        this.progress.style.border = &amp;quot;1px solid #cccccc&amp;quot;;
+        this.progress.style.backgroundImage = &amp;quot;linear-gradient(to bottom, #ccc 0%, #fff 40%, #ccc 100%)&amp;quot;;
+        this.progress.style.borderRadius = &amp;quot;10px&amp;quot;;
+    }
+    this.progress.style.overflow = &amp;quot;hidden&amp;quot;;
+    this.progress.style.position = &amp;quot;relative&amp;quot;;
+    element.appendChild(this.progress);
+    //
+    this.progress.appendChild(this.percentage);
+    this.percentage.style.width = &amp;quot;100%&amp;quot;;
+    this.percentage.style.height = &amp;quot;100%&amp;quot;;
+    this.percentage.style.textAlign = &amp;quot;center&amp;quot;;
+    this.percentage.style.position = &amp;quot;absolute&amp;quot;;
+    this.percentage.innerHTML = &amp;quot;0%&amp;quot;;
+    //
+    this.progress.appendChild(this.filler);
+    this.filler.style.height = &amp;quot;100%&amp;quot;;
+    this.filler.style.width = 0;
+    if(typeof inClass === &amp;quot;string&amp;quot; &amp;amp;&amp;amp; (/^[a-zA-Z](\w|[-])+$/g.test(inClass))) {
+        this.filler.className = inClass;
+    } else {
+        this.filler.style.backgroundColor = &amp;quot;#DC7BBE&amp;quot;;
+        this.filler.style.backgroundImage = &amp;quot;linear-gradient(to bottom, #0AF 0%, #0ff 40%, #0AF 100%)&amp;quot;;
+    }
+}
+Progress.prototype.fill = function(value) {
+    if(value) {
+        this.percentage.innerHTML = value + &amp;quot;%&amp;quot;;
+        this.percentage.style.color = this.color;
+        value = (this.progress.offsetWidth - 2) / 100 * value;
+        this.filler.style.width = value + &amp;quot;px&amp;quot;;
+    } else {
+        this.filler.style.width = 0;
+        this.percentage.innerHTML = &amp;quot;0%&amp;quot;;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;ajax封装&quot;&gt;&lt;a href=&quot;#ajax封装&quot; class=&quot;headerlink&quot; title=&quot;ajax封装&quot;&gt;&lt;/a&gt;ajax封装&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function ajax(a, b) { 
+    //type, url, async, dataType, data, fn
+    var xhr = null,
+        type = &amp;quot;get&amp;quot;,
+        url = &amp;quot;#&amp;quot;,
+        async = true,
+        dataType = &amp;quot;text&amp;quot;,
+        data = &amp;quot;&amp;quot;,
+        jsonp = &amp;quot;&amp;quot;,
+        jsonpCallback = &amp;quot;&amp;quot;,
+        methodName = &amp;quot;&amp;quot;,
+        c = null;
+    if(typeof a === &amp;quot;string&amp;quot;) {
+        url = a;
+    }
+    if(typeof a === &amp;quot;object&amp;quot;) {
+        c = a;
+    } else if(typeof b == &amp;quot;object&amp;quot;) {
+        c = b;
+    }
+    if(c) {
+        if(c.type &amp;amp;&amp;amp; typeof c.type === &amp;quot;string&amp;quot;) {
+            type = c.type;
+        };
+        if(c.url &amp;amp;&amp;amp; typeof c.url === &amp;quot;string&amp;quot;) {
+            url = c.url;
+        };
+        if(c.async &amp;amp;&amp;amp; typeof c.async === &amp;quot;boolean&amp;quot;) {
+            async = c.async;
+        };
+        if(c.dataType &amp;amp;&amp;amp; typeof c.dataType === &amp;quot;string&amp;quot;) {
+            dataType = c.dataType;
+        };
+        if(c.data &amp;amp;&amp;amp; typeof c.data === &amp;quot;object&amp;quot;) {
+            var arr = [];
+            for(k in c.data) {
+                arr.push(k + &amp;quot;=&amp;quot; + c.data[k]);
+            }
+            data = arr.join(&amp;quot;&amp;amp;&amp;quot;);
+        };
+        if(c.jsonp &amp;amp;&amp;amp; typeof c.jsonp === &amp;quot;string&amp;quot;) {
+            if(!c.dataType) {
+                dataType = &amp;quot;jsonp&amp;quot;;
+            }
+            jsonp = c.jsonp;
+            if(data) {
+                data += &amp;quot;&amp;amp;&amp;quot;;
+            }
+        } else {
+            jsonp = &amp;quot;callback&amp;quot;;
+        }
+        if(c.jsonpCallback &amp;amp;&amp;amp; typeof c.jsonpCallback === &amp;quot;string&amp;quot;) {
+            methodName = c.jsonpCallback;
+        } else {
+            methodName = &amp;quot;jquery&amp;quot; + new Date().getTime() + &amp;quot;_&amp;quot; + (Math.random() + &amp;quot;&amp;quot;).substr(2);
+        }
+    };
+    if(dataType == &amp;quot;jsonp&amp;quot;) {
+        data += jsonp + &amp;quot;=&amp;quot; + methodName;
+        window[methodName] = function(data) {
+            c.success(data);
+        }
+        var script = document.createElement(&amp;quot;script&amp;quot;);
+        script.src = url + &amp;quot;?&amp;quot; + data;
+        var head = document.getElementsByTagName(&amp;quot;head&amp;quot;)[0];
+        head.appendChild(script);
+    } else {
+        //ajax部分
+        if(window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else {
+            xhr = ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;);
+        }
+        if(type == &amp;quot;get&amp;quot;) {
+            if(data) {
+                url += encodeURI(&amp;quot;?&amp;quot; + data);
+            }
+            data = null;
+        };
+        xhr.open(type, url, async);
+        if(type == &amp;quot;post&amp;quot;) {
+            xhr.setRequestHeader(&amp;quot;Content-Type&amp;quot;, &amp;quot;application/x-www-form-urlencoded&amp;quot;);
+        };
+        xhr.send(data);
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4 &amp;amp;&amp;amp; xhr.status == 200) {
+                var obj = {
+                    text: xhr.responseText,
+                    json: JSON.parse(xhr.responseText),
+                };
+                var data = obj[dataType];
+                if(typeof c.success === &amp;quot;function&amp;quot;) {
+                    c.success(data);
+                }
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;millisec是距离-GMT-时间-1970-年-1-月-1-日午夜的毫秒数-解析通过ajax返回的数据中的毫秒数值的日期&quot;&gt;&lt;a href=&quot;#millisec是距离-GMT-时间-1970-年-1-月-1-日午夜的毫秒数-解析通过ajax返回的数据中的毫秒数值的日期&quot; class=&quot;headerlink&quot; title=&quot;millisec是距离 GMT 时间 1970 年 1 月 1 日午夜的毫秒数 (解析通过ajax返回的数据中的毫秒数值的日期)&quot;&gt;&lt;/a&gt;millisec是距离 GMT 时间 1970 年 1 月 1 日午夜的毫秒数 (解析通过ajax返回的数据中的毫秒数值的日期)&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function getFullDate(millisec, lang) {
+    var data = new Date();
+    data.setTime(millisec);
+    var year = data.getFullYear(),
+        month = data.getMonth(),
+        day = data.getDate(),
+        week = data.getDay(),
+        hour = data.getHours(),
+        minute = data.getMinutes(),
+        second = data.getSeconds(),
+        am = &amp;quot;am&amp;quot;,
+        pm = &amp;quot;pm&amp;quot;,
+        enWeek = [&amp;quot;Sunday&amp;quot;, &amp;quot;Monday&amp;quot;, &amp;quot;Tuesday&amp;quot;, &amp;quot;Wednesday&amp;quot;, &amp;quot;Thursday&amp;quot;, &amp;quot;Friday&amp;quot;, &amp;quot;Saturday&amp;quot;],
+        cnWeek = [&amp;quot;星期天&amp;quot;, &amp;quot;星期一&amp;quot;, &amp;quot;星期二&amp;quot;, &amp;quot;星期三&amp;quot;, &amp;quot;星期四&amp;quot;, &amp;quot;星期五&amp;quot;, &amp;quot;星期六&amp;quot;],
+        enMonth = [&amp;quot;January&amp;quot;, &amp;quot;February&amp;quot;, &amp;quot;March&amp;quot;, &amp;quot;April&amp;quot;, &amp;quot;May&amp;quot;, &amp;quot;June&amp;quot;, &amp;quot;July&amp;quot;, &amp;quot;August&amp;quot;, &amp;quot;September&amp;quot;, &amp;quot;October&amp;quot;, &amp;quot;November&amp;quot;, &amp;quot;December&amp;quot;],
+        cnMonth = [&amp;quot;一月&amp;quot;, &amp;quot;二月&amp;quot;, &amp;quot;三月&amp;quot;, &amp;quot;四月&amp;quot;, &amp;quot;五月&amp;quot;, &amp;quot;六月&amp;quot;, &amp;quot;七月&amp;quot;, &amp;quot;八月&amp;quot;, &amp;quot;九月&amp;quot;, &amp;quot;十月&amp;quot;, &amp;quot;十一月&amp;quot;, &amp;quot;十二月&amp;quot;],
+        cnDay = [&amp;quot;廿&amp;quot;, &amp;quot;一&amp;quot;, &amp;quot;二&amp;quot;, &amp;quot;三&amp;quot;, &amp;quot;四&amp;quot;, &amp;quot;五&amp;quot;, &amp;quot;六&amp;quot;, &amp;quot;七&amp;quot;, &amp;quot;八&amp;quot;, &amp;quot;九&amp;quot;, &amp;quot;十&amp;quot;]    if(lang == &amp;quot;cn&amp;quot;) {
+        am = &amp;quot;上午&amp;quot;;
+        pm = &amp;quot;下午&amp;quot;;
+    };
+    day = day &amp;lt; 10 ? &amp;quot;0&amp;quot; + day : day;
+    var obj = {
+        year: year,
+        month: lang ? (lang == &amp;quot;cn&amp;quot; ? cnMonth[month] : enMonth[month]) : (month &amp;lt; 10 ? &amp;quot;0&amp;quot; + (month + 1) : (month + 1)),
+        day: day,
+        week: lang == &amp;quot;en&amp;quot; ? enWeek[week] : cnWeek[week],
+        hour: hour &amp;lt; 10 ? &amp;quot;0&amp;quot; + hour : hour,
+        minute: minute &amp;lt; 10 ? &amp;quot;0&amp;quot; + minute : minute,
+        second: second &amp;lt; 10 ? &amp;quot;0&amp;quot; + second : second,
+        ms: data.getMilliseconds(),
+        am: am,
+        pm: pm,
+        Hour: hour + minute / 60 &amp;gt; 12 ? (hour == 12 ? pm + hour : pm + hour % 12) : am + hour,
+    };
+    return obj;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;右键菜单&quot;&gt;&lt;a href=&quot;#右键菜单&quot; class=&quot;headerlink&quot; title=&quot;右键菜单&quot;&gt;&lt;/a&gt;右键菜单&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function RightMenu(area) {
+    this.area = area;
+    this.menu = null;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;根据传入的值获取目标&quot;&gt;&lt;a href=&quot;#根据传入的值获取目标&quot; class=&quot;headerlink&quot; title=&quot;根据传入的值获取目标&quot;&gt;&lt;/a&gt;根据传入的值获取目标&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;RightMenu.prototype.target = function(area) {
+    if(typeof area === &amp;quot;string&amp;quot;) {
+        return document.getElementById(area);
+    } else if(typeof area === &amp;quot;object&amp;quot;) {
+        return area;
+    }
+}
+
+RightMenu.prototype.init = function(data,defaultStyle, userStyle, hoverStyle) {
+    this.createMenu(data, defaultStyle, userStyle, hoverStyle);
+    this.showMenu();
+}
+
+RightMenu.prototype.createMenu = function(data, defaultStyle, userStyle, hoverStyle) {
+    if(typeof defaultStyle == &amp;quot;string&amp;quot; &amp;amp;&amp;amp; !defaultStyle) {
+        hoverStyle = userStyle;
+        userStyle = defaultStyle;
+        defaultStyle = true;
+    }
+    //创建菜单及样式
+    this.menu = document.createElement(&amp;quot;ul&amp;quot;);
+    this.menu.style.position = &amp;quot;absolute&amp;quot;;
+    this.menu.style.margin = 0;
+    this.menu.style.padding = &amp;quot;2px&amp;quot;;
+    this.menu.style.listStyle = &amp;quot;none&amp;quot;;
+    this.menu.style.display = &amp;quot;none&amp;quot;;
+    if(!defaultStyle) {
+        this.menu.style.border = &amp;quot;1px solid #DDDDDD&amp;quot;;
+        this.menu.style.backgroundColor = &amp;quot;#CCCCCC&amp;quot;;
+        this.menu.style.boxShadow = &amp;quot;5px 5px 5px #ccc&amp;quot;;
+    } else {
+        this.menu.className = userStyle;
+    }
+    //选中项样式
+    var hover = document.createElement(&amp;quot;span&amp;quot;);
+    hover.style.display = &amp;quot;block&amp;quot;;
+    hover.style.position = &amp;quot;absolute&amp;quot;
+    hover.style.top = 0;
+    hover.style.left = 0;
+    hover.style.boxSizing = &amp;quot;border-box&amp;quot;;
+    hover.style.width = &amp;quot;100%&amp;quot;;
+    hover.style.height = &amp;quot;100%&amp;quot;;
+    if((!defaultStyle) || (defaultStyle &amp;amp;&amp;amp; !hoverStyle)) {
+        hover.style.border = &amp;quot;1px solid #aaa&amp;quot;;
+        hover.style.borderRadius = &amp;quot;5px&amp;quot;;
+        hover.style.backgroundImage = &amp;quot;linear-gradient(to bottom,rgba(255,255,255,0.5)0%,rgba(255,255,255,0.1)50%,rgba(255,255,255,0.1)100%)&amp;quot;;
+
+    } else {
+        hover.className = hoverStyle;
+    }
+    //创建菜单项
+    for(var item in data) {
+        var li = document.createElement(&amp;quot;li&amp;quot;);
+        li.style.position = &amp;quot;relative&amp;quot;;
+        li.style.padding = &amp;quot;5px 10px&amp;quot;;
+        li.style.cursor = &amp;quot;pointer&amp;quot;;
+        //绑定事件
+        li.addEventListener(&amp;quot;mouseenter&amp;quot;, function() {
+            this.appendChild(hover);
+        });
+        li.addEventListener(&amp;quot;mouseleave&amp;quot;, function() {
+            this.removeChild(hover);
+        });
+        var itemData = data[item]        for(var obj in itemData) {
+            if(typeof itemData[obj] === &amp;quot;string&amp;quot;) {
+                li.innerHTML = itemData[obj];
+            } else if(typeof itemData[obj] === &amp;quot;object&amp;quot;) {
+                var handlerData = itemData[obj];
+                for(var type in handlerData) {
+                    li.addEventListener(type, handlerData[type]);
+                }
+            }
+        }
+        this.menu.appendChild(li);
+    }
+    this.target(this.area).appendChild(this.menu);
+}
+
+RightMenu.prototype.showMenu = function() {
+    var that = this;
+    this.menu.parentNode.oncontextmenu = function(ev) {
+        that.menu.style.display = &amp;quot;block&amp;quot;;
+        that.menu.style.left = ev.pageX + &amp;quot;px&amp;quot;;
+        that.menu.style.top = ev.pageY + &amp;quot;px&amp;quot;;
+        if(that.menu.parentNode.offsetWidth &amp;lt; that.menu.offsetLeft + that.menu.offsetWidth) {
+            that.menu.style.left = ev.pageX - that.menu.offsetWidth + &amp;quot;px&amp;quot;;
+        };
+        if(that.menu.parentNode.offsetHeight &amp;lt; that.menu.offsetTop + that.menu.offsetHeight) {
+            that.menu.style.top = ev.pageY - that.menu.offsetHeight + &amp;quot;px&amp;quot;;
+        };
+        return false;
+    }
+    this.menu.parentNode.onclick = function() {
+        that.menu.style.display = &amp;quot;none&amp;quot;;
+    }
+    document.onkeydown = function(e) {
+        if(e.keyCode == 18 || e.keyCode == 27) {
+            that.menu.style.display = &amp;quot;none&amp;quot;;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;拖拽&quot;&gt;&lt;a href=&quot;#拖拽&quot; class=&quot;headerlink&quot; title=&quot;拖拽&quot;&gt;&lt;/a&gt;拖拽&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function Drag(target, area) {
+    this.target = target;
+    this.area = area;
+}
+
+//根据传入的值获取目标
+Drag.prototype.dragTarget = function(target) {
+    if(typeof target === &amp;quot;string&amp;quot;) {
+        return document.getElementById(target);
+    } else if(typeof target === &amp;quot;object&amp;quot;) {
+        return target;
+    }
+}
+
+Drag.prototype.init = function() {
+    this.target = this.dragTarget(this.target);
+    this.target.style.position = &amp;quot;absolute&amp;quot;;
+    this.target.setAttribute(&amp;quot;draggable&amp;quot;,&amp;quot;true&amp;quot;);
+    this.dragEvent();
+}
+
+Drag.prototype.dragEvent = function() {
+    var that = this;
+    this.target.onmousedown = function(e) {
+        e = e || window.event;
+        that.disX = e.clientX - that.target.offsetLeft;
+        that.disY = e.clientY - that.target.offsetTop;
+        document.onmousemove = function(e) {
+            that.moveEvent(e);
+        }
+        document.onmouseup = function(){
+            that.target.style.opacity = &amp;quot;1&amp;quot;;
+            document.onmousemove = document.onmouseup = null;
+        }
+        return false;
+    }
+}
+Drag.prototype.moveEvent = function(e) {
+    var limitX = e.clientX - this.disX;
+    var limitY = e.clientY - this.disY;
+    //没有指定区域则用document
+
+    if (!this.area) {
+        this.area = document.documentElement;
+    }
+    if(limitX &amp;lt; this.area.offsetLeft) {
+        limitX = this.area.offsetLeft;
+    } else if(limitX &amp;gt; this.area.clientWidth + this.area.offsetLeft - this.target.offsetWidth) {
+        limitX =  this.area.clientWidth + this.area.offsetLeft - this.target.offsetWidth;
+    }
+    if(limitY &amp;lt; this.area.offsetTop) {
+        limitY = this.area.offsetTop;
+    } else if(limitY &amp;gt; this.area.clientHeight + this.area.offsetTop - this.target.offsetHeight) {
+        limitY = this.area.clientHeight + this.area.offsetTop - this.target.offsetHeight;
+    }
+    this.target.style.left = limitX + &amp;quot;px&amp;quot;;
+    this.target.style.top = limitY + &amp;quot;px&amp;quot;;
+    this.target.style.opacity = &amp;quot;0.8&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
     
