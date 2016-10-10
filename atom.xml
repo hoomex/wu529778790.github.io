@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.shenzjd.cn/"/>
-  <updated>2016-10-10T07:52:44.000Z</updated>
+  <updated>2016-10-10T07:55:40.000Z</updated>
   <id>http://www.shenzjd.cn/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://www.shenzjd.cn/2016/09/10/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
     <id>http://www.shenzjd.cn/2016/09/10/面试总结/</id>
     <published>2016-09-10T12:49:23.000Z</published>
-    <updated>2016-10-10T07:52:44.000Z</updated>
+    <updated>2016-10-10T07:55:40.000Z</updated>
     
-    <content type="html">&lt;p&gt;1，用js写一个函数计算出字符串的长度&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;GBK字符集实际长度计算&lt;/p&gt;
+    <content type="html">&lt;p&gt;1.用js写一个函数计算出字符串的长度&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;GBK字符集实际长度计算&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;function getStrLeng(str) {
     var realLength = 0;
     var len = str.length;
@@ -57,7 +57,7 @@ function getStrLeng(str) {
     return realLength;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在JS中字符串的长度不分中英文字符， 每一个字符都算一个长度，这跟PHP里的strlen()函数就不太一样。PHP里的strlen()函数根据字符集把GBK的中文每个2累加，把UTF-8的中文字符每个按3累加。主要是为了匹配数据库的长度范围内，比如GBK的数据库某字段是varchar(10)，那么就相当于5个汉字长度，一个汉字等于两个字母长度。如果是UTF8的数据库则是每个汉字长度为3    &lt;/p&gt;
-&lt;p&gt;2，html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和HTML5？  &lt;/p&gt;
+&lt;p&gt;2.html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和HTML5？  &lt;/p&gt;
 &lt;p&gt;HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。  &lt;/p&gt;
 &lt;p&gt;绘画 canvas  &lt;/p&gt;
 &lt;p&gt;用于媒介回放的 video 和 audio 元素  &lt;/p&gt;
@@ -70,11 +70,11 @@ function getStrLeng(str) {
 &lt;p&gt;对可用性产生负面影响的元素：frame，frameset，noframes；  &lt;/p&gt;
 &lt;p&gt;支持HTML5新标签：  &lt;/p&gt;
 &lt;p&gt;IE8/IE7/IE6支持通过document.createElement方法产生的标签，&lt;br&gt;可以利用这一特性让这些浏览器支持HTML5新标签，&lt;br&gt;浏览器支持新标签后，还需要添加标签默认的样式&lt;/p&gt;
-&lt;p&gt;3，&lt;br&gt;请描述一下 cookies，sessionStorage 和 localStorage 的区别？&lt;br&gt;cookies在浏览器之间来回传递，sessionStorage和localStorage不会，&lt;br&gt;sessionStorage和localStorage储存空间更大，有更多丰富易用的接口，有各自独立存储的空间，&lt;br&gt;4，如何实现浏览器内多个标签页之间的通信?&lt;br&gt;调用localstorge、cookies等本地存储方式&lt;br&gt;5，&lt;br&gt;添加 删除 替换 插入到某个接点的方法&lt;/p&gt;
+&lt;p&gt;3.请描述一下 cookies，sessionStorage 和 localStorage 的区别？&lt;br&gt;cookies在浏览器之间来回传递，sessionStorage和localStorage不会，&lt;br&gt;sessionStorage和localStorage储存空间更大，有更多丰富易用的接口，有各自独立存储的空间，&lt;br&gt;4.如何实现浏览器内多个标签页之间的通信?&lt;br&gt;调用localstorge、cookies等本地存储方式&lt;br&gt;5.添加 删除 替换 插入到某个接点的方法&lt;/p&gt;
 &lt;p&gt;obj.appendChidl()  &lt;/p&gt;
 &lt;p&gt;obj.innersetBefore  &lt;/p&gt;
 &lt;p&gt;obj.replaceChild  &lt;/p&gt;
-&lt;p&gt;obj.removeChild&lt;br&gt;5，说一下什么是javascript的同源策略？&lt;br&gt;一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合&lt;br&gt;6，编写一个b继承a的方法;&lt;/p&gt;
+&lt;p&gt;obj.removeChild&lt;br&gt;6.说一下什么是javascript的同源策略？&lt;br&gt;一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合&lt;br&gt;7.编写一个b继承a的方法;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;function A(name){
     this.name = name;
     this.sayHello = function(){alert(this.name+” say Hello!”);};
@@ -90,7 +90,7 @@ function B(name,id){
     
     <summary type="html">
     
-      &lt;p&gt;1，用js写一个函数计算出字符串的长度&lt;br&gt;
+      &lt;p&gt;1.用js写一个函数计算出字符串的长度&lt;br&gt;
     
     </summary>
     
