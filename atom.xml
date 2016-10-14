@@ -535,6 +535,60 @@ strong,em{font-style:normal;font-weight:bold;}
   </entry>
   
   <entry>
+    <title>js笔记</title>
+    <link href="http://www.shenzjd.cn/2016/03/14/js%E7%AC%94%E8%AE%B0/"/>
+    <id>http://www.shenzjd.cn/2016/03/14/js笔记/</id>
+    <published>2016-03-14T07:17:43.000Z</published>
+    <updated>2016-10-14T07:19:28.331Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;js位置篇之窗口&quot;&gt;&lt;a href=&quot;#js位置篇之窗口&quot; class=&quot;headerlink&quot; title=&quot;js位置篇之窗口&quot;&gt;&lt;/a&gt;js位置篇之窗口&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;//屏幕大小
+window.screen.width;
+window.screen.height;
+
+//视图
+window.innerWidth;
+window.innerHeight;
+document.documentElement.clientWidth;
+document.documentElement.clientHeight;
+
+//页面的大小
+document.documentElement.offsetWidth;
+document.documentElement.offsetHeight;
+document.body.clientWidth;
+document.body.clientHeight;
+
+//滚动条的位置
+document.documentElement.scrollLeft;
+document.documentElement.scrollTop;
+document.body.scrollTop;
+document.body.scrollLeft;
+
+//跨浏览器获取滚动条的位置
+function getScroll(){
+    return {
+        top : document.documentElement.scrollTop || document.body.scrollTop,
+        left : document.documentElement.scrollLeft || document.body.scrollLeft
+    }
+}
+var scroll = getScroll();
+scroll.top;
+scroll.left;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;js位置篇之窗口&quot;&gt;&lt;a href=&quot;#js位置篇之窗口&quot; class=&quot;headerlink&quot; title=&quot;js位置篇之窗口&quot;&gt;&lt;/a&gt;js位置篇之窗口&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;//屏幕大小
+window.screen.width;
+window.scr
+    
+    </summary>
+    
+    
+      <category term="js笔记" scheme="http://www.shenzjd.cn/tags/js%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>angularjs</title>
     <link href="http://www.shenzjd.cn/2016/03/06/angularjs/"/>
     <id>http://www.shenzjd.cn/2016/03/06/angularjs/</id>
