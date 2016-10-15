@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://www.shenzjd.cn/2016/03/14/js笔记/index.html">
 <meta property="og:site_name" content="神族九帝">
 <meta property="og:description" content="js位置篇之窗口">
-<meta property="og:updated_time" content="2016-10-15T02:10:18.763Z">
+<meta property="og:updated_time" content="2016-10-15T09:51:55.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js笔记">
 <meta name="twitter:description" content="js位置篇之窗口">
@@ -200,7 +200,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js位置篇之窗口"><span class="post-toc-number">1.</span> <span class="post-toc-text">js位置篇之窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#location"><span class="post-toc-number">2.</span> <span class="post-toc-text">location</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js位置篇之窗口"><span class="post-toc-number">1.</span> <span class="post-toc-text">js位置篇之窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#location"><span class="post-toc-number">2.</span> <span class="post-toc-text">location</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Array内置方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">Array内置方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#string类型内置方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">string类型内置方法</span></a></li></ol>
             </nav>
             
         </aside>
@@ -258,7 +258,93 @@ scroll.left;
 // //怎么用循环的方式获取到每位的值
 // (250 / 100)
 // (250 % 100) / 10
-// 250 % 10
+// 250 % 10  
+</code></pre><h3 id="Array内置方法"><a href="#Array内置方法" class="headerlink" title="Array内置方法"></a>Array内置方法</h3><pre><code>var list1 = [3,4,1,2,5,7,6];
+var list2 = [7,8,9,10,11,12];
+//获取数组值
+// var result = list1.valueOf();
+// console.log(result);//[3,4,1,2,5,7,6]
+//分割成指定分隔符的字符串
+// var result = list1.join(&apos;!&apos;);
+// console.log(result);//3!4!1!2!5!7!6
+//在前面添加一个元素,返回的是数组的长度
+// list1.unshift(0);
+// console.log(list1);//[0, 3, 4, 1, 2, 5, 7, 6]
+//在前面删除一个元素
+// list1.shift(0);
+// console.log(list1);
+//颠倒位置
+//var result = list1.reverse();
+//console.log(result);
+//sort排序, 正向排序
+// var result = list2.sort();
+// console.log(result);//[10, 11, 12, 7, 8, 9]
+//连接数组
+// var result = list1.concat(list2);
+// console.log(result);//[3, 4, 1, 2, 5, 7, 6, 7, 8, 9, 10, 11, 12]
+//删除或者替换数组内容
+//splice(位置,删除的个数,替换的内容)
+// var result = list1.splice(0,2,10);
+// console.log(list1);//[10, 1, 2, 5, 7, 6]  
+</code></pre><p>###　date对象的学习<br>    var today = new Date();<br>    //获取当前时间的毫秒数<br>    var hm = today.getTime();<br>    console.log(hm);<br>    var year = today.getFullYear();<br>    console.log(year);<br>    var month = today.getMonth();<br>    console.log(month);<br>    //获取日期<br>    var day = today.getDate();<br>    console.log(day);<br>    var week = today.getDay();<br>    console.log(week);<br>    var hour = today.getHours();<br>    console.log(hour);<br>    var min = today.getMinutes();<br>    console.log(min);<br>    var second = today.getSeconds();<br>    console.log(second);<br>    //获取毫秒<br>    var milsecond = today.getMilliseconds();<br>    console.log(milsecond);  </p>
+<h3 id="string类型内置方法"><a href="#string类型内置方法" class="headerlink" title="string类型内置方法"></a>string类型内置方法</h3><pre><code>var str1 = &apos;我是新创建的第一个字符串&apos;;
+var str2 = &apos;我是创建的第二个字符串&apos;;
+// var result = [];
+// for(var i=0;i&lt;str1.length;i++){
+
+//     //选取每一个字符对应的数组下标
+//     var index = i;
+//     result.push(str1[index] + &apos;0&apos;);
+// }
+// alert(result);
+// alert(str1);
+
+// // 返回指定位置的字符
+// var result = str1.charAt(2);
+// console.log(result);
+// //返回指定位置的字符，但是是以unicode格式返回的
+// var result = str1.charCodeAt(2);
+// console.log(result);
+// //连接字符串的
+// result = str1.concat(str2);
+// console.log(result);
+// //三个截取字符串的函数slice,substring,substr
+// //一个参数的情况
+// var result = str1.slice(2);
+// console.log(result);
+// var result = str1.substring(2);
+// console.log(result);
+// var result = str1.substr(2);
+// console.log(result);
+// var result = str1.slice(-1);
+// console.log(result);
+// var result = str1.substr(-1);
+// console.log(result);
+// //substring负数情况不允许
+// var result = str1.substring(-3);
+// console.log(result);
+
+//两个参数的情况
+//slice和substring是截取的从N开始M结束之间的字符串
+//substr它是截取从N开始,M个字符串
+var result = str1.slice(1,4);
+console.log(result);
+var result = str1.substring(1,4);
+console.log(result);
+//从1开始，截取四个
+var result = str1.substr(0,4);
+console.log(result);
+//返回索引值
+var result = str1.indexOf(&apos;的&apos;);
+console.log(result);
+//lastIndexOf返回最后一个字符串出现的位置
+var result = str1.lastIndexOf(&apos;的&apos;);
+console.log(result);
+//tolowercase,touppercase分别是转化大小写的
+var str3 = &apos;HELLO&apos;;
+var str4 = &apos;world&apos;;
+console.log(str3.toLowerCase());
+document.write(str4.toUpperCase());
 </code></pre>
             <blockquote>
                 <p>
