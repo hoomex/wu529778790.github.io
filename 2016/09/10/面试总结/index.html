@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://www.shenzjd.cn/2016/09/10/面试总结/index.html">
 <meta property="og:site_name" content="神族九帝">
 <meta property="og:description" content="用js写一个函数计算出字符串的长度">
-<meta property="og:updated_time" content="2016-10-10T08:04:44.000Z">
+<meta property="og:updated_time" content="2016-10-15T02:08:59.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试总结">
 <meta name="twitter:description" content="用js写一个函数计算出字符串的长度">
@@ -273,7 +273,99 @@ function B(name,id){
     delete this.temp;       
      this.id = id;   
     this.checkId = function(ID){alert(this.id==ID)};
+}  
+</code></pre><p>面试常见题目</p>
+<pre><code>// 小球从一百米落下，每次弹起的高度是上一次的一半，求第十次
+var s = 100 ;
+var hight = 100 ;
+for (var i = 2; i &lt; 11; i++) {
+    hight /= 2;
+    s = s + hight;
 }
+console.log(hight + &apos; + &apos; + s );
+</code></pre><p>call和apply的区别  </p>
+<pre><code>//     // call的定义
+//     function add(a,b){
+//         console.log(a+b);
+//     }
+//     function reduce(a,b) {
+//         console.log(a-b);
+//     }
+//     add.call(reduce,3,4);//将add方法运用到reduce,结果为4
+//     // call可以改变this的指向
+//     function b() {
+//         console.log(this);
+//     }
+//     b();//window
+//     b.call();//window
+//     b.call(&apos;a&apos;,2,3);//a
+//     // 下面看一个复杂点的例子
+//     function Animal() {
+//         this.name = &apos;animal&apos;;
+//         this.showName = function () {
+//             console.log(this.name);
+//         }
+//     }
+//     function Cat() {
+//         this.name = &apos;cat&apos;;
+//     }
+//     var animal = new Animal();
+//     var cat = new Cat();
+//     animal.showName();//结果为animal
+//     animal.showName.call(cat);//原本cat没有showName方法，但是通过call方法将animal的showName方法应用到cat上,因此结果为cat
+
+    // 实现继承:
+    function Animal(name) {
+        this.name = name ;
+        this.showName = function(){
+            console.log(this.name);
+        }
+    }
+    function Cat(name) {
+        Animal.call(this,name);//将Animal应用到Cat上，因此Cat拥有了Animal的所有属性和方法
+    }
+    var cat = new Cat(&apos;Black Cat&apos;);
+    cat.showName();//浏览器弹出Black Cat
+    // 区别在于 call 的第二个参数可以是任意类型，而apply的第二个参数必须是数组，也可以是arguments  
+</code></pre><p>修改input里面的颜色   </p>
+<pre><code>&lt;input type=&quot;text&quot; class=&quot;color&quot; placeholder=&quot;你好，我会变颜色&quot;&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;nihao ,hahah &quot;&gt;
+
+
+&lt;p class=&quot;weilei&quot;&gt;我是p&lt;/p&gt;  
+</code></pre><p>css：    </p>
+<pre><code>input::-webkit-input-placeholder {
+        color: red;
+}  
+
+input::-moz-placeholder {
+    color: red;
+}
+input:-ms-input-placeholder {
+    color: red;
+}
+input::placeholder {
+    color: red;
+}
+input.color::-webkit-input-placeholder {
+    color: yellow;
+}
+/*.weilei:before {
+    content: &apos;我是p前面的东西&apos;;
+    color: blue;
+}
+.weilei:after {
+    content: &apos; http://www.baidu.com&apos;;
+}
+.weilei {
+    color: red;
+}*/
+/*p:before{   
+    content:&apos;网站名:&apos;;
+}   
+p:after{   
+    content:&apos;\21E0&apos;;
+}*/  
 </code></pre>
             <blockquote>
                 <p>
