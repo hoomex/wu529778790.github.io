@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="神族九帝">
 <meta property="og:description" content="Ajax的核心操作对象是xmlHttpRequest
 　　  简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调">
-<meta property="og:updated_time" content="2016-08-16T07:26:28.000Z">
+<meta property="og:updated_time" content="2016-10-16T02:22:39.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js通过Ajax异步操作后端xml数据的基本原理">
 <meta name="twitter:description" content="Ajax的核心操作对象是xmlHttpRequest
@@ -206,7 +206,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js中几种实用的跨域方法原理详解"><span class="post-toc-number">1.</span> <span class="post-toc-text">js中几种实用的跨域方法原理详解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ajax的简单发送"><span class="post-toc-number">2.</span> <span class="post-toc-text">ajax的简单发送</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ajaxjson数据格式"><span class="post-toc-number">3.</span> <span class="post-toc-text">ajaxjson数据格式</span></a></li></ol>
             </nav>
             
         </aside>
@@ -313,7 +313,631 @@
 20
     &lt;/book&gt;
 21
-    &lt;/bookstore&gt;
+    &lt;/bookstore&gt;  
+</code></pre><h3 id="js中几种实用的跨域方法原理详解"><a href="#js中几种实用的跨域方法原理详解" class="headerlink" title="js中几种实用的跨域方法原理详解"></a>js中几种实用的跨域方法原理详解</h3><p> <a href="http://www.cnblogs.com/2050/p/3191744.html" target="_blank" rel="external">参考博客</a>  </p>
+<h3 id="ajax的简单发送"><a href="#ajax的简单发送" class="headerlink" title="ajax的简单发送"></a>ajax的简单发送</h3><p>前段代码  </p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;Demo&lt;/title&gt;
+&lt;style&gt;
+body, input, select, button, h1 {
+    font-size: 28px;
+    line-height:1.7;
+}
+&lt;/style&gt;    
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;员工查询&lt;/h1&gt;
+
+&lt;label&gt;请输入员工编号：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;keyword&quot; /&gt;
+&lt;button id=&quot;search&quot;&gt;查询&lt;/button&gt;
+&lt;p id=&quot;searchResult&quot;&gt;&lt;/p&gt;
+
+&lt;h1&gt;员工新建&lt;/h1&gt;
+&lt;label&gt;请输入员工姓名：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffName&quot; /&gt;&lt;br&gt;
+&lt;label&gt;请输入员工编号：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffNumber&quot; /&gt;&lt;br&gt;
+&lt;label&gt;请选择员工性别：&lt;/label&gt;
+&lt;select id=&quot;staffSex&quot;&gt;
+&lt;option&gt;女&lt;/option&gt;
+&lt;option&gt;男&lt;/option&gt;
+&lt;/select&gt;&lt;br&gt;
+&lt;label&gt;请输入员工职位：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffJob&quot; /&gt;&lt;br&gt;
+&lt;button id=&quot;save&quot;&gt;保存&lt;/button&gt;
+&lt;p id=&quot;createResult&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+document.getElementById(&quot;search&quot;).onclick = function() { 
+    var request = new XMLHttpRequest();
+    request.open(&quot;GET&quot;, &quot;server.php?number=&quot; + document.getElementById(&quot;keyword&quot;).value);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState===4) {
+            if (request.status===200) { 
+                document.getElementById(&quot;searchResult&quot;).innerHTML = request.responseText;
+            } else {
+                alert(&quot;发生错误：&quot; + request.status);
+            }
+        } 
+    }
+}
+
+document.getElementById(&quot;save&quot;).onclick = function() { 
+    var request = new XMLHttpRequest();
+    request.open(&quot;POST&quot;, &quot;server.php&quot;);
+    var data = &quot;name=&quot; + document.getElementById(&quot;staffName&quot;).value 
+                      + &quot;&amp;number=&quot; + document.getElementById(&quot;staffNumber&quot;).value 
+                      + &quot;&amp;sex=&quot; + document.getElementById(&quot;staffSex&quot;).value 
+                      + &quot;&amp;job=&quot; + document.getElementById(&quot;staffJob&quot;).value;
+    request.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+    request.send(data);
+    request.onreadystatechange = function() {
+        if (request.readyState===4) {
+            if (request.status===200) { 
+                document.getElementById(&quot;createResult&quot;).innerHTML = request.responseText;
+            } else {
+                alert(&quot;发生错误：&quot; + request.status);
+            }
+        } 
+    }
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre><p>后台php代码：    </p>
+<pre><code>&lt;?php
+//设置页面内容是html编码格式是utf-8
+header(&quot;Content-Type: text/plain;charset=utf-8&quot;); 
+//header(&quot;Content-Type: application/json;charset=utf-8&quot;); 
+//header(&quot;Content-Type: text/xml;charset=utf-8&quot;); 
+//header(&quot;Content-Type: text/html;charset=utf-8&quot;); 
+//header(&quot;Content-Type: application/javascript;charset=utf-8&quot;); 
+
+//定义一个多维数组，包含员工的信息，每条员工信息为一个数组
+$staff = array
+    (
+        array(&quot;name&quot; =&gt; &quot;洪七&quot;, &quot;number&quot; =&gt; &quot;101&quot;, &quot;sex&quot; =&gt; &quot;男&quot;, &quot;job&quot; =&gt; &quot;总经理&quot;),
+        array(&quot;name&quot; =&gt; &quot;郭靖&quot;, &quot;number&quot; =&gt; &quot;102&quot;, &quot;sex&quot; =&gt; &quot;男&quot;, &quot;job&quot; =&gt; &quot;开发工程师&quot;),
+        array(&quot;name&quot; =&gt; &quot;黄蓉&quot;, &quot;number&quot; =&gt; &quot;103&quot;, &quot;sex&quot; =&gt; &quot;女&quot;, &quot;job&quot; =&gt; &quot;产品经理&quot;)
+    );
+
+//判断如果是get请求，则进行搜索；如果是POST请求，则进行新建
+//$_SERVER是一个超全局变量，在一个脚本的全部作用域中都可用，不用使用global关键字
+//$_SERVER[&quot;REQUEST_METHOD&quot;]返回访问页面使用的请求方法
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;GET&quot;) {
+    search();
+} elseif ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;){
+    create();
+}
+
+//通过员工编号搜索员工
+function search(){
+    //检查是否有员工编号的参数
+    //isset检测变量是否设置；empty判断值为否为空
+    //超全局变量 $_GET 和 $_POST 用于收集表单数据
+    if (!isset($_GET[&quot;number&quot;]) || empty($_GET[&quot;number&quot;])) {
+        echo &quot;参数错误&quot;;
+        return;
+    }
+    //函数之外声明的变量拥有 Global 作用域，只能在函数以外进行访问。
+    //global 关键词用于访问函数内的全局变量
+    global $staff;
+    //获取number参数
+    $number = $_GET[&quot;number&quot;];
+    $result = &quot;没有找到员工。&quot;;
+
+    //遍历$staff多维数组，查找key值为number的员工是否存在，如果存在，则修改返回结果
+    foreach ($staff as $value) {
+        if ($value[&quot;number&quot;] == $number) {
+            $result = &quot;找到员工：员工编号：&quot; . $value[&quot;number&quot;] . &quot;，员工姓名：&quot; . $value[&quot;name&quot;] . 
+                              &quot;，员工性别：&quot; . $value[&quot;sex&quot;] . &quot;，员工职位：&quot; . $value[&quot;job&quot;];
+            break;
+        }
+    }
+    echo $result;
+}
+
+//创建员工
+function create(){
+    //判断信息是否填写完全
+    if (!isset($_POST[&quot;name&quot;]) || empty($_POST[&quot;name&quot;])
+        || !isset($_POST[&quot;number&quot;]) || empty($_POST[&quot;number&quot;])
+        || !isset($_POST[&quot;sex&quot;]) || empty($_POST[&quot;sex&quot;])
+        || !isset($_POST[&quot;job&quot;]) || empty($_POST[&quot;job&quot;])) {
+        echo &quot;参数错误，员工信息填写不全&quot;;
+        return;
+    }
+    //TODO: 获取POST表单数据并保存到数据库
+
+    //提示保存成功
+    echo &quot;员工：&quot; . $_POST[&quot;name&quot;] . &quot; 信息保存成功！&quot;;
+}  
+</code></pre><h3 id="ajaxjson数据格式"><a href="#ajaxjson数据格式" class="headerlink" title="ajaxjson数据格式"></a>ajaxjson数据格式</h3><p>HTML：  </p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;Demo&lt;/title&gt;
+&lt;style&gt;
+body, input, select, button, h1 {
+    font-size: 28px;
+    line-height:1.7;
+}
+&lt;/style&gt;    
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;员工查询&lt;/h1&gt;
+
+&lt;label&gt;请输入员工编号：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;keyword&quot; /&gt;
+&lt;button id=&quot;search&quot;&gt;查询&lt;/button&gt;
+&lt;p id=&quot;searchResult&quot;&gt;&lt;/p&gt;
+
+&lt;h1&gt;员工新建&lt;/h1&gt;
+&lt;label&gt;请输入员工姓名：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffName&quot; /&gt;&lt;br&gt;
+&lt;label&gt;请输入员工编号：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffNumber&quot; /&gt;&lt;br&gt;
+&lt;label&gt;请选择员工性别：&lt;/label&gt;
+&lt;select id=&quot;staffSex&quot;&gt;
+&lt;option&gt;女&lt;/option&gt;
+&lt;option&gt;男&lt;/option&gt;
+&lt;/select&gt;&lt;br&gt;
+&lt;label&gt;请输入员工职位：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffJob&quot; /&gt;&lt;br&gt;
+&lt;button id=&quot;save&quot;&gt;保存&lt;/button&gt;
+&lt;p id=&quot;createResult&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+document.getElementById(&quot;search&quot;).onclick = function() { 
+    var request = new XMLHttpRequest();
+    request.open(&quot;GET&quot;, &quot;serverjson.php?number=&quot; + document.getElementById(&quot;keyword&quot;).value);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState===4) {
+            if (request.status===200) { 
+                var data = JSON.parse(request.responseText);
+                if (data.success) { 
+                    document.getElementById(&quot;searchResult&quot;).innerHTML = data.msg;
+                } else {
+                    document.getElementById(&quot;searchResult&quot;).innerHTML = &quot;出现错误：&quot; + data.msg;
+                }
+            } else {
+                alert(&quot;发生错误：&quot; + request.status);
+            }
+        } 
+    }
+}
+
+document.getElementById(&quot;save&quot;).onclick = function() { 
+    var request = new XMLHttpRequest();
+    request.open(&quot;POST&quot;, &quot;serverjson.php&quot;);
+    var data = &quot;name=&quot; + document.getElementById(&quot;staffName&quot;).value 
+                      + &quot;&amp;number=&quot; + document.getElementById(&quot;staffNumber&quot;).value 
+                      + &quot;&amp;sex=&quot; + document.getElementById(&quot;staffSex&quot;).value 
+                      + &quot;&amp;job=&quot; + document.getElementById(&quot;staffJob&quot;).value;
+    request.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+    request.send(data);
+    request.onreadystatechange = function() {
+        if (request.readyState===4) {
+            if (request.status===200) { 
+                var data = JSON.parse(request.responseText);
+                if (data.success) { 
+                    document.getElementById(&quot;createResult&quot;).innerHTML = data.msg;
+                } else {
+                    document.getElementById(&quot;createResult&quot;).innerHTML = &quot;出现错误：&quot; + data.msg;
+                }
+            } else {
+                alert(&quot;发生错误：&quot; + request.status);
+            }
+        } 
+    }
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre><p>ajaxjson php：  </p>
+<pre><code>&lt;?php
+//设置页面内容是html编码格式是utf-8
+header(&quot;Content-Type: text/plain;charset=utf-8&quot;); 
+//header(&quot;Content-Type: application/json;charset=utf-8&quot;); 
+//header(&quot;Content-Type: text/xml;charset=utf-8&quot;); 
+//header(&quot;Content-Type: text/html;charset=utf-8&quot;); 
+//header(&quot;Content-Type: application/javascript;charset=utf-8&quot;); 
+
+//定义一个多维数组，包含员工的信息，每条员工信息为一个数组
+$staff = array
+    (
+        array(&quot;name&quot; =&gt; &quot;洪七&quot;, &quot;number&quot; =&gt; &quot;101&quot;, &quot;sex&quot; =&gt; &quot;男&quot;, &quot;job&quot; =&gt; &quot;总经理&quot;),
+        array(&quot;name&quot; =&gt; &quot;郭靖&quot;, &quot;number&quot; =&gt; &quot;102&quot;, &quot;sex&quot; =&gt; &quot;男&quot;, &quot;job&quot; =&gt; &quot;开发工程师&quot;),
+        array(&quot;name&quot; =&gt; &quot;黄蓉&quot;, &quot;number&quot; =&gt; &quot;103&quot;, &quot;sex&quot; =&gt; &quot;女&quot;, &quot;job&quot; =&gt; &quot;产品经理&quot;)
+    );
+
+//判断如果是get请求，则进行搜索；如果是POST请求，则进行新建
+//$_SERVER是一个超全局变量，在一个脚本的全部作用域中都可用，不用使用global关键字
+//$_SERVER[&quot;REQUEST_METHOD&quot;]返回访问页面使用的请求方法
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;GET&quot;) {
+    search();
+} elseif ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;){
+    create();
+}
+
+//通过员工编号搜索员工
+function search(){
+    //检查是否有员工编号的参数
+    //isset检测变量是否设置；empty判断值为否为空
+    //超全局变量 $_GET 和 $_POST 用于收集表单数据
+    if (!isset($_GET[&quot;number&quot;]) || empty($_GET[&quot;number&quot;])) {
+        echo &apos;{&quot;success&quot;:false,&quot;msg&quot;:&quot;参数错误&quot;}&apos;;
+        return;
+    }
+    //函数之外声明的变量拥有 Global 作用域，只能在函数以外进行访问。
+    //global 关键词用于访问函数内的全局变量
+    global $staff;
+    //获取number参数
+    $number = $_GET[&quot;number&quot;];
+    $result = &apos;{&quot;success&quot;:false,&quot;msg&quot;:&quot;没有找到员工。&quot;}&apos;;
+
+    //遍历$staff多维数组，查找key值为number的员工是否存在，如果存在，则修改返回结果
+    foreach ($staff as $value) {
+        if ($value[&quot;number&quot;] == $number) {
+            $result = &apos;{&quot;success&quot;:true,&quot;msg&quot;:&quot;找到员工：员工编号：&apos; . $value[&quot;number&quot;] . 
+                            &apos;，员工姓名：&apos; . $value[&quot;name&quot;] . 
+                            &apos;，员工性别：&apos; . $value[&quot;sex&quot;] . 
+                            &apos;，员工职位：&apos; . $value[&quot;job&quot;] . &apos;&quot;}&apos;;
+            break;
+        }
+    }
+    echo $result;
+}
+
+//创建员工
+function create(){
+    //判断信息是否填写完全
+    if (!isset($_POST[&quot;name&quot;]) || empty($_POST[&quot;name&quot;])
+        || !isset($_POST[&quot;number&quot;]) || empty($_POST[&quot;number&quot;])
+        || !isset($_POST[&quot;sex&quot;]) || empty($_POST[&quot;sex&quot;])
+        || !isset($_POST[&quot;job&quot;]) || empty($_POST[&quot;job&quot;])) {
+        echo &apos;{&quot;success&quot;:false,&quot;msg&quot;:&quot;参数错误，员工信息填写不全&quot;}&apos;;
+        return;
+    }
+    //TODO: 获取POST表单数据并保存到数据库
+
+    //提示保存成功
+    echo &apos;{&quot;success&quot;:true,&quot;msg&quot;:&quot;员工：&apos; . $_POST[&quot;name&quot;] . &apos; 信息保存成功！&quot;}&apos;;
+}
+
+?&gt;  
+</code></pre><p>###　jqueryajax<br>HTML：    </p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;Demo&lt;/title&gt;
+&lt;style&gt;
+body, input, select, button, h1 {
+    font-size: 28px;
+    line-height:1.7;
+}
+&lt;/style&gt;    
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;员工查询&lt;/h1&gt;
+
+&lt;label&gt;请输入员工编号：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;keyword&quot; /&gt;
+&lt;button id=&quot;search&quot;&gt;查询&lt;/button&gt;
+&lt;p id=&quot;searchResult&quot;&gt;&lt;/p&gt;
+
+&lt;h1&gt;员工新建&lt;/h1&gt;
+&lt;label&gt;请输入员工姓名：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffName&quot; /&gt;&lt;br&gt;
+&lt;label&gt;请输入员工编号：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffNumber&quot; /&gt;&lt;br&gt;
+&lt;label&gt;请选择员工性别：&lt;/label&gt;
+&lt;select id=&quot;staffSex&quot;&gt;
+&lt;option&gt;女&lt;/option&gt;
+&lt;option&gt;男&lt;/option&gt;
+&lt;/select&gt;&lt;br&gt;
+&lt;label&gt;请输入员工职位：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffJob&quot; /&gt;&lt;br&gt;
+&lt;button id=&quot;save&quot;&gt;保存&lt;/button&gt;
+&lt;p id=&quot;createResult&quot;&gt;&lt;/p&gt;
+
+&lt;script src=&quot;jquery-3.1.1.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(document).ready(function(){ 
+    $(&quot;#search&quot;).click(function(){ 
+        $.ajax({ 
+            type: &quot;GET&quot;,     
+            url: &quot;http://127.0.0.1:80/ajax/serverjQueryjson.php?number=&quot; + $(&quot;#keyword&quot;).val(),
+            dataType: &quot;json&quot;,
+            success: function(data) {
+                if (data.success) { 
+                    $(&quot;#searchResult&quot;).html(data.msg);
+                } else {
+                    $(&quot;#searchResult&quot;).html(&quot;出现错误：&quot; + data.msg);
+                }  
+            },
+            error: function(jqXHR){     
+               alert(&quot;发生错误：&quot; + jqXHR.status);  
+            },     
+        });
+    });
+
+    $(&quot;#save&quot;).click(function(){ 
+        $.ajax({ 
+            type: &quot;POST&quot;,     
+            url: &quot;serverjson.php&quot;,
+            data: {
+                name: $(&quot;#staffName&quot;).val(), 
+                number: $(&quot;#staffNumber&quot;).val(), 
+                sex: $(&quot;#staffSex&quot;).val(), 
+                job: $(&quot;#staffJob&quot;).val()
+            },
+            dataType: &quot;json&quot;,
+            success: function(data){
+                if (data.success) { 
+                    $(&quot;#createResult&quot;).html(data.msg);
+                } else {
+                    $(&quot;#createResult&quot;).html(&quot;出现错误：&quot; + data.msg);
+                }  
+            },
+            error: function(jqXHR){     
+               alert(&quot;发生错误：&quot; + jqXHR.status);  
+            },     
+        });
+    });
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>jquery 后台 php：  </p>
+<pre><code>&lt;?php
+//设置页面内容是html编码格式是utf-8
+//header(&quot;Content-Type: text/plain;charset=utf-8&quot;); 
+header(&apos;Access-Control-Allow-Origin:*&apos;);
+header(&apos;Access-Control-Allow-Methods:POST,GET&apos;);
+header(&apos;Access-Control-Allow-Credentials:true&apos;); 
+header(&quot;Content-Type: application/json;charset=utf-8&quot;); 
+//header(&quot;Content-Type: text/xml;charset=utf-8&quot;); 
+//header(&quot;Content-Type: text/html;charset=utf-8&quot;); 
+//header(&quot;Content-Type: application/javascript;charset=utf-8&quot;); 
+
+//定义一个多维数组，包含员工的信息，每条员工信息为一个数组
+$staff = array
+    (
+        array(&quot;name&quot; =&gt; &quot;洪七&quot;, &quot;number&quot; =&gt; &quot;101&quot;, &quot;sex&quot; =&gt; &quot;男&quot;, &quot;job&quot; =&gt; &quot;总经理&quot;),
+        array(&quot;name&quot; =&gt; &quot;郭靖&quot;, &quot;number&quot; =&gt; &quot;102&quot;, &quot;sex&quot; =&gt; &quot;男&quot;, &quot;job&quot; =&gt; &quot;开发工程师&quot;),
+        array(&quot;name&quot; =&gt; &quot;黄蓉&quot;, &quot;number&quot; =&gt; &quot;103&quot;, &quot;sex&quot; =&gt; &quot;女&quot;, &quot;job&quot; =&gt; &quot;产品经理&quot;)
+    );
+
+//判断如果是get请求，则进行搜索；如果是POST请求，则进行新建
+//$_SERVER是一个超全局变量，在一个脚本的全部作用域中都可用，不用使用global关键字
+//$_SERVER[&quot;REQUEST_METHOD&quot;]返回访问页面使用的请求方法
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;GET&quot;) {
+    search();
+} elseif ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;){
+    create();
+}
+
+//通过员工编号搜索员工
+function search(){
+    //检查是否有员工编号的参数
+    //isset检测变量是否设置；empty判断值为否为空
+    //超全局变量 $_GET 和 $_POST 用于收集表单数据
+    if (!isset($_GET[&quot;number&quot;]) || empty($_GET[&quot;number&quot;])) {
+        echo &apos;{&quot;success&quot;:false,&quot;msg&quot;:&quot;参数错误&quot;}&apos;;
+        return;
+    }
+    //函数之外声明的变量拥有 Global 作用域，只能在函数以外进行访问。
+    //global 关键词用于访问函数内的全局变量
+    global $staff;
+    //获取number参数
+    $number = $_GET[&quot;number&quot;];
+    $result = &apos;{&quot;success&quot;:false,&quot;msg&quot;:&quot;没有找到员工。&quot;}&apos;;
+
+    //遍历$staff多维数组，查找key值为number的员工是否存在，如果存在，则修改返回结果
+    foreach ($staff as $value) {
+        if ($value[&quot;number&quot;] == $number) {
+            $result = &apos;{&quot;success&quot;:true,&quot;msg&quot;:&quot;找到员工：员工编号：&apos; . $value[&quot;number&quot;] . 
+                            &apos;，员工姓名：&apos; . $value[&quot;name&quot;] . 
+                            &apos;，员工性别：&apos; . $value[&quot;sex&quot;] . 
+                            &apos;，员工职位：&apos; . $value[&quot;job&quot;] . &apos;&quot;}&apos;;
+            break;
+        }
+    }
+    echo $result;
+}
+
+//创建员工
+function create(){
+    //判断信息是否填写完全
+    if (!isset($_POST[&quot;name&quot;]) || empty($_POST[&quot;name&quot;])
+        || !isset($_POST[&quot;number&quot;]) || empty($_POST[&quot;number&quot;])
+        || !isset($_POST[&quot;sex&quot;]) || empty($_POST[&quot;sex&quot;])
+        || !isset($_POST[&quot;job&quot;]) || empty($_POST[&quot;job&quot;])) {
+        echo &apos;{&quot;success&quot;:false,&quot;msg&quot;:&quot;参数错误，员工信息填写不全&quot;}&apos;;
+        return;
+    }
+    //TODO: 获取POST表单数据并保存到数据库
+
+    //提示保存成功
+    echo &apos;{&quot;success&quot;:true,&quot;msg&quot;:&quot;员工：&apos; . $_POST[&quot;name&quot;] . &apos; 信息保存成功！&quot;}&apos;;
+}
+
+?&gt;
+</code></pre><p>jQueryjsonp：<br>HTML：   </p>
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;Demo&lt;/title&gt;
+&lt;style&gt;
+body, input, select, button, h1 {
+    font-size: 28px;
+    line-height:1.7;
+}
+&lt;/style&gt;    
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;员工查询&lt;/h1&gt;
+
+&lt;label&gt;请输入员工编号：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;keyword&quot; /&gt;
+&lt;button id=&quot;search&quot;&gt;查询&lt;/button&gt;
+&lt;p id=&quot;searchResult&quot;&gt;&lt;/p&gt;
+
+&lt;h1&gt;员工新建&lt;/h1&gt;
+&lt;label&gt;请输入员工姓名：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffName&quot; /&gt;&lt;br&gt;
+&lt;label&gt;请输入员工编号：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffNumber&quot; /&gt;&lt;br&gt;
+&lt;label&gt;请选择员工性别：&lt;/label&gt;
+&lt;select id=&quot;staffSex&quot;&gt;
+&lt;option&gt;女&lt;/option&gt;
+&lt;option&gt;男&lt;/option&gt;
+&lt;/select&gt;&lt;br&gt;
+&lt;label&gt;请输入员工职位：&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;staffJob&quot; /&gt;&lt;br&gt;
+&lt;button id=&quot;save&quot;&gt;保存&lt;/button&gt;
+&lt;p id=&quot;createResult&quot;&gt;&lt;/p&gt;
+
+&lt;script src=&quot;jquery-3.1.1.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(document).ready(function(){ 
+    $(&quot;#search&quot;).click(function(){ 
+        $.ajax({ 
+            type: &quot;GET&quot;,     
+            url: &quot;http://127.0.0.1:80/ajax/serverjQueryjsonp.php?number=&quot; + $(&quot;#keyword&quot;).val(),
+            dataType: &quot;jsonp&quot;,
+            jsonp: &quot;callback&quot;,
+            success: function(data) {
+                if (data.success) {
+                    $(&quot;#searchResult&quot;).html(data.msg);
+                } else {
+                    $(&quot;#searchResult&quot;).html(&quot;出现错误：&quot; + data.msg);
+                }  
+            },
+            error: function(jqXHR){     
+               alert(&quot;发生错误：&quot; + jqXHR.status);  
+            },     
+        });
+    });
+
+    $(&quot;#save&quot;).click(function(){ 
+        $.ajax({ 
+            type: &quot;POST&quot;,     
+            url: &quot;http://127.0.0.1:8000/ajaxdemo/serverjsonp.php&quot;,
+            data: {
+                name: $(&quot;#staffName&quot;).val(), 
+                number: $(&quot;#staffNumber&quot;).val(), 
+                sex: $(&quot;#staffSex&quot;).val(), 
+                job: $(&quot;#staffJob&quot;).val()
+            },
+            dataType: &quot;json&quot;,
+            success: function(data){
+                if (data.success) { 
+                    $(&quot;#createResult&quot;).html(data.msg);
+                } else {
+                    $(&quot;#createResult&quot;).html(&quot;出现错误：&quot; + data.msg);
+                }  
+            },
+            error: function(jqXHR){     
+               alert(&quot;发生错误：&quot; + jqXHR.status);  
+            },     
+        });
+    });
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>jqueryjsonp php：  </p>
+<pre><code>&lt;?php
+//设置页面内容是html编码格式是utf-8
+//header(&quot;Content-Type: text/plain;charset=utf-8&quot;); 
+header(&quot;Content-Type: application/json;charset=utf-8&quot;); 
+//header(&quot;Content-Type: text/xml;charset=utf-8&quot;); 
+//header(&quot;Content-Type: text/html;charset=utf-8&quot;); 
+//header(&quot;Content-Type: application/javascript;charset=utf-8&quot;); 
+
+//定义一个多维数组，包含员工的信息，每条员工信息为一个数组
+$staff = array
+    (
+        array(&quot;name&quot; =&gt; &quot;洪七&quot;, &quot;number&quot; =&gt; &quot;101&quot;, &quot;sex&quot; =&gt; &quot;男&quot;, &quot;job&quot; =&gt; &quot;总经理&quot;),
+        array(&quot;name&quot; =&gt; &quot;郭靖&quot;, &quot;number&quot; =&gt; &quot;102&quot;, &quot;sex&quot; =&gt; &quot;男&quot;, &quot;job&quot; =&gt; &quot;开发工程师&quot;),
+        array(&quot;name&quot; =&gt; &quot;黄蓉&quot;, &quot;number&quot; =&gt; &quot;103&quot;, &quot;sex&quot; =&gt; &quot;女&quot;, &quot;job&quot; =&gt; &quot;产品经理&quot;)
+    );
+
+//判断如果是get请求，则进行搜索；如果是POST请求，则进行新建
+//$_SERVER是一个超全局变量，在一个脚本的全部作用域中都可用，不用使用global关键字
+//$_SERVER[&quot;REQUEST_METHOD&quot;]返回访问页面使用的请求方法
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;GET&quot;) {
+    search();
+} elseif ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;){
+    create();
+}
+
+//通过员工编号搜索员工
+function search(){
+    $jsonp = $_GET[&quot;callback&quot;];
+    //检查是否有员工编号的参数
+    //isset检测变量是否设置；empty判断值为否为空
+    //超全局变量 $_GET 和 $_POST 用于收集表单数据
+    if (!isset($_GET[&quot;number&quot;]) || empty($_GET[&quot;number&quot;])) {
+        echo $jsonp . &apos;({&quot;success&quot;:false,&quot;msg&quot;:&quot;参数错误&quot;})&apos;;
+        return;
+    }
+    //函数之外声明的变量拥有 Global 作用域，只能在函数以外进行访问。
+    //global 关键词用于访问函数内的全局变量
+    global $staff;
+    //获取number参数
+    $number = $_GET[&quot;number&quot;];
+    $result = $jsonp . &apos;({&quot;success&quot;:false,&quot;msg&quot;:&quot;没有找到员工。&quot;})&apos;;
+
+    //遍历$staff多维数组，查找key值为number的员工是否存在，如果存在，则修改返回结果
+    foreach ($staff as $value) {
+        if ($value[&quot;number&quot;] == $number) {
+            $result = $jsonp . &apos;({&quot;success&quot;:true,&quot;msg&quot;:&quot;找到员工：员工编号：&apos; . $value[&quot;number&quot;] .
+                            &apos;，员工姓名：&apos; . $value[&quot;name&quot;] . 
+                            &apos;，员工性别：&apos; . $value[&quot;sex&quot;] . 
+                            &apos;，员工职位：&apos; . $value[&quot;job&quot;] . &apos;&quot;})&apos;;
+            break;
+        }
+    }
+    echo $result;
+}
+
+//创建员工
+function create(){
+    //判断信息是否填写完全
+    if (!isset($_POST[&quot;name&quot;]) || empty($_POST[&quot;name&quot;])
+        || !isset($_POST[&quot;number&quot;]) || empty($_POST[&quot;number&quot;])
+        || !isset($_POST[&quot;sex&quot;]) || empty($_POST[&quot;sex&quot;])
+        || !isset($_POST[&quot;job&quot;]) || empty($_POST[&quot;job&quot;])) {
+        echo &apos;{&quot;success&quot;:false,&quot;msg&quot;:&quot;参数错误，员工信息填写不全&quot;}&apos;;
+        return;
+    }
+    //TODO: 获取POST表单数据并保存到数据库
+
+    //提示保存成功
+    echo &apos;{&quot;success&quot;:true,&quot;msg&quot;:&quot;员工：&apos; . $_POST[&quot;name&quot;] . &apos; 信息保存成功！&quot;}&apos;;
+}
+
+?&gt;
 </code></pre>
             <blockquote>
                 <p>
