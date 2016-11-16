@@ -288,10 +288,10 @@ setTimeout(function() {
   
   <entry>
     <title>面试总结</title>
-    <link href="http://www.shenzjd.cn/2016/09/10/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shenzjd.cn/2016/09/10/面试总结/</id>
-    <published>2016-09-10T12:49:23.000Z</published>
-    <updated>2016-10-15T02:08:59.539Z</updated>
+    <link href="http://www.shenzjd.cn/2016/11/10/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.shenzjd.cn/2016/11/10/面试总结/</id>
+    <published>2016-11-10T12:49:23.000Z</published>
+    <updated>2016-11-16T12:38:57.565Z</updated>
     
     <content type="html">&lt;h3 id=&quot;用js写一个函数计算出字符串的长度&quot;&gt;&lt;a href=&quot;#用js写一个函数计算出字符串的长度&quot; class=&quot;headerlink&quot; title=&quot;用js写一个函数计算出字符串的长度&quot;&gt;&lt;/a&gt;用js写一个函数计算出字符串的长度&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;GBK字符集实际长度计算&lt;/p&gt;
