@@ -4,9 +4,9 @@
   <subtitle>永不言弃</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.shenzjd.cn/"/>
+  <link href="http://blog.newbug.xyz/"/>
   <updated>2016-11-16T12:30:12.301Z</updated>
-  <id>http://www.shenzjd.cn/</id>
+  <id>http://blog.newbug.xyz/</id>
   
   <author>
     <name>wu529778790</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>图片预加载</title>
-    <link href="http://www.shenzjd.cn/2016/11/16/%E5%9B%BE%E7%89%87%E9%A2%84%E5%8A%A0%E8%BD%BD/"/>
-    <id>http://www.shenzjd.cn/2016/11/16/图片预加载/</id>
+    <link href="http://blog.newbug.xyz/2016/11/16/%E5%9B%BE%E7%89%87%E9%A2%84%E5%8A%A0%E8%BD%BD/"/>
+    <id>http://blog.newbug.xyz/2016/11/16/图片预加载/</id>
     <published>2016-11-16T12:26:28.000Z</published>
     <updated>2016-11-16T12:30:12.301Z</updated>
     
@@ -288,8 +288,8 @@ setTimeout(function() {
   
   <entry>
     <title>面试总结</title>
-    <link href="http://www.shenzjd.cn/2016/11/10/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shenzjd.cn/2016/11/10/面试总结/</id>
+    <link href="http://blog.newbug.xyz/2016/11/10/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.newbug.xyz/2016/11/10/面试总结/</id>
     <published>2016-11-10T12:49:23.000Z</published>
     <updated>2016-11-16T12:38:57.565Z</updated>
     
@@ -460,14 +460,14 @@ p:after{
     </summary>
     
     
-      <category term="面试" scheme="http://www.shenzjd.cn/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="http://blog.newbug.xyz/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>js通过Ajax异步操作后端xml数据的基本原理</title>
-    <link href="http://www.shenzjd.cn/2016/05/30/js%E9%80%9A%E8%BF%87Ajax%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E5%90%8E%E7%AB%AFxml%E6%95%B0%E6%8D%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
-    <id>http://www.shenzjd.cn/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/</id>
+    <link href="http://blog.newbug.xyz/2016/05/30/js%E9%80%9A%E8%BF%87Ajax%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E5%90%8E%E7%AB%AFxml%E6%95%B0%E6%8D%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
+    <id>http://blog.newbug.xyz/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/</id>
     <published>2016-05-30T04:20:31.000Z</published>
     <updated>2016-10-16T02:29:50.903Z</updated>
     
@@ -1203,17 +1203,17 @@ function create(){
     
     </summary>
     
-      <category term="Ajax" scheme="http://www.shenzjd.cn/categories/Ajax/"/>
+      <category term="Ajax" scheme="http://blog.newbug.xyz/categories/Ajax/"/>
     
     
-      <category term="Ajax" scheme="http://www.shenzjd.cn/tags/Ajax/"/>
+      <category term="Ajax" scheme="http://blog.newbug.xyz/tags/Ajax/"/>
     
   </entry>
   
   <entry>
     <title>css规范总结</title>
-    <link href="http://www.shenzjd.cn/2016/03/29/css%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shenzjd.cn/2016/03/29/css规范总结/</id>
+    <link href="http://blog.newbug.xyz/2016/03/29/css%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.newbug.xyz/2016/03/29/css规范总结/</id>
     <published>2016-03-29T14:03:19.000Z</published>
     <updated>2016-07-30T02:41:36.000Z</updated>
     
@@ -1478,17 +1478,17 @@ strong,em{font-style:normal;font-weight:bold;}
     
     </summary>
     
-      <category term="css" scheme="http://www.shenzjd.cn/categories/css/"/>
+      <category term="css" scheme="http://blog.newbug.xyz/categories/css/"/>
     
     
-      <category term="css" scheme="http://www.shenzjd.cn/tags/css/"/>
+      <category term="css" scheme="http://blog.newbug.xyz/tags/css/"/>
     
   </entry>
   
   <entry>
     <title>总结</title>
-    <link href="http://www.shenzjd.cn/2016/03/27/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.shenzjd.cn/2016/03/27/工作总结/</id>
+    <link href="http://blog.newbug.xyz/2016/03/27/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.newbug.xyz/2016/03/27/工作总结/</id>
     <published>2016-03-27T06:17:18.000Z</published>
     <updated>2016-10-31T08:58:17.885Z</updated>
     
@@ -1515,15 +1515,15 @@ strong,em{font-style:normal;font-weight:bold;}
     
     </summary>
     
-      <category term="前端总结" scheme="http://www.shenzjd.cn/categories/%E5%89%8D%E7%AB%AF%E6%80%BB%E7%BB%93/"/>
+      <category term="前端总结" scheme="http://blog.newbug.xyz/categories/%E5%89%8D%E7%AB%AF%E6%80%BB%E7%BB%93/"/>
     
     
   </entry>
   
   <entry>
     <title>js笔记</title>
-    <link href="http://www.shenzjd.cn/2016/03/14/js%E7%AC%94%E8%AE%B0/"/>
-    <id>http://www.shenzjd.cn/2016/03/14/js笔记/</id>
+    <link href="http://blog.newbug.xyz/2016/03/14/js%E7%AC%94%E8%AE%B0/"/>
+    <id>http://blog.newbug.xyz/2016/03/14/js笔记/</id>
     <published>2016-03-14T07:17:43.000Z</published>
     <updated>2016-10-15T09:54:16.995Z</updated>
     
@@ -1694,14 +1694,14 @@ document.write(str4.toUpperCase());
     </summary>
     
     
-      <category term="js笔记" scheme="http://www.shenzjd.cn/tags/js%E7%AC%94%E8%AE%B0/"/>
+      <category term="js笔记" scheme="http://blog.newbug.xyz/tags/js%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>angularjs</title>
-    <link href="http://www.shenzjd.cn/2016/03/06/angularjs/"/>
-    <id>http://www.shenzjd.cn/2016/03/06/angularjs/</id>
+    <link href="http://blog.newbug.xyz/2016/03/06/angularjs/"/>
+    <id>http://blog.newbug.xyz/2016/03/06/angularjs/</id>
     <published>2016-03-06T10:22:39.000Z</published>
     <updated>2016-07-14T12:14:22.000Z</updated>
     
@@ -1762,14 +1762,14 @@ document.write(str4.toUpperCase());
     </summary>
     
     
-      <category term="angular" scheme="http://www.shenzjd.cn/tags/angular/"/>
+      <category term="angular" scheme="http://blog.newbug.xyz/tags/angular/"/>
     
   </entry>
   
   <entry>
     <title>JS全局污染</title>
-    <link href="http://www.shenzjd.cn/2016/02/16/JS%E5%85%A8%E5%B1%80%E6%B1%A1%E6%9F%93/"/>
-    <id>http://www.shenzjd.cn/2016/02/16/JS全局污染/</id>
+    <link href="http://blog.newbug.xyz/2016/02/16/JS%E5%85%A8%E5%B1%80%E6%B1%A1%E6%9F%93/"/>
+    <id>http://blog.newbug.xyz/2016/02/16/JS全局污染/</id>
     <published>2016-02-16T03:37:45.000Z</published>
     <updated>2016-10-10T09:04:16.000Z</updated>
     
@@ -2413,17 +2413,17 @@ Drag.prototype.moveEvent = function(e) {
     
     </summary>
     
-      <category term="js" scheme="http://www.shenzjd.cn/categories/js/"/>
+      <category term="js" scheme="http://blog.newbug.xyz/categories/js/"/>
     
     
-      <category term="js" scheme="http://www.shenzjd.cn/tags/js/"/>
+      <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
     
   </entry>
   
   <entry>
     <title>seo优优化</title>
-    <link href="http://www.shenzjd.cn/2016/01/24/seo%E4%BC%98%E4%BC%98%E5%8C%96/"/>
-    <id>http://www.shenzjd.cn/2016/01/24/seo优优化/</id>
+    <link href="http://blog.newbug.xyz/2016/01/24/seo%E4%BC%98%E4%BC%98%E5%8C%96/"/>
+    <id>http://blog.newbug.xyz/2016/01/24/seo优优化/</id>
     <published>2016-01-24T13:56:49.000Z</published>
     <updated>2016-07-24T14:03:52.000Z</updated>
     
@@ -2454,15 +2454,15 @@ Drag.prototype.moveEvent = function(e) {
     
     </summary>
     
-      <category term="前端总结" scheme="http://www.shenzjd.cn/categories/%E5%89%8D%E7%AB%AF%E6%80%BB%E7%BB%93/"/>
+      <category term="前端总结" scheme="http://blog.newbug.xyz/categories/%E5%89%8D%E7%AB%AF%E6%80%BB%E7%BB%93/"/>
     
     
   </entry>
   
   <entry>
     <title>MarkDown语法小记</title>
-    <link href="http://www.shenzjd.cn/2015/07/14/MarkDown%E8%AF%AD%E6%B3%95%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://www.shenzjd.cn/2015/07/14/MarkDown语法小记/</id>
+    <link href="http://blog.newbug.xyz/2015/07/14/MarkDown%E8%AF%AD%E6%B3%95%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://blog.newbug.xyz/2015/07/14/MarkDown语法小记/</id>
     <published>2015-07-14T11:53:22.000Z</published>
     <updated>2016-07-14T12:14:12.000Z</updated>
     
@@ -2560,14 +2560,14 @@ Drag.prototype.moveEvent = function(e) {
     </summary>
     
     
-      <category term="MarkDown" scheme="http://www.shenzjd.cn/tags/MarkDown/"/>
+      <category term="MarkDown" scheme="http://blog.newbug.xyz/tags/MarkDown/"/>
     
   </entry>
   
   <entry>
     <title>Hexo博客填坑记</title>
-    <link href="http://www.shenzjd.cn/2015/03/06/Hexo%E5%8D%9A%E5%AE%A2%E5%A1%AB%E5%9D%91%E8%AE%B0/"/>
-    <id>http://www.shenzjd.cn/2015/03/06/Hexo博客填坑记/</id>
+    <link href="http://blog.newbug.xyz/2015/03/06/Hexo%E5%8D%9A%E5%AE%A2%E5%A1%AB%E5%9D%91%E8%AE%B0/"/>
+    <id>http://blog.newbug.xyz/2015/03/06/Hexo博客填坑记/</id>
     <published>2015-03-06T13:59:34.000Z</published>
     <updated>2016-07-14T12:14:00.000Z</updated>
     
@@ -2607,7 +2607,7 @@ git push origin hexo
     </summary>
     
     
-      <category term="hexo" scheme="http://www.shenzjd.cn/tags/hexo/"/>
+      <category term="hexo" scheme="http://blog.newbug.xyz/tags/hexo/"/>
     
   </entry>
   
