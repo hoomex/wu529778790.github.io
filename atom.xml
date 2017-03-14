@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2016-11-16T12:30:12.301Z</updated>
+  <updated>2016-11-16T12:30:14.000Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.newbug.xyz/2016/11/16/%E5%9B%BE%E7%89%87%E9%A2%84%E5%8A%A0%E8%BD%BD/"/>
     <id>http://blog.newbug.xyz/2016/11/16/图片预加载/</id>
     <published>2016-11-16T12:26:28.000Z</published>
-    <updated>2016-11-16T12:30:12.301Z</updated>
+    <updated>2016-11-16T12:30:14.000Z</updated>
     
     <content type="html">&lt;p&gt;预加载图片是提高用户体验的一个很好方法。图片预先加载到浏览器中，访问者便可顺利地在你的网站上冲浪，并享受到极快的加载速度。这对图片画廊及图片占据很大比例的网站来说十分有利，它保证了图片快速、无缝地发布，也可帮助用户在浏览你网站内容时获得更好的用户体验。本文将分享三个不同的预加载技术，来增强网站的性能与可用性。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;方法一：用CSS和JavaScript实现预加载&lt;/p&gt;
@@ -291,7 +291,7 @@ setTimeout(function() {
     <link href="http://blog.newbug.xyz/2016/11/10/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
     <id>http://blog.newbug.xyz/2016/11/10/面试总结/</id>
     <published>2016-11-10T12:49:23.000Z</published>
-    <updated>2016-11-16T12:38:57.565Z</updated>
+    <updated>2016-11-16T12:38:58.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;用js写一个函数计算出字符串的长度&quot;&gt;&lt;a href=&quot;#用js写一个函数计算出字符串的长度&quot; class=&quot;headerlink&quot; title=&quot;用js写一个函数计算出字符串的长度&quot;&gt;&lt;/a&gt;用js写一个函数计算出字符串的长度&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;GBK字符集实际长度计算&lt;/p&gt;
@@ -469,7 +469,7 @@ p:after{
     <link href="http://blog.newbug.xyz/2016/05/30/js%E9%80%9A%E8%BF%87Ajax%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E5%90%8E%E7%AB%AFxml%E6%95%B0%E6%8D%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
     <id>http://blog.newbug.xyz/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/</id>
     <published>2016-05-30T04:20:31.000Z</published>
-    <updated>2016-10-16T02:29:50.903Z</updated>
+    <updated>2016-10-16T02:29:52.000Z</updated>
     
     <content type="html">&lt;pre&gt;&lt;code&gt;Ajax的核心操作对象是xmlHttpRequest
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;　　  简化操作步骤：实例化一个xmlHttpRequest对象 ==&amp;gt; 发送请求 ==&amp;gt; 接受响应 ==&amp;gt; 执行回调&lt;/p&gt;
@@ -1490,7 +1490,7 @@ strong,em{font-style:normal;font-weight:bold;}
     <link href="http://blog.newbug.xyz/2016/03/27/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
     <id>http://blog.newbug.xyz/2016/03/27/工作总结/</id>
     <published>2016-03-27T06:17:18.000Z</published>
-    <updated>2016-10-31T08:58:17.885Z</updated>
+    <updated>2016-10-31T08:58:18.000Z</updated>
     
     <content type="html">&lt;p&gt;总是碰到各种各样的问题，还老是被批评，时刻总结一下总是个好习惯。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;代码规范&quot;&gt;&lt;a href=&quot;#代码规范&quot; class=&quot;headerlink&quot; title=&quot;代码规范&quot;&gt;&lt;/a&gt;代码规范&lt;/h3&gt;&lt;p&gt;因为代码规范的问题，我没少挨骂，对于一名工程师来说，写出规范代码是基本的要求，不仅能方便你后期的维护，还能让别人看懂你的代码。同时，代码规范涉及很多方面的内容，在此作出总结：&lt;/p&gt;
@@ -1525,7 +1525,7 @@ strong,em{font-style:normal;font-weight:bold;}
     <link href="http://blog.newbug.xyz/2016/03/14/js%E7%AC%94%E8%AE%B0/"/>
     <id>http://blog.newbug.xyz/2016/03/14/js笔记/</id>
     <published>2016-03-14T07:17:43.000Z</published>
-    <updated>2016-10-15T09:54:16.995Z</updated>
+    <updated>2016-10-15T09:54:18.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;js位置篇之窗口&quot;&gt;&lt;a href=&quot;#js位置篇之窗口&quot; class=&quot;headerlink&quot; title=&quot;js位置篇之窗口&quot;&gt;&lt;/a&gt;js位置篇之窗口&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;pre&gt;&lt;code&gt;//屏幕大小
