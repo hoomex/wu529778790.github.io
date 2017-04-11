@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://blog.newbug.xyz/2017/04/10/JavaScript初级试题/index.html">
 <meta property="og:site_name" content="神族九帝">
 <meta property="og:description" content="今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下1,输出下面的值    var a = 10, b = 20, c = (a++,b++,100);    console.log(c);运算符的优先级，这里的运算符逗号是多重求值，不论多少个逗号，都是返回最后一个逗号后面的值2,判断是否为质数    function isZhuShu(m){        if( m">
-<meta property="og:updated_time" content="2017-04-10T07:12:57.932Z">
+<meta property="og:updated_time" content="2017-04-11T02:38:00.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript初级试题">
 <meta name="twitter:description" content="今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下1,输出下面的值    var a = 10, b = 20, c = (a++,b++,100);    console.log(c);运算符的优先级，这里的运算符逗号是多重求值，不论多少个逗号，都是返回最后一个逗号后面的值2,判断是否为质数    function isZhuShu(m){        if( m">
@@ -262,7 +262,12 @@ function narc(max){
 console.log(narc(1000))
 console.log(narc(10000))
 console.log(narc(8209))
-</code></pre>
+</code></pre><p>9,以下js代码会输出什么<br>    console.log(1 + “2” + “2”);//122<br>    console.log(1 +  + “2” + “2”);//32  空格加字符串变成数字，隐式转换<br>    console.log(+ “1” + “1” + “2”);//112<br>    console.log( “A” - “B” + “2”);//NAN2   “A” - “B” 会返回 NaN，因为 “A” 和 “B” 无法转成数字进行运算，这里不要以为 “A” 和 “B” 能转为 ASCII码 进行运算（这个和C语言是不同的，不要搞乱了）。而 NaN 和字符串相加，会转成 “NaN” 和字符串去拼接，所以，倒数第二问是 NAN+”2”,为 NAN2，NaN 和任何数字相加结果还是 NaN。<br>    console.log( “A” - “B” + 2 ); //NAN</p>
+<p>10,以下js输出结果为<br>    var length = 10;<br>    function fn(){<br>        alert(this.length);<br>    }<br>    var obj = {<br>        length: 5,<br>        method: function(fn){<br>            fn();<br>            arguments<a href="">0</a>;<br>        }<br>    }<br>    obj.method(fn);</p>
+<p>这个主要是考arguments，对象属于除了点操作符还可以用中括号，这里fn的scope是arguments，即fn内的this===arguments，调用时仅传了一个参数fn，因此length为1。</p>
+<p>11，<br>    var a = 1;<br>    function func(){<br>        a = b = 2;<br>    }<br>    func();<br>    alert(a); //2<br>    alert(b); //2<br>js中不用var声明的变量默认是全局变量，所以b是全聚德，所以func是可以对外进行访问的</p>
+<p>12，简述readyonly与disabled的区别<br>   1、Readonly只针对input(text/password)和textarea有效，而disabled对于所有的表单元素有效，包括select,radio,checkbox,button等。<br>   2、在表单元素使用了disabled后，我们将表单以POST或者GET的方式提交的话，这个元素的值不会被传递出去，而readonly会将该值传递出去</p>
+
             <blockquote>
                 <p>
                 本文地址：

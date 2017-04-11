@@ -228,7 +228,12 @@ function narc(max){
 console.log(narc(1000))
 console.log(narc(10000))
 console.log(narc(8209))
-</code></pre>
+</code></pre><p>9,以下js代码会输出什么<br>    console.log(1 + “2” + “2”);//122<br>    console.log(1 +  + “2” + “2”);//32  空格加字符串变成数字，隐式转换<br>    console.log(+ “1” + “1” + “2”);//112<br>    console.log( “A” - “B” + “2”);//NAN2   “A” - “B” 会返回 NaN，因为 “A” 和 “B” 无法转成数字进行运算，这里不要以为 “A” 和 “B” 能转为 ASCII码 进行运算（这个和C语言是不同的，不要搞乱了）。而 NaN 和字符串相加，会转成 “NaN” 和字符串去拼接，所以，倒数第二问是 NAN+”2”,为 NAN2，NaN 和任何数字相加结果还是 NaN。<br>    console.log( “A” - “B” + 2 ); //NAN</p>
+<p>10,以下js输出结果为<br>    var length = 10;<br>    function fn(){<br>        alert(this.length);<br>    }<br>    var obj = {<br>        length: 5,<br>        method: function(fn){<br>            fn();<br>            arguments<a href="">0</a>;<br>        }<br>    }<br>    obj.method(fn);</p>
+<p>这个主要是考arguments，对象属于除了点操作符还可以用中括号，这里fn的scope是arguments，即fn内的this===arguments，调用时仅传了一个参数fn，因此length为1。</p>
+<p>11，<br>    var a = 1;<br>    function func(){<br>        a = b = 2;<br>    }<br>    func();<br>    alert(a); //2<br>    alert(b); //2<br>js中不用var声明的变量默认是全局变量，所以b是全聚德，所以func是可以对外进行访问的</p>
+<p>12，简述readyonly与disabled的区别<br>   1、Readonly只针对input(text/password)和textarea有效，而disabled对于所有的表单元素有效，包括select,radio,checkbox,button等。<br>   2、在表单元素使用了disabled后，我们将表单以POST或者GET的方式提交的话，这个元素的值不会被传递出去，而readonly会将该值传递出去</p>
+
     
     </div>
     

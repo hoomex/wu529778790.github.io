@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-10T07:12:57.932Z</updated>
+  <updated>2017-04-11T02:38:00.068Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.newbug.xyz/2017/04/10/JavaScript%E5%88%9D%E7%BA%A7%E8%AF%95%E9%A2%98/"/>
     <id>http://blog.newbug.xyz/2017/04/10/JavaScript初级试题/</id>
     <published>2017-04-10T02:27:55.000Z</published>
-    <updated>2017-04-10T07:12:57.932Z</updated>
+    <updated>2017-04-11T02:38:00.068Z</updated>
     
     <content type="html">&lt;p&gt;今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下&lt;br&gt;1,输出下面的值&lt;br&gt;    var a = 10, b = 20, c = (a++,b++,100);&lt;br&gt;    console.log(c);&lt;br&gt;运算符的优先级，这里的运算符逗号是多重求值，不论多少个逗号，都是返回最后一个逗号后面的值&lt;br&gt;2,判断是否为质数&lt;br&gt;    function isZhuShu(m){&lt;br&gt;        if( m &amp;lt;= 1 || m%1 !== 0){&lt;br&gt;            return false;&lt;br&gt;        }&lt;br&gt;        var n = 2;&lt;br&gt;        while(n&amp;lt;m){&lt;br&gt;            if(m%n==0){&lt;br&gt;                return false;&lt;br&gt;            }else{&lt;br&gt;                n++;&lt;br&gt;                continue;&lt;br&gt;            }&lt;br&gt;        }&lt;br&gt;        return true&lt;br&gt;    }&lt;br&gt;下面的是优化算法：&lt;br&gt;    function isPrime(number){&lt;br&gt;        if (typeof number !== ‘number’ || number &amp;lt; 2){&lt;br&gt;            //不是数字或者字数小于2&lt;br&gt;            return false;&lt;br&gt;        }&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    if (number === 2){
@@ -85,7 +85,12 @@ function narc(max){
 console.log(narc(1000))
 console.log(narc(10000))
 console.log(narc(8209))
-&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;9,以下js代码会输出什么&lt;br&gt;    console.log(1 + “2” + “2”);//122&lt;br&gt;    console.log(1 +  + “2” + “2”);//32  空格加字符串变成数字，隐式转换&lt;br&gt;    console.log(+ “1” + “1” + “2”);//112&lt;br&gt;    console.log( “A” - “B” + “2”);//NAN2   “A” - “B” 会返回 NaN，因为 “A” 和 “B” 无法转成数字进行运算，这里不要以为 “A” 和 “B” 能转为 ASCII码 进行运算（这个和C语言是不同的，不要搞乱了）。而 NaN 和字符串相加，会转成 “NaN” 和字符串去拼接，所以，倒数第二问是 NAN+”2”,为 NAN2，NaN 和任何数字相加结果还是 NaN。&lt;br&gt;    console.log( “A” - “B” + 2 ); //NAN&lt;/p&gt;
+&lt;p&gt;10,以下js输出结果为&lt;br&gt;    var length = 10;&lt;br&gt;    function fn(){&lt;br&gt;        alert(this.length);&lt;br&gt;    }&lt;br&gt;    var obj = {&lt;br&gt;        length: 5,&lt;br&gt;        method: function(fn){&lt;br&gt;            fn();&lt;br&gt;            arguments&lt;a href=&quot;&quot;&gt;0&lt;/a&gt;;&lt;br&gt;        }&lt;br&gt;    }&lt;br&gt;    obj.method(fn);&lt;/p&gt;
+&lt;p&gt;这个主要是考arguments，对象属于除了点操作符还可以用中括号，这里fn的scope是arguments，即fn内的this===arguments，调用时仅传了一个参数fn，因此length为1。&lt;/p&gt;
+&lt;p&gt;11，&lt;br&gt;    var a = 1;&lt;br&gt;    function func(){&lt;br&gt;        a = b = 2;&lt;br&gt;    }&lt;br&gt;    func();&lt;br&gt;    alert(a); //2&lt;br&gt;    alert(b); //2&lt;br&gt;js中不用var声明的变量默认是全局变量，所以b是全聚德，所以func是可以对外进行访问的&lt;/p&gt;
+&lt;p&gt;12，简述readyonly与disabled的区别&lt;br&gt;   1、Readonly只针对input(text/password)和textarea有效，而disabled对于所有的表单元素有效，包括select,radio,checkbox,button等。&lt;br&gt;   2、在表单元素使用了disabled后，我们将表单以POST或者GET的方式提交的话，这个元素的值不会被传递出去，而readonly会将该值传递出去&lt;/p&gt;
+</content>
     
     <summary type="html">
     
