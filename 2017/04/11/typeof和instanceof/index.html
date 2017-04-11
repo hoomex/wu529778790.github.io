@@ -3,27 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>js复习重点 | 神族九帝 | 永不言弃</title>
+  <title>typeof和instanceof | 神族九帝 | 永不言弃</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="">
-  <meta name="description" content="1.闭包的概念及其应用http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.htmlhttps://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures">
+  <meta name="keywords" content="js">
+  <meta name="description" content="JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js复习重点">
-<meta property="og:url" content="http://blog.newbug.xyz/2017/04/11/js复习重点/index.html">
+<meta property="og:title" content="typeof和instanceof">
+<meta property="og:url" content="http://blog.newbug.xyz/2017/04/11/typeof和instanceof/index.html">
 <meta property="og:site_name" content="神族九帝">
-<meta property="og:description" content="1.闭包的概念及其应用http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.htmlhttps://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures">
-<meta property="og:updated_time" content="2017-04-11T03:31:21.579Z">
+<meta property="og:description" content="JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：">
+<meta property="og:updated_time" content="2017-04-11T07:46:06.649Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js复习重点">
-<meta name="twitter:description" content="1.闭包的概念及其应用http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.htmlhttps://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures">
+<meta name="twitter:title" content="typeof和instanceof">
+<meta name="twitter:description" content="JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：">
   
     <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
   
-  <meta name="summary" content="&lt;p&gt;1.闭包的概念及其应用&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html&quot;&gt;http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&lt;/a&gt;&lt;br&gt;">
+  <meta name="summary" content="&lt;p&gt;JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：&lt;/p&gt;">
   <link rel="shortcut icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -107,7 +107,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">js复习重点</div>
+        <div class="flex-col header-title ellipsis">typeof和instanceof</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -128,10 +128,10 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">js复习重点</h1>
+    <h1 class="author">typeof和instanceof</h1>
     <h5 class="subtitle">
           
-            <time datetime="2017-04-11T03:30:42.000Z" itemprop="datePublished" class="page-time">
+            <time datetime="2017-04-11T07:41:31.000Z" itemprop="datePublished" class="page-time">
   2017-04-11
 </time>
 
@@ -142,10 +142,12 @@
 </header>
 
     <div class="container body-wrap">
-      <article id="post-js复习重点" 
+      <article id="post-typeof和instanceof" 
   class="article article-type-post" itemprop="blogPost">
     <div class="post-meat flex-row">
         
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
     </div>
     <div class="post-body">
         <aside class="post-widget" id="post-widget">
@@ -199,21 +201,32 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>1.闭包的概念及其应用<br><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures</a><br> <a id="more"></a><br>2.原型链/继承，构造对象的方法<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain</a><br><a href="http://www.cnblogs.com/TomXu/archive/2012/01/05/2305453.html" target="_blank" rel="external">http://www.cnblogs.com/TomXu/archive/2012/01/05/2305453.html</a><br><a href="https://blog.oyanglul.us/javascript/understand-prototype.html" target="_blank" rel="external">https://blog.oyanglul.us/javascript/understand-prototype.html</a><br>这一部分 js高级程序设计上面讲的挺好的</p>
-<p>3.bom/dom(重点是dom)<br><a href="https://segmentfault.com/a/1190000000654274（这个说的挺详细）" target="_blank" rel="external">https://segmentfault.com/a/1190000000654274（这个说的挺详细）</a><br><a href="http://www.itxueyuan.org/view/6299.html" target="_blank" rel="external">http://www.itxueyuan.org/view/6299.html</a><br><a href="http://blog.csdn.NET/xiao__gui/article/details/8315148" target="_blank" rel="external">http://blog.csdn.NET/xiao__gui/article/details/8315148</a></p>
-<p>4.获取元素的方法，queryselector()（get—byid，byclassname。。。。。）<br><a href="http://blog.csdn.Net/mydeman/article/details/2078107" target="_blank" rel="external">http://blog.csdn.Net/mydeman/article/details/2078107</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector</a></p>
-<p>5.nodelist和array<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList</a><br><a href="http://www.cnblogs.com/jeffwongishandsome/archive/2010/07/07/1773144.html" target="_blank" rel="external">http://www.cnblogs.com/jeffwongishandsome/archive/2010/07/07/1773144.html</a></p>
-<p>6.数组的常规操作<br><a href="http://www.cnblogs.com/ahthw/p/4279642.html" target="_blank" rel="external">http://www.cnblogs.com/ahthw/p/4279642.html</a><br>熟悉一下一下基本的算法，排序，逆置什么的。<br>7.apply/call<br><a href="http://www.cnblogs.com/fighting_cp/archive/2010/09/20/1831844.html" target="_blank" rel="external">http://www.cnblogs.com/fighting_cp/archive/2010/09/20/1831844.html</a><br>call和apply是为了动态改变this而出现的，当一个object没有某个方法，但是其他的有，我们可以借助call或apply用其它对象的方法来操作。用的比较多的，通过document.getElementsByTagName选择的dom 节点是一种类似array的array。它不能应用Array下的push,pop等方法。我们可以通过：var domNodes =  Array.prototype.slice.call(document.getElementsByTagName(“*”));这样domNodes就可以应用Array下的所有方法了。<br>8.string对象的操作<br><a href="http://itbilu.com/javascript/js/EymJA6WY.html" target="_blank" rel="external">http://itbilu.com/javascript/js/EymJA6WY.html</a></p>
-<p>9.五种基本类型（数字，字符串，undefined，null，boolearn）以及复合类型（array，object，function），他们二者的判别方法<br><a href="http://www.xiabingbao.com/javascript/2015/07/04/javascript-type/" target="_blank" rel="external">http://www.xiabingbao.com/javascript/2015/07/04/javascript-type/</a><br>10.事件流（冒泡，捕获）<br><a href="http://segmentfault.com/a/1190000003497939" target="_blank" rel="external">http://segmentfault.com/a/1190000003497939</a></p>
-<p>11.事件的添加，删除<br><a href="http://blog.csdn.net/jaylongli/article/details/4038042" target="_blank" rel="external">http://blog.csdn.net/jaylongli/article/details/4038042</a><br>结合事件流选择合适的元素进行事件添加可以适当的优化性能，也就是事件委托</p>
-<p>12.事件委托<br><a href="http://www.cnblogs.com/owenChen/archive/2013/02/18/2915521.html" target="_blank" rel="external">http://www.cnblogs.com/owenChen/archive/2013/02/18/2915521.html</a><br>13.this<br><a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html</a></p>
-<p>14.new<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new</a><br><a href="http://blog.csdn.net/hy6688_/article/details/22453043" target="_blank" rel="external">http://blog.csdn.net/hy6688_/article/details/22453043</a></p>
-<p>15.js跨域<br><a href="http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html" target="_blank" rel="external">http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html</a><br>js的类库看一下jQuery，有时间浏览一下源码，$符的实现原理</p>
+            <p>JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：</p>
+<a id="more"></a>
+<p>###typeof<br>    typeof是一个一元运算，放在一个运算数之前，运算数可以是任意类型。他返回值是一个字符串，该字符串说明运算数的类型，typeof 一般只能返回如下几个结果：<br>    number,boolean,string,function,object,undefined。</p>
+<pre><code>##我们可以使用 typeof 来获取一个变量是否存在，如 if(typeof a!=&quot;undefined&quot;){alert(&quot;ok&quot;)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错，对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。
+
+document.write (&quot;typeof(1): &quot;+typeof(1)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(NaN): &quot;+typeof(NaN)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(Number.MIN_VALUE): &quot;+typeof(Number.MIN_VALUE)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(Infinity): &quot;+typeof(Infinity)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(\&quot;123\&quot;): &quot;+typeof(&quot;123&quot;)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(true): &quot;+typeof(true)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(window): &quot;+typeof(window)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(Array()): &quot;+typeof(new Array())+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(function(){}): &quot;+typeof(function(){})+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(document): &quot;+typeof(document)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(null): &quot;+typeof(null)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(eval): &quot;+typeof(eval)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(Date): &quot;+typeof(Date)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(sss): &quot;+typeof(sss)+&quot;&lt;br&gt;&quot;);
+document.write (&quot;typeof(undefined): &quot;+typeof(undefined)+&quot;&lt;br&gt;&quot;)
+</code></pre><p>###instanceof<br>    instance：实例,例子<br>    a instanceof b?alert(“true”):alert(“false”); //a是b的实例？真:假<br>    instanceof 用于判断一个变量是否某个对象的实例，如 var a=new Array();alert(a instanceof Array); 会返回 true，同时 alert(a instanceof Object) 也会返回 true;这是因为 Array 是 object 的子类。再如：function test(){};var a=new test();alert(a instanceof test) 会返回<br>    谈到 instanceof 我们要多插入一个问题，就是 function 的 arguments，我们大家也许都认为 arguments 是一个 Array，但如果使用 instaceof 去测试会发现 arguments 不是一个 Array 对象，尽管看起来很像。<br>    另外：<br>    测试 var a=new Array();if (a instanceof Object) alert(‘Y’);else alert(‘N’);<br>    得’Y’<br>    但 if (window instanceof Object) alert(‘Y’);else alert(‘N’);<br>    得’N’<br>    所以，这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。<br>    使用 typeof 会有些区别<br>    alert(typeof(window)) 会得 object</p>
 
             <blockquote>
                 <p>
                 本文地址：
-                <a href="http://blog.newbug.xyz/2017/04/11/js复习重点/" target="_blank" rel="external">http://blog.newbug.xyz/2017/04/11/js复习重点/</a>
+                <a href="http://blog.newbug.xyz/2017/04/11/typeof和instanceof/" target="_blank" rel="external">http://blog.newbug.xyz/2017/04/11/typeof和instanceof/</a>
                 </p>
                 <footer><cite><a href="http://blog.newbug.xyz">@神族九帝</a></cite></footer>
             </blockquote>
@@ -221,19 +234,12 @@
             
 <nav class="post-nav">
   
-    <div class="waves-block waves-effect prev fl">
-      <a href="/2017/04/11/typeof和instanceof/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">typeof和instanceof</h4>
-      </a>
-    </div>
-  
 
   
     <div class="waves-block waves-effect next fr">
-      <a href="/2017/04/10/JavaScript初级试题/" id="post-next" class="post-nav-link">
+      <a href="/2017/04/11/js复习重点/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">JavaScript初级试题</h4>
+        <h4 class="title">js复习重点</h4>
       </a>
     </div>
   
@@ -244,7 +250,7 @@
             
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="js复习重点" data-title="js复习重点" data-url="http://blog.newbug.xyz/2017/04/11/js复习重点/index.html"></div>
+	<div class="ds-thread" data-thread-key="typeof和instanceof" data-title="typeof和instanceof" data-url="http://blog.newbug.xyz/2017/04/11/typeof和instanceof/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -275,10 +281,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "js复习重点",
+    title: "typeof和instanceof",
     pic: "/img/logo.gif",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://blog.newbug.xyz/2017/04/11/js复习重点/index.html"
+    url: "http://blog.newbug.xyz/2017/04/11/typeof和instanceof/index.html"
 };
 </script>
 <div class="global-share" id="global-share">

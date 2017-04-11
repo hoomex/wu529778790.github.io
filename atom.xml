@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-11T03:31:21.579Z</updated>
+  <updated>2017-04-11T07:46:06.649Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>typeof和instanceof</title>
+    <link href="http://blog.newbug.xyz/2017/04/11/typeof%E5%92%8Cinstanceof/"/>
+    <id>http://blog.newbug.xyz/2017/04/11/typeof和instanceof/</id>
+    <published>2017-04-11T07:41:31.000Z</published>
+    <updated>2017-04-11T07:46:06.649Z</updated>
+    
+    <content type="html">&lt;p&gt;JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;###typeof&lt;br&gt;    typeof是一个一元运算，放在一个运算数之前，运算数可以是任意类型。他返回值是一个字符串，该字符串说明运算数的类型，typeof 一般只能返回如下几个结果：&lt;br&gt;    number,boolean,string,function,object,undefined。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;##我们可以使用 typeof 来获取一个变量是否存在，如 if(typeof a!=&amp;quot;undefined&amp;quot;){alert(&amp;quot;ok&amp;quot;)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错，对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。
+
+document.write (&amp;quot;typeof(1): &amp;quot;+typeof(1)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(NaN): &amp;quot;+typeof(NaN)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(Number.MIN_VALUE): &amp;quot;+typeof(Number.MIN_VALUE)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(Infinity): &amp;quot;+typeof(Infinity)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(\&amp;quot;123\&amp;quot;): &amp;quot;+typeof(&amp;quot;123&amp;quot;)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(true): &amp;quot;+typeof(true)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(window): &amp;quot;+typeof(window)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(Array()): &amp;quot;+typeof(new Array())+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(function(){}): &amp;quot;+typeof(function(){})+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(document): &amp;quot;+typeof(document)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(null): &amp;quot;+typeof(null)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(eval): &amp;quot;+typeof(eval)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(Date): &amp;quot;+typeof(Date)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(sss): &amp;quot;+typeof(sss)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;);
+document.write (&amp;quot;typeof(undefined): &amp;quot;+typeof(undefined)+&amp;quot;&amp;lt;br&amp;gt;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###instanceof&lt;br&gt;    instance：实例,例子&lt;br&gt;    a instanceof b?alert(“true”):alert(“false”); //a是b的实例？真:假&lt;br&gt;    instanceof 用于判断一个变量是否某个对象的实例，如 var a=new Array();alert(a instanceof Array); 会返回 true，同时 alert(a instanceof Object) 也会返回 true;这是因为 Array 是 object 的子类。再如：function test(){};var a=new test();alert(a instanceof test) 会返回&lt;br&gt;    谈到 instanceof 我们要多插入一个问题，就是 function 的 arguments，我们大家也许都认为 arguments 是一个 Array，但如果使用 instaceof 去测试会发现 arguments 不是一个 Array 对象，尽管看起来很像。&lt;br&gt;    另外：&lt;br&gt;    测试 var a=new Array();if (a instanceof Object) alert(‘Y’);else alert(‘N’);&lt;br&gt;    得’Y’&lt;br&gt;    但 if (window instanceof Object) alert(‘Y’);else alert(‘N’);&lt;br&gt;    得’N’&lt;br&gt;    所以，这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。&lt;br&gt;    使用 typeof 会有些区别&lt;br&gt;    alert(typeof(window)) 会得 object&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>js复习重点</title>
