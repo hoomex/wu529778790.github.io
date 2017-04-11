@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://blog.newbug.xyz/2017/04/11/typeof和instanceof/index.html">
 <meta property="og:site_name" content="神族九帝">
 <meta property="og:description" content="JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：">
-<meta property="og:updated_time" content="2017-04-11T07:46:06.649Z">
+<meta property="og:updated_time" content="2017-04-11T07:49:56.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="typeof和instanceof">
 <meta name="twitter:description" content="JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：">
@@ -193,7 +193,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#typeof"><span class="post-toc-number">1.</span> <span class="post-toc-text">typeof</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#我们可以使用-typeof-来获取一个变量是否存在，如-if-typeof-a-”undefined”-alert-“ok”-，而不要去使用-if-a-因为如果-a-不存在（未声明）则会出错，对于-Array-Null-等特殊对象使用-typeof-一律返回-object，这正是-typeof-的局限性。"><span class="post-toc-number"></span> <span class="post-toc-text">我们可以使用 typeof 来获取一个变量是否存在，如 if(typeof a!=”undefined”){alert(“ok”)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错，对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#instanceof"><span class="post-toc-number">1.</span> <span class="post-toc-text">instanceof</span></a></li></ol>
             </nav>
             
         </aside>
@@ -203,10 +203,9 @@
             <div class="post-content" id="post-content" itemprop="postContent">
             <p>JavaScript 中 typeof 和 instanceof 常用来判断一个变量是否为空，或者是什么类型的。但它们之间还是有区别的：</p>
 <a id="more"></a>
-<p>###typeof<br>    typeof是一个一元运算，放在一个运算数之前，运算数可以是任意类型。他返回值是一个字符串，该字符串说明运算数的类型，typeof 一般只能返回如下几个结果：<br>    number,boolean,string,function,object,undefined。</p>
-<pre><code>##我们可以使用 typeof 来获取一个变量是否存在，如 if(typeof a!=&quot;undefined&quot;){alert(&quot;ok&quot;)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错，对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。
-
-document.write (&quot;typeof(1): &quot;+typeof(1)+&quot;&lt;br&gt;&quot;);
+<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><pre><code>typeof是一个一元运算，放在一个运算数之前，运算数可以是任意类型。他返回值是一个字符串，该字符串说明运算数的类型，typeof 一般只能返回如下几个结果：
+number,boolean,string,function,object,undefined。
+</code></pre><h2 id="我们可以使用-typeof-来获取一个变量是否存在，如-if-typeof-a-”undefined”-alert-“ok”-，而不要去使用-if-a-因为如果-a-不存在（未声明）则会出错，对于-Array-Null-等特殊对象使用-typeof-一律返回-object，这正是-typeof-的局限性。"><a href="#我们可以使用-typeof-来获取一个变量是否存在，如-if-typeof-a-”undefined”-alert-“ok”-，而不要去使用-if-a-因为如果-a-不存在（未声明）则会出错，对于-Array-Null-等特殊对象使用-typeof-一律返回-object，这正是-typeof-的局限性。" class="headerlink" title="我们可以使用 typeof 来获取一个变量是否存在，如 if(typeof a!=”undefined”){alert(“ok”)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错，对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。"></a>我们可以使用 typeof 来获取一个变量是否存在，如 if(typeof a!=”undefined”){alert(“ok”)}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错，对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。</h2><pre><code>document.write (&quot;typeof(1): &quot;+typeof(1)+&quot;&lt;br&gt;&quot;);
 document.write (&quot;typeof(NaN): &quot;+typeof(NaN)+&quot;&lt;br&gt;&quot;);
 document.write (&quot;typeof(Number.MIN_VALUE): &quot;+typeof(Number.MIN_VALUE)+&quot;&lt;br&gt;&quot;);
 document.write (&quot;typeof(Infinity): &quot;+typeof(Infinity)+&quot;&lt;br&gt;&quot;);
@@ -221,8 +220,19 @@ document.write (&quot;typeof(eval): &quot;+typeof(eval)+&quot;&lt;br&gt;&quot;);
 document.write (&quot;typeof(Date): &quot;+typeof(Date)+&quot;&lt;br&gt;&quot;);
 document.write (&quot;typeof(sss): &quot;+typeof(sss)+&quot;&lt;br&gt;&quot;);
 document.write (&quot;typeof(undefined): &quot;+typeof(undefined)+&quot;&lt;br&gt;&quot;)
-</code></pre><p>###instanceof<br>    instance：实例,例子<br>    a instanceof b?alert(“true”):alert(“false”); //a是b的实例？真:假<br>    instanceof 用于判断一个变量是否某个对象的实例，如 var a=new Array();alert(a instanceof Array); 会返回 true，同时 alert(a instanceof Object) 也会返回 true;这是因为 Array 是 object 的子类。再如：function test(){};var a=new test();alert(a instanceof test) 会返回<br>    谈到 instanceof 我们要多插入一个问题，就是 function 的 arguments，我们大家也许都认为 arguments 是一个 Array，但如果使用 instaceof 去测试会发现 arguments 不是一个 Array 对象，尽管看起来很像。<br>    另外：<br>    测试 var a=new Array();if (a instanceof Object) alert(‘Y’);else alert(‘N’);<br>    得’Y’<br>    但 if (window instanceof Object) alert(‘Y’);else alert(‘N’);<br>    得’N’<br>    所以，这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。<br>    使用 typeof 会有些区别<br>    alert(typeof(window)) 会得 object</p>
-
+</code></pre><h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><pre><code>instance：实例,例子
+a instanceof b?alert(&quot;true&quot;):alert(&quot;false&quot;); //a是b的实例？真:假
+instanceof 用于判断一个变量是否某个对象的实例，如 var a=new Array();alert(a instanceof Array); 会返回 true，同时 alert(a instanceof Object) 也会返回 true;这是因为 Array 是 object 的子类。再如：function test(){};var a=new test();alert(a instanceof test) 会返回
+谈到 instanceof 我们要多插入一个问题，就是 function 的 arguments，我们大家也许都认为 arguments 是一个 Array，但如果使用 instaceof 去测试会发现 arguments 不是一个 Array 对象，尽管看起来很像。
+另外：
+测试 var a=new Array();if (a instanceof Object) alert(&apos;Y&apos;);else alert(&apos;N&apos;);
+得&apos;Y’
+但 if (window instanceof Object) alert(&apos;Y&apos;);else alert(&apos;N&apos;);
+得&apos;N&apos;
+所以，这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。
+使用 typeof 会有些区别
+alert(typeof(window)) 会得 object
+</code></pre>
             <blockquote>
                 <p>
                 本文地址：
