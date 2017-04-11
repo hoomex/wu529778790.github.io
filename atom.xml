@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-11T02:44:34.794Z</updated>
+  <updated>2017-04-11T03:31:21.579Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js复习重点</title>
+    <link href="http://blog.newbug.xyz/2017/04/11/js%E5%A4%8D%E4%B9%A0%E9%87%8D%E7%82%B9/"/>
+    <id>http://blog.newbug.xyz/2017/04/11/js复习重点/</id>
+    <published>2017-04-11T03:30:42.000Z</published>
+    <updated>2017-04-11T03:31:21.579Z</updated>
+    
+    <content type="html">&lt;p&gt;1.闭包的概念及其应用&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&lt;/a&gt;&lt;br&gt; &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;2.原型链/继承，构造对象的方法&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/TomXu/archive/2012/01/05/2305453.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/TomXu/archive/2012/01/05/2305453.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.oyanglul.us/javascript/understand-prototype.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://blog.oyanglul.us/javascript/understand-prototype.html&lt;/a&gt;&lt;br&gt;这一部分 js高级程序设计上面讲的挺好的&lt;/p&gt;
+&lt;p&gt;3.bom/dom(重点是dom)&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000000654274（这个说的挺详细）&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://segmentfault.com/a/1190000000654274（这个说的挺详细）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.itxueyuan.org/view/6299.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.itxueyuan.org/view/6299.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://blog.csdn.NET/xiao__gui/article/details/8315148&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.NET/xiao__gui/article/details/8315148&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4.获取元素的方法，queryselector()（get—byid，byclassname。。。。。）&lt;br&gt;&lt;a href=&quot;http://blog.csdn.Net/mydeman/article/details/2078107&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.Net/mydeman/article/details/2078107&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;5.nodelist和array&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/API/NodeList&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/jeffwongishandsome/archive/2010/07/07/1773144.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/jeffwongishandsome/archive/2010/07/07/1773144.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;6.数组的常规操作&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/ahthw/p/4279642.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/ahthw/p/4279642.html&lt;/a&gt;&lt;br&gt;熟悉一下一下基本的算法，排序，逆置什么的。&lt;br&gt;7.apply/call&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/fighting_cp/archive/2010/09/20/1831844.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/fighting_cp/archive/2010/09/20/1831844.html&lt;/a&gt;&lt;br&gt;call和apply是为了动态改变this而出现的，当一个object没有某个方法，但是其他的有，我们可以借助call或apply用其它对象的方法来操作。用的比较多的，通过document.getElementsByTagName选择的dom 节点是一种类似array的array。它不能应用Array下的push,pop等方法。我们可以通过：var domNodes =  Array.prototype.slice.call(document.getElementsByTagName(“*”));这样domNodes就可以应用Array下的所有方法了。&lt;br&gt;8.string对象的操作&lt;br&gt;&lt;a href=&quot;http://itbilu.com/javascript/js/EymJA6WY.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://itbilu.com/javascript/js/EymJA6WY.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;9.五种基本类型（数字，字符串，undefined，null，boolearn）以及复合类型（array，object，function），他们二者的判别方法&lt;br&gt;&lt;a href=&quot;http://www.xiabingbao.com/javascript/2015/07/04/javascript-type/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.xiabingbao.com/javascript/2015/07/04/javascript-type/&lt;/a&gt;&lt;br&gt;10.事件流（冒泡，捕获）&lt;br&gt;&lt;a href=&quot;http://segmentfault.com/a/1190000003497939&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://segmentfault.com/a/1190000003497939&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;11.事件的添加，删除&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/jaylongli/article/details/4038042&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/jaylongli/article/details/4038042&lt;/a&gt;&lt;br&gt;结合事件流选择合适的元素进行事件添加可以适当的优化性能，也就是事件委托&lt;/p&gt;
+&lt;p&gt;12.事件委托&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/owenChen/archive/2013/02/18/2915521.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/owenChen/archive/2013/02/18/2915521.html&lt;/a&gt;&lt;br&gt;13.this&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;14.new&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/hy6688_/article/details/22453043&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/hy6688_/article/details/22453043&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;15.js跨域&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html&lt;/a&gt;&lt;br&gt;js的类库看一下jQuery，有时间浏览一下源码，$符的实现原理&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.闭包的概念及其应用&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html&quot;&gt;http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>JavaScript初级试题</title>
