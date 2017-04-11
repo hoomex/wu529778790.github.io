@@ -10,20 +10,20 @@
   
   
   <meta name="keywords" content="">
-  <meta name="description" content="今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下1,输出下面的值    var a = 10, b = 20, c = (a++,b++,100);    console.log(c);运算符的优先级，这里的运算符逗号是多重求值，不论多少个逗号，都是返回最后一个逗号后面的值2,判断是否为质数    function isZhuShu(m){        if( m">
+  <meta name="description" content="今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript初级试题">
 <meta property="og:url" content="http://blog.newbug.xyz/2017/04/10/JavaScript初级试题/index.html">
 <meta property="og:site_name" content="神族九帝">
-<meta property="og:description" content="今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下1,输出下面的值    var a = 10, b = 20, c = (a++,b++,100);    console.log(c);运算符的优先级，这里的运算符逗号是多重求值，不论多少个逗号，都是返回最后一个逗号后面的值2,判断是否为质数    function isZhuShu(m){        if( m">
-<meta property="og:updated_time" content="2017-04-11T02:38:00.068Z">
+<meta property="og:description" content="今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下">
+<meta property="og:updated_time" content="2017-04-11T02:44:34.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript初级试题">
-<meta name="twitter:description" content="今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下1,输出下面的值    var a = 10, b = 20, c = (a++,b++,100);    console.log(c);运算符的优先级，这里的运算符逗号是多重求值，不论多少个逗号，都是返回最后一个逗号后面的值2,判断是否为质数    function isZhuShu(m){        if( m">
+<meta name="twitter:description" content="今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下">
   
     <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
   
-  <meta name="summary" content="人生就像愤怒的小鸟，当你失意的时候总有几只猪在笑！">
+  <meta name="summary" content="&lt;p&gt;今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下&lt;br&gt;">
   <link rel="shortcut icon" href="/img/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -199,7 +199,7 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent">
-            <p>今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下<br>1,输出下面的值<br>    var a = 10, b = 20, c = (a++,b++,100);<br>    console.log(c);<br>运算符的优先级，这里的运算符逗号是多重求值，不论多少个逗号，都是返回最后一个逗号后面的值<br>2,判断是否为质数<br>    function isZhuShu(m){<br>        if( m &lt;= 1 || m%1 !== 0){<br>            return false;<br>        }<br>        var n = 2;<br>        while(n&lt;m){<br>            if(m%n==0){<br>                return false;<br>            }else{<br>                n++;<br>                continue;<br>            }<br>        }<br>        return true<br>    }<br>下面的是优化算法：<br>    function isPrime(number){<br>        if (typeof number !== ‘number’ || number &lt; 2){<br>            //不是数字或者字数小于2<br>            return false;<br>        }</p>
+            <p>今天在网上看了几个初级的试题，没想到竟然后好几个不确定答案的，所以就在此记录下<br><a id="more"></a><br>1,输出下面的值<br>        var a = 10, b = 20, c = (a++,b++,100);<br>        console.log(c);<br>运算符的优先级，这里的运算符逗号是多重求值，不论多少个逗号，都是返回最后一个逗号后面的值<br>2,判断是否为质数<br>        function isZhuShu(m){<br>            if( m &lt;= 1 || m%1 !== 0){<br>                return false;<br>            }<br>            var n = 2;<br>            while(n&lt;m){<br>                if(m%n==0){<br>                    return false;<br>                }else{<br>                    n++;<br>                    continue;<br>                }<br>            }<br>            return true<br>        }<br>下面的是优化算法：<br>        function isPrime(number){<br>            if (typeof number !== ‘number’ || number &lt; 2){<br>                //不是数字或者字数小于2<br>                return false;<br>            }</p>
 <pre><code>    if (number === 2){
         //2是质数
         return true 
@@ -216,7 +216,7 @@
     }
     return true;
 }
-</code></pre><p>3,获取斐波那契数列的第n个值，如果n不是有限的数字，则返回undefined<br>    function getFBN(n){<br>        if(typeof n !== ‘number’){<br>            return<br>        }<br>        if(n &lt; 0){<br>            return 1<br>        }<br>        else if (n &lt;= 2){<br>            return 2<br>        }<br>        return getFBN(n-1) + getFBN(n-2);<br>    }<br>    console.log(getFBN(3))<br>4,计算从10到100中能被3或者5整除的数的和<br>    function getSum(){<br>        var sum = 0;<br>        for(var i = 10;i&lt;=100;i++){<br>            sum += (i%3 === 0 || i%5 === 0) &amp;&amp; i<br>        }<br>        return sum<br>    }<br>    console.log(getSum)<br>5,将传入的字符串翻转输出，如果不是字符串输出undefined</p>
+</code></pre><p>3,获取斐波那契数列的第n个值，如果n不是有限的数字，则返回undefined<br>        function getFBN(n){<br>            if(typeof n !== ‘number’){<br>                return<br>            }<br>            if(n &lt; 0){<br>                return 1<br>            }<br>            else if (n &lt;= 2){<br>                return 2<br>            }<br>            return getFBN(n-1) + getFBN(n-2);<br>        }<br>        console.log(getFBN(3))<br>4,计算从10到100中能被3或者5整除的数的和<br>        function getSum(){<br>            var sum = 0;<br>            for(var i = 10;i&lt;=100;i++){<br>                sum += (i%3 === 0 || i%5 === 0) &amp;&amp; i<br>            }<br>            return sum<br>        }<br>        console.log(getSum)<br>5,将传入的字符串翻转输出，如果不是字符串输出undefined</p>
 <pre><code>function getReverse(str){
     var result = &apos;&apos;;
     if(typeof str !== &apos;string&apos;){
@@ -227,45 +227,45 @@
     }
     return result
 }
-</code></pre><p>下面是简便的方法<br>    function getReverse(str){<br>        if(typeof str !== ‘string’){<br>            return null<br>        }<br>        return str.split(‘’).reverse().join(‘’)<br>    }</p>
-<p>6,写一个函数，来实现判断一个字符串是否为回文（忽略大小写）<br>    function isHuiWen(str){<br>        if(typeof str !== ‘string’ || str.constructor !== String){<br>            return false;<br>        }<br>        for(var i = 0,len=(str.length+1)/2;i&lt;len;i++){<br>            if(str[i] !== str[str.length-i-1]){<br>                return false;<br>            }<br>        }<br>    }</p>
-<p>7,去除字符串中重复的字符<br>    function getNoRepeat(str){<br>        var tempObj = {},result = ‘’;<br>        if(typeof str !== ‘string’ || str.constructor !== String){<br>            return false;<br>        }<br>        for(var i = 0,len =str.length;i<len;i++){ 1="" if(!tempobj[str[i]]){="" result="" +="str[i];" tempobj[str[i]]="true" }="" return="" 8,="" 输出1000内水仙花数水仙花数是指一个="" n="" 位数="" (="" n≥3="" )，它的每个位上的数字的="" 次幂之和等于它本身。（例如：1^3="" 5^3+="" 3^3="153）三位的水仙花数共有4个：153，370，371，407" 先封装一个简易版的math.pow封装="" function="" pospow(n,x){="" var="" if(x="==0){" <="" 0){="" 只运算乘方="" null="" while(x="">1){<br>            result = result*n;<br>            x–;<br>        }<br>        return result;<br>    }</len;i++){></p>
+</code></pre><p>下面是简便的方法<br>        function getReverse(str){<br>            if(typeof str !== ‘string’){<br>                return null<br>            }<br>            return str.split(‘’).reverse().join(‘’)<br>        }</p>
+<p>6,写一个函数，来实现判断一个字符串是否为回文（忽略大小写）<br>        function isHuiWen(str){<br>            if(typeof str !== ‘string’ || str.constructor !== String){<br>                return false;<br>            }<br>            for(var i = 0,len=(str.length+1)/2;i&lt;len;i++){<br>                if(str[i] !== str[str.length-i-1]){<br>                    return false;<br>                }<br>            }<br>        }</p>
+<p>7,去除字符串中重复的字符<br>        function getNoRepeat(str){<br>            var tempObj = {},result = ‘’;<br>            if(typeof str !== ‘string’ || str.constructor !== String){<br>                return false;<br>            }<br>            for(var i = 0,len =str.length;i<len;i++){ 1="" if(!tempobj[str[i]]){="" result="" +="str[i];" tempobj[str[i]]="true" }="" return="" 8,="" 输出1000内水仙花数水仙花数是指一个="" n="" 位数="" (="" n≥3="" )，它的每个位上的数字的="" 次幂之和等于它本身。（例如：1^3="" 5^3+="" 3^3="153）三位的水仙花数共有4个：153，370，371，407" 先封装一个简易版的math.pow封装="" function="" pospow(n,x){="" var="" if(x="==0){" <="" 0){="" 只运算乘方="" null="" while(x="">1){<br>                result = result*n;<br>                x–;<br>            }<br>            return result;<br>        }</len;i++){></p>
 <pre><code>//最终函数
-function narc(max){
-    var resultList = [],
-        maxDigit=3, //max的位数
-        tempResult=0;
-    if(max &lt;= 100){
-        return null;
-    }else if(typeof max !== &apos;number&apos;){
-        return null
-    }
-    //取得max的位数
-    maxDigit = max.toString().length+1;
-
-    //第一层对于位数进行循环，从3位开始
-    for(var digit = 3; digit &lt;= maxDigit; digit++){
-        //第二层循环从 0到 Max
-        for(var i = 100; i &lt; max; i++){
-            tempResult = 0;
-            //第三层循环，从i的第0位到最后一位
-            for(var j=0;j&lt;digit-1; j++){
-                tempResult += posPow(i.toString()[j], digit-1)
-            }
-            (tempResult === i) &amp;&amp; (resultList[resultList.length]  = i)
+    function narc(max){
+        var resultList = [],
+            maxDigit=3, //max的位数
+            tempResult=0;
+        if(max &lt;= 100){
+            return null;
+        }else if(typeof max !== &apos;number&apos;){
+            return null
         }
+        //取得max的位数
+        maxDigit = max.toString().length+1;
+
+        //第一层对于位数进行循环，从3位开始
+        for(var digit = 3; digit &lt;= maxDigit; digit++){
+            //第二层循环从 0到 Max
+            for(var i = 100; i &lt; max; i++){
+                tempResult = 0;
+                //第三层循环，从i的第0位到最后一位
+                for(var j=0;j&lt;digit-1; j++){
+                    tempResult += posPow(i.toString()[j], digit-1)
+                }
+                (tempResult === i) &amp;&amp; (resultList[resultList.length]  = i)
+            }
+        }
+
+        return resultList;
     }
 
-    return resultList;
-}
-
-console.log(narc(1000))
-console.log(narc(10000))
-console.log(narc(8209))
-</code></pre><p>9,以下js代码会输出什么<br>    console.log(1 + “2” + “2”);//122<br>    console.log(1 +  + “2” + “2”);//32  空格加字符串变成数字，隐式转换<br>    console.log(+ “1” + “1” + “2”);//112<br>    console.log( “A” - “B” + “2”);//NAN2   “A” - “B” 会返回 NaN，因为 “A” 和 “B” 无法转成数字进行运算，这里不要以为 “A” 和 “B” 能转为 ASCII码 进行运算（这个和C语言是不同的，不要搞乱了）。而 NaN 和字符串相加，会转成 “NaN” 和字符串去拼接，所以，倒数第二问是 NAN+”2”,为 NAN2，NaN 和任何数字相加结果还是 NaN。<br>    console.log( “A” - “B” + 2 ); //NAN</p>
-<p>10,以下js输出结果为<br>    var length = 10;<br>    function fn(){<br>        alert(this.length);<br>    }<br>    var obj = {<br>        length: 5,<br>        method: function(fn){<br>            fn();<br>            arguments<a href="">0</a>;<br>        }<br>    }<br>    obj.method(fn);</p>
+    console.log(narc(1000))
+    console.log(narc(10000))
+    console.log(narc(8209))
+</code></pre><p>9,以下js代码会输出什么<br>        console.log(1 + “2” + “2”);//122<br>        console.log(1 +  + “2” + “2”);//32  空格加字符串变成数字，隐式转换<br>        console.log(+ “1” + “1” + “2”);//112<br>        console.log( “A” - “B” + “2”);//NAN2   “A” - “B” 会返回 NaN，因为 “A” 和 “B” 无法转成数字进行运算，这里不要以为 “A” 和 “B” 能转为 ASCII码 进行运算（这个和C语言是不同的，不要搞乱了）。而 NaN 和字符串相加，会转成 “NaN” 和字符串去拼接，所以，倒数第二问是 NAN+”2”,为 NAN2，NaN 和任何数字相加结果还是 NaN。<br>        console.log( “A” - “B” + 2 ); //NAN</p>
+<p>10,以下js输出结果为<br>        var length = 10;<br>        function fn(){<br>            alert(this.length);<br>        }<br>        var obj = {<br>            length: 5,<br>            method: function(fn){<br>                fn();<br>                arguments<a href="">0</a>;<br>            }<br>        }<br>        obj.method(fn);</p>
 <p>这个主要是考arguments，对象属于除了点操作符还可以用中括号，这里fn的scope是arguments，即fn内的this===arguments，调用时仅传了一个参数fn，因此length为1。</p>
-<p>11，<br>    var a = 1;<br>    function func(){<br>        a = b = 2;<br>    }<br>    func();<br>    alert(a); //2<br>    alert(b); //2<br>js中不用var声明的变量默认是全局变量，所以b是全聚德，所以func是可以对外进行访问的</p>
+<p>11，<br>        var a = 1;<br>        function func(){<br>            a = b = 2;<br>        }<br>        func();<br>        alert(a); //2<br>        alert(b); //2<br>js中不用var声明的变量默认是全局变量，所以b是全聚德，所以func是可以对外进行访问的</p>
 <p>12，简述readyonly与disabled的区别<br>   1、Readonly只针对input(text/password)和textarea有效，而disabled对于所有的表单元素有效，包括select,radio,checkbox,button等。<br>   2、在表单元素使用了disabled后，我们将表单以POST或者GET的方式提交的话，这个元素的值不会被传递出去，而readonly会将该值传递出去</p>
 
             <blockquote>
