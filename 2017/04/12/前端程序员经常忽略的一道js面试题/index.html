@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://blog.newbug.xyz/2017/04/12/前端程序员经常忽略的一道js面试题/index.html">
 <meta property="og:site_name" content="神族九帝">
 <meta property="og:description" content="在网上看的这道面试题很经典，就转载过来记录一下，顺便加深自己的印象">
-<meta property="og:updated_time" content="2017-04-13T06:45:06.441Z">
+<meta property="og:updated_time" content="2017-04-13T06:46:31.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端程序员经常忽略的一道js面试题">
 <meta name="twitter:description" content="在网上看的这道面试题很经典，就转载过来记录一下，顺便加深自己的印象">
@@ -193,7 +193,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一问"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二问"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二问</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三问"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">第三问</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第四问"><span class="post-toc-number">3.</span> <span class="post-toc-text">第四问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第五问"><span class="post-toc-number">4.</span> <span class="post-toc-text">第五问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第六问"><span class="post-toc-number">5.</span> <span class="post-toc-text">第六问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第七问"><span class="post-toc-number">6.</span> <span class="post-toc-text">第七问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后续"><span class="post-toc-number">7.</span> <span class="post-toc-text">后续</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一问"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二问"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三问"><span class="post-toc-number">3.</span> <span class="post-toc-text">第三问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第四问"><span class="post-toc-number">4.</span> <span class="post-toc-text">第四问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第五问"><span class="post-toc-number">5.</span> <span class="post-toc-text">第五问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第六问"><span class="post-toc-number">6.</span> <span class="post-toc-text">第六问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第七问"><span class="post-toc-number">7.</span> <span class="post-toc-text">第七问</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后续"><span class="post-toc-number">8.</span> <span class="post-toc-text">后续</span></a></li></ol>
             </nav>
             
         </aside>
@@ -295,7 +295,7 @@ https://github.com/Wscats/Good-text-Share/issues/86
     总结：
         #### js中函数声明和函数表达式是存在区别的，函数声明在js解析时进行函数提升，因此在同一个作用域内，不管函数声明在哪定义，该函数都可以进行调用，而函数表达式的值是在js运行时确定，并且在表达式赋值完成后，该函数才能调用。
         所以第二问的答案就是4，5的函数生命被4的函数表达式覆盖了
-</code></pre><h3 id="第三问"><a href="#第三问" class="headerlink" title="第三问"></a>第三问</h3><pre><code>Foo().getName();先执行了Foo函数，然后再调用Foo函数的返回值对象的getName属性函数
+</code></pre><h2 id="第三问"><a href="#第三问" class="headerlink" title="第三问"></a>第三问</h2><pre><code>Foo().getName();先执行了Foo函数，然后再调用Foo函数的返回值对象的getName属性函数
 Foo函数的第一句getName = function (){alert(1)}是一句函数赋值语句，注意他没有var声明，所以先向当前Foo函数作用域内寻找getName变量，没有的话，在想当前函数作用域上层，即外层作用域内寻找是否含有getNAme变量，找到了，也就是第二问种的alert(4)函数,将此变量的值赋值为function(){alert(1)}
 此处实际上是将外层作用域内的getName函数修改了。
 
