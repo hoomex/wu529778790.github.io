@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jquery知识点归纳--dom篇 | 神族九帝 | 永不言弃</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="jquery">
+  <meta name="description" content="jquery——dom篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery知识点归纳--dom篇">
+<meta property="og:url" content="http://blog.newbug.xyz/2017/04/18/jquery知识点归纳-dom篇/index.html">
+<meta property="og:site_name" content="神族九帝">
+<meta property="og:description" content="jquery——dom篇">
+<meta property="og:updated_time" content="2017-04-18T06:07:11.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery知识点归纳--dom篇">
+<meta name="twitter:description" content="jquery——dom篇">
+  
+    <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;jquery——dom篇&lt;/p&gt;">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.gif"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">wu529778790</h5>
+        <a href="mailto:529778790@qq.com" title="529778790@qq.com" class="mail">529778790@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            归档
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/wu529778790" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="http://weibo.com/3282218950" target="_blank" >
+            <i class="icon icon-lg icon-weibo"></i>
+            Weibo
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/shows" target="_blank" >
+            <i class="icon icon-lg icon-shows"></i>
+            H5导航
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a href='http://shenzjd.cn'>神族九帝</a> &copy; 2017</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/wu529778790" target="_blank">wu529778790</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">jquery知识点归纳--dom篇</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">jquery知识点归纳--dom篇</h1>
+    <h5 class="subtitle">
+          
+            <time datetime="2017-04-18T06:00:01.000Z" itemprop="datePublished" class="page-time">
+  2017-04-18
+</time>
+
+ 
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-jquery知识点归纳-dom篇" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meat flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建节点和节点属性"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建节点和节点属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#dom节点的插入"><span class="post-toc-number">2.</span> <span class="post-toc-text">dom节点的插入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#append-和appendTo"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">append()和appendTo()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#prepend-与prependTo"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">prepend()与prependTo()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#insertAfter-与insertBefore"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">insertAfter()与insertBefore()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#dom结点的删除"><span class="post-toc-number">3.</span> <span class="post-toc-text">dom结点的删除</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#empty"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">empty()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#remove"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">remove()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保留数据的删除操作detach"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">保留数据的删除操作detach()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOM节点的复制与替换"><span class="post-toc-number">4.</span> <span class="post-toc-text">DOM节点的复制与替换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#clone"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">clone()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#replaceWith-和replaceAll"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">replaceWith()和replaceAll()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#包裹wrap-方法"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">包裹wrap()方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#包裹wrapAll-方法"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">包裹wrapAll()方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#包裹wrapInner-方法"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">包裹wrapInner()方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#遍历"><span class="post-toc-number">5.</span> <span class="post-toc-text">遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#children-方法"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">children()方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#find-方法"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">find()方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#parent-方法"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">parent()方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#parents-方法"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">parents()方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#closest-方法"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">closest()方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#next"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">next()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#prev-方法"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">prev()方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#siblings"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">siblings()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#add"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">add()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#each"><span class="post-toc-number">5.10.</span> <span class="post-toc-text">each()</span></a></li></ol></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>jquery——dom篇</p>
+<a id="more"></a>
+<h2 id="创建节点和节点属性"><a href="#创建节点和节点属性" class="headerlink" title="创建节点和节点属性"></a>创建节点和节点属性</h2><p>通过JavaScript可以很方便的获取DOM节点，从而进行一系列的DOM操作。但实际上一般开发者都习惯性的先定义好HTML结构，但这样就非常不灵活了。<br>试想下这样的情况：如果我们通过AJAX获取到数据之后然后才能确定结构的话，这种情况就需要动态的处理节点了<br>流程中涉及的一点方法：<br>创建元素：document.createElement<br>设置属性：setAttribute<br>添加文本：innerHTML<br>加入文档：appendChild<br>jquery创建节点<br>$(“html结构”)就是$(“<div></div>“)／$(“<div>我是文本节点</div>“)／$(“<div id="test" class="aaron">我是文本节点</div>“)</p>
+<h2 id="dom节点的插入"><a href="#dom节点的插入" class="headerlink" title="dom节点的插入"></a>dom节点的插入</h2><h3 id="append-和appendTo"><a href="#append-和appendTo" class="headerlink" title="append()和appendTo()"></a>append()和appendTo()</h3><p>动态创建的元素是不够的，它只是临时存放在内存中，最终我们需要放到页面文档并呈现出来。那么问题来了，怎么放到文档上？这里就涉及到一个位置关系，常见的就是把这个新创建的元素，当作页面某一个元素的子元素放到其内部。针对这样的处理，jQuery就定义2个操作的方法<br>append()前面是被插入的对象，后面是要在对象内插入的元素内容<br>appendTo()前面是要插入的元素内容，而后面是被插入的对象</p>
+<p>###　after()与before()</p>
+<p>before与after都是用来对相对选中元素外部增加相邻的兄弟节点<br>2个方法都是都可以接收HTML字符串，DOM 元素，元素数组，或者jQuery对象，用来插入到集合中每个匹配元素的前面或者后面<br>2个方法都支持多个参数传递after(div1,div2,….)</p>
+<h3 id="prepend-与prependTo"><a href="#prepend-与prependTo" class="headerlink" title="prepend()与prependTo()"></a>prepend()与prependTo()</h3><p>.prepend()方法将指定元素插入到匹配元素里面作为它的第一个子元素 (如果要作为最后一个子元素插入用.append()).</p>
+<p>.prepend()和.prependTo()实现同样的功能，主要的不同是语法，插入的内容和目标的位置不同<br>对于.prepend() 而言，选择器表达式写在方法的前面，作为待插入内容的容器，将要被插入的内容作为方法的参数</p>
+<p>而.prependTo() 正好相反，将要被插入的内容写在方法的前面，可以是选择器表达式或动态创建的标记，待插入内容的容器作为参数。</p>
+<h3 id="insertAfter-与insertBefore"><a href="#insertAfter-与insertBefore" class="headerlink" title="insertAfter()与insertBefore()"></a>insertAfter()与insertBefore()</h3><p>.before()和.insertBefore()实现同样的功能。主要的区别是语法——内容和目标的位置。 对于before()选择表达式在函数前面，内容作为参数，而.insertBefore()刚好相反，内容在方法前面，它将被放在参数里元素的前面</p>
+<p>.after()和.insertAfter() </p>
+<p>实现同样的功能。主要的不同是语法——特别是（插入）内容和目标的位置。 对于after()选择表达式在函数的前面，参数是将要插入的内容。对于 .insertAfter(), 刚好相反，内容在方法前面，它将被放在参数里元素的后面<br>before、after与insertBefore。insertAfter的除了目标与位置的不同外，后面的不支持多参数处理</p>
+<h2 id="dom结点的删除"><a href="#dom结点的删除" class="headerlink" title="dom结点的删除"></a>dom结点的删除</h2><h3 id="empty"><a href="#empty" class="headerlink" title="empty()"></a>empty()</h3><p>empty 顾名思义，清空方法，但是与删除又有点不一样，因为它只移除了 指定元素中的所有子节点。</p>
+<h3 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h3><p>remove与empty一样，都是移除元素的方法，但是remove会将元素自身移除，同时也会移除元素内部的一切，包括绑定的事件及与该元素相关的jQuery数据。</p>
+<h3 id="保留数据的删除操作detach"><a href="#保留数据的删除操作detach" class="headerlink" title="保留数据的删除操作detach()"></a>保留数据的删除操作detach()</h3><p>这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。与remove()不同的是，所有绑定的事件、附加的数据等都会保留下来。$(“div”).detach()这一句会移除对象，仅仅是显示效果没有了。但是内存中还是存在的。当你append之后，又重新回到了文档流中。就又显示出来了。</p>
+<h2 id="DOM节点的复制与替换"><a href="#DOM节点的复制与替换" class="headerlink" title="DOM节点的复制与替换"></a>DOM节点的复制与替换</h2><h3 id="clone"><a href="#clone" class="headerlink" title="clone()"></a>clone()</h3><p>.clone()方法深度 复制所有匹配的元素集合，包括所有匹配元素、匹配元素的下级元素、文字节点。<br>clone方法比较简单就是克隆节点，但是需要注意，如果节点有事件或者数据之类的其他处理，我们需要通过clone(ture)传递一个布尔值ture用来指定，这样不仅仅只是克隆单纯的节点结构，还要把附带的事件与数据给一并克隆了</p>
+<h3 id="replaceWith-和replaceAll"><a href="#replaceWith-和replaceAll" class="headerlink" title="replaceWith()和replaceAll()"></a>replaceWith()和replaceAll()</h3><p>.replaceWith( newContent )：用提供的内容替换集合中所有匹配的元素并且返回被删除元素的集合<br>$(“p:eq(1)”).replaceWith(‘<a style="color:red">替换第二段的内容</a>‘)<br>$(‘<a style="color:red">替换第二段的内容</a>‘).replaceAll(‘p:eq(1)’)</p>
+<h3 id="包裹wrap-方法"><a href="#包裹wrap-方法" class="headerlink" title="包裹wrap()方法"></a>包裹wrap()方法</h3><p>.wrap( wrappingElement )：在集合中匹配的每个元素周围包裹一个HTML结构<br>.wrap()函数可以接受任何字符串或对象，可以传递给$()工厂函数来指定一个DOM结构。这种结构可以嵌套了好几层深，但应该只包含一个核心的元素。每个匹配的元素都会被这种结构包裹。该方法返回原始的元素集，以便之后使用链式方法。</p>
+<h3 id="包裹wrapAll-方法"><a href="#包裹wrapAll-方法" class="headerlink" title="包裹wrapAll()方法"></a>包裹wrapAll()方法</h3><p>.wrapAll( wrappingElement )：给集合中匹配的元素增加一个外面包裹HTML结构<br>.wrapAll()函数可以接受任何字符串或对象，可以传递给$()工厂函数来指定一个DOM结构。这种结构可以嵌套多层，但是最内层只能有一个元素。所有匹配元素将会被当作是一个整体，在这个整体的外部用指定的 HTML 结构进行包裹。</p>
+<h3 id="包裹wrapInner-方法"><a href="#包裹wrapInner-方法" class="headerlink" title="包裹wrapInner()方法"></a>包裹wrapInner()方法</h3><p>.wrapInner( wrappingElement )：给集合中匹配的元素的内部，增加包裹的HTML结构</p>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><h3 id="children-方法"><a href="#children-方法" class="headerlink" title="children()方法"></a>children()方法</h3><p>代码如果是$(“div”).children()，那么意味着只能找到ul，因为div与ul是父子关系，li与div是祖辈关系，因此无法找到。</p>
+<h3 id="find-方法"><a href="#find-方法" class="headerlink" title="find()方法"></a>find()方法</h3><p>此时可以用find()方法，这也是开发使用频率很高的方法。这里要注意 children与find方法的区别，children是父子关系查找，find是后代关系（包含父子关系）</p>
+<h3 id="parent-方法"><a href="#parent-方法" class="headerlink" title="parent()方法"></a>parent()方法</h3><p>parent()方法允许我们能够在DOM树中搜索到这些元素的父级元素，从有序的向上匹配元素，并根据匹配的元素创建一个新的 jQuery 对象</p>
+<h3 id="parents-方法"><a href="#parents-方法" class="headerlink" title="parents()方法"></a>parents()方法</h3><p>jQuery是一个合集对象，如果想快速查找合集里面的每一个元素的所有祖辈元素，此时可以用parents()方法<br>其实也类似find与children的区别，parent只会查找一级，parents则会往上一直查到查找到祖先节点</p>
+<h3 id="closest-方法"><a href="#closest-方法" class="headerlink" title="closest()方法"></a>closest()方法</h3><p>从元素本身开始，在DOM 树上逐级向上级元素匹配，并返回最先匹配的祖先元素<br>起始位置不同：.closest开始于当前元素 .parents开始于父元素<br>遍历的目标不同：.closest要找到指定的目标，.parents遍历到文档根元素，closest向上查找，直到找到一个匹配的就停止查找，parents一直查找到根元素，并将匹配的元素加入集合<br>结果不同：.closest返回的是包含零个或一个元素的jquery对象，parents返回的是包含零个或一个或多个元素的jquery对象</p>
+<h3 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h3><p>jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素紧邻的后面同辈元素的元素集合，此时可以用next()方法</p>
+<h3 id="prev-方法"><a href="#prev-方法" class="headerlink" title="prev()方法"></a>prev()方法</h3><p>jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素紧邻的前面同辈元素的元素集合，此时可以用prev()方法</p>
+<h3 id="siblings"><a href="#siblings" class="headerlink" title="siblings()"></a>siblings()</h3><p>jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素的同辈元素，此时可以用siblings()方法</p>
+<h3 id="add"><a href="#add" class="headerlink" title="add()"></a>add()</h3><p>jQuery是一个合集对象，通过$()方法找到指定的元素合集后可以进行一系列的操作。$()之后就意味着这个合集对象已经是确定的，如果后期需要再往这个合集中添加一新的元素要如何处理？jQuery为此提供add方法，用来创建一个新的jQuery对象 ，元素添加到匹配的元素集合中</p>
+<h3 id="each"><a href="#each" class="headerlink" title="each()"></a>each()</h3><p>.each() 方法就是一个for循环的迭代器，它会迭代jQuery对象合集中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数</p>
+<p>链接：<a href="http://www.imooc.com/article/17456" target="_blank" rel="external">http://www.imooc.com/article/17456</a></p>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://blog.newbug.xyz/2017/04/18/jquery知识点归纳-dom篇/" target="_blank" rel="external">http://blog.newbug.xyz/2017/04/18/jquery知识点归纳-dom篇/</a>
+                </p>
+                <footer><cite><a href="http://blog.newbug.xyz">@神族九帝</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2017/04/18/JavaScript闭包面试题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JavaScript闭包面试题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jquery知识点归纳-dom篇" data-title="jquery知识点归纳--dom篇" data-url="http://blog.newbug.xyz/2017/04/18/jquery知识点归纳-dom篇/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wu529778790"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "jquery知识点归纳--dom篇",
+    pic: "/img/logo.gif",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://blog.newbug.xyz/2017/04/18/jquery知识点归纳-dom篇/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="http://s95.cnzz.com/z_stat.php?id=1259829398&web_id=1259829398"></script>
+
+
+
+
+
+</body>
+</html>

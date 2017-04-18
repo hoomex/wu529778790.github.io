@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-18T05:48:15.061Z</updated>
+  <updated>2017-04-18T06:07:11.117Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jquery知识点归纳--dom篇</title>
+    <link href="http://blog.newbug.xyz/2017/04/18/jquery%E7%9F%A5%E8%AF%86%E7%82%B9%E5%BD%92%E7%BA%B3-dom%E7%AF%87/"/>
+    <id>http://blog.newbug.xyz/2017/04/18/jquery知识点归纳-dom篇/</id>
+    <published>2017-04-18T06:00:01.000Z</published>
+    <updated>2017-04-18T06:07:11.117Z</updated>
+    
+    <content type="html">&lt;p&gt;jquery——dom篇&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;创建节点和节点属性&quot;&gt;&lt;a href=&quot;#创建节点和节点属性&quot; class=&quot;headerlink&quot; title=&quot;创建节点和节点属性&quot;&gt;&lt;/a&gt;创建节点和节点属性&lt;/h2&gt;&lt;p&gt;通过JavaScript可以很方便的获取DOM节点，从而进行一系列的DOM操作。但实际上一般开发者都习惯性的先定义好HTML结构，但这样就非常不灵活了。&lt;br&gt;试想下这样的情况：如果我们通过AJAX获取到数据之后然后才能确定结构的话，这种情况就需要动态的处理节点了&lt;br&gt;流程中涉及的一点方法：&lt;br&gt;创建元素：document.createElement&lt;br&gt;设置属性：setAttribute&lt;br&gt;添加文本：innerHTML&lt;br&gt;加入文档：appendChild&lt;br&gt;jquery创建节点&lt;br&gt;$(“html结构”)就是$(“&lt;div&gt;&lt;/div&gt;“)／$(“&lt;div&gt;我是文本节点&lt;/div&gt;“)／$(“&lt;div id=&quot;test&quot; class=&quot;aaron&quot;&gt;我是文本节点&lt;/div&gt;“)&lt;/p&gt;
+&lt;h2 id=&quot;dom节点的插入&quot;&gt;&lt;a href=&quot;#dom节点的插入&quot; class=&quot;headerlink&quot; title=&quot;dom节点的插入&quot;&gt;&lt;/a&gt;dom节点的插入&lt;/h2&gt;&lt;h3 id=&quot;append-和appendTo&quot;&gt;&lt;a href=&quot;#append-和appendTo&quot; class=&quot;headerlink&quot; title=&quot;append()和appendTo()&quot;&gt;&lt;/a&gt;append()和appendTo()&lt;/h3&gt;&lt;p&gt;动态创建的元素是不够的，它只是临时存放在内存中，最终我们需要放到页面文档并呈现出来。那么问题来了，怎么放到文档上？这里就涉及到一个位置关系，常见的就是把这个新创建的元素，当作页面某一个元素的子元素放到其内部。针对这样的处理，jQuery就定义2个操作的方法&lt;br&gt;append()前面是被插入的对象，后面是要在对象内插入的元素内容&lt;br&gt;appendTo()前面是要插入的元素内容，而后面是被插入的对象&lt;/p&gt;
+&lt;p&gt;###　after()与before()&lt;/p&gt;
+&lt;p&gt;before与after都是用来对相对选中元素外部增加相邻的兄弟节点&lt;br&gt;2个方法都是都可以接收HTML字符串，DOM 元素，元素数组，或者jQuery对象，用来插入到集合中每个匹配元素的前面或者后面&lt;br&gt;2个方法都支持多个参数传递after(div1,div2,….)&lt;/p&gt;
+&lt;h3 id=&quot;prepend-与prependTo&quot;&gt;&lt;a href=&quot;#prepend-与prependTo&quot; class=&quot;headerlink&quot; title=&quot;prepend()与prependTo()&quot;&gt;&lt;/a&gt;prepend()与prependTo()&lt;/h3&gt;&lt;p&gt;.prepend()方法将指定元素插入到匹配元素里面作为它的第一个子元素 (如果要作为最后一个子元素插入用.append()).&lt;/p&gt;
+&lt;p&gt;.prepend()和.prependTo()实现同样的功能，主要的不同是语法，插入的内容和目标的位置不同&lt;br&gt;对于.prepend() 而言，选择器表达式写在方法的前面，作为待插入内容的容器，将要被插入的内容作为方法的参数&lt;/p&gt;
+&lt;p&gt;而.prependTo() 正好相反，将要被插入的内容写在方法的前面，可以是选择器表达式或动态创建的标记，待插入内容的容器作为参数。&lt;/p&gt;
+&lt;h3 id=&quot;insertAfter-与insertBefore&quot;&gt;&lt;a href=&quot;#insertAfter-与insertBefore&quot; class=&quot;headerlink&quot; title=&quot;insertAfter()与insertBefore()&quot;&gt;&lt;/a&gt;insertAfter()与insertBefore()&lt;/h3&gt;&lt;p&gt;.before()和.insertBefore()实现同样的功能。主要的区别是语法——内容和目标的位置。 对于before()选择表达式在函数前面，内容作为参数，而.insertBefore()刚好相反，内容在方法前面，它将被放在参数里元素的前面&lt;/p&gt;
+&lt;p&gt;.after()和.insertAfter() &lt;/p&gt;
+&lt;p&gt;实现同样的功能。主要的不同是语法——特别是（插入）内容和目标的位置。 对于after()选择表达式在函数的前面，参数是将要插入的内容。对于 .insertAfter(), 刚好相反，内容在方法前面，它将被放在参数里元素的后面&lt;br&gt;before、after与insertBefore。insertAfter的除了目标与位置的不同外，后面的不支持多参数处理&lt;/p&gt;
+&lt;h2 id=&quot;dom结点的删除&quot;&gt;&lt;a href=&quot;#dom结点的删除&quot; class=&quot;headerlink&quot; title=&quot;dom结点的删除&quot;&gt;&lt;/a&gt;dom结点的删除&lt;/h2&gt;&lt;h3 id=&quot;empty&quot;&gt;&lt;a href=&quot;#empty&quot; class=&quot;headerlink&quot; title=&quot;empty()&quot;&gt;&lt;/a&gt;empty()&lt;/h3&gt;&lt;p&gt;empty 顾名思义，清空方法，但是与删除又有点不一样，因为它只移除了 指定元素中的所有子节点。&lt;/p&gt;
+&lt;h3 id=&quot;remove&quot;&gt;&lt;a href=&quot;#remove&quot; class=&quot;headerlink&quot; title=&quot;remove()&quot;&gt;&lt;/a&gt;remove()&lt;/h3&gt;&lt;p&gt;remove与empty一样，都是移除元素的方法，但是remove会将元素自身移除，同时也会移除元素内部的一切，包括绑定的事件及与该元素相关的jQuery数据。&lt;/p&gt;
+&lt;h3 id=&quot;保留数据的删除操作detach&quot;&gt;&lt;a href=&quot;#保留数据的删除操作detach&quot; class=&quot;headerlink&quot; title=&quot;保留数据的删除操作detach()&quot;&gt;&lt;/a&gt;保留数据的删除操作detach()&lt;/h3&gt;&lt;p&gt;这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。与remove()不同的是，所有绑定的事件、附加的数据等都会保留下来。$(“div”).detach()这一句会移除对象，仅仅是显示效果没有了。但是内存中还是存在的。当你append之后，又重新回到了文档流中。就又显示出来了。&lt;/p&gt;
+&lt;h2 id=&quot;DOM节点的复制与替换&quot;&gt;&lt;a href=&quot;#DOM节点的复制与替换&quot; class=&quot;headerlink&quot; title=&quot;DOM节点的复制与替换&quot;&gt;&lt;/a&gt;DOM节点的复制与替换&lt;/h2&gt;&lt;h3 id=&quot;clone&quot;&gt;&lt;a href=&quot;#clone&quot; class=&quot;headerlink&quot; title=&quot;clone()&quot;&gt;&lt;/a&gt;clone()&lt;/h3&gt;&lt;p&gt;.clone()方法深度 复制所有匹配的元素集合，包括所有匹配元素、匹配元素的下级元素、文字节点。&lt;br&gt;clone方法比较简单就是克隆节点，但是需要注意，如果节点有事件或者数据之类的其他处理，我们需要通过clone(ture)传递一个布尔值ture用来指定，这样不仅仅只是克隆单纯的节点结构，还要把附带的事件与数据给一并克隆了&lt;/p&gt;
+&lt;h3 id=&quot;replaceWith-和replaceAll&quot;&gt;&lt;a href=&quot;#replaceWith-和replaceAll&quot; class=&quot;headerlink&quot; title=&quot;replaceWith()和replaceAll()&quot;&gt;&lt;/a&gt;replaceWith()和replaceAll()&lt;/h3&gt;&lt;p&gt;.replaceWith( newContent )：用提供的内容替换集合中所有匹配的元素并且返回被删除元素的集合&lt;br&gt;$(“p:eq(1)”).replaceWith(‘&lt;a style=&quot;color:red&quot;&gt;替换第二段的内容&lt;/a&gt;‘)&lt;br&gt;$(‘&lt;a style=&quot;color:red&quot;&gt;替换第二段的内容&lt;/a&gt;‘).replaceAll(‘p:eq(1)’)&lt;/p&gt;
+&lt;h3 id=&quot;包裹wrap-方法&quot;&gt;&lt;a href=&quot;#包裹wrap-方法&quot; class=&quot;headerlink&quot; title=&quot;包裹wrap()方法&quot;&gt;&lt;/a&gt;包裹wrap()方法&lt;/h3&gt;&lt;p&gt;.wrap( wrappingElement )：在集合中匹配的每个元素周围包裹一个HTML结构&lt;br&gt;.wrap()函数可以接受任何字符串或对象，可以传递给$()工厂函数来指定一个DOM结构。这种结构可以嵌套了好几层深，但应该只包含一个核心的元素。每个匹配的元素都会被这种结构包裹。该方法返回原始的元素集，以便之后使用链式方法。&lt;/p&gt;
+&lt;h3 id=&quot;包裹wrapAll-方法&quot;&gt;&lt;a href=&quot;#包裹wrapAll-方法&quot; class=&quot;headerlink&quot; title=&quot;包裹wrapAll()方法&quot;&gt;&lt;/a&gt;包裹wrapAll()方法&lt;/h3&gt;&lt;p&gt;.wrapAll( wrappingElement )：给集合中匹配的元素增加一个外面包裹HTML结构&lt;br&gt;.wrapAll()函数可以接受任何字符串或对象，可以传递给$()工厂函数来指定一个DOM结构。这种结构可以嵌套多层，但是最内层只能有一个元素。所有匹配元素将会被当作是一个整体，在这个整体的外部用指定的 HTML 结构进行包裹。&lt;/p&gt;
+&lt;h3 id=&quot;包裹wrapInner-方法&quot;&gt;&lt;a href=&quot;#包裹wrapInner-方法&quot; class=&quot;headerlink&quot; title=&quot;包裹wrapInner()方法&quot;&gt;&lt;/a&gt;包裹wrapInner()方法&lt;/h3&gt;&lt;p&gt;.wrapInner( wrappingElement )：给集合中匹配的元素的内部，增加包裹的HTML结构&lt;/p&gt;
+&lt;h2 id=&quot;遍历&quot;&gt;&lt;a href=&quot;#遍历&quot; class=&quot;headerlink&quot; title=&quot;遍历&quot;&gt;&lt;/a&gt;遍历&lt;/h2&gt;&lt;h3 id=&quot;children-方法&quot;&gt;&lt;a href=&quot;#children-方法&quot; class=&quot;headerlink&quot; title=&quot;children()方法&quot;&gt;&lt;/a&gt;children()方法&lt;/h3&gt;&lt;p&gt;代码如果是$(“div”).children()，那么意味着只能找到ul，因为div与ul是父子关系，li与div是祖辈关系，因此无法找到。&lt;/p&gt;
+&lt;h3 id=&quot;find-方法&quot;&gt;&lt;a href=&quot;#find-方法&quot; class=&quot;headerlink&quot; title=&quot;find()方法&quot;&gt;&lt;/a&gt;find()方法&lt;/h3&gt;&lt;p&gt;此时可以用find()方法，这也是开发使用频率很高的方法。这里要注意 children与find方法的区别，children是父子关系查找，find是后代关系（包含父子关系）&lt;/p&gt;
+&lt;h3 id=&quot;parent-方法&quot;&gt;&lt;a href=&quot;#parent-方法&quot; class=&quot;headerlink&quot; title=&quot;parent()方法&quot;&gt;&lt;/a&gt;parent()方法&lt;/h3&gt;&lt;p&gt;parent()方法允许我们能够在DOM树中搜索到这些元素的父级元素，从有序的向上匹配元素，并根据匹配的元素创建一个新的 jQuery 对象&lt;/p&gt;
+&lt;h3 id=&quot;parents-方法&quot;&gt;&lt;a href=&quot;#parents-方法&quot; class=&quot;headerlink&quot; title=&quot;parents()方法&quot;&gt;&lt;/a&gt;parents()方法&lt;/h3&gt;&lt;p&gt;jQuery是一个合集对象，如果想快速查找合集里面的每一个元素的所有祖辈元素，此时可以用parents()方法&lt;br&gt;其实也类似find与children的区别，parent只会查找一级，parents则会往上一直查到查找到祖先节点&lt;/p&gt;
+&lt;h3 id=&quot;closest-方法&quot;&gt;&lt;a href=&quot;#closest-方法&quot; class=&quot;headerlink&quot; title=&quot;closest()方法&quot;&gt;&lt;/a&gt;closest()方法&lt;/h3&gt;&lt;p&gt;从元素本身开始，在DOM 树上逐级向上级元素匹配，并返回最先匹配的祖先元素&lt;br&gt;起始位置不同：.closest开始于当前元素 .parents开始于父元素&lt;br&gt;遍历的目标不同：.closest要找到指定的目标，.parents遍历到文档根元素，closest向上查找，直到找到一个匹配的就停止查找，parents一直查找到根元素，并将匹配的元素加入集合&lt;br&gt;结果不同：.closest返回的是包含零个或一个元素的jquery对象，parents返回的是包含零个或一个或多个元素的jquery对象&lt;/p&gt;
+&lt;h3 id=&quot;next&quot;&gt;&lt;a href=&quot;#next&quot; class=&quot;headerlink&quot; title=&quot;next()&quot;&gt;&lt;/a&gt;next()&lt;/h3&gt;&lt;p&gt;jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素紧邻的后面同辈元素的元素集合，此时可以用next()方法&lt;/p&gt;
+&lt;h3 id=&quot;prev-方法&quot;&gt;&lt;a href=&quot;#prev-方法&quot; class=&quot;headerlink&quot; title=&quot;prev()方法&quot;&gt;&lt;/a&gt;prev()方法&lt;/h3&gt;&lt;p&gt;jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素紧邻的前面同辈元素的元素集合，此时可以用prev()方法&lt;/p&gt;
+&lt;h3 id=&quot;siblings&quot;&gt;&lt;a href=&quot;#siblings&quot; class=&quot;headerlink&quot; title=&quot;siblings()&quot;&gt;&lt;/a&gt;siblings()&lt;/h3&gt;&lt;p&gt;jQuery是一个合集对象，如果想快速查找指定元素集合中每一个元素的同辈元素，此时可以用siblings()方法&lt;/p&gt;
+&lt;h3 id=&quot;add&quot;&gt;&lt;a href=&quot;#add&quot; class=&quot;headerlink&quot; title=&quot;add()&quot;&gt;&lt;/a&gt;add()&lt;/h3&gt;&lt;p&gt;jQuery是一个合集对象，通过$()方法找到指定的元素合集后可以进行一系列的操作。$()之后就意味着这个合集对象已经是确定的，如果后期需要再往这个合集中添加一新的元素要如何处理？jQuery为此提供add方法，用来创建一个新的jQuery对象 ，元素添加到匹配的元素集合中&lt;/p&gt;
+&lt;h3 id=&quot;each&quot;&gt;&lt;a href=&quot;#each&quot; class=&quot;headerlink&quot; title=&quot;each()&quot;&gt;&lt;/a&gt;each()&lt;/h3&gt;&lt;p&gt;.each() 方法就是一个for循环的迭代器，它会迭代jQuery对象合集中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数&lt;/p&gt;
+&lt;p&gt;链接：&lt;a href=&quot;http://www.imooc.com/article/17456&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.imooc.com/article/17456&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;jquery——dom篇&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="jquery" scheme="http://blog.newbug.xyz/tags/jquery/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript闭包面试题</title>
