@@ -140,6 +140,72 @@
       <ul class="post-list">
   
     <li class="post-list-item">
+        <article id="post-js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面" 
+  class="article article-type-post" itemprop="blogPost">
+     
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/04/19/js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面/">js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面</a>
+    </h3>
+  
+
+
+
+    <div class="post-meta">
+        <time datetime="2017-04-19T09:29:48.000Z" itemprop="datePublished" class="post-time">
+  2017-04-19
+</time>
+
+        
+
+ 
+    </div>
+    
+    <div class="post-content" id="post-content" itemprop="postContent" >
+    
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0,user-scalable=no&quot;&gt;
+    &lt;title&gt;Js判定移动端是否安装app,若已安装，则打开，未安装则跳转到下载页面&lt;/title&gt;
+    &lt;meta name=&apos;apple-itunes-app&apos; content=&apos;app-id=1221201728&apos;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href=&quot;javascript:;&quot; id=&quot;openApp&quot;&gt;点击打开安装app&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    document.getElementById(&apos;openApp&apos;).onclick = function(e){
+
+        if(navigator.userAgent.match(/(iPhone|iPod|iPad);?/i))
+           {
+            window.location.href = &quot;com.baidu.tieba://&quot;;//ios app协议(如：com.baidu.tieba://)
+            window.setTimeout(function() {
+                window.location.href = &quot;https://itunes.apple.com/cn/app/id477927812&quot;; //跳转到App store
+            }, 2000)
+           }
+        if(navigator.userAgent.match(/android/i))
+        {
+            window.location.href = &quot;com.baidu.tieba://app&quot;;//android app协议(如：com.baidu.tieba://app)
+            window.setTimeout(function() {
+                window.location.href = &quot;https://****.apk&quot;;//android 下载地址
+            }, 2000)    
+        }
+    };
+&lt;/script&gt;
+</code></pre>
+    
+    </div>
+    
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+</article>
+    </li>
+  
+    <li class="post-list-item">
         <article id="post-jquery知识点归纳-dom篇" 
   class="article article-type-post" itemprop="blogPost">
      
@@ -482,44 +548,6 @@ fixed：相对浏览器的绝对定位，是相对于浏览器窗口的指定坐
     </div>
     
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-
-</article>
-    </li>
-  
-    <li class="post-list-item">
-        <article id="post-js通过Ajax异步操作后端xml数据的基本原理" 
-  class="article article-type-post" itemprop="blogPost">
-     
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/">js通过Ajax异步操作后端xml数据的基本原理</a>
-    </h3>
-  
-
-
-
-    <div class="post-meta">
-        <time datetime="2016-05-30T04:20:31.000Z" itemprop="datePublished" class="post-time">
-  2016-05-30
-</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ajax/">Ajax</a></li></ul>
-
-
- 
-    </div>
-    
-    <div class="post-content" id="post-content" itemprop="postContent" >
-    
-        <pre><code>Ajax的核心操作对象是xmlHttpRequest
-</code></pre><p>　　  简化操作步骤：实例化一个xmlHttpRequest对象 ==&gt; 发送请求 ==&gt; 接受响应 ==&gt; 执行回调</p>
-    
-    </div>
-    
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
 
 </article>
     </li>

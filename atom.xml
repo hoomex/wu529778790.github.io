@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-18T06:07:11.117Z</updated>
+  <updated>2017-04-19T09:30:12.422Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面</title>
+    <link href="http://blog.newbug.xyz/2017/04/19/js%E5%88%A4%E6%96%AD%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85app%EF%BC%8C%E8%8B%A5%E5%AE%89%E8%A3%85%EF%BC%8C%E5%88%99%E6%89%93%E5%BC%80%EF%BC%8C%E6%9C%AA%E5%AE%89%E8%A3%85%E5%88%99%E8%B7%B3%E8%BD%AC%E5%88%B0%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://blog.newbug.xyz/2017/04/19/js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面/</id>
+    <published>2017-04-19T09:29:48.000Z</published>
+    <updated>2017-04-19T09:30:12.422Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta http-equiv=&amp;quot;Content-Type&amp;quot; content=&amp;quot;text/html; charset=UTF-8&amp;quot;&amp;gt;
+    &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;initial-scale=1.0,user-scalable=no&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;Js判定移动端是否安装app,若已安装，则打开，未安装则跳转到下载页面&amp;lt;/title&amp;gt;
+    &amp;lt;meta name=&amp;apos;apple-itunes-app&amp;apos; content=&amp;apos;app-id=1221201728&amp;apos;&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;a href=&amp;quot;javascript:;&amp;quot; id=&amp;quot;openApp&amp;quot;&amp;gt;点击打开安装app&amp;lt;/a&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    document.getElementById(&amp;apos;openApp&amp;apos;).onclick = function(e){
+
+        if(navigator.userAgent.match(/(iPhone|iPod|iPad);?/i))
+           {
+            window.location.href = &amp;quot;com.baidu.tieba://&amp;quot;;//ios app协议(如：com.baidu.tieba://)
+            window.setTimeout(function() {
+                window.location.href = &amp;quot;https://itunes.apple.com/cn/app/id477927812&amp;quot;; //跳转到App store
+            }, 2000)
+           }
+        if(navigator.userAgent.match(/android/i))
+        {
+            window.location.href = &amp;quot;com.baidu.tieba://app&amp;quot;;//android app协议(如：com.baidu.tieba://app)
+            window.setTimeout(function() {
+                window.location.href = &amp;quot;https://****.apk&amp;quot;;//android 下载地址
+            }, 2000)    
+        }
+    };
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta http-equiv=&amp;quot;Content-Type&amp;quot; content=&amp;quot;text/html; charset
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>jquery知识点归纳--dom篇</title>
