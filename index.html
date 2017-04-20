@@ -200,38 +200,7 @@
     
     <div class="post-content" id="post-content" itemprop="postContent" >
     
-        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0,user-scalable=no&quot;&gt;
-    &lt;title&gt;Js判定移动端是否安装app,若已安装，则打开，未安装则跳转到下载页面&lt;/title&gt;
-    &lt;meta name=&apos;apple-itunes-app&apos; content=&apos;app-id=1221201728&apos;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;a href=&quot;javascript:;&quot; id=&quot;openApp&quot;&gt;点击打开安装app&lt;/a&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-    document.getElementById(&apos;openApp&apos;).onclick = function(e){
-
-        if(navigator.userAgent.match(/(iPhone|iPod|iPad);?/i))
-           {
-            window.location.href = &quot;com.baidu.tieba://&quot;;//ios app协议(如：com.baidu.tieba://)
-            window.setTimeout(function() {
-                window.location.href = &quot;https://itunes.apple.com/cn/app/id477927812&quot;; //跳转到App store
-            }, 2000)
-           }
-        if(navigator.userAgent.match(/android/i))
-        {
-            window.location.href = &quot;com.baidu.tieba://app&quot;;//android app协议(如：com.baidu.tieba://app)
-            window.setTimeout(function() {
-                window.location.href = &quot;https://****.apk&quot;;//android 下载地址
-            }, 2000)    
-        }
-    };
-&lt;/script&gt;
-</code></pre>
+        <p>近期公司需要针对分享流程进行优化，其中一点就是前端H5检测是否安装应用，来进行不同的判断（下载或直接跳转到app中）。原理很简单：创建一个iframe去打开uri。如果打开app成功网页进入后台，再切换回来时间会超过2.5s。利用时间去检测。下面来看具体实现过程：</p>
     
     </div>
     
