@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-19T09:30:12.422Z</updated>
+  <updated>2017-04-20T01:58:36.212Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -14,6 +14,125 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>stylus中文文档</title>
+    <link href="http://blog.newbug.xyz/2017/04/20/stylus%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+    <id>http://blog.newbug.xyz/2017/04/20/stylus中文文档/</id>
+    <published>2017-04-20T01:52:55.000Z</published>
+    <updated>2017-04-20T01:58:36.212Z</updated>
+    
+    <content type="html">&lt;p&gt;Stylus - 富有表现力的、动态的、健壮的CSS&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;常见的css&quot;&gt;&lt;a href=&quot;#常见的css&quot; class=&quot;headerlink&quot; title=&quot;常见的css&quot;&gt;&lt;/a&gt;常见的css&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;body {
+  font: 12px Helvetica, Arial, sans-serif;
+}
+a.button {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;花括号去掉&quot;&gt;&lt;a href=&quot;#花括号去掉&quot; class=&quot;headerlink&quot; title=&quot;花括号去掉&quot;&gt;&lt;/a&gt;花括号去掉&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;body
+  font: 12px Helvetica, Arial, sans-serif;
+
+a.button
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;分号去掉&quot;&gt;&lt;a href=&quot;#分号去掉&quot; class=&quot;headerlink&quot; title=&quot;分号去掉&quot;&gt;&lt;/a&gt;分号去掉&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;body
+  font: 12px Helvetica, Arial, sans-serif
+
+a.button
+  -webkit-border-radius: 5px
+  -moz-border-radius: 5px
+  border-radius: 5px
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;冒号去掉&quot;&gt;&lt;a href=&quot;#冒号去掉&quot; class=&quot;headerlink&quot; title=&quot;冒号去掉&quot;&gt;&lt;/a&gt;冒号去掉&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;body
+  font 12px Helvetica, Arial, sans-serif
+
+a.button
+  -webkit-border-radius 5px
+  -moz-border-radius 5px
+  border-radius 5px
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;函数类&quot;&gt;&lt;a href=&quot;#函数类&quot; class=&quot;headerlink&quot; title=&quot;函数类&quot;&gt;&lt;/a&gt;函数类&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  border-radius arguments
+
+body
+  font 12px Helvetica, Arial, sans-serif
+
+a.button
+  border-radius(5px)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;混合书写&quot;&gt;&lt;a href=&quot;#混合书写&quot; class=&quot;headerlink&quot; title=&quot;混合书写&quot;&gt;&lt;/a&gt;混合书写&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  border-radius arguments
+
+body
+  font 12px Helvetica, Arial, sans-serif
+
+a.button
+  border-radius 5px
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot; title=&quot;引用&quot;&gt;&lt;/a&gt;引用&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@import &amp;apos;vendor&amp;apos;
+
+body
+  font 12px Helvetica, Arial, sans-serif
+
+a.button
+  border-radius 5px
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;语言函数&quot;&gt;&lt;a href=&quot;#语言函数&quot; class=&quot;headerlink&quot; title=&quot;语言函数&quot;&gt;&lt;/a&gt;语言函数&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;sum(nums...)
+  sum = 0
+  sum += n for n in nums
+
+sum(1 2 3 4)
+// =&amp;gt; 10
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;所有的都是可以选择的&quot;&gt;&lt;a href=&quot;#所有的都是可以选择的&quot; class=&quot;headerlink&quot; title=&quot;所有的都是可以选择的&quot;&gt;&lt;/a&gt;所有的都是可以选择的&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;fonts = helvetica, arial, sans-serif
+
+body {
+  padding: 50px;
+  font: 14px/1.4 fonts;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Stylus获取、安装&quot;&gt;&lt;a href=&quot;#Stylus获取、安装&quot; class=&quot;headerlink&quot; title=&quot;Stylus获取、安装&quot;&gt;&lt;/a&gt;Stylus获取、安装&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$ npm install stylus
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Stylus的特征&quot;&gt;&lt;a href=&quot;#Stylus的特征&quot; class=&quot;headerlink&quot; title=&quot;Stylus的特征&quot;&gt;&lt;/a&gt;Stylus的特征&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;冒号可选
+分号可选
+逗号可选
+括号可选
+变量
+插值
+混合书写
+算术
+强制类型转换
+动态导入
+条件
+迭代
+嵌套选择
+父级参考
+变量函数调用
+词法作用域
+内置函数(&amp;gt;25)
+内部语言函数
+压缩可选
+图像内联可选
+可执行Stylus
+健壮的错误报告
+单行和多行注释
+CSS字面量
+字符转义
+TextMate捆绑
+以及其他更多
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更多信息github：&lt;a href=&quot;https://github.com/stylus/stylus&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/stylus/stylus&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Stylus - 富有表现力的、动态的、健壮的CSS&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面</title>
