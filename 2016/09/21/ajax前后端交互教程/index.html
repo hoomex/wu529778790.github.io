@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ajax前后端交互教程 | 神族九帝 | 永不言弃</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="ajax">
+  <meta name="description" content="一直都是写的前端，没关心过后端是怎么处理的，看个小案例，了解下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax前后端交互教程">
+<meta property="og:url" content="http://blog.newbug.xyz/2016/09/21/ajax前后端交互教程/index.html">
+<meta property="og:site_name" content="神族九帝">
+<meta property="og:description" content="一直都是写的前端，没关心过后端是怎么处理的，看个小案例，了解下。">
+<meta property="og:updated_time" content="2017-04-21T08:18:07.983Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajax前后端交互教程">
+<meta name="twitter:description" content="一直都是写的前端，没关心过后端是怎么处理的，看个小案例，了解下。">
+  
+    <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;一直都是写的前端，没关心过后端是怎么处理的，看个小案例，了解下。&lt;/p&gt;">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.gif"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">wu529778790</h5>
+        <a href="mailto:529778790@qq.com" title="529778790@qq.com" class="mail">529778790@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            归档
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/wu529778790" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="http://weibo.com/3282218950" target="_blank" >
+            <i class="icon icon-lg icon-weibo"></i>
+            Weibo
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/shows" target="_blank" >
+            <i class="icon icon-lg icon-shows"></i>
+            H5导航
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a href='http://shenzjd.cn'>神族九帝</a> &copy; 2017</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/wu529778790" target="_blank">wu529778790</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ajax前后端交互教程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">ajax前后端交互教程</h1>
+    <h5 class="subtitle">
+          
+            <time datetime="2016-09-21T07:52:06.000Z" itemprop="datePublished" class="page-time">
+  2016-09-21
+</time>
+
+ 
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-ajax前后端交互教程" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meat flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一直都是写的前端，没关心过后端是怎么处理的，看个小案例，了解下。</p>
+<a id="more"></a>
+<p>直接上代码，制作个登录框，用来输入账号密码</p>
+<pre><code>&lt;div class=&quot;login&quot;&gt;
+    &lt;p class=&quot;loginTitle&quot;&gt;登录&lt;/p&gt;
+    &lt;span class=&quot;loginSpan&quot;&gt;账号
+        &lt;input type=&quot;text&quot; id=&quot;userName&quot; value=&quot;输入你的账号&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;//装一个√或×，提示是否输入正确
+        &lt;br&gt;
+        &lt;span&gt;0&lt;/span&gt;&lt;br&gt; //账号是否正确输入的状态字
+        &lt;img src=&quot;&quot; class=&quot;xbtn&quot;&gt;
+        密码
+        &lt;input type=&quot;password&quot; id=&quot;password&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;br&gt;
+        &lt;span&gt;&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;input type=&quot;button&quot; value=&quot;登录&quot;&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+</code></pre><p>这是登录框html，下面js</p>
+<pre><code>$.ajax({
+    &apos;type&apos;: post,
+    &apos;url&apos;: &apos;login.php&apos;,
+    &apos;dataType&apos;: json,
+    &apos;data&apos;: {
+        &quot;username&quot;: $(&apos;#userName&apos;).val(),
+        &quot;password&quot;: $(&apos;#password&apos;).val()
+    },
+    &apos;success&apos;: function(data){
+        switch(data.type){
+            case 0 : alert(&apos;账户不存在&apos;);break;
+            case 1 : {
+                $(&apos;#userMsg&apos;).children(&apos;li&apos;).eq(2).find(&apos;span&apos;).html(&apos; &apos;+data.gouwuchenum+&apos; &apos;); 
+                $(&apos;#loginMsg li&apos;).eq(1).empty().html(&apos;&lt;span&gt;&apos;+data.name+&apos;&lt;/span&gt;&apos;); 
+                $(&apos;#loginMsg li&apos;).eq(2).empty().html(&apos;&lt;a href=&quot;javascript:tuichu()&quot;&gt;退出&lt;/a&gt;&apos;);
+                $(&apos;.login&apos;).animate({right:-180,opacity:0},400,function(){ $(this).css(&apos;display&apos;,&apos;none&apos;); }); break;
+            };
+            case 2:alert(&apos;密码错误&apos;);break;
+        }
+    }
+})
+</code></pre><p>//下面来看，php脚本是如何接受数据，处理数据，返回数据的<br>    &lt;?php<br>        $username=$_POST[‘username’];<br>        $password=$_POST[‘password’];//根据不同的方法，php会把接收的数据储存在$_POST/$_GET这样的全局变量中，前面的ajax我们用的是post方法，所以这里用$_POST接收数据<br>        $usermsg =array(<br>            ‘fhw7328126’ =&gt; ‘7328126’,<br>            ‘fhwlmmz’ =&gt; ‘feng7328126’,<br>            ‘dearmmz’ =&gt; ‘123456’,<br>            ‘rooter’ =&gt; ‘dd’,<br>        );<br>        $gouwuche=array(<br>            ‘fhw7328126’ =&gt; 2,<br>            ‘fhwlovemmz’ =&gt; 3,<br>            ‘dearmmz’ =&gt; 8,<br>            ‘rooter’ =&gt; 123,<br>        );<br>        $name=array(<br>            ‘fhw7328126’ =&gt; ‘鱼鱼风’,<br>            ‘fhwmmz’ =&gt; ‘黄翔’,<br>            ‘dearmmz’ =&gt; ‘明珠’,<br>            ‘rooter’ =&gt; ‘管理员’,<br>        );//这里我定义了3个数组，分别储存有用户的帐号密码购物车信息和昵称，事实上，一般这样的数据都是储存在数据库中，PHP可以与数据库交互，获得这些数据表。由于我还没有掌握如何使用数据库，这里就直接用偷懒的方法定义好数据表；<br>        $type=0;//定义一个变量，用来代表php处理数据的不同结果，默认0<br>        $gouwuchenum=0;//定义一个变量，用来装用户购物车数量信息，默认0<br>        $name2=0;//定义一个变量，用来装用户的昵称，默认0<br>        foreach($usermsg as $key =&gt; $value){//遍历数组<br>            if($username==$key and $password==$value){//如果帐号存在，且密码匹配<br>                $type=1;//状态字赋值为1；<br>                $gouwuchenum=$gouwuche[$key];//获取当前用户的购物车信息；<br>                $name2=$name[$key];//获取当前用户的昵称<br>                break;//跳出遍历<br>            }<br>            else if($username==$key and $password!=$value){//如果帐号存在但密码不匹配<br>                $type=2;//状态字赋值为2；<br>                break;<br>            }<br>        }<br>        $response=array(//定义php要返回的数据，这里先定义成数组类型<br>            ‘type’ =&gt; $type,//返回状态字<br>            ‘gouwuchenum’ =&gt;$gouwuchenum,//返回购物车信息<br>            ‘name’ =&gt; $name2,//返回昵称<br>        );<br>        echo json_encode($response);//将要返回的数组转化成json数据，打印出来。注意，PHP打印出什么，那么前端接收的数据就是什么。通篇浏览这个php文件，只有最后一行打印了一个json数据，所以前端得到的数据就是这个json。<br>    ?&gt;</p>
+<p>这个php脚本，让大家知道了，后端如何接收数据，处理数据，以及返回数据。</p>
+<p>//success函数，表示前端收到数据成功后，要做什么<br>    ‘success’:function(data){//这里的data储存有后端php返回的json数据<br>            switch(data.type){//以data.type为switch-case关键字，分类处理<br>                case 0:alert(‘账户不存在’);break;//如果type=0，说明帐号密码都不匹配<br>                case 1:{//type=1，说明匹配成功，登录成功<br>                    $(‘#userMsg’).children(‘li’).eq(2).find(‘span’).html(‘ ‘+data.gouwuchenum+’ ‘);//更新购物车数量<br>                    $(‘#loginMsg li’).eq(1).empty().html(‘<span>‘+data.name+’</span>‘);//登录按钮更换为用户昵称；<br>                    $(‘#loginMsg li’).eq(2).empty().html(‘<a href="javascript:tuichu()" target="_blank" rel="external">退出</a>‘);//注册按钮更换为退出按钮；<br>                    $(‘.login’).animate({right:-180,opacity:0},400,function(){//登录框隐藏<br>                        $(this).css(‘display’,’none’);<br>                    });<br>                    break;<br>                }<br>                case 2:alert(‘密码错误’);break;//type=2，表示用户存在但是密码不匹配<br>            }<br>        }</p>
+<p>转自：<a href="http://www.imooc.com/article/10371" target="_blank" rel="external">http://www.imooc.com/article/10371</a></p>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://blog.newbug.xyz/2016/09/21/ajax前后端交互教程/" target="_blank" rel="external">http://blog.newbug.xyz/2016/09/21/ajax前后端交互教程/</a>
+                </p>
+                <footer><cite><a href="http://blog.newbug.xyz">@神族九帝</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/11/10/面试总结/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">面试总结</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js通过Ajax异步操作后端xml数据的基本原理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ajax前后端交互教程" data-title="ajax前后端交互教程" data-url="http://blog.newbug.xyz/2016/09/21/ajax前后端交互教程/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wu529778790"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "ajax前后端交互教程",
+    pic: "/img/logo.gif",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://blog.newbug.xyz/2016/09/21/ajax前后端交互教程/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="http://s95.cnzz.com/z_stat.php?id=1259829398&web_id=1259829398"></script>
+
+
+
+
+
+</body>
+</html>

@@ -2062,6 +2062,72 @@ p:after{
   </entry>
   
   <entry>
+    <title>ajax前后端交互教程</title>
+    <link href="http://blog.newbug.xyz/2016/09/21/ajax%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%95%99%E7%A8%8B/"/>
+    <id>http://blog.newbug.xyz/2016/09/21/ajax前后端交互教程/</id>
+    <published>2016-09-21T07:52:06.000Z</published>
+    <updated>2017-04-21T08:18:07.983Z</updated>
+    
+    <content type="html">&lt;p&gt;一直都是写的前端，没关心过后端是怎么处理的，看个小案例，了解下。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;直接上代码，制作个登录框，用来输入账号密码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;login&amp;quot;&amp;gt;
+    &amp;lt;p class=&amp;quot;loginTitle&amp;quot;&amp;gt;登录&amp;lt;/p&amp;gt;
+    &amp;lt;span class=&amp;quot;loginSpan&amp;quot;&amp;gt;账号
+        &amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;userName&amp;quot; value=&amp;quot;输入你的账号&amp;quot;&amp;gt;
+        &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;//装一个√或×，提示是否输入正确
+        &amp;lt;br&amp;gt;
+        &amp;lt;span&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt; //账号是否正确输入的状态字
+        &amp;lt;img src=&amp;quot;&amp;quot; class=&amp;quot;xbtn&amp;quot;&amp;gt;
+        密码
+        &amp;lt;input type=&amp;quot;password&amp;quot; id=&amp;quot;password&amp;quot;&amp;gt;
+        &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;
+        &amp;lt;br&amp;gt;
+        &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;/span&amp;gt;
+    &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;登录&amp;quot;&amp;gt;
+    &amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这是登录框html，下面js&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$.ajax({
+    &amp;apos;type&amp;apos;: post,
+    &amp;apos;url&amp;apos;: &amp;apos;login.php&amp;apos;,
+    &amp;apos;dataType&amp;apos;: json,
+    &amp;apos;data&amp;apos;: {
+        &amp;quot;username&amp;quot;: $(&amp;apos;#userName&amp;apos;).val(),
+        &amp;quot;password&amp;quot;: $(&amp;apos;#password&amp;apos;).val()
+    },
+    &amp;apos;success&amp;apos;: function(data){
+        switch(data.type){
+            case 0 : alert(&amp;apos;账户不存在&amp;apos;);break;
+            case 1 : {
+                $(&amp;apos;#userMsg&amp;apos;).children(&amp;apos;li&amp;apos;).eq(2).find(&amp;apos;span&amp;apos;).html(&amp;apos; &amp;apos;+data.gouwuchenum+&amp;apos; &amp;apos;); 
+                $(&amp;apos;#loginMsg li&amp;apos;).eq(1).empty().html(&amp;apos;&amp;lt;span&amp;gt;&amp;apos;+data.name+&amp;apos;&amp;lt;/span&amp;gt;&amp;apos;); 
+                $(&amp;apos;#loginMsg li&amp;apos;).eq(2).empty().html(&amp;apos;&amp;lt;a href=&amp;quot;javascript:tuichu()&amp;quot;&amp;gt;退出&amp;lt;/a&amp;gt;&amp;apos;);
+                $(&amp;apos;.login&amp;apos;).animate({right:-180,opacity:0},400,function(){ $(this).css(&amp;apos;display&amp;apos;,&amp;apos;none&amp;apos;); }); break;
+            };
+            case 2:alert(&amp;apos;密码错误&amp;apos;);break;
+        }
+    }
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;//下面来看，php脚本是如何接受数据，处理数据，返回数据的&lt;br&gt;    &amp;lt;?php&lt;br&gt;        $username=$_POST[‘username’];&lt;br&gt;        $password=$_POST[‘password’];//根据不同的方法，php会把接收的数据储存在$_POST/$_GET这样的全局变量中，前面的ajax我们用的是post方法，所以这里用$_POST接收数据&lt;br&gt;        $usermsg =array(&lt;br&gt;            ‘fhw7328126’ =&amp;gt; ‘7328126’,&lt;br&gt;            ‘fhwlmmz’ =&amp;gt; ‘feng7328126’,&lt;br&gt;            ‘dearmmz’ =&amp;gt; ‘123456’,&lt;br&gt;            ‘rooter’ =&amp;gt; ‘dd’,&lt;br&gt;        );&lt;br&gt;        $gouwuche=array(&lt;br&gt;            ‘fhw7328126’ =&amp;gt; 2,&lt;br&gt;            ‘fhwlovemmz’ =&amp;gt; 3,&lt;br&gt;            ‘dearmmz’ =&amp;gt; 8,&lt;br&gt;            ‘rooter’ =&amp;gt; 123,&lt;br&gt;        );&lt;br&gt;        $name=array(&lt;br&gt;            ‘fhw7328126’ =&amp;gt; ‘鱼鱼风’,&lt;br&gt;            ‘fhwmmz’ =&amp;gt; ‘黄翔’,&lt;br&gt;            ‘dearmmz’ =&amp;gt; ‘明珠’,&lt;br&gt;            ‘rooter’ =&amp;gt; ‘管理员’,&lt;br&gt;        );//这里我定义了3个数组，分别储存有用户的帐号密码购物车信息和昵称，事实上，一般这样的数据都是储存在数据库中，PHP可以与数据库交互，获得这些数据表。由于我还没有掌握如何使用数据库，这里就直接用偷懒的方法定义好数据表；&lt;br&gt;        $type=0;//定义一个变量，用来代表php处理数据的不同结果，默认0&lt;br&gt;        $gouwuchenum=0;//定义一个变量，用来装用户购物车数量信息，默认0&lt;br&gt;        $name2=0;//定义一个变量，用来装用户的昵称，默认0&lt;br&gt;        foreach($usermsg as $key =&amp;gt; $value){//遍历数组&lt;br&gt;            if($username==$key and $password==$value){//如果帐号存在，且密码匹配&lt;br&gt;                $type=1;//状态字赋值为1；&lt;br&gt;                $gouwuchenum=$gouwuche[$key];//获取当前用户的购物车信息；&lt;br&gt;                $name2=$name[$key];//获取当前用户的昵称&lt;br&gt;                break;//跳出遍历&lt;br&gt;            }&lt;br&gt;            else if($username==$key and $password!=$value){//如果帐号存在但密码不匹配&lt;br&gt;                $type=2;//状态字赋值为2；&lt;br&gt;                break;&lt;br&gt;            }&lt;br&gt;        }&lt;br&gt;        $response=array(//定义php要返回的数据，这里先定义成数组类型&lt;br&gt;            ‘type’ =&amp;gt; $type,//返回状态字&lt;br&gt;            ‘gouwuchenum’ =&amp;gt;$gouwuchenum,//返回购物车信息&lt;br&gt;            ‘name’ =&amp;gt; $name2,//返回昵称&lt;br&gt;        );&lt;br&gt;        echo json_encode($response);//将要返回的数组转化成json数据，打印出来。注意，PHP打印出什么，那么前端接收的数据就是什么。通篇浏览这个php文件，只有最后一行打印了一个json数据，所以前端得到的数据就是这个json。&lt;br&gt;    ?&amp;gt;&lt;/p&gt;
+&lt;p&gt;这个php脚本，让大家知道了，后端如何接收数据，处理数据，以及返回数据。&lt;/p&gt;
+&lt;p&gt;//success函数，表示前端收到数据成功后，要做什么&lt;br&gt;    ‘success’:function(data){//这里的data储存有后端php返回的json数据&lt;br&gt;            switch(data.type){//以data.type为switch-case关键字，分类处理&lt;br&gt;                case 0:alert(‘账户不存在’);break;//如果type=0，说明帐号密码都不匹配&lt;br&gt;                case 1:{//type=1，说明匹配成功，登录成功&lt;br&gt;                    $(‘#userMsg’).children(‘li’).eq(2).find(‘span’).html(‘ ‘+data.gouwuchenum+’ ‘);//更新购物车数量&lt;br&gt;                    $(‘#loginMsg li’).eq(1).empty().html(‘&lt;span&gt;‘+data.name+’&lt;/span&gt;‘);//登录按钮更换为用户昵称；&lt;br&gt;                    $(‘#loginMsg li’).eq(2).empty().html(‘&lt;a href=&quot;javascript:tuichu()&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;退出&lt;/a&gt;‘);//注册按钮更换为退出按钮；&lt;br&gt;                    $(‘.login’).animate({right:-180,opacity:0},400,function(){//登录框隐藏&lt;br&gt;                        $(this).css(‘display’,’none’);&lt;br&gt;                    });&lt;br&gt;                    break;&lt;br&gt;                }&lt;br&gt;                case 2:alert(‘密码错误’);break;//type=2，表示用户存在但是密码不匹配&lt;br&gt;            }&lt;br&gt;        }&lt;/p&gt;
+&lt;p&gt;转自：&lt;a href=&quot;http://www.imooc.com/article/10371&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.imooc.com/article/10371&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直都是写的前端，没关心过后端是怎么处理的，看个小案例，了解下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ajax" scheme="http://blog.newbug.xyz/tags/ajax/"/>
+    
+  </entry>
+  
+  <entry>
     <title>js通过Ajax异步操作后端xml数据的基本原理</title>
     <link href="http://blog.newbug.xyz/2016/05/30/js%E9%80%9A%E8%BF%87Ajax%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E5%90%8E%E7%AB%AFxml%E6%95%B0%E6%8D%AE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"/>
     <id>http://blog.newbug.xyz/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/</id>
@@ -4014,45 +4080,6 @@ Drag.prototype.moveEvent = function(e) {
     
     
       <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>seo优优化</title>
-    <link href="http://blog.newbug.xyz/2016/01/24/seo%E4%BC%98%E4%BC%98%E5%8C%96/"/>
-    <id>http://blog.newbug.xyz/2016/01/24/seo优优化/</id>
-    <published>2016-01-24T13:56:49.000Z</published>
-    <updated>2016-07-24T14:03:52.000Z</updated>
-    
-    <content type="html">&lt;p&gt;这篇文章其实是我本人的总结，因为工作中做完了一个官方网站并成功上线，最后组长检查代码看到我的keyword等一系列信息都是空的，把我骂得狗血淋头。一言不合就作总结，总结一些简单但是我们能做的seo小技巧，送给想把网站做到极致的人。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;SEO要点：&lt;br&gt;1.语义化html标签，用合适的标签嵌套合适的内容，不可过分依赖div，对浏览器更友善就能更容易被抓取。&lt;/p&gt;
-&lt;p&gt;2.重要的内容html代码放在前面，放在左边。搜索引擎爬虫是从左往右，从上到下进行抓取的，利用布局来实现重要的代码在上面&lt;/p&gt;
-&lt;p&gt;3.重要内容要写在html架构里面，蜘蛛不会抓取js的内容，&lt;/p&gt;
-&lt;p&gt;4.尽量减少使用iframe，因为蜘蛛不会抓取iframe的内容。&lt;/p&gt;
-&lt;p&gt;5.为图片img加上alt属性，加了alt就不必加title了，避免搜索引擎认为我们恶意优化。alt能让图片没加载时都能有文字提示。&lt;/p&gt;
-&lt;p&gt;6.需要强调的地方加上title，本页面内跳转a标签内也要加title。&lt;/p&gt;
-&lt;p&gt;7.重要的地方可以保留文字，有些地方必须用图，但是蜘蛛不会爬img，这时应该设置文本，再用缩进隐藏的方法去掉文字，例如logo的优化就是这样做的。注意隐藏不能用display：none，蜘蛛不会检索display：none的内容，应用这个方法的标签一般是logo，标题等重要信息&lt;/p&gt;
-&lt;p&gt;8.尽量做到js、css、html的分离，不要在html中写样式代码。&lt;/p&gt;
-&lt;p&gt;9.注释的东西能去掉应该去掉，对搜索引擎更加友好&lt;/p&gt;
-&lt;p&gt;10.css放在头部，js放在尾部，尽量使用外链或者工具对css和js进行压缩&lt;/p&gt;
-&lt;p&gt;11.减少http的请求，使页面更快加载。&lt;/p&gt;
-&lt;p&gt;12.使用本地缓存更快地访问网站，使用cdn网络，加快用户访问速度。&lt;/p&gt;
-&lt;p&gt;13.使用G-ZIP压缩，浏览速度更快，搜索引擎抓取信息量更大&lt;/p&gt;
-&lt;p&gt;关键一点是头部的title，description，keyword的设置。&lt;/p&gt;
-&lt;p&gt;1.title设置不宜过长，要简短，网站的名字与相关的小内容，一般为10-20个字。不能重复&lt;/p&gt;
-&lt;p&gt;2.keywords设置10个关键词，没个词不能太长，简短且符合你网站的特点，不能重复&lt;/p&gt;
-&lt;p&gt;3.description，50个字内描述你的网站&lt;/p&gt;
-&lt;p&gt;description写原创的话，并包含2-3个关键词比较好&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这篇文章其实是我本人的总结，因为工作中做完了一个官方网站并成功上线，最后组长检查代码看到我的keyword等一系列信息都是空的，把我骂得狗血淋头。一言不合就作总结，总结一些简单但是我们能做的seo小技巧，送给想把网站做到极致的人。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端总结" scheme="http://blog.newbug.xyz/categories/%E5%89%8D%E7%AB%AF%E6%80%BB%E7%BB%93/"/>
-    
     
   </entry>
   
