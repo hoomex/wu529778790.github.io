@@ -1196,9 +1196,10 @@ alert(typeof(window)) 会得 object
     <link href="http://blog.newbug.xyz/2017/02/11/html5%E5%B8%B8%E8%A7%81%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>http://blog.newbug.xyz/2017/02/11/html5常见的面试题/</id>
     <published>2017-02-11T05:31:48.000Z</published>
-    <updated>2017-04-11T07:47:55.260Z</updated>
+    <updated>2017-04-21T02:18:03.769Z</updated>
     
-    <content type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+    <content type="html">&lt;p&gt;市场总结，提高自己&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;1,常见的块级元素，内联元素&lt;br&gt;        fieldset - 表单字段集&lt;br&gt;        colgroup - 表单列分组元素&lt;br&gt;        pre 格式化文本&lt;br&gt;        i - 斜体&lt;br&gt;        em - 强调&lt;br&gt;        label - 表单标签&lt;br&gt;        sub - 下标&lt;br&gt;        sup - 上标&lt;br&gt;        u - 下划线&lt;br&gt;2，实现文本三个点的几个条件&lt;br&gt;    text-overflow属性仅是：当文本溢出时是否显示省略标记，并不具备其他的样式属性定义，要实现溢出时产生省略号的效果还需定义：&lt;br&gt;    1，容器宽度： width&lt;br&gt;    2，强制文本在一行内显示： white-space：nowrap&lt;br&gt;    3，溢出内容为隐藏：overflow：hidden；&lt;br&gt;    4，溢出文本显示省略号：text-overflow：ellipsis&lt;br&gt;    但行文本才可以设置文本溢出&lt;br&gt;3，垂直居中的几个条件&lt;br&gt;    设置一个元素在一个容器内垂直居中，必须更改默认的display属性值为inline-block&lt;br&gt;    并加上统计元素（标尺）（同级元素[标尺]样式设置为vertical-align:middle；width：0；height：100%；display：inline-block；）&lt;br&gt;    三个条件：&lt;br&gt;        1，必须给容器加上text-align:center；&lt;br&gt;        2，必须给当前元素转化为内块元素（display：inline-block)再给当前元素加上vertical-align:middle&lt;br&gt;        3，在当前元素的后面加上同级元素span进行vertical-align:middle；width：0；height：100%；display：inline-block；&lt;br&gt;4，图片精灵，优势&lt;br&gt;    图片整合，将小的单张背景图片整合到一张大的背景图片上&lt;br&gt;    优势：1）通过图片来整合减少对服务器的请求次数，从而提高页面的加载速度。2）通过整合图片来减少图片的体积&lt;br&gt;5，display:none与visibility:hidden的区别&lt;/p&gt;
 &lt;p&gt;前者：隐藏不占位  后者：隐藏但是占位置&lt;br&gt;6，清除浮动的几种方式&lt;/p&gt;
 &lt;p&gt;hack1：给父元素添加声明overflow:hidden;&lt;/p&gt;
@@ -1240,8 +1241,7 @@ fixed：相对浏览器的绝对定位，是相对于浏览器窗口的指定坐
     
     <summary type="html">
     
-      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;1,常见的块级元素，内联元素&lt;br&gt;        fieldset - 表单字段集&lt;br&gt;        colgroup - 表单列分组元素&lt;br&gt;        pre 格式化文本&lt;br&gt;        i - 斜体&lt;br&gt;    
+      &lt;p&gt;市场总结，提高自己&lt;/p&gt;
     
     </summary>
     
