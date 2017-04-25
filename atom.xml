@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-24T07:32:48.462Z</updated>
+  <updated>2017-04-25T08:02:14.732Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.newbug.xyz/2017/04/22/css%E5%8D%81%E5%85%AB%E8%88%AC%E6%AD%A6%E8%89%BA/"/>
     <id>http://blog.newbug.xyz/2017/04/22/css十八般武艺/</id>
     <published>2017-04-22T11:11:28.000Z</published>
-    <updated>2017-04-24T07:32:48.462Z</updated>
+    <updated>2017-04-25T08:02:14.732Z</updated>
     
     <content type="html">&lt;p&gt;水平居中，垂直居中，单列布局，多列布局&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -165,6 +165,11 @@ padding: 0 230px 0 190px;
 &lt;li&gt;当面板的main内容部分比两边的子面板宽度小的时候，布局就会乱掉，可以通过设置main的mian-width属性或者使用双飞翼布局避免问题。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;二列的实现方法-1&quot;&gt;&lt;a href=&quot;#二列的实现方法-1&quot; class=&quot;headerlink&quot; title=&quot;二列的实现方法&quot;&gt;&lt;/a&gt;二列的实现方法&lt;/h4&gt;&lt;p&gt;如果是左边带有侧栏的二栏布局，则去掉右侧栏，不要设置主面板的padding-right值，其他操作相同。反之亦然。&lt;/p&gt;
+&lt;h3 id=&quot;d-flex布局，&quot;&gt;&lt;a href=&quot;#d-flex布局，&quot; class=&quot;headerlink&quot; title=&quot;d flex布局，&quot;&gt;&lt;/a&gt;d flex布局，&lt;/h3&gt;&lt;p&gt;这个主要看阮一峰老师的教程&lt;/p&gt;
+&lt;p&gt;语法篇： &lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;实例篇： &lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/07/flex-examples.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2015/07/flex-examples.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;总结： 统的布局方法基于盒状模型，依赖 display属性 + position属性 + float属性，逻辑相对复杂，对于实现一些特殊效果，例如垂直居中，尤其复杂繁琐。而flex布局中的flex容器可以根据实际可用空间动态调整子元素的宽高比和顺序，使元素能够尽可能地利用可用空间，同时也能通过缩小来避免超出。flex布局提供了一套简便、完整、响应式的布局方案。&lt;/p&gt;
+&lt;p&gt;转自：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/25565751&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://zhuanlan.zhihu.com/p/25565751&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
