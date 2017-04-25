@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-21T07:24:51.912Z</updated>
+  <updated>2017-04-24T07:32:48.462Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -14,6 +14,169 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css十八般武艺</title>
+    <link href="http://blog.newbug.xyz/2017/04/22/css%E5%8D%81%E5%85%AB%E8%88%AC%E6%AD%A6%E8%89%BA/"/>
+    <id>http://blog.newbug.xyz/2017/04/22/css十八般武艺/</id>
+    <published>2017-04-22T11:11:28.000Z</published>
+    <updated>2017-04-24T07:32:48.462Z</updated>
+    
+    <content type="html">&lt;p&gt;水平居中，垂直居中，单列布局，多列布局&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;常用居中方法&quot;&gt;&lt;a href=&quot;#常用居中方法&quot; class=&quot;headerlink&quot; title=&quot;常用居中方法&quot;&gt;&lt;/a&gt;常用居中方法&lt;/h2&gt;&lt;p&gt;居中在布局中很常见，我们假设DOM文档节后如下，子元素要在父元素中居中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;child&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;水平居中&quot;&gt;&lt;a href=&quot;#水平居中&quot; class=&quot;headerlink&quot; title=&quot;水平居中&quot;&gt;&lt;/a&gt;水平居中&lt;/h3&gt;&lt;p&gt;子元素为行内元素还是块状元素，宽度一定还是宽度未定，采取的布局方案不同&lt;/p&gt;
+&lt;p&gt;子元素为：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;行内元素：对父元素设置text-align:center,
+&lt;/strong&gt;定宽块状元素：设置左右margin值为auto，&lt;br&gt;&lt;strong&gt;不定宽块状元素：设置子元素为display：inline,然后在父元素上设置text-align:center,
+&lt;/strong&gt;通用方案：flex布局，对父元素设置display:flex;justify-content:center;&lt;/p&gt;
+&lt;h3 id=&quot;垂直居中：&quot;&gt;&lt;a href=&quot;#垂直居中：&quot; class=&quot;headerlink&quot; title=&quot;垂直居中：&quot;&gt;&lt;/a&gt;垂直居中：&lt;/h3&gt;&lt;p&gt;垂直居中对于子元素是单行内联文本、多行内联文本以及块状元素采用的方案是不同的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;父元素一定，子元素为单行内联文本：&lt;br&gt;设置父元素的height等于行高line-height
+&lt;/strong&gt;父元素一定，子元素为多行内联文本：&lt;br&gt;设置父元素的display：table-cell或inline-block，在设置vertical-align：middle；&lt;br&gt;&lt;strong&gt;块状元素：&lt;br&gt;设置子元素篇position:absolute并设置top、bottom为0，父元素要设置定位为static以外的值，margin:auto;
+&lt;/strong&gt;通用方案：&lt;br&gt;flex布局，对父元素设置display：flex；align-items:center；&lt;/p&gt;
+&lt;h2 id=&quot;单列布局&quot;&gt;&lt;a href=&quot;#单列布局&quot; class=&quot;headerlink&quot; title=&quot;单列布局&quot;&gt;&lt;/a&gt;单列布局&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://pic4.zhimg.com/v2-12cd0eddc97721987b9f6e41e5a1fc4b_b.png&quot; alt=&quot;单行布局的两种形式&quot;&gt;&lt;/p&gt;
+&lt;p&gt;特征： 定宽、水平居中&lt;/p&gt;
+&lt;p&gt;常见的单列布局有两种：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;* 一种是header、content、footer宽度都相同，期一般不会占满浏览器的最宽宽度，但当浏览器宽度缩小低于最大宽度时，宽度会自适应。
+* 一种是header、footer宽度为浏览器宽度，但content以及header和footer里的内容却不会占满浏览器宽度。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;对于第一种，对header、content、footer统一设置width或max-width，并通过margin:auto实现居中。&lt;/p&gt;
+&lt;h3 id=&quot;DOM文档&quot;&gt;&lt;a href=&quot;#DOM文档&quot; class=&quot;headerlink&quot; title=&quot;DOM文档&quot;&gt;&lt;/a&gt;DOM文档&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;layout&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;header&amp;quot;&amp;gt;头部&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;内容&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;footer&amp;quot;&amp;gt;尾部&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;css清单&quot;&gt;&lt;a href=&quot;#css清单&quot; class=&quot;headerlink&quot; title=&quot;css清单&quot;&gt;&lt;/a&gt;css清单&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;.layout{
+/*   width: 960px; *//*设置width当浏览器窗口宽度小于960px时，单列布局不会自适应。*/
+max-width: 960px;
+margin: 0 auto;
+} 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;对于第二种，header，footer的内容宽度为100%，单header，footer的内容区以及content统一设置为width或者max-width，并通过margin：auto实现。&lt;/p&gt;
+&lt;h3 id=&quot;DOM文档-1&quot;&gt;&lt;a href=&quot;#DOM文档-1&quot; class=&quot;headerlink&quot; title=&quot;DOM文档&quot;&gt;&lt;/a&gt;DOM文档&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;header&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;layout&amp;quot;&amp;gt;头部&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div id=&amp;quot;content&amp;quot; class=&amp;quot;layout&amp;quot;&amp;gt;内容&amp;lt;/div&amp;gt;
+&amp;lt;div id=&amp;quot;footer&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;layout&amp;quot;&amp;gt;尾部&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;css清单-1&quot;&gt;&lt;a href=&quot;#css清单-1&quot; class=&quot;headerlink&quot; title=&quot;css清单&quot;&gt;&lt;/a&gt;css清单&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;.layout{
+/*   width: 960px; *//*设置width当浏览器窗口宽度小于960px时，单列布局不会自适应。*/
+max-width: 960px;
+margin: 0 auto;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;二列-amp-三列布局&quot;&gt;&lt;a href=&quot;#二列-amp-三列布局&quot; class=&quot;headerlink&quot; title=&quot;二列&amp;amp;三列布局&quot;&gt;&lt;/a&gt;二列&amp;amp;三列布局&lt;/h2&gt;&lt;p&gt;1&lt;a href=&quot;https://pic2.zhimg.com/v2-784022577a47ea5fc449b06de53c4651_b.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;二列三列布局&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;二列布局的特征是侧栏固定宽度，主栏自适应宽度。三列布局的特征是两侧两列固定宽度，中间列自适应宽度。&lt;/p&gt;
+&lt;p&gt;之所以将二列布局和三列布局写在一起，是因为二列布局可以看做是去掉一个侧栏的三列布局，其布局的思想有异曲同工之妙。对于传统的实现方法，主要讨论上图中前三种布局，经典的带有侧栏的二栏布局以及带有左右侧栏的三栏布局，对于flex布局，实现了上图的五种布局。&lt;/p&gt;
+&lt;h3 id=&quot;a-float-margin&quot;&gt;&lt;a href=&quot;#a-float-margin&quot; class=&quot;headerlink&quot; title=&quot;a.float+margin&quot;&gt;&lt;/a&gt;a.float+margin&lt;/h3&gt;&lt;p&gt;**原理说明： 设置两个侧栏分别向左向右浮动，中间列通过外边距给两个侧栏腾出空间，中间列的宽度根据浏览器窗口自适应。&lt;/p&gt;
+&lt;h4 id=&quot;DOM文档-2&quot;&gt;&lt;a href=&quot;#DOM文档-2&quot; class=&quot;headerlink&quot; title=&quot;DOM文档&quot;&gt;&lt;/a&gt;DOM文档&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;content&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;sub&amp;quot;&amp;gt;sub&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;extra&amp;quot;&amp;gt;extra&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;main&amp;quot;&amp;gt;main&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;布局步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对两边侧栏分别设置宽度，并对左侧栏添加左浮动，右侧栏添加右浮动。&lt;/li&gt;
+&lt;li&gt;对主面板设置左右外边距，margin-left的值为左侧栏的宽度，margin-right的值为有侧栏的宽度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;css清单-2&quot;&gt;&lt;a href=&quot;#css清单-2&quot; class=&quot;headerlink&quot; title=&quot;css清单&quot;&gt;&lt;/a&gt;css清单&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;.sub{
+    width: 100px;
+    float: left;
+}
+.extra{
+    width: 200px;
+    float: right;
+}
+.main{
+    margin-left: 100px; 
+    margin-right: 200px;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;注意dom文档的书写顺序，先写两侧栏，在写主面板，更换后则侧栏会被挤到下一列.&lt;/li&gt;
+&lt;li&gt;这种布局方式比较简单明了，单缺点是渲染师先渲染了侧边栏，而不是比较重要的主面板。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;两列的实现方法&quot;&gt;&lt;a href=&quot;#两列的实现方法&quot; class=&quot;headerlink&quot; title=&quot;两列的实现方法&quot;&gt;&lt;/a&gt;两列的实现方法&lt;/h4&gt;&lt;p&gt;如果是左边带有侧栏的二栏布局，则去掉右侧栏，不要设置主面板的margin-right值，其他操作相同。反之亦然。&lt;/p&gt;
+&lt;h3 id=&quot;b-position-margin&quot;&gt;&lt;a href=&quot;#b-position-margin&quot; class=&quot;headerlink&quot; title=&quot;b.position+margin&quot;&gt;&lt;/a&gt;b.position+margin&lt;/h3&gt;&lt;p&gt;*原理说明：通过绝对定位将两个侧栏固定，同样通过外边距给两个侧栏腾出空间，中间列自适应。&lt;/p&gt;
+&lt;h4 id=&quot;DOM文档-3&quot;&gt;&lt;a href=&quot;#DOM文档-3&quot; class=&quot;headerlink&quot; title=&quot;DOM文档&quot;&gt;&lt;/a&gt;DOM文档&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;sub&amp;quot;&amp;gt;left&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;main&amp;quot;&amp;gt;main&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;extra&amp;quot;&amp;gt;right&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;布局步骤：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. 对两边侧栏分别设置宽度，设置定位方式为绝对定位。
+2. 设置两侧栏的top值都为0，设置左侧栏的left值为0，右侧栏的right为0.
+3. 对主面板设置左右外边距，margin-left的值为左侧栏的宽度，margin-right的值为有侧栏的宽度。
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;css清单-3&quot;&gt;&lt;a href=&quot;#css清单-3&quot; class=&quot;headerlink&quot; title=&quot;css清单&quot;&gt;&lt;/a&gt;css清单&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;.sub, .extra {
+    position: absolute;
+    top: 0; 
+    width: 200px;
+}
+.sub { 
+    left: 0;
+}
+.extra { 
+    right: 0; 
+}
+.main { 
+    margin: 0 200px;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;本方法不限制DOM书写顺序，先写主面板会使主面板部分优先渲染（一般主面板会比侧栏内容重要）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;与上一种方法相比，本种方法是通过定位来实现侧栏的位置固定。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果中间栏含有最小宽度限制，或是含有宽度的内部元素，则浏览器窗口小到一定程度，主面板与侧栏会发生重叠。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;二列的实现方法&quot;&gt;&lt;a href=&quot;#二列的实现方法&quot; class=&quot;headerlink&quot; title=&quot;二列的实现方法&quot;&gt;&lt;/a&gt;二列的实现方法&lt;/h4&gt;&lt;p&gt;如果是左边带有侧栏的二栏布局，则去掉右侧栏，不要设置主面板的margin-right值，其他操作相同。反之亦然。&lt;/p&gt;
+&lt;h3 id=&quot;c-圣杯布局-float-负margin&quot;&gt;&lt;a href=&quot;#c-圣杯布局-float-负margin&quot; class=&quot;headerlink&quot; title=&quot;c.圣杯布局(float + 负margin)&quot;&gt;&lt;/a&gt;c.圣杯布局(float + 负margin)&lt;/h3&gt;&lt;h4 id=&quot;原理说明：&quot;&gt;&lt;a href=&quot;#原理说明：&quot; class=&quot;headerlink&quot; title=&quot;原理说明：&quot;&gt;&lt;/a&gt;原理说明：&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;主面板设置宽度为100%，主面板与两个侧栏都设置浮动，常见为左浮动，这时两个侧栏会被主面板挤下去。通过负边距将浮动的侧栏拉上来，左侧栏的负边距为100%，刚好是窗口的宽度，因此会从主面板下面的左边跑到与主面板对其的左边，右侧栏此时浮动在主面板下面的左边，设置负边距为负的自身宽度刚好浮动到主面板对齐的右边。为了避免侧栏遮挡住面板内容，在外层设置左右padding值为左右侧栏的宽度，给侧栏腾出空间，此时主面板的宽度减小。由于侧栏的负margin都是相对主面板的，两个侧栏并不会像我们想象中的停靠在左右两边，而是跟着缩小的主面板一起向中间靠拢。此时使用相对布局，调整两个侧栏到相应的位置。
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;DOM文档-4&quot;&gt;&lt;a href=&quot;#DOM文档-4&quot; class=&quot;headerlink&quot; title=&quot;DOM文档&quot;&gt;&lt;/a&gt;DOM文档&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;bd&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;main&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;sub&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;extra&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;布局步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;三者都设置想左浮动&lt;br&gt;2.设置main宽度为100%，设置两侧栏的宽度&lt;br&gt;3.设置负边距，sub设置负左边距100%，extra设置负左边距为负的自身高度&lt;br&gt;4.设置mian的padding值给左右两个子面板留出空间&lt;br&gt;5.设置两个字面板为相对定位，sub的left值为负的sub宽度，extra的right值为负的extra宽度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;css清单-4&quot;&gt;&lt;a href=&quot;#css清单-4&quot; class=&quot;headerlink&quot; title=&quot;css清单&quot;&gt;&lt;/a&gt;css清单&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;.main {        
+float: left;       
+width: 100%;   
+}  
+.sub {       
+float: left;        
+width: 190px;        
+margin-left: -100%;               
+position: relative;  
+left: -190px;  
+}   
+.extra {        
+float: left;        
+width: 230px;        
+margin-left: -230px; 
+position: relative; 
+right: -230px;  
+}
+#bd {        
+padding: 0 230px 0 190px;   
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;说明-1&quot;&gt;&lt;a href=&quot;#说明-1&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;dom元素的书写顺序不得更改&lt;/li&gt;
+&lt;li&gt;主面板部分优先渲染(一般主面板回避侧栏内容重要)&lt;/li&gt;
+&lt;li&gt;当面板的main内容部分比两边的子面板宽度小的时候，布局就会乱掉，可以通过设置main的mian-width属性或者使用双飞翼布局避免问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;二列的实现方法-1&quot;&gt;&lt;a href=&quot;#二列的实现方法-1&quot; class=&quot;headerlink&quot; title=&quot;二列的实现方法&quot;&gt;&lt;/a&gt;二列的实现方法&lt;/h4&gt;&lt;p&gt;如果是左边带有侧栏的二栏布局，则去掉右侧栏，不要设置主面板的padding-right值，其他操作相同。反之亦然。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;水平居中，垂直居中，单列布局，多列布局&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://blog.newbug.xyz/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器缓存机制</title>
@@ -2874,6 +3037,264 @@ function create(){
   </entry>
   
   <entry>
+    <title>js轮播图透明度切换</title>
+    <link href="http://blog.newbug.xyz/2016/04/25/js%E8%BD%AE%E6%92%AD%E5%9B%BE%E9%80%8F%E6%98%8E%E5%BA%A6%E5%88%87%E6%8D%A2/"/>
+    <id>http://blog.newbug.xyz/2016/04/25/js轮播图透明度切换/</id>
+    <published>2016-04-25T02:22:16.000Z</published>
+    <updated>2017-04-25T02:32:42.789Z</updated>
+    
+    <content type="html">&lt;p&gt;js轮播图透明度切换（带上下页和底部圆点切换）&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;js轮播图透明度切换&amp;lt;/title&amp;gt;
+    &amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        li {
+            list-style: none;
+        }
+        #box {
+            height: 340px;
+            width: 790px;
+            position: relative;
+            margin: 100px auto;
+        }
+        #box #list1 {
+            height: 340px;
+            width: 790px;
+        }
+        #box #list1 li {
+            position: absolute;
+            font-size: 80px;
+            text-align: center;
+            height: 340px;
+            width: 790px;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        #box #list1 li img {
+            height: 340px;
+            width: 790px;
+        }
+        #shang,#xia {
+            height: 80px;
+            width: 50px;
+            color: #212121;
+            background: #ccc;
+            font-size: 60px;
+            font-weight: bold;
+            line-height: 80px;
+            text-align: center;
+            position: absolute;
+            top: 130px;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            cursor: pointer;
+        }
+        #shang {
+            left: 0;
+        }
+        #xia {
+            right: 0;
+        }
+        #box #list2 {
+            height: 20px;
+            width: 195px;
+            position: absolute;
+            left: 297px;
+            bottom: 25px;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+        }
+        #box #list2 li {
+            height: 20px;
+            width: 20px;
+            background: #ccc;
+            border-radius: 50%;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #box #list2 li.active {
+            background: black;
+        }
+    &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;div id=&amp;quot;box&amp;quot;&amp;gt;
+        &amp;lt;ul id=&amp;quot;list1&amp;quot;&amp;gt;
+            &amp;lt;li style=&amp;quot;background: red;&amp;quot;&amp;gt;1&amp;lt;/li&amp;gt;
+            &amp;lt;li style=&amp;quot;background: yellow;&amp;quot;&amp;gt;2&amp;lt;/li&amp;gt;
+            &amp;lt;li style=&amp;quot;background: green;&amp;quot;&amp;gt;3&amp;lt;/li&amp;gt;
+            &amp;lt;li style=&amp;quot;background: blue;&amp;quot;&amp;gt;4&amp;lt;/li&amp;gt;
+            &amp;lt;li style=&amp;quot;background: blueviolet;&amp;quot;&amp;gt;5&amp;lt;/li&amp;gt;
+            &amp;lt;li style=&amp;quot;background: brown;&amp;quot;&amp;gt;6&amp;lt;/li&amp;gt;
+            &amp;lt;li style=&amp;quot;background: orangered;&amp;quot;&amp;gt;7&amp;lt;/li&amp;gt;
+            &amp;lt;li style=&amp;quot;background: palevioletred;&amp;quot;&amp;gt;8&amp;lt;/li&amp;gt;               
+        &amp;lt;/ul&amp;gt;
+        &amp;lt;ul id=&amp;quot;list2&amp;quot;&amp;gt;
+            &amp;lt;li class=&amp;quot;active&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
+            &amp;lt;li style=&amp;quot;margin-right:0px;&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;/ul&amp;gt;
+        &amp;lt;div id=&amp;quot;shang&amp;quot;&amp;gt;
+            &amp;amp;lt;
+        &amp;lt;/div&amp;gt;
+        &amp;lt;div id=&amp;quot;xia&amp;quot;&amp;gt;
+            &amp;amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+        onload = function(){
+            var oBox = document.getElementById(&amp;apos;box&amp;apos;);
+            var oList1 = document.getElementById(&amp;apos;list1&amp;apos;);
+            var aLi1 = oList1.getElementsByTagName(&amp;apos;li&amp;apos;);
+            var oList2 = document.getElementById(&amp;apos;list2&amp;apos;);
+            var aLi2 = oList2.getElementsByTagName(&amp;apos;li&amp;apos;);
+            var oShang = document.getElementById(&amp;apos;shang&amp;apos;);
+            var oXia = document.getElementById(&amp;apos;xia&amp;apos;);
+            aLi1[0].style.opacity = 1;
+            aLi1[0].style.filter = &amp;apos;alpha(opacity=100)&amp;apos;;
+            var size = aLi1.length;
+            var i = 0;
+            var timer = setInterval(function(){
+                i++;
+                move();
+            },2000);
+            function move(){
+                if (i &amp;gt;= size ) {
+                    i = 0;
+                }
+                if (i &amp;lt; 0 ) {
+                    i = size - 1;
+                }
+                for (var j = 0; j &amp;lt; aLi1.length; j++) {
+                    if (j == i) {
+                        animate(aLi1[j],{opacity:100});
+                        aLi2[j].className = &amp;apos;active&amp;apos;;
+                    }else{
+                        animate(aLi1[j],{opacity:0});
+                        aLi2[j].className = &amp;apos;&amp;apos;;
+                    }
+                }
+            }
+            //前一张
+            oShang.onclick = function(e){
+                var evt = e || event;
+                evt.preventDefault();
+                i--;
+                move();
+            }
+            //后一张
+            oXia.onclick = function(e){
+                var evt = e || event;
+                evt.preventDefault();
+                i ++;
+                move();
+            }
+            //下面的圆点
+            for(var k = 0;k &amp;lt; aLi2.length; k ++){
+                aLi2[k].index = k;
+                aLi2[k].onmouseenter = function(){
+                    i = this.index;
+                    move();
+                }
+            }
+            oBox.onmouseenter = function(){
+                clearInterval(timer);
+            }
+            oBox.onmouseleave = function(){
+                timer = setInterval(function(){
+                    i ++;
+                    move();
+                },2000);
+            }
+
+
+
+
+
+
+
+
+/*************************缓冲运动可封装留着以后备用^_^*************************/
+            function getStyleAttr(obj, attr){
+                if (window.getComputedStyle){
+                    return getComputedStyle(obj, null)[attr]; 
+                }
+                else {
+                    return obj.currentStyle[attr];  
+                }
+            }
+            function animate(obj, json, fn){
+                clearInterval(obj.timer); 
+                obj.timer = setInterval(function(){
+                    var bStop = true; 
+                    for (var attr in json){
+                        var iTarget = json[attr]; 
+                        var current;
+                        if (attr == &amp;quot;opacity&amp;quot;){ 
+                            current = parseFloat(getStyleAttr(obj, attr))*100;
+                            current = Math.round(current);
+                        }
+                        else { 
+                            current = parseFloat(getStyleAttr(obj, attr));
+                            current = Math.round(current);
+                        }
+                        var speed = (iTarget-current)/8;    (400-393)/8
+                        speed = speed&amp;gt;0 ? Math.ceil(speed) : Math.floor(speed);
+                        if (current != iTarget){
+                            bStop = false; 
+                        }
+                        if (attr == &amp;quot;opacity&amp;quot;){ 
+                            obj.style[attr] = (current+speed)/100;
+                            obj.style.filter = &amp;quot;alpha(opacity=&amp;quot; + (current+speed) + &amp;quot;)&amp;quot;;
+                        }
+                        else { 
+                            obj.style[attr] = current+speed + &amp;quot;px&amp;quot;;
+                        }
+                    }
+                    if (bStop){
+                        console.log(&amp;quot;停止运动&amp;quot;);
+                        clearInterval(obj.timer); 
+                        if (fn) {
+                            fn(); 
+                        }
+                    }
+                }, 30);
+            }
+        }
+
+    &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js轮播图透明度切换（带上下页和底部圆点切换）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>css规范总结</title>
     <link href="http://blog.newbug.xyz/2016/03/29/css%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/"/>
     <id>http://blog.newbug.xyz/2016/03/29/css规范总结/</id>
@@ -3358,728 +3779,6 @@ document.write(str4.toUpperCase());
     
     
       <category term="js笔记" scheme="http://blog.newbug.xyz/tags/js%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>angularjs</title>
-    <link href="http://blog.newbug.xyz/2016/03/06/angularjs/"/>
-    <id>http://blog.newbug.xyz/2016/03/06/angularjs/</id>
-    <published>2016-03-06T10:22:39.000Z</published>
-    <updated>2016-07-14T12:14:22.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;a href=&quot;#jQuery：用更少的代码，实现更强悍的功能&quot; class=&quot;headerlink&quot; title=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;/a&gt;jQuery：用更少的代码，实现更强悍的功能&lt;/h2&gt;&lt;p&gt;托互联网日新月异发展的福，浏览器变成了人们接入互联网的入口，而JavaScript 这个曾经的小语种，终于成功地站到了舞台的中央，唤起了开发者的兴趣。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;浏览器里原生的JavaScript有点像汇编语言，不同的浏览器就像不同的CPU架构， 汇编语言各有千秋，这让前端开发者很恼火。聪明人很快发现了这个痛点，于是， 抹平浏览器差异的jQuery库出现了。&lt;br&gt;jQuery由一小撮对浏览器极其熟稔的极客负责抹平不同浏览器的差异，其他开发 者只需要基于jQuery进行开发，可以更好地关注业务实现，而不是把时间花在 适配不同的浏览器上。&lt;br&gt;这样的分工符合经济学原理，开启了一个不可忽视的jQuery时代&lt;/p&gt;
-&lt;h2 id=&quot;满眼的全是DOM&quot;&gt;&lt;a href=&quot;#满眼的全是DOM&quot; class=&quot;headerlink&quot; title=&quot;满眼的全是DOM&quot;&gt;&lt;/a&gt;满眼的全是DOM&lt;/h2&gt;&lt;p&gt;jQuery使得开发无刷新动态页面（AJAX）或者单页应用（SPA）变得 相当简单。&lt;br&gt;标准的HTML页面是静态的，被浏览器渲染后就产生了一个DOM树：&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;jQuery让静态的文档动起来，通过提供一系列的选择符，jQuery使开发者能够 极其方便地选中一组DOM节点，对其进行操作。&lt;br&gt;这就是jQuery的开发范式。jQuery没有引入什么新的概念，只是朴素地，让你能够更简单 地、低成本地操作DOM：&lt;br&gt;1.用选择符选定一组DOM节点&lt;br&gt;2.操作选中的DOM节点，比如：修改文本、改变属性、挂接事件监听函数、变换DOM等等。&lt;br&gt;3.基本不用考虑跨浏览器的兼容性&lt;/p&gt;
-&lt;p&gt;jQuery的API符合大多数开发者的预期，因此，很容易上手。&lt;/p&gt;
-&lt;h2 id=&quot;jQuery缺失的环节&quot;&gt;&lt;a href=&quot;#jQuery缺失的环节&quot; class=&quot;headerlink&quot; title=&quot;jQuery缺失的环节&quot;&gt;&lt;/a&gt;jQuery缺失的环节&lt;/h2&gt;&lt;p&gt;jQuery有点像C语言，威力很大，不过要弄出点像样的前端界面，还得花不少功夫 处理琐碎的事情。&lt;br&gt;还能再简单些吗？Misko Hevery认为在某些应用场景下可以。于是，AngularJS诞生了：&lt;/p&gt;
-&lt;p&gt;AngularJS引入了三个主要的概念，期望让前端开发更系统化一些：&lt;br&gt;&lt;b&gt;1.声明式界面开发&lt;br&gt;2.双向数据绑定&lt;br&gt;3.使用依赖注入解耦  &lt;/b&gt;&lt;br&gt;很多人在初次接触AngularJS时，都有些吃惊，因为它把前端开发搞的突然严肃起来 了。考虑到Misko曾经是一个Java程序员，这一切就好理解了。&lt;br&gt;Java程序员擅长引入复杂的架构来解决简单的问题，对吧？&lt;br&gt;&lt;!---more---&gt;&lt;/p&gt;
-&lt;h2 id=&quot;库-vs-框架&quot;&gt;&lt;a href=&quot;#库-vs-框架&quot; class=&quot;headerlink&quot; title=&quot;库 vs. 框架&quot;&gt;&lt;/a&gt;库 vs. 框架&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/2.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;jQuery是一个库，库总是被动的，就像工具，应用的开发逻辑是你的，在 某一点上需要用一下工具，就用好了。&lt;br&gt;框架则非常不同，这意味着AngularJS为应用已经搭起了一个架子，约定了 一些组成部分，并且实现了这些部分的拼装运行。换句话说， 应用的开发逻辑是AngularJS的，你得跟着它走。&lt;br&gt;所以，AngularJS难学一些，因为它有一个架子在那，你不了解这个架子， 基本没法下手。  &lt;/p&gt;
-&lt;h2 id=&quot;重写示例：模板、指令和视图&quot;&gt;&lt;a href=&quot;#重写示例：模板、指令和视图&quot; class=&quot;headerlink&quot; title=&quot;重写示例：模板、指令和视图&quot;&gt;&lt;/a&gt;重写示例：模板、指令和视图&lt;/h2&gt;&lt;p&gt;AngularJS最显著的特点是用静态的HTML文档，就可以生成具有动态行为的页面。&lt;br&gt;还是前面的小时钟示例，我们使用AngularJS模板来重写，示例已经嵌入→_→：&lt;br&gt;HTML文件看起来像普通的HTML，只是其中多了一些特别的标记 （比如：ng-app,ez-clock等等）。在Angular中，这个HTML文件被称为模板。&lt;br&gt;ng-app这样的标记我们称之为指令。模板通过指令指示AngularJS进行必要的操作。 比如：ng-app指令用来通知AngularJS自动引导应用；ez-clock 指令用来通知AngularJS生成指定的时钟组件。&lt;br&gt;当AngularJS启动应用时，它会通过一个编译器解析处理这个模板文件，生成的结果就是： 视图：&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;我们定义了两个部件：模板（包含指令的HTML文件）和指令实现 （JavaScript文件），AngularJS将这两部分拼装起来，生成了最终的视图。&lt;br&gt;有点理解框架的含义了吗？&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;angular.module(&amp;quot;ezstuff&amp;quot;,[])//创建模块ezstuff
-.directive(&amp;quot;ezClock&amp;quot;,function(){//在模块上注册指令ezClock的类工厂
-    return {
-        restrict : &amp;quot;E&amp;quot;,
-        replace : true,
-        template : &amp;quot;&amp;lt;div class=&amp;apos;clock&amp;apos;&amp;gt;&amp;lt;/div&amp;gt;&amp;quot;,
-        link : function(scope,element,attrs){
-            setInterval(function(){
-                //获取当前时间
-                var d = new Date();
-
-                //element对应引用该指令的DOM对象的jqLite封装
-                element.text(d.toString());
-            },1000);
-        }
-    }
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;使用指令封装JavaScript代码&quot;&gt;&lt;a href=&quot;#使用指令封装JavaScript代码&quot; class=&quot;headerlink&quot; title=&quot;使用指令封装JavaScript代码&quot;&gt;&lt;/a&gt;使用指令封装JavaScript代码&lt;/h2&gt;&lt;p&gt;我们在模板中使用了一个自定义的标签ez-clock，而他变成了一个会动的时钟，这期间发生了什么呢？&lt;/p&gt;
-&lt;p&gt;可以肯定的是这肯定不是浏览器干的，他不认识ez-block是什么东西，angularjs引入了基本的angularjs库，他会在浏览器载入html文档并且建立好DOM树后，执行以下操作：&lt;/p&gt;
-&lt;p&gt;1，找到有ng-app属性的DOM节点&lt;/p&gt;
-&lt;p&gt;2，以这个节点为根节点，搜索自定义指令，发现ez-clock&lt;/p&gt;
-&lt;p&gt;3，调用ez-clock指令的实现函数（指令类工厂）进行展开我们的定义，ez-clock的展开操作如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1 使用一个div元素替换这个自定义标签
-2 创建一个定时器，在定时器触发时刷新div元素的innerText
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ez-clock这样的非html标准的标签，在angularjs中之所以称之为指令/directive，就是只看到它时，基础框架需要对其进行解释，以便展开成浏览器可以理解的东西，而这个解释的过程称之为：编译。&lt;/p&gt;
-&lt;p&gt;可见，angularjs框架要求将HTML文档和JavaScript代码分割的更清晰，通常混杂在HTML文档中的JavaScript代码，需要一直领的形式进行封装，而模板、指令实现代码这两个不见，则有基础框架负责拼装运行。&lt;/p&gt;
-&lt;h2 id=&quot;起点：声明化&quot;&gt;&lt;a href=&quot;#起点：声明化&quot; class=&quot;headerlink&quot; title=&quot;起点：声明化&quot;&gt;&lt;/a&gt;起点：声明化&lt;/h2&gt;&lt;p&gt;基于前面的实例，我们很容易感受到angularjs进行应用开发的一个重要的思维模式：葱构造声明式界面入手。&lt;/p&gt;
-&lt;p&gt;事实上，这也是misko开发angularjs最初的动机吧。&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/4.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;在使用angularjs进行开发时，始终应该从构造函数声明式界面模板开始，如果现在的指令不够，那么就定义自己的指令，实现自己的指令、实现自己的指令。这是一个选代的过程。&lt;/p&gt;
-&lt;p&gt;记住：指令是新型的API，用界面的声明化作为需求，来指导我们的代码封装。&lt;/p&gt;
-&lt;h2 id=&quot;层级的作用域&quot;&gt;&lt;a href=&quot;#层级的作用域&quot; class=&quot;headerlink&quot; title=&quot;层级的作用域&quot;&gt;&lt;/a&gt;层级的作用域&lt;/h2&gt;&lt;p&gt;在angularjs中，ng-app开始的DOM子树上，每个DOM对象都有一个对应的scope对象。比如，在我们的实例中，body对象对应一个scope对象，因为body这时候有ng-app属性，所以这个scope就是$rootscope对象，ez-clock对象也对应有一个scope对象……..&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;在默认情况下，一个DOM子元素不会创建新的作用域，也就是说，这个子元素所对应的scope对象，其实就是它的最近一级的祖先对象对应的scope对象。比如，在我们的例子上，ez-namecard对应的scope对象，就是它的父对象即body对象的scope对象，恰好也就是$rootScope对象；而ez-namecard有三个div子元素对应的scope对象，也就是$rootScope对象。&lt;/p&gt;
-&lt;p&gt;有些指令会导致创建新的作用域，比如ng-controller。如果在一个DOM对象上创建了新的作用域，那么这个scope对象的原型是其最近一级的组件对象的scope对象。&lt;/p&gt;
-&lt;p&gt;比如在我们的例子中，如果在ez-namecard上使用ng-controller指令，那么ez-namecard对应的scope对象就不会是body对应的$rootScope对象，但是由于原型继承，所以通过这个scope依然可以访问sb变量。&lt;/p&gt;
-&lt;h2 id=&quot;监听数据的变化&quot;&gt;&lt;a href=&quot;#监听数据的变化&quot; class=&quot;headerlink&quot; title=&quot;监听数据的变化&quot;&gt;&lt;/a&gt;监听数据的变化&lt;/h2&gt;&lt;p&gt;我们已经实现了将数据显示到界面上，不过这还不够。&lt;br&gt;由于编译仅仅在启动引导时执行一次，这就意味着我们的link函数只会被调用一次，那么，如果数据变化，在界面上将不会有任何反馈，所以我们要监听数据的变化。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$watch(watchExpression listener ,[objecEquality])
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;$watch 方法又三个参数：&lt;br&gt;    1，watchExpression - 要监听的表达式&lt;br&gt;    2，listener - 变化发生时的回调函数，angularjs将这个函数传入新值和旧值&lt;br&gt;    3，objectEquality - 如果要监听表达式的值是一个对象，应当将这个参数置为true&lt;/p&gt;
-&lt;h2 id=&quot;数据变化的传播&quot;&gt;&lt;a href=&quot;#数据变化的传播&quot; class=&quot;headerlink&quot; title=&quot;数据变化的传播&quot;&gt;&lt;/a&gt;数据变化的传播&lt;/h2&gt;&lt;p&gt;数据绑定有两个方向：&lt;/p&gt;
-&lt;p&gt;数据到界面：我们使用scope对象的$watch()方法监听数据的变化，来更新界面。&lt;/p&gt;
-&lt;p&gt;界面到数据：我们在界面的DOM对象上监听变化时间，来更新数据，并通过$apply()方法传播变化。&lt;br&gt;&lt;img src=&quot;http://o9xxj2r73.bkt.clouddn.com/angularjs/6.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;上面的图中，我们把ez-namecard和ez-namecard-editor都绑定到同一个sb对象上，那么在 ez-namecard-editor上进行编辑，将导致sb对象发生变化；由于ez-namecard监听了这个变化， 所以，ez-namecard的显示也应该变化。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;a href=&quot;#jQuery：用更少的代码，实现更强悍的功能&quot; class=&quot;headerlink&quot; title=&quot;jQuery：用更少的代码，实现更强悍的功能&quot;&gt;&lt;/a&gt;jQuery：用更少的代码，实现更强悍的功能&lt;/h2&gt;&lt;p&gt;托互联网日新月异发展的福，浏览器变成了人们接入互联网的入口，而JavaScript 这个曾经的小语种，终于成功地站到了舞台的中央，唤起了开发者的兴趣。
-    
-    </summary>
-    
-    
-      <category term="angular" scheme="http://blog.newbug.xyz/tags/angular/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS全局污染</title>
-    <link href="http://blog.newbug.xyz/2016/02/16/JS%E5%85%A8%E5%B1%80%E6%B1%A1%E6%9F%93/"/>
-    <id>http://blog.newbug.xyz/2016/02/16/JS全局污染/</id>
-    <published>2016-02-16T03:37:45.000Z</published>
-    <updated>2016-10-10T09:04:16.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;原则&quot;&gt;&lt;a href=&quot;#原则&quot; class=&quot;headerlink&quot; title=&quot;原则&quot;&gt;&lt;/a&gt;原则&lt;/h2&gt;&lt;p&gt;1.用匿名函数将脚本包起来；&lt;/p&gt;
-&lt;p&gt;2.使用多级命名空间。&lt;/p&gt;
-&lt;p&gt;这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;改进过程&quot;&gt;&lt;a href=&quot;#改进过程&quot; class=&quot;headerlink&quot; title=&quot;改进过程&quot;&gt;&lt;/a&gt;改进过程&lt;/h2&gt;&lt;h3 id=&quot;原始代码&quot;&gt;&lt;a href=&quot;#原始代码&quot; class=&quot;headerlink&quot; title=&quot;原始代码&quot;&gt;&lt;/a&gt;原始代码&lt;/h3&gt;&lt;p&gt;没有做过任何优化的满目疮痍的代码。a.js 和 b.js 都有全局变量 window.a ，导致冲突，全局变量属于 window 作用域下的。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//a.js
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-    //都什么时代了，script标签还写type属性呢？黄牌警告！下次绝逼不写了。
-    var a = 123, b = &amp;quot;hello world&amp;quot;;
-&amp;lt;/script&amp;gt;
-
-//b.js
-&amp;lt;script&amp;gt;
-    //看！这把没有写了吧~就是这么任性，上面的那个写了的也绝逼不改！
-    var a, c = &amp;quot;abc&amp;quot;;
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;使用匿名函数&quot;&gt;&lt;a href=&quot;#使用匿名函数&quot; class=&quot;headerlink&quot; title=&quot;使用匿名函数&quot;&gt;&lt;/a&gt;使用匿名函数&lt;/h3&gt;&lt;p&gt;通过匿名函数改变了a.js 和 b.js 中的变量 a 的作用域，使得他们都不再是全局变量了，但是在 b.js 中无法访问在 a.js 中的变量 a， 换而言之，他们之间没办法通信了。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//a.js
-(function() {
-    var a = 123, b = &amp;quot;hello world&amp;quot;;
-})();
-
-//b.js
-(function() {
-    var a, c = &amp;quot;abc&amp;quot;;
-})();
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;使用全局变量进行通信&quot;&gt;&lt;a href=&quot;#使用全局变量进行通信&quot; class=&quot;headerlink&quot; title=&quot;使用全局变量进行通信&quot;&gt;&lt;/a&gt;使用全局变量进行通信&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var str;
-//a.js
-(function() {
-    var a = 123,
-    b = &amp;quot;hello world&amp;quot;;
-    window.str = a;
-})();
-
-//b.js
-(function() {
-    var a, c = &amp;quot;abc&amp;quot;;
-    alert(window.str);
-})();
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用 window.str 这种全局全局变量作为通信的媒介其实并不是一个好办法，这样做会导致全局变量越来越多，反而不好维护。&lt;/p&gt;
-&lt;h3 id=&quot;使用命名空间&quot;&gt;&lt;a href=&quot;#使用命名空间&quot; class=&quot;headerlink&quot; title=&quot;使用命名空间&quot;&gt;&lt;/a&gt;使用命名空间&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var GLOBAL = {};
-//a.js
-(function() {
-    var a = 123,
-    b = &amp;quot;hello world&amp;quot;;
-    GLOBAL.A.a = a;
-})();
-
-//b.js
-(function() {
-    var a, c = &amp;quot;abc&amp;quot;;
-    alert(GLOBAL.A.a);
-})();
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用单一的全局变量 GlOBAL ，匿名空间里需要保存的属性都在全局变量 GLOBAL 的基础上使用命名空间的方式进行拓展。这里给命名空间起名字也需要很讲究，好的命名规则会对团队协同合作有很大的帮助&lt;/p&gt;
-&lt;h2 id=&quot;js一些常用的封装&quot;&gt;&lt;a href=&quot;#js一些常用的封装&quot; class=&quot;headerlink&quot; title=&quot;js一些常用的封装&quot;&gt;&lt;/a&gt;js一些常用的封装&lt;/h2&gt;&lt;p&gt;———————-解决兼容性方法———————–  &lt;/p&gt;
-&lt;h3 id=&quot;获取元素的计算后样式属性&quot;&gt;&lt;a href=&quot;#获取元素的计算后样式属性&quot; class=&quot;headerlink&quot; title=&quot;获取元素的计算后样式属性&quot;&gt;&lt;/a&gt;获取元素的计算后样式属性&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function getStyle(element,attr) {
-    if (element.currentStyle) {
-        return element.currentStyle[attr];
-    }else{
-        return window.getComputedStyle(element,null){
-            return window.getComputedStyle(element,null)[attr];
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;scroll-top-or-scroll-left获取已经滚动到元素的左边界或上边界的像素数&quot;&gt;&lt;a href=&quot;#scroll-top-or-scroll-left获取已经滚动到元素的左边界或上边界的像素数&quot; class=&quot;headerlink&quot; title=&quot;scroll().top or scroll().left获取已经滚动到元素的左边界或上边界的像素数&quot;&gt;&lt;/a&gt;scroll().top or scroll().left获取已经滚动到元素的左边界或上边界的像素数&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function scroll() {
-        return {
-            top:window.pageYOffset || document.documentElement.scrollTop || document.body.scrollLeft || 0,
-            left:window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
-        };
-    }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;获取可视窗口的大小&quot;&gt;&lt;a href=&quot;#获取可视窗口的大小&quot; class=&quot;headerlink&quot; title=&quot;获取可视窗口的大小&quot;&gt;&lt;/a&gt;获取可视窗口的大小&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function client() {
-    return {
-        width:window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth ||0,
-        height:window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight || 0
-    };
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;event兼容&quot;&gt;&lt;a href=&quot;#event兼容&quot; class=&quot;headerlink&quot; title=&quot;event兼容&quot;&gt;&lt;/a&gt;event兼容&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;//event兼容
-var eventCompatible = {
-    //event兼容
-    getEvent: function(event) {
-        return event || window.event;
-    },
-
-    //阻止冒泡事件
-    stopPropagation: function(event) {
-        var event = event || window.event;
-        if(event &amp;amp;&amp;amp; event.stopPropagation) {
-            return event.stopPropagation();
-        } else {
-            return event.cancelBubble = true;
-        }
-    },
-
-    //event.target 事件的目标 (事件委托)
-    getTarget: function(event) {
-        var event = event || window.event;
-        return event.target ? event.target : event.srcElement;
-    },
-
-    //鼠标页面坐标
-    page: function(event) {
-        var event = event || window.event;
-        return {
-            x: event.pageX || event.clientX + document.documentElement.scrollLeft,
-            y: event.pageY || event.clientY + document.documentElement.scrollTop
-        };
-    },
-
-    //阻止默认行为
-    prevent: function(event){
-        var event = event || window.event;
-        if (event.preventDefault) {
-            return event.preventDefault();
-        }else{
-            return event.returnValue = false;
-        }
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;监听事件兼容处理&quot;&gt;&lt;a href=&quot;#监听事件兼容处理&quot; class=&quot;headerlink&quot; title=&quot;监听事件兼容处理&quot;&gt;&lt;/a&gt;监听事件兼容处理&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function eventListener(obj, type, handler, unbind) {
-    if(unbind === true) {
-        if(obj.removeEventListener) {
-            obj.removeEventListener(type, handler);
-        } else {
-            obj.detachEvent(&amp;quot;on&amp;quot; + type, handler);
-        };
-    } else {
-        if(obj.addEventListener) {
-            obj.addEventListener(type, handler);
-        } else {
-            obj.attachEvent(&amp;quot;on&amp;quot; + type, handler);
-        };
-    };
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;清楚选择&quot;&gt;&lt;a href=&quot;#清楚选择&quot; class=&quot;headerlink&quot; title=&quot;清楚选择&quot;&gt;&lt;/a&gt;清楚选择&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function clearSelection() {
-    return window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;##——————-自定义的方法—————————&lt;/p&gt;
-&lt;h3 id=&quot;trim去掉字符串两端的空格&quot;&gt;&lt;a href=&quot;#trim去掉字符串两端的空格&quot; class=&quot;headerlink&quot; title=&quot;trim去掉字符串两端的空格&quot;&gt;&lt;/a&gt;trim去掉字符串两端的空格&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function trim(str) {
-    return str.replace(/^\s+|\s+$/g, &amp;quot;&amp;quot;);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;十进制转其他进制-type类型有”bit”、”oct”、”hex”&quot;&gt;&lt;a href=&quot;#十进制转其他进制-type类型有”bit”、”oct”、”hex”&quot; class=&quot;headerlink&quot; title=&quot;十进制转其他进制 type类型有”bit”、”oct”、”hex”&quot;&gt;&lt;/a&gt;十进制转其他进制 type类型有”bit”、”oct”、”hex”&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function changeFromDec(type, value) {
-    var arr = [&amp;quot;0&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;3&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;5&amp;quot;, &amp;quot;6&amp;quot;, &amp;quot;7&amp;quot;, &amp;quot;8&amp;quot;, &amp;quot;9&amp;quot;, &amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C&amp;quot;, &amp;quot;D&amp;quot;, &amp;quot;E&amp;quot;, &amp;quot;F&amp;quot;]    
-    var scale = 0;
-    var sys = &amp;quot;&amp;quot;;
-    if(!/^[\d]*$/g.test(value)) {
-        return &amp;quot;&amp;quot;;
-    }
-    if(!value) {
-        return &amp;quot;&amp;quot;;
-    }
-    if(type === &amp;quot;bit&amp;quot;) {
-        scale = 2;
-    } else if(type === &amp;quot;oct&amp;quot;) {
-        scale = 8;
-    } else if(type === &amp;quot;hex&amp;quot;) {
-        scale = 16;
-        while(true) {
-            sys = arr[value % 16] + sys;
-            value = parseInt(value / 16);
-            if(!value) {
-                break;
-            }
-        }
-        return sys;
-    }
-    while(true) {
-        sys = value % scale + sys;
-        value = parseInt(value / scale);
-        if(!value) {
-            break;
-        }
-    }
-    return sys;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;二进制、八进制、十六进制转十进制&quot;&gt;&lt;a href=&quot;#二进制、八进制、十六进制转十进制&quot; class=&quot;headerlink&quot; title=&quot;二进制、八进制、十六进制转十进制;&quot;&gt;&lt;/a&gt;二进制、八进制、十六进制转十进制;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function toDec(type, value) {
-    if(typeof value === &amp;quot;number&amp;quot;) value += &amp;quot;&amp;quot;;
-    var scale = 0;
-    var flag = false;
-    if(type === &amp;quot;bit&amp;quot;) {
-        flag = /^[01]*$/g.test(value);
-        scale = 2;
-    } else if(type === &amp;quot;oct&amp;quot;) {
-        flag = /^[0-7]*$/g.test(value)
-        scale = 8;
-    } else if(type === &amp;quot;hex&amp;quot;) {
-        flag = /^[0-9a-fA-F]*$/g.test(value)
-        scale = 16;
-    }
-    if(!flag || !value) return;
-    var arr = value.split(&amp;quot;&amp;quot;);
-    var dec = 0;
-    for(var i = 0; i &amp;lt; arr.length; i++) {
-        if(isNaN(parseInt(arr[i]))) {
-            var charCode = arr[i].charCodeAt(0);
-            if(charCode &amp;gt; 64 &amp;amp;&amp;amp; charCode &amp;lt; 71) {
-                dec += (charCode - 55) * Math.pow(scale, arr.length - 1 - i)
-            } else if(charCode &amp;gt; 96 &amp;amp;&amp;amp; charCode &amp;lt; 103) {
-                dec += (charCode - 87) * Math.pow(scale, arr.length - 1 - i)
-            }
-        } else {
-            dec += arr[i] * Math.pow(scale, arr.length - 1 - i);
-        }
-    }
-    return dec;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;转动时钟&quot;&gt;&lt;a href=&quot;#转动时钟&quot; class=&quot;headerlink&quot; title=&quot;转动时钟&quot;&gt;&lt;/a&gt;转动时钟&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function clock() {
-    var d = new Date();
-    var ms = d.getMilliseconds();
-    var s = d.getSeconds() + ms / 1000;
-    var m = d.getMinutes() + s / 60;
-    var h = d.getHours() + m / 60;
-    second.style.transform = &amp;quot;rotate(&amp;quot; + s * 6 + &amp;quot;deg)&amp;quot;;
-    minute.style.transform = &amp;quot;rotate(&amp;quot; + m * 6 + &amp;quot;deg)&amp;quot;;
-    hour.style.transform = &amp;quot;rotate(&amp;quot; + h * 30 + &amp;quot;deg)&amp;quot;;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;匀速动画&quot;&gt;&lt;a href=&quot;#匀速动画&quot; class=&quot;headerlink&quot; title=&quot;匀速动画&quot;&gt;&lt;/a&gt;匀速动画&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function animate(obj, attr, distance) {
-    var step = 20;
-    var leader = parseInt(getStyle(obj, attr)) || 0
-    clearInterval(obj.atimer);
-    obj.atimer = setInterval(function() {
-        distance &amp;gt; leader ? leader += step : leader -= step;
-        if(Math.abs(distance - leader) &amp;gt; step) {
-            obj.style[attr] = leader + &amp;quot;px&amp;quot;;
-        } else {
-            obj.style[attr] = distance + &amp;quot;px&amp;quot;;
-            clearInterval(obj.atimer);
-        }
-    }, 15);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;缓动动画-单个数值属性&quot;&gt;&lt;a href=&quot;#缓动动画-单个数值属性&quot; class=&quot;headerlink&quot; title=&quot;缓动动画(单个数值属性)&quot;&gt;&lt;/a&gt;缓动动画(单个数值属性)&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function slowSpeedAnimate(element, attr, distance) {
-    clearInterval(element.timer);
-    element.timer = setInterval(function() {
-        var removing = parseInt(getStyle(element, attr)) || 0; //element.offsetLeft;
-        var step = (distance - removing) / 20;
-        step = step &amp;gt; 0 ? Math.ceil(step) : Math.floor(step);
-        removing = removing + step;
-        element.style[attr] = removing + &amp;quot;px&amp;quot;;
-        if(removing == distance) {
-            clearInterval(element.timer);
-        }
-    }, 15)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;缓动动画-多个数值属性&quot;&gt;&lt;a href=&quot;#缓动动画-多个数值属性&quot; class=&quot;headerlink&quot; title=&quot;缓动动画(多个数值属性)&quot;&gt;&lt;/a&gt;缓动动画(多个数值属性)&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function moreAnimate(element, json, interval, fn) {
-    clearInterval(element.timer);
-    element.timer = setInterval(function() {
-        var flag = true;
-        for(var k in json) {
-            if(k === &amp;quot;opacity&amp;quot;) {
-                var removing = getStyle(element, k) * 100; //element.offsetLeft;
-                var distance = json[k] * 100;
-                var step = (distance - removing) / interval;
-                step = step &amp;gt; 0 ? Math.ceil(step) : Math.floor(step);
-                removing = removing + step;
-                element.style[k] = removing / 100;
-            } else {
-                var removing = parseInt(getStyle(element, k)) || 0; //element.offsetLeft;
-                var distance = json[k];
-                var step = (distance - removing) / interval;
-                step = step &amp;gt; 0 ? Math.ceil(step) : Math.floor(step);
-                removing = removing + step;
-                element.style[k] = removing + &amp;quot;px&amp;quot;;
-            }
-            if(removing != distance) {
-                flag = false;
-            }
-        }
-        if(flag) {
-            clearInterval(element.timer);
-            if(fn) {
-                fn();
-            }
-        }
-
-    }, 15)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;进度条&quot;&gt;&lt;a href=&quot;#进度条&quot; class=&quot;headerlink&quot; title=&quot;进度条&quot;&gt;&lt;/a&gt;进度条&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;    function Progress(id, width, height, outClass, inClass) {
-    this.width = width;
-    this.height = height;
-    this.color = &amp;quot;#fff&amp;quot;;
-    this.progress = document.createElement(&amp;quot;div&amp;quot;);
-    this.percentage = document.createElement(&amp;quot;div&amp;quot;);
-    this.filler = document.createElement(&amp;quot;div&amp;quot;);
-    var element = document.getElementById(id);
-    if(width) {
-        this.progress.style.width = this.width + &amp;quot;px&amp;quot;;
-    } else {
-        this.progress.style.width = &amp;quot;200px&amp;quot;;
-    }
-    if(height) {
-        this.progress.style.height = this.height + &amp;quot;px&amp;quot;;
-    } else {
-        this.progress.style.height = &amp;quot;20px&amp;quot;;
-    }
-    if(typeof outClass === &amp;quot;string&amp;quot; &amp;amp;&amp;amp; (/^[a-zA-Z](\w|[-])+$/g.test(outClass))) {
-        this.progress.className = outClass;
-    } else {
-        this.progress.style.border = &amp;quot;1px solid #cccccc&amp;quot;;
-        this.progress.style.backgroundImage = &amp;quot;linear-gradient(to bottom, #ccc 0%, #fff 40%, #ccc 100%)&amp;quot;;
-        this.progress.style.borderRadius = &amp;quot;10px&amp;quot;;
-    }
-    this.progress.style.overflow = &amp;quot;hidden&amp;quot;;
-    this.progress.style.position = &amp;quot;relative&amp;quot;;
-    element.appendChild(this.progress);
-    //
-    this.progress.appendChild(this.percentage);
-    this.percentage.style.width = &amp;quot;100%&amp;quot;;
-    this.percentage.style.height = &amp;quot;100%&amp;quot;;
-    this.percentage.style.textAlign = &amp;quot;center&amp;quot;;
-    this.percentage.style.position = &amp;quot;absolute&amp;quot;;
-    this.percentage.innerHTML = &amp;quot;0%&amp;quot;;
-    //
-    this.progress.appendChild(this.filler);
-    this.filler.style.height = &amp;quot;100%&amp;quot;;
-    this.filler.style.width = 0;
-    if(typeof inClass === &amp;quot;string&amp;quot; &amp;amp;&amp;amp; (/^[a-zA-Z](\w|[-])+$/g.test(inClass))) {
-        this.filler.className = inClass;
-    } else {
-        this.filler.style.backgroundColor = &amp;quot;#DC7BBE&amp;quot;;
-        this.filler.style.backgroundImage = &amp;quot;linear-gradient(to bottom, #0AF 0%, #0ff 40%, #0AF 100%)&amp;quot;;
-    }
-}
-Progress.prototype.fill = function(value) {
-    if(value) {
-        this.percentage.innerHTML = value + &amp;quot;%&amp;quot;;
-        this.percentage.style.color = this.color;
-        value = (this.progress.offsetWidth - 2) / 100 * value;
-        this.filler.style.width = value + &amp;quot;px&amp;quot;;
-    } else {
-        this.filler.style.width = 0;
-        this.percentage.innerHTML = &amp;quot;0%&amp;quot;;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;ajax封装&quot;&gt;&lt;a href=&quot;#ajax封装&quot; class=&quot;headerlink&quot; title=&quot;ajax封装&quot;&gt;&lt;/a&gt;ajax封装&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function ajax(a, b) { 
-    //type, url, async, dataType, data, fn
-    var xhr = null,
-        type = &amp;quot;get&amp;quot;,
-        url = &amp;quot;#&amp;quot;,
-        async = true,
-        dataType = &amp;quot;text&amp;quot;,
-        data = &amp;quot;&amp;quot;,
-        jsonp = &amp;quot;&amp;quot;,
-        jsonpCallback = &amp;quot;&amp;quot;,
-        methodName = &amp;quot;&amp;quot;,
-        c = null;
-    if(typeof a === &amp;quot;string&amp;quot;) {
-        url = a;
-    }
-    if(typeof a === &amp;quot;object&amp;quot;) {
-        c = a;
-    } else if(typeof b == &amp;quot;object&amp;quot;) {
-        c = b;
-    }
-    if(c) {
-        if(c.type &amp;amp;&amp;amp; typeof c.type === &amp;quot;string&amp;quot;) {
-            type = c.type;
-        };
-        if(c.url &amp;amp;&amp;amp; typeof c.url === &amp;quot;string&amp;quot;) {
-            url = c.url;
-        };
-        if(c.async &amp;amp;&amp;amp; typeof c.async === &amp;quot;boolean&amp;quot;) {
-            async = c.async;
-        };
-        if(c.dataType &amp;amp;&amp;amp; typeof c.dataType === &amp;quot;string&amp;quot;) {
-            dataType = c.dataType;
-        };
-        if(c.data &amp;amp;&amp;amp; typeof c.data === &amp;quot;object&amp;quot;) {
-            var arr = [];
-            for(k in c.data) {
-                arr.push(k + &amp;quot;=&amp;quot; + c.data[k]);
-            }
-            data = arr.join(&amp;quot;&amp;amp;&amp;quot;);
-        };
-        if(c.jsonp &amp;amp;&amp;amp; typeof c.jsonp === &amp;quot;string&amp;quot;) {
-            if(!c.dataType) {
-                dataType = &amp;quot;jsonp&amp;quot;;
-            }
-            jsonp = c.jsonp;
-            if(data) {
-                data += &amp;quot;&amp;amp;&amp;quot;;
-            }
-        } else {
-            jsonp = &amp;quot;callback&amp;quot;;
-        }
-        if(c.jsonpCallback &amp;amp;&amp;amp; typeof c.jsonpCallback === &amp;quot;string&amp;quot;) {
-            methodName = c.jsonpCallback;
-        } else {
-            methodName = &amp;quot;jquery&amp;quot; + new Date().getTime() + &amp;quot;_&amp;quot; + (Math.random() + &amp;quot;&amp;quot;).substr(2);
-        }
-    };
-    if(dataType == &amp;quot;jsonp&amp;quot;) {
-        data += jsonp + &amp;quot;=&amp;quot; + methodName;
-        window[methodName] = function(data) {
-            c.success(data);
-        }
-        var script = document.createElement(&amp;quot;script&amp;quot;);
-        script.src = url + &amp;quot;?&amp;quot; + data;
-        var head = document.getElementsByTagName(&amp;quot;head&amp;quot;)[0];
-        head.appendChild(script);
-    } else {
-        //ajax部分
-        if(window.XMLHttpRequest) {
-            xhr = new XMLHttpRequest();
-        } else {
-            xhr = ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;);
-        }
-        if(type == &amp;quot;get&amp;quot;) {
-            if(data) {
-                url += encodeURI(&amp;quot;?&amp;quot; + data);
-            }
-            data = null;
-        };
-        xhr.open(type, url, async);
-        if(type == &amp;quot;post&amp;quot;) {
-            xhr.setRequestHeader(&amp;quot;Content-Type&amp;quot;, &amp;quot;application/x-www-form-urlencoded&amp;quot;);
-        };
-        xhr.send(data);
-        xhr.onreadystatechange = function() {
-            if(xhr.readyState == 4 &amp;amp;&amp;amp; xhr.status == 200) {
-                var obj = {
-                    text: xhr.responseText,
-                    json: JSON.parse(xhr.responseText),
-                };
-                var data = obj[dataType];
-                if(typeof c.success === &amp;quot;function&amp;quot;) {
-                    c.success(data);
-                }
-            }
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;millisec是距离-GMT-时间-1970-年-1-月-1-日午夜的毫秒数-解析通过ajax返回的数据中的毫秒数值的日期&quot;&gt;&lt;a href=&quot;#millisec是距离-GMT-时间-1970-年-1-月-1-日午夜的毫秒数-解析通过ajax返回的数据中的毫秒数值的日期&quot; class=&quot;headerlink&quot; title=&quot;millisec是距离 GMT 时间 1970 年 1 月 1 日午夜的毫秒数 (解析通过ajax返回的数据中的毫秒数值的日期)&quot;&gt;&lt;/a&gt;millisec是距离 GMT 时间 1970 年 1 月 1 日午夜的毫秒数 (解析通过ajax返回的数据中的毫秒数值的日期)&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function getFullDate(millisec, lang) {
-    var data = new Date();
-    data.setTime(millisec);
-    var year = data.getFullYear(),
-        month = data.getMonth(),
-        day = data.getDate(),
-        week = data.getDay(),
-        hour = data.getHours(),
-        minute = data.getMinutes(),
-        second = data.getSeconds(),
-        am = &amp;quot;am&amp;quot;,
-        pm = &amp;quot;pm&amp;quot;,
-        enWeek = [&amp;quot;Sunday&amp;quot;, &amp;quot;Monday&amp;quot;, &amp;quot;Tuesday&amp;quot;, &amp;quot;Wednesday&amp;quot;, &amp;quot;Thursday&amp;quot;, &amp;quot;Friday&amp;quot;, &amp;quot;Saturday&amp;quot;],
-        cnWeek = [&amp;quot;星期天&amp;quot;, &amp;quot;星期一&amp;quot;, &amp;quot;星期二&amp;quot;, &amp;quot;星期三&amp;quot;, &amp;quot;星期四&amp;quot;, &amp;quot;星期五&amp;quot;, &amp;quot;星期六&amp;quot;],
-        enMonth = [&amp;quot;January&amp;quot;, &amp;quot;February&amp;quot;, &amp;quot;March&amp;quot;, &amp;quot;April&amp;quot;, &amp;quot;May&amp;quot;, &amp;quot;June&amp;quot;, &amp;quot;July&amp;quot;, &amp;quot;August&amp;quot;, &amp;quot;September&amp;quot;, &amp;quot;October&amp;quot;, &amp;quot;November&amp;quot;, &amp;quot;December&amp;quot;],
-        cnMonth = [&amp;quot;一月&amp;quot;, &amp;quot;二月&amp;quot;, &amp;quot;三月&amp;quot;, &amp;quot;四月&amp;quot;, &amp;quot;五月&amp;quot;, &amp;quot;六月&amp;quot;, &amp;quot;七月&amp;quot;, &amp;quot;八月&amp;quot;, &amp;quot;九月&amp;quot;, &amp;quot;十月&amp;quot;, &amp;quot;十一月&amp;quot;, &amp;quot;十二月&amp;quot;],
-        cnDay = [&amp;quot;廿&amp;quot;, &amp;quot;一&amp;quot;, &amp;quot;二&amp;quot;, &amp;quot;三&amp;quot;, &amp;quot;四&amp;quot;, &amp;quot;五&amp;quot;, &amp;quot;六&amp;quot;, &amp;quot;七&amp;quot;, &amp;quot;八&amp;quot;, &amp;quot;九&amp;quot;, &amp;quot;十&amp;quot;]    if(lang == &amp;quot;cn&amp;quot;) {
-        am = &amp;quot;上午&amp;quot;;
-        pm = &amp;quot;下午&amp;quot;;
-    };
-    day = day &amp;lt; 10 ? &amp;quot;0&amp;quot; + day : day;
-    var obj = {
-        year: year,
-        month: lang ? (lang == &amp;quot;cn&amp;quot; ? cnMonth[month] : enMonth[month]) : (month &amp;lt; 10 ? &amp;quot;0&amp;quot; + (month + 1) : (month + 1)),
-        day: day,
-        week: lang == &amp;quot;en&amp;quot; ? enWeek[week] : cnWeek[week],
-        hour: hour &amp;lt; 10 ? &amp;quot;0&amp;quot; + hour : hour,
-        minute: minute &amp;lt; 10 ? &amp;quot;0&amp;quot; + minute : minute,
-        second: second &amp;lt; 10 ? &amp;quot;0&amp;quot; + second : second,
-        ms: data.getMilliseconds(),
-        am: am,
-        pm: pm,
-        Hour: hour + minute / 60 &amp;gt; 12 ? (hour == 12 ? pm + hour : pm + hour % 12) : am + hour,
-    };
-    return obj;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;右键菜单&quot;&gt;&lt;a href=&quot;#右键菜单&quot; class=&quot;headerlink&quot; title=&quot;右键菜单&quot;&gt;&lt;/a&gt;右键菜单&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function RightMenu(area) {
-    this.area = area;
-    this.menu = null;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;根据传入的值获取目标&quot;&gt;&lt;a href=&quot;#根据传入的值获取目标&quot; class=&quot;headerlink&quot; title=&quot;根据传入的值获取目标&quot;&gt;&lt;/a&gt;根据传入的值获取目标&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;RightMenu.prototype.target = function(area) {
-    if(typeof area === &amp;quot;string&amp;quot;) {
-        return document.getElementById(area);
-    } else if(typeof area === &amp;quot;object&amp;quot;) {
-        return area;
-    }
-}
-
-RightMenu.prototype.init = function(data,defaultStyle, userStyle, hoverStyle) {
-    this.createMenu(data, defaultStyle, userStyle, hoverStyle);
-    this.showMenu();
-}
-
-RightMenu.prototype.createMenu = function(data, defaultStyle, userStyle, hoverStyle) {
-    if(typeof defaultStyle == &amp;quot;string&amp;quot; &amp;amp;&amp;amp; !defaultStyle) {
-        hoverStyle = userStyle;
-        userStyle = defaultStyle;
-        defaultStyle = true;
-    }
-    //创建菜单及样式
-    this.menu = document.createElement(&amp;quot;ul&amp;quot;);
-    this.menu.style.position = &amp;quot;absolute&amp;quot;;
-    this.menu.style.margin = 0;
-    this.menu.style.padding = &amp;quot;2px&amp;quot;;
-    this.menu.style.listStyle = &amp;quot;none&amp;quot;;
-    this.menu.style.display = &amp;quot;none&amp;quot;;
-    if(!defaultStyle) {
-        this.menu.style.border = &amp;quot;1px solid #DDDDDD&amp;quot;;
-        this.menu.style.backgroundColor = &amp;quot;#CCCCCC&amp;quot;;
-        this.menu.style.boxShadow = &amp;quot;5px 5px 5px #ccc&amp;quot;;
-    } else {
-        this.menu.className = userStyle;
-    }
-    //选中项样式
-    var hover = document.createElement(&amp;quot;span&amp;quot;);
-    hover.style.display = &amp;quot;block&amp;quot;;
-    hover.style.position = &amp;quot;absolute&amp;quot;
-    hover.style.top = 0;
-    hover.style.left = 0;
-    hover.style.boxSizing = &amp;quot;border-box&amp;quot;;
-    hover.style.width = &amp;quot;100%&amp;quot;;
-    hover.style.height = &amp;quot;100%&amp;quot;;
-    if((!defaultStyle) || (defaultStyle &amp;amp;&amp;amp; !hoverStyle)) {
-        hover.style.border = &amp;quot;1px solid #aaa&amp;quot;;
-        hover.style.borderRadius = &amp;quot;5px&amp;quot;;
-        hover.style.backgroundImage = &amp;quot;linear-gradient(to bottom,rgba(255,255,255,0.5)0%,rgba(255,255,255,0.1)50%,rgba(255,255,255,0.1)100%)&amp;quot;;
-
-    } else {
-        hover.className = hoverStyle;
-    }
-    //创建菜单项
-    for(var item in data) {
-        var li = document.createElement(&amp;quot;li&amp;quot;);
-        li.style.position = &amp;quot;relative&amp;quot;;
-        li.style.padding = &amp;quot;5px 10px&amp;quot;;
-        li.style.cursor = &amp;quot;pointer&amp;quot;;
-        //绑定事件
-        li.addEventListener(&amp;quot;mouseenter&amp;quot;, function() {
-            this.appendChild(hover);
-        });
-        li.addEventListener(&amp;quot;mouseleave&amp;quot;, function() {
-            this.removeChild(hover);
-        });
-        var itemData = data[item]        for(var obj in itemData) {
-            if(typeof itemData[obj] === &amp;quot;string&amp;quot;) {
-                li.innerHTML = itemData[obj];
-            } else if(typeof itemData[obj] === &amp;quot;object&amp;quot;) {
-                var handlerData = itemData[obj];
-                for(var type in handlerData) {
-                    li.addEventListener(type, handlerData[type]);
-                }
-            }
-        }
-        this.menu.appendChild(li);
-    }
-    this.target(this.area).appendChild(this.menu);
-}
-
-RightMenu.prototype.showMenu = function() {
-    var that = this;
-    this.menu.parentNode.oncontextmenu = function(ev) {
-        that.menu.style.display = &amp;quot;block&amp;quot;;
-        that.menu.style.left = ev.pageX + &amp;quot;px&amp;quot;;
-        that.menu.style.top = ev.pageY + &amp;quot;px&amp;quot;;
-        if(that.menu.parentNode.offsetWidth &amp;lt; that.menu.offsetLeft + that.menu.offsetWidth) {
-            that.menu.style.left = ev.pageX - that.menu.offsetWidth + &amp;quot;px&amp;quot;;
-        };
-        if(that.menu.parentNode.offsetHeight &amp;lt; that.menu.offsetTop + that.menu.offsetHeight) {
-            that.menu.style.top = ev.pageY - that.menu.offsetHeight + &amp;quot;px&amp;quot;;
-        };
-        return false;
-    }
-    this.menu.parentNode.onclick = function() {
-        that.menu.style.display = &amp;quot;none&amp;quot;;
-    }
-    document.onkeydown = function(e) {
-        if(e.keyCode == 18 || e.keyCode == 27) {
-            that.menu.style.display = &amp;quot;none&amp;quot;;
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;拖拽&quot;&gt;&lt;a href=&quot;#拖拽&quot; class=&quot;headerlink&quot; title=&quot;拖拽&quot;&gt;&lt;/a&gt;拖拽&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;function Drag(target, area) {
-    this.target = target;
-    this.area = area;
-}
-
-//根据传入的值获取目标
-Drag.prototype.dragTarget = function(target) {
-    if(typeof target === &amp;quot;string&amp;quot;) {
-        return document.getElementById(target);
-    } else if(typeof target === &amp;quot;object&amp;quot;) {
-        return target;
-    }
-}
-
-Drag.prototype.init = function() {
-    this.target = this.dragTarget(this.target);
-    this.target.style.position = &amp;quot;absolute&amp;quot;;
-    this.target.setAttribute(&amp;quot;draggable&amp;quot;,&amp;quot;true&amp;quot;);
-    this.dragEvent();
-}
-
-Drag.prototype.dragEvent = function() {
-    var that = this;
-    this.target.onmousedown = function(e) {
-        e = e || window.event;
-        that.disX = e.clientX - that.target.offsetLeft;
-        that.disY = e.clientY - that.target.offsetTop;
-        document.onmousemove = function(e) {
-            that.moveEvent(e);
-        }
-        document.onmouseup = function(){
-            that.target.style.opacity = &amp;quot;1&amp;quot;;
-            document.onmousemove = document.onmouseup = null;
-        }
-        return false;
-    }
-}
-Drag.prototype.moveEvent = function(e) {
-    var limitX = e.clientX - this.disX;
-    var limitY = e.clientY - this.disY;
-    //没有指定区域则用document
-
-    if (!this.area) {
-        this.area = document.documentElement;
-    }
-    if(limitX &amp;lt; this.area.offsetLeft) {
-        limitX = this.area.offsetLeft;
-    } else if(limitX &amp;gt; this.area.clientWidth + this.area.offsetLeft - this.target.offsetWidth) {
-        limitX =  this.area.clientWidth + this.area.offsetLeft - this.target.offsetWidth;
-    }
-    if(limitY &amp;lt; this.area.offsetTop) {
-        limitY = this.area.offsetTop;
-    } else if(limitY &amp;gt; this.area.clientHeight + this.area.offsetTop - this.target.offsetHeight) {
-        limitY = this.area.clientHeight + this.area.offsetTop - this.target.offsetHeight;
-    }
-    this.target.style.left = limitX + &amp;quot;px&amp;quot;;
-    this.target.style.top = limitY + &amp;quot;px&amp;quot;;
-    this.target.style.opacity = &amp;quot;0.8&amp;quot;;
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;原则&quot;&gt;&lt;a href=&quot;#原则&quot; class=&quot;headerlink&quot; title=&quot;原则&quot;&gt;&lt;/a&gt;原则&lt;/h2&gt;&lt;p&gt;1.用匿名函数将脚本包起来；&lt;/p&gt;
-&lt;p&gt;2.使用多级命名空间。&lt;/p&gt;
-&lt;p&gt;这第二条“使用多级命名空间”这个，我觉得并不是很完美的好主意。因为如果级数太多的话会造成变量名字变得长的一逼。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="js" scheme="http://blog.newbug.xyz/categories/js/"/>
-    
-    
-      <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
     
   </entry>
   

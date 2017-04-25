@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js轮播图透明度切换 | 神族九帝 | 永不言弃</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="js">
+  <meta name="description" content="js轮播图透明度切换（带上下页和底部圆点切换）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js轮播图透明度切换">
+<meta property="og:url" content="http://blog.newbug.xyz/2016/04/25/js轮播图透明度切换/index.html">
+<meta property="og:site_name" content="神族九帝">
+<meta property="og:description" content="js轮播图透明度切换（带上下页和底部圆点切换）">
+<meta property="og:updated_time" content="2017-04-25T02:32:42.789Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js轮播图透明度切换">
+<meta name="twitter:description" content="js轮播图透明度切换（带上下页和底部圆点切换）">
+  
+    <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;js轮播图透明度切换（带上下页和底部圆点切换）&lt;/p&gt;">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.gif"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">wu529778790</h5>
+        <a href="mailto:529778790@qq.com" title="529778790@qq.com" class="mail">529778790@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            归档
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/wu529778790" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="http://weibo.com/3282218950" target="_blank" >
+            <i class="icon icon-lg icon-weibo"></i>
+            Weibo
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/shows" target="_blank" >
+            <i class="icon icon-lg icon-shows"></i>
+            H5导航
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a href='http://shenzjd.cn'>神族九帝</a> &copy; 2017</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/wu529778790" target="_blank">wu529778790</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">js轮播图透明度切换</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">js轮播图透明度切换</h1>
+    <h5 class="subtitle">
+          
+            <time datetime="2016-04-25T02:22:16.000Z" itemprop="datePublished" class="page-time">
+  2016-04-25
+</time>
+
+ 
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-js轮播图透明度切换" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meat flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>js轮播图透明度切换（带上下页和底部圆点切换）</p>
+<a id="more"></a>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;js轮播图透明度切换&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        li {
+            list-style: none;
+        }
+        #box {
+            height: 340px;
+            width: 790px;
+            position: relative;
+            margin: 100px auto;
+        }
+        #box #list1 {
+            height: 340px;
+            width: 790px;
+        }
+        #box #list1 li {
+            position: absolute;
+            font-size: 80px;
+            text-align: center;
+            height: 340px;
+            width: 790px;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        #box #list1 li img {
+            height: 340px;
+            width: 790px;
+        }
+        #shang,#xia {
+            height: 80px;
+            width: 50px;
+            color: #212121;
+            background: #ccc;
+            font-size: 60px;
+            font-weight: bold;
+            line-height: 80px;
+            text-align: center;
+            position: absolute;
+            top: 130px;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            cursor: pointer;
+        }
+        #shang {
+            left: 0;
+        }
+        #xia {
+            right: 0;
+        }
+        #box #list2 {
+            height: 20px;
+            width: 195px;
+            position: absolute;
+            left: 297px;
+            bottom: 25px;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+        }
+        #box #list2 li {
+            height: 20px;
+            width: 20px;
+            background: #ccc;
+            border-radius: 50%;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #box #list2 li.active {
+            background: black;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;box&quot;&gt;
+        &lt;ul id=&quot;list1&quot;&gt;
+            &lt;li style=&quot;background: red;&quot;&gt;1&lt;/li&gt;
+            &lt;li style=&quot;background: yellow;&quot;&gt;2&lt;/li&gt;
+            &lt;li style=&quot;background: green;&quot;&gt;3&lt;/li&gt;
+            &lt;li style=&quot;background: blue;&quot;&gt;4&lt;/li&gt;
+            &lt;li style=&quot;background: blueviolet;&quot;&gt;5&lt;/li&gt;
+            &lt;li style=&quot;background: brown;&quot;&gt;6&lt;/li&gt;
+            &lt;li style=&quot;background: orangered;&quot;&gt;7&lt;/li&gt;
+            &lt;li style=&quot;background: palevioletred;&quot;&gt;8&lt;/li&gt;               
+        &lt;/ul&gt;
+        &lt;ul id=&quot;list2&quot;&gt;
+            &lt;li class=&quot;active&quot;&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;/li&gt;
+            &lt;li style=&quot;margin-right:0px;&quot;&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div id=&quot;shang&quot;&gt;
+            &amp;lt;
+        &lt;/div&gt;
+        &lt;div id=&quot;xia&quot;&gt;
+            &amp;gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        onload = function(){
+            var oBox = document.getElementById(&apos;box&apos;);
+            var oList1 = document.getElementById(&apos;list1&apos;);
+            var aLi1 = oList1.getElementsByTagName(&apos;li&apos;);
+            var oList2 = document.getElementById(&apos;list2&apos;);
+            var aLi2 = oList2.getElementsByTagName(&apos;li&apos;);
+            var oShang = document.getElementById(&apos;shang&apos;);
+            var oXia = document.getElementById(&apos;xia&apos;);
+            aLi1[0].style.opacity = 1;
+            aLi1[0].style.filter = &apos;alpha(opacity=100)&apos;;
+            var size = aLi1.length;
+            var i = 0;
+            var timer = setInterval(function(){
+                i++;
+                move();
+            },2000);
+            function move(){
+                if (i &gt;= size ) {
+                    i = 0;
+                }
+                if (i &lt; 0 ) {
+                    i = size - 1;
+                }
+                for (var j = 0; j &lt; aLi1.length; j++) {
+                    if (j == i) {
+                        animate(aLi1[j],{opacity:100});
+                        aLi2[j].className = &apos;active&apos;;
+                    }else{
+                        animate(aLi1[j],{opacity:0});
+                        aLi2[j].className = &apos;&apos;;
+                    }
+                }
+            }
+            //前一张
+            oShang.onclick = function(e){
+                var evt = e || event;
+                evt.preventDefault();
+                i--;
+                move();
+            }
+            //后一张
+            oXia.onclick = function(e){
+                var evt = e || event;
+                evt.preventDefault();
+                i ++;
+                move();
+            }
+            //下面的圆点
+            for(var k = 0;k &lt; aLi2.length; k ++){
+                aLi2[k].index = k;
+                aLi2[k].onmouseenter = function(){
+                    i = this.index;
+                    move();
+                }
+            }
+            oBox.onmouseenter = function(){
+                clearInterval(timer);
+            }
+            oBox.onmouseleave = function(){
+                timer = setInterval(function(){
+                    i ++;
+                    move();
+                },2000);
+            }
+
+
+
+
+
+
+
+
+/*************************缓冲运动可封装留着以后备用^_^*************************/
+            function getStyleAttr(obj, attr){
+                if (window.getComputedStyle){
+                    return getComputedStyle(obj, null)[attr]; 
+                }
+                else {
+                    return obj.currentStyle[attr];  
+                }
+            }
+            function animate(obj, json, fn){
+                clearInterval(obj.timer); 
+                obj.timer = setInterval(function(){
+                    var bStop = true; 
+                    for (var attr in json){
+                        var iTarget = json[attr]; 
+                        var current;
+                        if (attr == &quot;opacity&quot;){ 
+                            current = parseFloat(getStyleAttr(obj, attr))*100;
+                            current = Math.round(current);
+                        }
+                        else { 
+                            current = parseFloat(getStyleAttr(obj, attr));
+                            current = Math.round(current);
+                        }
+                        var speed = (iTarget-current)/8;    (400-393)/8
+                        speed = speed&gt;0 ? Math.ceil(speed) : Math.floor(speed);
+                        if (current != iTarget){
+                            bStop = false; 
+                        }
+                        if (attr == &quot;opacity&quot;){ 
+                            obj.style[attr] = (current+speed)/100;
+                            obj.style.filter = &quot;alpha(opacity=&quot; + (current+speed) + &quot;)&quot;;
+                        }
+                        else { 
+                            obj.style[attr] = current+speed + &quot;px&quot;;
+                        }
+                    }
+                    if (bStop){
+                        console.log(&quot;停止运动&quot;);
+                        clearInterval(obj.timer); 
+                        if (fn) {
+                            fn(); 
+                        }
+                    }
+                }, 30);
+            }
+        }
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://blog.newbug.xyz/2016/04/25/js轮播图透明度切换/" target="_blank" rel="external">http://blog.newbug.xyz/2016/04/25/js轮播图透明度切换/</a>
+                </p>
+                <footer><cite><a href="http://blog.newbug.xyz">@神族九帝</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2016/05/30/js通过Ajax异步操作后端xml数据的基本原理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">js通过Ajax异步操作后端xml数据的基本原理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2016/03/29/css规范总结/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">css规范总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="js轮播图透明度切换" data-title="js轮播图透明度切换" data-url="http://blog.newbug.xyz/2016/04/25/js轮播图透明度切换/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wu529778790"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "js轮播图透明度切换",
+    pic: "/img/logo.gif",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://blog.newbug.xyz/2016/04/25/js轮播图透明度切换/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="http://s95.cnzz.com/z_stat.php?id=1259829398&web_id=1259829398"></script>
+
+
+
+
+
+</body>
+</html>
