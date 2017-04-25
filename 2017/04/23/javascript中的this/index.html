@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript中的this | 神族九帝 | 永不言弃</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="js">
+  <meta name="description" content="this是函数内部的一个特殊对象，他引用的是函数据以执行的环境对象。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript中的this">
+<meta property="og:url" content="http://blog.newbug.xyz/2017/04/23/javascript中的this/index.html">
+<meta property="og:site_name" content="神族九帝">
+<meta property="og:description" content="this是函数内部的一个特殊对象，他引用的是函数据以执行的环境对象。">
+<meta property="og:updated_time" content="2017-04-25T09:40:43.762Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript中的this">
+<meta name="twitter:description" content="this是函数内部的一个特殊对象，他引用的是函数据以执行的环境对象。">
+  
+    <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;this是函数内部的一个特殊对象，他引用的是函数据以执行的环境对象。&lt;/p&gt;">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.gif"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">wu529778790</h5>
+        <a href="mailto:529778790@qq.com" title="529778790@qq.com" class="mail">529778790@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            归档
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/wu529778790" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="http://weibo.com/3282218950" target="_blank" >
+            <i class="icon icon-lg icon-weibo"></i>
+            Weibo
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/shows" target="_blank" >
+            <i class="icon icon-lg icon-shows"></i>
+            H5导航
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a href='http://shenzjd.cn'>神族九帝</a> &copy; 2017</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/wu529778790" target="_blank">wu529778790</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript中的this</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">javascript中的this</h1>
+    <h5 class="subtitle">
+          
+            <time datetime="2017-04-23T08:09:09.000Z" itemprop="datePublished" class="page-time">
+  2017-04-23
+</time>
+
+ 
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-javascript中的this" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meat flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#全局环境下的this"><span class="post-toc-number">1.</span> <span class="post-toc-text">全局环境下的this</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对象中的this"><span class="post-toc-number">2.</span> <span class="post-toc-text">对象中的this</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数构造中的this"><span class="post-toc-number">3.</span> <span class="post-toc-text">函数构造中的this</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#applly和call"><span class="post-toc-number">4.</span> <span class="post-toc-text">applly和call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bind"><span class="post-toc-number">5.</span> <span class="post-toc-text">bind</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#闭包中的this"><span class="post-toc-number">6.</span> <span class="post-toc-text">闭包中的this</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#es6中箭头函数的this"><span class="post-toc-number">7.</span> <span class="post-toc-text">es6中箭头函数的this</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绑定this"><span class="post-toc-number">8.</span> <span class="post-toc-text">绑定this</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>this是函数内部的一个特殊对象，他引用的是函数据以执行的环境对象。</p>
+<a id="more"></a>
+<h2 id="全局环境下的this"><a href="#全局环境下的this" class="headerlink" title="全局环境下的this"></a>全局环境下的this</h2><p>当在网页的全局作用域中调用函数时，this对象引用的就是window</p>
+<pre><code>console.log(this);//window
+
+function f() {
+    return this;
+}
+f();//window  
+</code></pre><p>函数f()定义在全局作用域中，引用了this对象，调用函数之前，this的值并不确定，可能会在代码执行过程中饮用不同的对象，在全局环境中调用函数f()时，this引用的就是全局对象window.  </p>
+<h2 id="对象中的this"><a href="#对象中的this" class="headerlink" title="对象中的this"></a>对象中的this</h2><p>将一个函数赋给对象，通过对象调用这个函数，他们的this是调用该函数的对象<br>    var o = {<br>        color: ‘blue’,<br>        sayColor: function () {<br>            return this.color;<br>        }<br>    }</p>
+<pre><code>o.sayColor();//blue  
+</code></pre><p>将函数sayColor赋值给对象o,o.sayColor()被调用时，函数内部的this就被绑定到o，我们也可以用如下方法：</p>
+<pre><code>var o = {color:&apos;blue&apos;};
+function sayColor(){
+    return this.color;
+}
+o.sayColor = sayColor;
+o.sayColor();//blue  
+</code></pre><p>函数的名字仅仅是一个包含着指针的变量，在何处定义调用函数不会影响到this的行为，全局的sayColor()与o.sayColor()指向的是同一个函数。  </p>
+<h2 id="函数构造中的this"><a href="#函数构造中的this" class="headerlink" title="函数构造中的this"></a>函数构造中的this</h2><p>函数或方法之前带有关键字new，他就构成了构造函数调用。通过构造函数生成一个新的对象，this指向新对象<br>    function person(){<br>        this.name = ‘wuwei’;<br>    }<br>    var o = new person();<br>    console.log(o.name);//wuwei  </p>
+<h2 id="applly和call"><a href="#applly和call" class="headerlink" title="applly和call"></a>applly和call</h2><p>每个函数都包含两个非继承而来的方法，apply()和call().这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。首先apply()方法接受两个参数：一个是在其中运行函数的作用域，另一个是参数数组。其中，第二个参数可以使Array实例，也可以是arguments对象。<br>    function sum(num1, num2) {<br>        return num1 + num2;<br>    };<br>    function callSum1(num1,num2){<br>        return sum.apply(this, arguments);<br>    };<br>    function callSum2(num1, num2){<br>        return sum.apply(this, [num1, num2]);<br>    };<br>    console.log(callSum1(10, 10));//20<br>    console.log(callSum2(10, 10));//20</p>
+<p>上边这个例子中，callSum1()在执行sum()函数时传入了this作为this值(再作用域中调用的，传入的就是window对象)和arguments对象.而callSum2()也调用了sum()函数，但传入的是this和一个参数数组。  </p>
+<p>注：在严格模式下，未指定环境对象而调用函数，则this值不会被转型为window，除非明确把函数添加到某个对象或者抵用apply()或call(),否则this值是undefined.  </p>
+<p>call()和apply()方法作用相同，区别仅仅在于接受参数方式不同，对call()而言，第一个参数是this没有变化，不同的是其余参数都是直接传递给函数。换句话说，在使用call()方法时，传递给函数的参数必须诸葛列举出来。  </p>
+<pre><code>function sum(num1, num2){
+    return num1 + num2;
+};
+function callSum(num1, num2){
+    return sum.call(this, num1, num2);
+};
+console.log(callSum(10, 10));//20  
+</code></pre><p>call()和apply()真正强大的地方在于能扩充函数赖以运行的作用域。</p>
+<pre><code>window.color = &apos;red&apos;;
+var o = { color:&apos;blue&apos;};
+function sayColor(){
+    console.log(this.color);
+};
+sayColor();//red
+sayColor.call(this);//red
+sayColor.call(window);//red
+sayColor.call(o);//blue  
+</code></pre><p>使用call()或者apply()扩充作用域最大的好处，就是对象不需要与方法有人和耦合关系。  </p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><p>es5还定义了bind，这个方法会创建一个函数的实例，其this值会被绑定传给bind()函数的值<br>    window.color = ‘red’;<br>    var o = { color:’blue’ };<br>    function sayColor() {<br>        console.log(this.color);<br>    }<br>    var objectSayColor = sayColor.bind(o);<br>    objectSayColor();//blue<br>在sayColor()调用bind()并传入对象o,创建了objectSayColor()函数，该函数的this等于o，因此即使在全局作用域中调用这个函数，也会看到blue  </p>
+<h2 id="闭包中的this"><a href="#闭包中的this" class="headerlink" title="闭包中的this"></a>闭包中的this</h2><p>闭包中使用this对象可能会导致一些问题，this对象在运行时是基于函数的执行环境对象的：在全局函数中，this等于window，二挡函数被作为某个对象方法调用时，this等于那个对象，匿名函数的执行环境具有全局性，因此其this对象通常指向window<br>    var color = ‘red’;<br>    var o = {<br>        name:’blue’,<br>        sayColor: function(){<br>            return function(){<br>                return this.color;<br>            }<br>        }<br>    }<br>    console.log(o.sayColor()());//red<br>    //改进<br>    var o = {<br>        color:’blue’,<br>        sayColor: function(){<br>            var that = this;<br>            return function(){<br>                return that.color;<br>            }<br>        }<br>    }<br>    console.log(o.sayColor()());//blue  </p>
+<h2 id="es6中箭头函数的this"><a href="#es6中箭头函数的this" class="headerlink" title="es6中箭头函数的this"></a>es6中箭头函数的this</h2><p>this引用的是函数据以执行的环境对象。但是在使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。箭头函数的使用参考：<a href="http://es6.ruanyifeng.com/#docs/function" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/function</a><br>    function foo(){<br>        setTimeout(() =&gt; {<br>            console.log(‘id:’, this.id);<br>        }, 100)<br>    }<br>    var id = 21;<br>    foo.call({ id: 42 });//id: 42  </p>
+<p>箭头函数中的this指向foo的this，箭头函数中也不存在arguments，指向外层函数foo对象的arguments<br>由于箭头函数没有自己的this，所以也不能用call()、apply()、bind()改变this的指向。  </p>
+<h2 id="绑定this"><a href="#绑定this" class="headerlink" title="绑定this"></a>绑定this</h2><p>函数绑定运算符是::,双冒号是左边是一个对象，右边是一个函数，该运算符会自动将左边的对象作为上下文环境(this对象)，绑定到右边的函数上。可参考阮老师的<a href="http://es6.ruanyifeng.com/#docs/function" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/function</a><br>    foo::bar;<br>    //等同于<br>    bar.bind(foo);</p>
+<p>在判断this指向时，要记住，在没有绑定this的情况下，this动态绑定，指向运行时的环境，而非代码中的位置，只有箭头函数才是静态绑定，将this绑定到代码中的位置。</p>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://blog.newbug.xyz/2017/04/23/javascript中的this/" target="_blank" rel="external">http://blog.newbug.xyz/2017/04/23/javascript中的this/</a>
+                </p>
+                <footer><cite><a href="http://blog.newbug.xyz">@神族九帝</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2017/04/22/css十八般武艺/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">css十八般武艺</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="javascript中的this" data-title="javascript中的this" data-url="http://blog.newbug.xyz/2017/04/23/javascript中的this/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wu529778790"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "javascript中的this",
+    pic: "/img/logo.gif",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://blog.newbug.xyz/2017/04/23/javascript中的this/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="http://s95.cnzz.com/z_stat.php?id=1259829398&web_id=1259829398"></script>
+
+
+
+
+
+</body>
+</html>

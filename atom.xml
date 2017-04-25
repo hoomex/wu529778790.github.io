@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-25T08:02:14.732Z</updated>
+  <updated>2017-04-25T09:40:43.762Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -14,6 +14,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascript中的this</title>
+    <link href="http://blog.newbug.xyz/2017/04/23/javascript%E4%B8%AD%E7%9A%84this/"/>
+    <id>http://blog.newbug.xyz/2017/04/23/javascript中的this/</id>
+    <published>2017-04-23T08:09:09.000Z</published>
+    <updated>2017-04-25T09:40:43.762Z</updated>
+    
+    <content type="html">&lt;p&gt;this是函数内部的一个特殊对象，他引用的是函数据以执行的环境对象。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;全局环境下的this&quot;&gt;&lt;a href=&quot;#全局环境下的this&quot; class=&quot;headerlink&quot; title=&quot;全局环境下的this&quot;&gt;&lt;/a&gt;全局环境下的this&lt;/h2&gt;&lt;p&gt;当在网页的全局作用域中调用函数时，this对象引用的就是window&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;console.log(this);//window
+
+function f() {
+    return this;
+}
+f();//window  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;函数f()定义在全局作用域中，引用了this对象，调用函数之前，this的值并不确定，可能会在代码执行过程中饮用不同的对象，在全局环境中调用函数f()时，this引用的就是全局对象window.  &lt;/p&gt;
+&lt;h2 id=&quot;对象中的this&quot;&gt;&lt;a href=&quot;#对象中的this&quot; class=&quot;headerlink&quot; title=&quot;对象中的this&quot;&gt;&lt;/a&gt;对象中的this&lt;/h2&gt;&lt;p&gt;将一个函数赋给对象，通过对象调用这个函数，他们的this是调用该函数的对象&lt;br&gt;    var o = {&lt;br&gt;        color: ‘blue’,&lt;br&gt;        sayColor: function () {&lt;br&gt;            return this.color;&lt;br&gt;        }&lt;br&gt;    }&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;o.sayColor();//blue  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将函数sayColor赋值给对象o,o.sayColor()被调用时，函数内部的this就被绑定到o，我们也可以用如下方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var o = {color:&amp;apos;blue&amp;apos;};
+function sayColor(){
+    return this.color;
+}
+o.sayColor = sayColor;
+o.sayColor();//blue  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;函数的名字仅仅是一个包含着指针的变量，在何处定义调用函数不会影响到this的行为，全局的sayColor()与o.sayColor()指向的是同一个函数。  &lt;/p&gt;
+&lt;h2 id=&quot;函数构造中的this&quot;&gt;&lt;a href=&quot;#函数构造中的this&quot; class=&quot;headerlink&quot; title=&quot;函数构造中的this&quot;&gt;&lt;/a&gt;函数构造中的this&lt;/h2&gt;&lt;p&gt;函数或方法之前带有关键字new，他就构成了构造函数调用。通过构造函数生成一个新的对象，this指向新对象&lt;br&gt;    function person(){&lt;br&gt;        this.name = ‘wuwei’;&lt;br&gt;    }&lt;br&gt;    var o = new person();&lt;br&gt;    console.log(o.name);//wuwei  &lt;/p&gt;
+&lt;h2 id=&quot;applly和call&quot;&gt;&lt;a href=&quot;#applly和call&quot; class=&quot;headerlink&quot; title=&quot;applly和call&quot;&gt;&lt;/a&gt;applly和call&lt;/h2&gt;&lt;p&gt;每个函数都包含两个非继承而来的方法，apply()和call().这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。首先apply()方法接受两个参数：一个是在其中运行函数的作用域，另一个是参数数组。其中，第二个参数可以使Array实例，也可以是arguments对象。&lt;br&gt;    function sum(num1, num2) {&lt;br&gt;        return num1 + num2;&lt;br&gt;    };&lt;br&gt;    function callSum1(num1,num2){&lt;br&gt;        return sum.apply(this, arguments);&lt;br&gt;    };&lt;br&gt;    function callSum2(num1, num2){&lt;br&gt;        return sum.apply(this, [num1, num2]);&lt;br&gt;    };&lt;br&gt;    console.log(callSum1(10, 10));//20&lt;br&gt;    console.log(callSum2(10, 10));//20&lt;/p&gt;
+&lt;p&gt;上边这个例子中，callSum1()在执行sum()函数时传入了this作为this值(再作用域中调用的，传入的就是window对象)和arguments对象.而callSum2()也调用了sum()函数，但传入的是this和一个参数数组。  &lt;/p&gt;
+&lt;p&gt;注：在严格模式下，未指定环境对象而调用函数，则this值不会被转型为window，除非明确把函数添加到某个对象或者抵用apply()或call(),否则this值是undefined.  &lt;/p&gt;
+&lt;p&gt;call()和apply()方法作用相同，区别仅仅在于接受参数方式不同，对call()而言，第一个参数是this没有变化，不同的是其余参数都是直接传递给函数。换句话说，在使用call()方法时，传递给函数的参数必须诸葛列举出来。  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function sum(num1, num2){
+    return num1 + num2;
+};
+function callSum(num1, num2){
+    return sum.call(this, num1, num2);
+};
+console.log(callSum(10, 10));//20  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;call()和apply()真正强大的地方在于能扩充函数赖以运行的作用域。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;window.color = &amp;apos;red&amp;apos;;
+var o = { color:&amp;apos;blue&amp;apos;};
+function sayColor(){
+    console.log(this.color);
+};
+sayColor();//red
+sayColor.call(this);//red
+sayColor.call(window);//red
+sayColor.call(o);//blue  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用call()或者apply()扩充作用域最大的好处，就是对象不需要与方法有人和耦合关系。  &lt;/p&gt;
+&lt;h2 id=&quot;bind&quot;&gt;&lt;a href=&quot;#bind&quot; class=&quot;headerlink&quot; title=&quot;bind&quot;&gt;&lt;/a&gt;bind&lt;/h2&gt;&lt;p&gt;es5还定义了bind，这个方法会创建一个函数的实例，其this值会被绑定传给bind()函数的值&lt;br&gt;    window.color = ‘red’;&lt;br&gt;    var o = { color:’blue’ };&lt;br&gt;    function sayColor() {&lt;br&gt;        console.log(this.color);&lt;br&gt;    }&lt;br&gt;    var objectSayColor = sayColor.bind(o);&lt;br&gt;    objectSayColor();//blue&lt;br&gt;在sayColor()调用bind()并传入对象o,创建了objectSayColor()函数，该函数的this等于o，因此即使在全局作用域中调用这个函数，也会看到blue  &lt;/p&gt;
+&lt;h2 id=&quot;闭包中的this&quot;&gt;&lt;a href=&quot;#闭包中的this&quot; class=&quot;headerlink&quot; title=&quot;闭包中的this&quot;&gt;&lt;/a&gt;闭包中的this&lt;/h2&gt;&lt;p&gt;闭包中使用this对象可能会导致一些问题，this对象在运行时是基于函数的执行环境对象的：在全局函数中，this等于window，二挡函数被作为某个对象方法调用时，this等于那个对象，匿名函数的执行环境具有全局性，因此其this对象通常指向window&lt;br&gt;    var color = ‘red’;&lt;br&gt;    var o = {&lt;br&gt;        name:’blue’,&lt;br&gt;        sayColor: function(){&lt;br&gt;            return function(){&lt;br&gt;                return this.color;&lt;br&gt;            }&lt;br&gt;        }&lt;br&gt;    }&lt;br&gt;    console.log(o.sayColor()());//red&lt;br&gt;    //改进&lt;br&gt;    var o = {&lt;br&gt;        color:’blue’,&lt;br&gt;        sayColor: function(){&lt;br&gt;            var that = this;&lt;br&gt;            return function(){&lt;br&gt;                return that.color;&lt;br&gt;            }&lt;br&gt;        }&lt;br&gt;    }&lt;br&gt;    console.log(o.sayColor()());//blue  &lt;/p&gt;
+&lt;h2 id=&quot;es6中箭头函数的this&quot;&gt;&lt;a href=&quot;#es6中箭头函数的this&quot; class=&quot;headerlink&quot; title=&quot;es6中箭头函数的this&quot;&gt;&lt;/a&gt;es6中箭头函数的this&lt;/h2&gt;&lt;p&gt;this引用的是函数据以执行的环境对象。但是在使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。箭头函数的使用参考：&lt;a href=&quot;http://es6.ruanyifeng.com/#docs/function&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://es6.ruanyifeng.com/#docs/function&lt;/a&gt;&lt;br&gt;    function foo(){&lt;br&gt;        setTimeout(() =&amp;gt; {&lt;br&gt;            console.log(‘id:’, this.id);&lt;br&gt;        }, 100)&lt;br&gt;    }&lt;br&gt;    var id = 21;&lt;br&gt;    foo.call({ id: 42 });//id: 42  &lt;/p&gt;
+&lt;p&gt;箭头函数中的this指向foo的this，箭头函数中也不存在arguments，指向外层函数foo对象的arguments&lt;br&gt;由于箭头函数没有自己的this，所以也不能用call()、apply()、bind()改变this的指向。  &lt;/p&gt;
+&lt;h2 id=&quot;绑定this&quot;&gt;&lt;a href=&quot;#绑定this&quot; class=&quot;headerlink&quot; title=&quot;绑定this&quot;&gt;&lt;/a&gt;绑定this&lt;/h2&gt;&lt;p&gt;函数绑定运算符是::,双冒号是左边是一个对象，右边是一个函数，该运算符会自动将左边的对象作为上下文环境(this对象)，绑定到右边的函数上。可参考阮老师的&lt;a href=&quot;http://es6.ruanyifeng.com/#docs/function&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://es6.ruanyifeng.com/#docs/function&lt;/a&gt;&lt;br&gt;    foo::bar;&lt;br&gt;    //等同于&lt;br&gt;    bar.bind(foo);&lt;/p&gt;
+&lt;p&gt;在判断this指向时，要记住，在没有绑定this的情况下，this动态绑定，指向运行时的环境，而非代码中的位置，只有箭头函数才是静态绑定，将this绑定到代码中的位置。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;this是函数内部的一个特殊对象，他引用的是函数据以执行的环境对象。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>css十八般武艺</title>
@@ -3606,184 +3675,6 @@ strong,em{font-style:normal;font-weight:bold;}
     
       <category term="前端总结" scheme="http://blog.newbug.xyz/categories/%E5%89%8D%E7%AB%AF%E6%80%BB%E7%BB%93/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>js笔记</title>
-    <link href="http://blog.newbug.xyz/2016/03/14/js%E7%AC%94%E8%AE%B0/"/>
-    <id>http://blog.newbug.xyz/2016/03/14/js笔记/</id>
-    <published>2016-03-14T07:17:43.000Z</published>
-    <updated>2016-10-15T09:54:18.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;js位置篇之窗口&quot;&gt;&lt;a href=&quot;#js位置篇之窗口&quot; class=&quot;headerlink&quot; title=&quot;js位置篇之窗口&quot;&gt;&lt;/a&gt;js位置篇之窗口&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;pre&gt;&lt;code&gt;//屏幕大小
-window.screen.width;
-window.screen.height;
-
-//视图
-window.innerWidth;
-window.innerHeight;
-document.documentElement.clientWidth;
-document.documentElement.clientHeight;
-
-//页面的大小
-document.documentElement.offsetWidth;
-document.documentElement.offsetHeight;
-document.body.clientWidth;
-document.body.clientHeight;
-
-//滚动条的位置
-document.documentElement.scrollLeft;
-document.documentElement.scrollTop;
-document.body.scrollTop;
-document.body.scrollLeft;
-
-//跨浏览器获取滚动条的位置
-function getScroll(){
-    return {
-        top : document.documentElement.scrollTop || document.body.scrollTop,
-        left : document.documentElement.scrollLeft || document.body.scrollLeft
-    }
-}
-var scroll = getScroll();
-scroll.top;
-scroll.left;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;location&quot;&gt;&lt;a href=&quot;#location&quot; class=&quot;headerlink&quot; title=&quot;location&quot;&gt;&lt;/a&gt;location&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;//修改当前地址
-//location.href=&amp;apos;http://www.baidu.com&amp;apos;;
-//刷新当前页面
-//location.reload();  
-//确认取消框
-// var result = window.confirm(&amp;apos;您的URL地址不对，请重新输入&amp;apos;);  
-//输入框
-//第一个参数是提示文字，第二个参数是默认值
-//window.prompt(&amp;apos;请输入一个数字&amp;apos;,0);  
-//打开一个窗口
-//open接收三个参数，第一个参数是跳转的URL，第二个参数可以指定窗口名称
-//第三个参数width,height,top,left,location,menubar可以设置窗口属性
-//window.open(&amp;apos;http://www.baidu.com&amp;apos;,&amp;apos;baidu&amp;apos;,&amp;apos;width=300,height=400,top=500,left=300,location=true,menubar=true&amp;apos;);  
-// 250
-// //怎么用循环的方式获取到每位的值
-// (250 / 100)
-// (250 % 100) / 10
-// 250 % 10  
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;Array内置方法&quot;&gt;&lt;a href=&quot;#Array内置方法&quot; class=&quot;headerlink&quot; title=&quot;Array内置方法&quot;&gt;&lt;/a&gt;Array内置方法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var list1 = [3,4,1,2,5,7,6];
-var list2 = [7,8,9,10,11,12];
-//获取数组值
-// var result = list1.valueOf();
-// console.log(result);//[3,4,1,2,5,7,6]
-//分割成指定分隔符的字符串
-// var result = list1.join(&amp;apos;!&amp;apos;);
-// console.log(result);//3!4!1!2!5!7!6
-//在前面添加一个元素,返回的是数组的长度
-// list1.unshift(0);
-// console.log(list1);//[0, 3, 4, 1, 2, 5, 7, 6]
-//在前面删除一个元素
-// list1.shift(0);
-// console.log(list1);
-//颠倒位置
-//var result = list1.reverse();
-//console.log(result);
-//sort排序, 正向排序
-// var result = list2.sort();
-// console.log(result);//[10, 11, 12, 7, 8, 9]
-//连接数组
-// var result = list1.concat(list2);
-// console.log(result);//[3, 4, 1, 2, 5, 7, 6, 7, 8, 9, 10, 11, 12]
-//删除或者替换数组内容
-//splice(位置,删除的个数,替换的内容)
-// var result = list1.splice(0,2,10);
-// console.log(list1);//[10, 1, 2, 5, 7, 6]  
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;date对象的学习&quot;&gt;&lt;a href=&quot;#date对象的学习&quot; class=&quot;headerlink&quot; title=&quot;date对象的学习&quot;&gt;&lt;/a&gt;date对象的学习&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var today = new Date();
-//获取当前时间的毫秒数
-var hm = today.getTime();
-console.log(hm);
-var year = today.getFullYear();
-console.log(year);
-var month = today.getMonth();
-console.log(month);
-//获取日期
-var day = today.getDate();
-console.log(day);
-var week = today.getDay();
-console.log(week);
-var hour = today.getHours();
-console.log(hour);
-var min = today.getMinutes();
-console.log(min);
-var second = today.getSeconds();
-console.log(second);
-//获取毫秒
-var milsecond = today.getMilliseconds();
-console.log(milsecond);  
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;string类型内置方法&quot;&gt;&lt;a href=&quot;#string类型内置方法&quot; class=&quot;headerlink&quot; title=&quot;string类型内置方法&quot;&gt;&lt;/a&gt;string类型内置方法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;var str1 = &amp;apos;我是新创建的第一个字符串&amp;apos;;
-var str2 = &amp;apos;我是创建的第二个字符串&amp;apos;;
-// var result = [];
-// for(var i=0;i&amp;lt;str1.length;i++){
-
-//     //选取每一个字符对应的数组下标
-//     var index = i;
-//     result.push(str1[index] + &amp;apos;0&amp;apos;);
-// }
-// alert(result);
-// alert(str1);
-
-// // 返回指定位置的字符
-// var result = str1.charAt(2);
-// console.log(result);
-// //返回指定位置的字符，但是是以unicode格式返回的
-// var result = str1.charCodeAt(2);
-// console.log(result);
-// //连接字符串的
-// result = str1.concat(str2);
-// console.log(result);
-// //三个截取字符串的函数slice,substring,substr
-// //一个参数的情况
-// var result = str1.slice(2);
-// console.log(result);
-// var result = str1.substring(2);
-// console.log(result);
-// var result = str1.substr(2);
-// console.log(result);
-// var result = str1.slice(-1);
-// console.log(result);
-// var result = str1.substr(-1);
-// console.log(result);
-// //substring负数情况不允许
-// var result = str1.substring(-3);
-// console.log(result);
-
-//两个参数的情况
-//slice和substring是截取的从N开始M结束之间的字符串
-//substr它是截取从N开始,M个字符串
-var result = str1.slice(1,4);
-console.log(result);
-var result = str1.substring(1,4);
-console.log(result);
-//从1开始，截取四个
-var result = str1.substr(0,4);
-console.log(result);
-//返回索引值
-var result = str1.indexOf(&amp;apos;的&amp;apos;);
-console.log(result);
-//lastIndexOf返回最后一个字符串出现的位置
-var result = str1.lastIndexOf(&amp;apos;的&amp;apos;);
-console.log(result);
-//tolowercase,touppercase分别是转化大小写的
-var str3 = &amp;apos;HELLO&amp;apos;;
-var str4 = &amp;apos;world&amp;apos;;
-console.log(str3.toLowerCase());
-document.write(str4.toUpperCase());
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;js位置篇之窗口&quot;&gt;&lt;a href=&quot;#js位置篇之窗口&quot; class=&quot;headerlink&quot; title=&quot;js位置篇之窗口&quot;&gt;&lt;/a&gt;js位置篇之窗口&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="js笔记" scheme="http://blog.newbug.xyz/tags/js%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
