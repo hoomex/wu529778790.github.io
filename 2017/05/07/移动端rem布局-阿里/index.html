@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>移动端rem布局(阿里) | 神族九帝 | 永不言弃</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="移动端 rem">
+  <meta name="description" content="一直在用阿里的flexible布局，但是从来没总结过，今天看到一篇总结的不错就搬过来记录下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端rem布局(阿里)">
+<meta property="og:url" content="http://blog.newbug.xyz/2017/05/07/移动端rem布局-阿里/index.html">
+<meta property="og:site_name" content="神族九帝">
+<meta property="og:description" content="一直在用阿里的flexible布局，但是从来没总结过，今天看到一篇总结的不错就搬过来记录下。">
+<meta property="og:image" content="http://cdn.attach.qdfuns.com/notes/pics/201705/05/165046bsdbcb1frrhfnbpp.png">
+<meta property="og:updated_time" content="2017-05-07T14:31:36.399Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端rem布局(阿里)">
+<meta name="twitter:description" content="一直在用阿里的flexible布局，但是从来没总结过，今天看到一篇总结的不错就搬过来记录下。">
+<meta name="twitter:image" content="http://cdn.attach.qdfuns.com/notes/pics/201705/05/165046bsdbcb1frrhfnbpp.png">
+  
+    <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;一直在用阿里的flexible布局，但是从来没总结过，今天看到一篇总结的不错就搬过来记录下。&lt;br&gt;">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.gif"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">wu529778790</h5>
+        <a href="mailto:529778790@qq.com" title="529778790@qq.com" class="mail">529778790@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            归档
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/wu529778790" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="http://weibo.com/3282218950" target="_blank" >
+            <i class="icon icon-lg icon-weibo"></i>
+            Weibo
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/shows" target="_blank" >
+            <i class="icon icon-lg icon-shows"></i>
+            H5导航
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a href='http://shenzjd.cn'>神族九帝</a> &copy; 2017</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/wu529778790" target="_blank">wu529778790</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">移动端rem布局(阿里)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">移动端rem布局(阿里)</h1>
+    <h5 class="subtitle">
+          
+            <time datetime="2017-05-07T09:42:14.000Z" itemprop="datePublished" class="page-time">
+  2017-05-07
+</time>
+
+ 
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-移动端rem布局-阿里" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meat flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端-rem/">移动端 rem</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码原理"><span class="post-toc-number">1.</span> <span class="post-toc-text">代码原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#有何优势"><span class="post-toc-number">2.</span> <span class="post-toc-text">有何优势</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">如何使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常见问题说明"><span class="post-toc-number">4.</span> <span class="post-toc-text">常见问题说明</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一直在用阿里的flexible布局，但是从来没总结过，今天看到一篇总结的不错就搬过来记录下。<br><a id="more"></a></p>
+<p>使用起来很简单，把下面的js直接引入就好了<br><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="external">https://github.com/amfe/lib-flexible</a>  </p>
+<h2 id="代码原理"><a href="#代码原理" class="headerlink" title="代码原理"></a>代码原理</h2><p>这是阿里团队的高清方案布局，所谓高清方案就是根据设备屏幕的DPR（设备像素比，又称DPPX，比如dpr=2时，表示一个css像素由四个物理像素点组成。）<br>动态设置html的font-size，同时根据设备的DPR调整页面的缩放值，进而达到效果。 </p>
+<h2 id="有何优势"><a href="#有何优势" class="headerlink" title="有何优势"></a>有何优势</h2><p>引用简单，布局简单<br>根据设备屏幕的DPR，自动设置最合适的高清缩放。<br>保证了不同设备下的视觉体验的一致性。<br>有效解决移动端真实1px问题（这里的1px时设备屏幕下的物理像素）  </p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>重要的事情说三遍！<br>绝不是每个地方都要用rem，rem只适用于固定尺寸！<br>绝不是每个地方都要用rem，rem只适用于固定尺寸！<br>绝不是每个地方都要用rem，rem只适用于固定尺寸！  </p>
+<p>在相当数量的布局情境中（比如底部导航元素平分屏幕宽，大尺寸元素），你必须使用百分比或者flex才能完美布局！  </p>
+<p>此方案也是默认 1rem = 100px，所以你布局的时候，完全可以按照设计师给你的效果图写各种尺寸啦。<br>比如你在效果图上量取的某个按钮元素长 55px, 宽37px ，那你直接可以这样写样式：</p>
+<pre><code>.myBtn {
+   width: 0.55rem;
+   height: 0.37rem;
+}
+</code></pre><h2 id="常见问题说明"><a href="#常见问题说明" class="headerlink" title="常见问题说明"></a>常见问题说明</h2><ol>
+<li>为啥手机网页效果图宽度是要640或者750的，我非得弄个666的不行咩？<br>答：老实说当然可以，不过为了规范，640或者750是相对合适的。<br>拿Iphone 5s 举例，它的css像素宽度是320px，由于它的dpr=2，所以它的物理像素宽度为320 × 2 = 640px，这也就是为什么，你在5s上截了一张图，在电脑上打开，它的原始宽度是640px的原因。<br>那 iphone 6 的截图宽度呢？ 375 × 2 = 750<br>那 iphone 6 sp 的截图宽度呢？ 414 × 3 = 1242<br>以此类推，你现在能明白效果图为什么一般是 640 ，750 甚至是 1242 的原因了么？（真没有歧视安卓机的意思。。。）  </li>
+<li>宽度用rem写的情况下， 在 iphone6 上没问题， 在 iphone5上会有横向滚动条，何解？<br>答：假设你的效果图宽度是750，在这个效果图上可能有一个宽度为7rem（高清方案默认 1rem = 100px）的元素。我们知道，高清方案的特点就是几乎完美还原效果图，也就是说，你写了一个宽度为 7rem 的元素，那么在目前主流移动设备上都是7rem。然而，iphone 5 的宽度为640，也就是6.4rem。于是横向滚动条不可避免的出现了。<br>怎么办呢？ 这是我目前推荐的比较安全的方式：如果元素的宽度超过效果图宽度的一半（效果图宽为640或750），果断使用百分比宽度，或者flex布局。就像把等屏宽的图片宽度设为100%一样。  </li>
+<li>不是 1rem = 100px吗，为什么我的代码写了一个宽度为3rem的元素，在电脑端的谷歌浏览器上宽度只有150px?<br>答：先说高清方案代码，再次强调咱们的高清方案代码是根据设备的dpr动态设置html 的 font-size，<br>如果dpr=1(如电脑端），则html的font-size为50px，此时 1rem = 50px<br>如果dpr=2(如iphone 5 和 6），则html的font-size为100px，此时 1rem = 100px<br>如果dpr=3(如iphone 6 sp），则html的font-size为150px，此时 1rem = 150px<br>如果dpr为其他值，即便不是整数，如3.4 , 也是一样直接将dpr 乘以 50 。<br>再来说说效果图，一般来讲，我们的效果图宽度要么是640，要么是750，无论哪一个，它们对应设备的dpr=2，此时，1 rem = 50 × 2 = 100px。这也就是为什么高清方案默认1rem = 100px。而将1rem默认100px也是好处多多，可以帮你快速换算单位，比如在750宽度下的效果图，某元素宽度为53px，那么css宽度直接设为53/100=0.53rem了。<br>然而极少情况下，有设计师将效果图宽定为1242px，因为他手里只有一个iphone 6 sp (dpr = 3)，设计完效果图刚好可以在他的iphone 6 sp里查看调整。一切完毕之后，他将这个效果图交给你来切图。由于这个效果图对应设备的dpr=3，也就是1rem = 50 × 3 = 150px。所以如果你量取了一个宽度为90px的元素，它的css宽度应该为 90/150=0.6rem。由于咱们的高清方案默认1rem=100px，为了还原效果图，你需要这样换算。当然，一个技巧就是你可以直接修改咱们的高清方案的默认设置。在代码的最后 你会看到 flex(100, 1) ，将其修改成flex(66.66667, 1)就不用那么麻烦的换算了，此时那个90px的直接写成0.9rem就可以了。  </li>
+<li>高清方案在微信上，有时候字体会不受控制变的很大，怎么办？<br><a href="https://github.com/ant-design/ant-design-mobile/issues/732" target="_blank" rel="external">https://github.com/ant-design/ant-design-mobile/issues/732</a>  </li>
+</ol>
+<p>问题原因：<br>在X5新内核Blink中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在<br>我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决    </p>
+<p>后续：经过项目实践，还是决定给 max-height 一个具体数值比较好，之前给的是 100% ，但有自身的局限性，比如 antd 的轮播组件在 max-height:100% 的情况下就不能正常显示。  </p>
+<ol>
+<li>我在底部导航用的flex感觉更合适一些，请问这样子混着用可以吗？<br>咱们的rem适合写固定尺寸。其余的根据需要换成flex或者百分比。源码示例中就有这三种的综合运用。  </li>
+<li>在高清方案下，一个标准的，较为理想的宽度为640的页面效果图应该是怎样的？  </li>
+</ol>
+<p><img src="http://cdn.attach.qdfuns.com/notes/pics/201705/05/165046bsdbcb1frrhfnbpp.png" alt="参考布局">  </p>
+<ol>
+<li><p>源码：<br> ‘use strict’;</p>
+<p> /**</p>
+<ul>
+<li>@param {Number} [baseFontSize = 100] - 基础fontSize, 默认100px;</li>
+<li><p>@param {Number} [fontscale = 1] - 有的业务希望能放大一定比例的字体;<br>*/<br>const win = window;<br>export default win.flex = (baseFontSize, fontscale) =&gt; {<br>const _baseFontSize = baseFontSize || 100;<br>const _fontscale = fontscale || 1;</p>
+<p>const doc = win.document;<br>const ua = navigator.userAgent;<br>const matches = ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);<br>const UCversion = ua.match(/U3\/((\d+|.){5,})/i);<br>const isUCHd = UCversion &amp;&amp; parseInt(UCversion[1].split(‘.’).join(‘’), 10) &gt;= 80;<br>const isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);<br>let dpr = win.devicePixelRatio || 1;<br>if (!isIos &amp;&amp; !(matches &amp;&amp; matches[1] &gt; 534) &amp;&amp; !isUCHd) {<br> // 如果非iOS, 非Android4.3以上, 非UC内核, 就不执行高清, dpr设为1;<br> dpr = 1;<br>}<br>const scale = 1 / dpr;</p>
+<p>let metaEl = doc.querySelector(‘meta[name=”viewport”]’);<br>if (!metaEl) {<br> metaEl = doc.createElement(‘meta’);<br> metaEl.setAttribute(‘name’, ‘viewport’);<br> doc.head.appendChild(metaEl);<br>}<br>metaEl.setAttribute(‘content’, <code>width=device-width,user-scalable=no,initial-scale=${scale},maximum-scale=${scale},minimum-scale=${scale}</code>);<br>doc.documentElement.style.fontSize = <code>${_baseFontSize / 2 * dpr * _fontscale}px</code>;<br>};  </p>
+</li>
+</ul>
+</li>
+</ol>
+<p>demo：  </p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+
+    &lt;!-- 阿里高清方案 --&gt;
+    &lt;script&gt;!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p=&quot;&quot;,t(0)}([function(e,t){&quot;use strict&quot;;Object.defineProperty(t,&quot;__esModule&quot;,{value:!0});var i=window;t[&quot;default&quot;]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&amp;&amp;parseInt(l[1].split(&quot;.&quot;).join(&quot;&quot;),10)&gt;=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&amp;&amp;d[1]&gt;534||c||(s=1);var u=1/s,m=r.querySelector(&apos;meta[name=&quot;viewport&quot;]&apos;);m||(m=r.createElement(&quot;meta&quot;),m.setAttribute(&quot;name&quot;,&quot;viewport&quot;),r.head.appendChild(m)),m.setAttribute(&quot;content&quot;,&quot;width=device-width,user-scalable=no,initial-scale=&quot;+u+&quot;,maximum-scale=&quot;+u+&quot;,minimum-scale=&quot;+u),r.documentElement.style.fontSize=a/2*s*n+&quot;px&quot;},e.exports=t[&quot;default&quot;]}]);
+    flex(100, 1);&lt;/script&gt;
+    &lt;!-- 字形图标 --&gt;
+    &lt;script src=&quot;https://use.fontawesome.com/f47f4563cb.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        * {
+            box-sizing: border-box;
+        }
+
+        *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            border: 0 none;
+            font-size: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0;
+            vertical-align: baseline;
+
+            /* 在X5新内核Blink中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决 */
+            max-height: 100000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        em, strong {
+            font-style: normal;
+        }
+
+        ul, ol, li {
+            list-style: none;
+        }
+
+        body {
+            font-family: &quot;Helvetica Neue&quot;,Helvetica,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;\5FAE\8F6F\96C5\9ED1&quot;,Arial,sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background-color: #f2f2f2;
+            font-size: 0.24rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .box {
+            position: relative;
+            max-width: 10rem;
+            margin: 0 auto;
+        }
+
+        .navRoot {
+            position: fixed;
+            z-index: 50;
+            bottom: 0;
+            left:0;
+            width: 100%;
+            height: 1rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            border-top: 0.01rem solid #ccc;
+            background:#f2f2f2;
+        }
+
+        .navLink {
+            font-size: 0.42rem;
+            -webkit-box-flex: 1;
+            -ms-flex: auto;
+            flex: auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            line-height: 1;
+            color: #666;
+        }
+        .navLink.active {
+            color: #1abc9c
+        }
+        .navLinkIco {
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        .navLinkText {
+            display: block;
+            line-height: 1;
+            font-size: 0.24rem;
+        }
+
+        .img-responsive {
+            width: 100%;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+   &lt;div class=&quot;box-content&quot;&gt;
+    &lt;img src=&quot;http://temp.im/640x260/444/fff&quot; class=&quot;img-responsive&quot;&gt;
+    &lt;ul style=&quot;font-size:0.3rem; padding: 0.2rem&quot;&gt;
+        &lt;li style=&quot;font-size:0.4rem&quot;&gt;&lt;a href=&quot;http://www.jianshu.com/p/985d26b40199&quot;&gt;rem布局（进阶版）的一些说明&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;1，大家先把这个页面在不同设备模式下浏览下，感受下。&lt;/li&gt;
+        &lt;li&gt;2，一般来说我们的手机端效果图是640px或750px。&lt;/li&gt;
+        &lt;li&gt;3，对于上图这类需要等屏宽的图片，只需让其宽度设为 100% 即可。&lt;/li&gt;
+        &lt;li&gt;4，该布局方案要求凡是涉及尺寸的，单位都是rem，比如，height width margin paddint top border-radius 等等。你只需要按照效果图上标注的尺寸布局即可。&lt;/li&gt;
+    &lt;/ul&gt;
+
+   &lt;/div&gt;
+    &lt;div class=&quot;navRoot&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink active&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;首页&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;好店&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;简单&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;复杂&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;异步&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre><p>参考： <a href="http://www.jianshu.com/p/985d26b40199" target="_blank" rel="external">http://www.jianshu.com/p/985d26b40199</a><br><a href="http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html" target="_blank" rel="external">http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html</a>  </p>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://blog.newbug.xyz/2017/05/07/移动端rem布局-阿里/" target="_blank" rel="external">http://blog.newbug.xyz/2017/05/07/移动端rem布局-阿里/</a>
+                </p>
+                <footer><cite><a href="http://blog.newbug.xyz">@神族九帝</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2017/04/23/javascript中的this/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">javascript中的this</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="移动端rem布局-阿里" data-title="移动端rem布局(阿里)" data-url="http://blog.newbug.xyz/2017/05/07/移动端rem布局-阿里/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wu529778790"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "移动端rem布局(阿里)",
+    pic: "/img/logo.gif",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://blog.newbug.xyz/2017/05/07/移动端rem布局-阿里/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="http://s95.cnzz.com/z_stat.php?id=1259829398&web_id=1259829398"></script>
+
+
+
+
+
+</body>
+</html>

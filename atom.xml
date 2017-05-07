@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-04-25T09:40:43.762Z</updated>
+  <updated>2017-05-07T14:31:36.399Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -14,6 +14,225 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>移动端rem布局(阿里)</title>
+    <link href="http://blog.newbug.xyz/2017/05/07/%E7%A7%BB%E5%8A%A8%E7%AB%AFrem%E5%B8%83%E5%B1%80-%E9%98%BF%E9%87%8C/"/>
+    <id>http://blog.newbug.xyz/2017/05/07/移动端rem布局-阿里/</id>
+    <published>2017-05-07T09:42:14.000Z</published>
+    <updated>2017-05-07T14:31:36.399Z</updated>
+    
+    <content type="html">&lt;p&gt;一直在用阿里的flexible布局，但是从来没总结过，今天看到一篇总结的不错就搬过来记录下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用起来很简单，把下面的js直接引入就好了&lt;br&gt;&lt;a href=&quot;https://github.com/amfe/lib-flexible&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amfe/lib-flexible&lt;/a&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;代码原理&quot;&gt;&lt;a href=&quot;#代码原理&quot; class=&quot;headerlink&quot; title=&quot;代码原理&quot;&gt;&lt;/a&gt;代码原理&lt;/h2&gt;&lt;p&gt;这是阿里团队的高清方案布局，所谓高清方案就是根据设备屏幕的DPR（设备像素比，又称DPPX，比如dpr=2时，表示一个css像素由四个物理像素点组成。）&lt;br&gt;动态设置html的font-size，同时根据设备的DPR调整页面的缩放值，进而达到效果。 &lt;/p&gt;
+&lt;h2 id=&quot;有何优势&quot;&gt;&lt;a href=&quot;#有何优势&quot; class=&quot;headerlink&quot; title=&quot;有何优势&quot;&gt;&lt;/a&gt;有何优势&lt;/h2&gt;&lt;p&gt;引用简单，布局简单&lt;br&gt;根据设备屏幕的DPR，自动设置最合适的高清缩放。&lt;br&gt;保证了不同设备下的视觉体验的一致性。&lt;br&gt;有效解决移动端真实1px问题（这里的1px时设备屏幕下的物理像素）  &lt;/p&gt;
+&lt;h2 id=&quot;如何使用&quot;&gt;&lt;a href=&quot;#如何使用&quot; class=&quot;headerlink&quot; title=&quot;如何使用&quot;&gt;&lt;/a&gt;如何使用&lt;/h2&gt;&lt;p&gt;重要的事情说三遍！&lt;br&gt;绝不是每个地方都要用rem，rem只适用于固定尺寸！&lt;br&gt;绝不是每个地方都要用rem，rem只适用于固定尺寸！&lt;br&gt;绝不是每个地方都要用rem，rem只适用于固定尺寸！  &lt;/p&gt;
+&lt;p&gt;在相当数量的布局情境中（比如底部导航元素平分屏幕宽，大尺寸元素），你必须使用百分比或者flex才能完美布局！  &lt;/p&gt;
+&lt;p&gt;此方案也是默认 1rem = 100px，所以你布局的时候，完全可以按照设计师给你的效果图写各种尺寸啦。&lt;br&gt;比如你在效果图上量取的某个按钮元素长 55px, 宽37px ，那你直接可以这样写样式：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.myBtn {
+   width: 0.55rem;
+   height: 0.37rem;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;常见问题说明&quot;&gt;&lt;a href=&quot;#常见问题说明&quot; class=&quot;headerlink&quot; title=&quot;常见问题说明&quot;&gt;&lt;/a&gt;常见问题说明&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;为啥手机网页效果图宽度是要640或者750的，我非得弄个666的不行咩？&lt;br&gt;答：老实说当然可以，不过为了规范，640或者750是相对合适的。&lt;br&gt;拿Iphone 5s 举例，它的css像素宽度是320px，由于它的dpr=2，所以它的物理像素宽度为320 × 2 = 640px，这也就是为什么，你在5s上截了一张图，在电脑上打开，它的原始宽度是640px的原因。&lt;br&gt;那 iphone 6 的截图宽度呢？ 375 × 2 = 750&lt;br&gt;那 iphone 6 sp 的截图宽度呢？ 414 × 3 = 1242&lt;br&gt;以此类推，你现在能明白效果图为什么一般是 640 ，750 甚至是 1242 的原因了么？（真没有歧视安卓机的意思。。。）  &lt;/li&gt;
+&lt;li&gt;宽度用rem写的情况下， 在 iphone6 上没问题， 在 iphone5上会有横向滚动条，何解？&lt;br&gt;答：假设你的效果图宽度是750，在这个效果图上可能有一个宽度为7rem（高清方案默认 1rem = 100px）的元素。我们知道，高清方案的特点就是几乎完美还原效果图，也就是说，你写了一个宽度为 7rem 的元素，那么在目前主流移动设备上都是7rem。然而，iphone 5 的宽度为640，也就是6.4rem。于是横向滚动条不可避免的出现了。&lt;br&gt;怎么办呢？ 这是我目前推荐的比较安全的方式：如果元素的宽度超过效果图宽度的一半（效果图宽为640或750），果断使用百分比宽度，或者flex布局。就像把等屏宽的图片宽度设为100%一样。  &lt;/li&gt;
+&lt;li&gt;不是 1rem = 100px吗，为什么我的代码写了一个宽度为3rem的元素，在电脑端的谷歌浏览器上宽度只有150px?&lt;br&gt;答：先说高清方案代码，再次强调咱们的高清方案代码是根据设备的dpr动态设置html 的 font-size，&lt;br&gt;如果dpr=1(如电脑端），则html的font-size为50px，此时 1rem = 50px&lt;br&gt;如果dpr=2(如iphone 5 和 6），则html的font-size为100px，此时 1rem = 100px&lt;br&gt;如果dpr=3(如iphone 6 sp），则html的font-size为150px，此时 1rem = 150px&lt;br&gt;如果dpr为其他值，即便不是整数，如3.4 , 也是一样直接将dpr 乘以 50 。&lt;br&gt;再来说说效果图，一般来讲，我们的效果图宽度要么是640，要么是750，无论哪一个，它们对应设备的dpr=2，此时，1 rem = 50 × 2 = 100px。这也就是为什么高清方案默认1rem = 100px。而将1rem默认100px也是好处多多，可以帮你快速换算单位，比如在750宽度下的效果图，某元素宽度为53px，那么css宽度直接设为53/100=0.53rem了。&lt;br&gt;然而极少情况下，有设计师将效果图宽定为1242px，因为他手里只有一个iphone 6 sp (dpr = 3)，设计完效果图刚好可以在他的iphone 6 sp里查看调整。一切完毕之后，他将这个效果图交给你来切图。由于这个效果图对应设备的dpr=3，也就是1rem = 50 × 3 = 150px。所以如果你量取了一个宽度为90px的元素，它的css宽度应该为 90/150=0.6rem。由于咱们的高清方案默认1rem=100px，为了还原效果图，你需要这样换算。当然，一个技巧就是你可以直接修改咱们的高清方案的默认设置。在代码的最后 你会看到 flex(100, 1) ，将其修改成flex(66.66667, 1)就不用那么麻烦的换算了，此时那个90px的直接写成0.9rem就可以了。  &lt;/li&gt;
+&lt;li&gt;高清方案在微信上，有时候字体会不受控制变的很大，怎么办？&lt;br&gt;&lt;a href=&quot;https://github.com/ant-design/ant-design-mobile/issues/732&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/ant-design/ant-design-mobile/issues/732&lt;/a&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;问题原因：&lt;br&gt;在X5新内核Blink中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在&lt;br&gt;我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决    &lt;/p&gt;
+&lt;p&gt;后续：经过项目实践，还是决定给 max-height 一个具体数值比较好，之前给的是 100% ，但有自身的局限性，比如 antd 的轮播组件在 max-height:100% 的情况下就不能正常显示。  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;我在底部导航用的flex感觉更合适一些，请问这样子混着用可以吗？&lt;br&gt;咱们的rem适合写固定尺寸。其余的根据需要换成flex或者百分比。源码示例中就有这三种的综合运用。  &lt;/li&gt;
+&lt;li&gt;在高清方案下，一个标准的，较为理想的宽度为640的页面效果图应该是怎样的？  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.attach.qdfuns.com/notes/pics/201705/05/165046bsdbcb1frrhfnbpp.png&quot; alt=&quot;参考布局&quot;&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;源码：&lt;br&gt; ‘use strict’;&lt;/p&gt;
+&lt;p&gt; /**&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;@param {Number} [baseFontSize = 100] - 基础fontSize, 默认100px;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;@param {Number} [fontscale = 1] - 有的业务希望能放大一定比例的字体;&lt;br&gt;*/&lt;br&gt;const win = window;&lt;br&gt;export default win.flex = (baseFontSize, fontscale) =&amp;gt; {&lt;br&gt;const _baseFontSize = baseFontSize || 100;&lt;br&gt;const _fontscale = fontscale || 1;&lt;/p&gt;
+&lt;p&gt;const doc = win.document;&lt;br&gt;const ua = navigator.userAgent;&lt;br&gt;const matches = ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);&lt;br&gt;const UCversion = ua.match(/U3\/((\d+|.){5,})/i);&lt;br&gt;const isUCHd = UCversion &amp;amp;&amp;amp; parseInt(UCversion[1].split(‘.’).join(‘’), 10) &amp;gt;= 80;&lt;br&gt;const isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);&lt;br&gt;let dpr = win.devicePixelRatio || 1;&lt;br&gt;if (!isIos &amp;amp;&amp;amp; !(matches &amp;amp;&amp;amp; matches[1] &amp;gt; 534) &amp;amp;&amp;amp; !isUCHd) {&lt;br&gt; // 如果非iOS, 非Android4.3以上, 非UC内核, 就不执行高清, dpr设为1;&lt;br&gt; dpr = 1;&lt;br&gt;}&lt;br&gt;const scale = 1 / dpr;&lt;/p&gt;
+&lt;p&gt;let metaEl = doc.querySelector(‘meta[name=”viewport”]’);&lt;br&gt;if (!metaEl) {&lt;br&gt; metaEl = doc.createElement(‘meta’);&lt;br&gt; metaEl.setAttribute(‘name’, ‘viewport’);&lt;br&gt; doc.head.appendChild(metaEl);&lt;br&gt;}&lt;br&gt;metaEl.setAttribute(‘content’, &lt;code&gt;width=device-width,user-scalable=no,initial-scale=${scale},maximum-scale=${scale},minimum-scale=${scale}&lt;/code&gt;);&lt;br&gt;doc.documentElement.style.fontSize = &lt;code&gt;${_baseFontSize / 2 * dpr * _fontscale}px&lt;/code&gt;;&lt;br&gt;};  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;demo：  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt;
+
+    &amp;lt;!-- 阿里高清方案 --&amp;gt;
+    &amp;lt;script&amp;gt;!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p=&amp;quot;&amp;quot;,t(0)}([function(e,t){&amp;quot;use strict&amp;quot;;Object.defineProperty(t,&amp;quot;__esModule&amp;quot;,{value:!0});var i=window;t[&amp;quot;default&amp;quot;]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&amp;amp;&amp;amp;parseInt(l[1].split(&amp;quot;.&amp;quot;).join(&amp;quot;&amp;quot;),10)&amp;gt;=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&amp;amp;&amp;amp;d[1]&amp;gt;534||c||(s=1);var u=1/s,m=r.querySelector(&amp;apos;meta[name=&amp;quot;viewport&amp;quot;]&amp;apos;);m||(m=r.createElement(&amp;quot;meta&amp;quot;),m.setAttribute(&amp;quot;name&amp;quot;,&amp;quot;viewport&amp;quot;),r.head.appendChild(m)),m.setAttribute(&amp;quot;content&amp;quot;,&amp;quot;width=device-width,user-scalable=no,initial-scale=&amp;quot;+u+&amp;quot;,maximum-scale=&amp;quot;+u+&amp;quot;,minimum-scale=&amp;quot;+u),r.documentElement.style.fontSize=a/2*s*n+&amp;quot;px&amp;quot;},e.exports=t[&amp;quot;default&amp;quot;]}]);
+    flex(100, 1);&amp;lt;/script&amp;gt;
+    &amp;lt;!-- 字形图标 --&amp;gt;
+    &amp;lt;script src=&amp;quot;https://use.fontawesome.com/f47f4563cb.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;style&amp;gt;
+        * {
+            box-sizing: border-box;
+        }
+
+        *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            border: 0 none;
+            font-size: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0;
+            vertical-align: baseline;
+
+            /* 在X5新内核Blink中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决 */
+            max-height: 100000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        em, strong {
+            font-style: normal;
+        }
+
+        ul, ol, li {
+            list-style: none;
+        }
+
+        body {
+            font-family: &amp;quot;Helvetica Neue&amp;quot;,Helvetica,&amp;quot;PingFang SC&amp;quot;,&amp;quot;Hiragino Sans GB&amp;quot;,&amp;quot;Microsoft YaHei&amp;quot;,&amp;quot;\5FAE\8F6F\96C5\9ED1&amp;quot;,Arial,sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background-color: #f2f2f2;
+            font-size: 0.24rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .box {
+            position: relative;
+            max-width: 10rem;
+            margin: 0 auto;
+        }
+
+        .navRoot {
+            position: fixed;
+            z-index: 50;
+            bottom: 0;
+            left:0;
+            width: 100%;
+            height: 1rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            border-top: 0.01rem solid #ccc;
+            background:#f2f2f2;
+        }
+
+        .navLink {
+            font-size: 0.42rem;
+            -webkit-box-flex: 1;
+            -ms-flex: auto;
+            flex: auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            line-height: 1;
+            color: #666;
+        }
+        .navLink.active {
+            color: #1abc9c
+        }
+        .navLinkIco {
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        .navLinkText {
+            display: block;
+            line-height: 1;
+            font-size: 0.24rem;
+        }
+
+        .img-responsive {
+            width: 100%;
+        }
+    &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+
+&amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;
+   &amp;lt;div class=&amp;quot;box-content&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;http://temp.im/640x260/444/fff&amp;quot; class=&amp;quot;img-responsive&amp;quot;&amp;gt;
+    &amp;lt;ul style=&amp;quot;font-size:0.3rem; padding: 0.2rem&amp;quot;&amp;gt;
+        &amp;lt;li style=&amp;quot;font-size:0.4rem&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;http://www.jianshu.com/p/985d26b40199&amp;quot;&amp;gt;rem布局（进阶版）的一些说明&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;li&amp;gt;1，大家先把这个页面在不同设备模式下浏览下，感受下。&amp;lt;/li&amp;gt;
+        &amp;lt;li&amp;gt;2，一般来说我们的手机端效果图是640px或750px。&amp;lt;/li&amp;gt;
+        &amp;lt;li&amp;gt;3，对于上图这类需要等屏宽的图片，只需让其宽度设为 100% 即可。&amp;lt;/li&amp;gt;
+        &amp;lt;li&amp;gt;4，该布局方案要求凡是涉及尺寸的，单位都是rem，比如，height width margin paddint top border-radius 等等。你只需要按照效果图上标注的尺寸布局即可。&amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;
+
+   &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;navRoot&amp;quot;&amp;gt;
+        &amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;navLink active&amp;quot;&amp;gt;
+            &amp;lt;i class=&amp;quot;fa fa-home navLinkIco&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
+            &amp;lt;span class=&amp;quot;navLinkText&amp;quot;&amp;gt;首页&amp;lt;/span&amp;gt;
+        &amp;lt;/a&amp;gt;
+        &amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;navLink&amp;quot;&amp;gt;
+            &amp;lt;i class=&amp;quot;fa fa-home navLinkIco&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
+            &amp;lt;span class=&amp;quot;navLinkText&amp;quot;&amp;gt;好店&amp;lt;/span&amp;gt;
+        &amp;lt;/a&amp;gt;
+        &amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;navLink&amp;quot;&amp;gt;
+            &amp;lt;i class=&amp;quot;fa fa-home navLinkIco&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
+            &amp;lt;span class=&amp;quot;navLinkText&amp;quot;&amp;gt;简单&amp;lt;/span&amp;gt;
+        &amp;lt;/a&amp;gt;
+        &amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;navLink&amp;quot;&amp;gt;
+            &amp;lt;i class=&amp;quot;fa fa-home navLinkIco&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
+            &amp;lt;span class=&amp;quot;navLinkText&amp;quot;&amp;gt;复杂&amp;lt;/span&amp;gt;
+        &amp;lt;/a&amp;gt;
+        &amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;navLink&amp;quot;&amp;gt;
+            &amp;lt;i class=&amp;quot;fa fa-home navLinkIco&amp;quot; aria-hidden=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;
+            &amp;lt;span class=&amp;quot;navLinkText&amp;quot;&amp;gt;异步&amp;lt;/span&amp;gt;
+        &amp;lt;/a&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参考： &lt;a href=&quot;http://www.jianshu.com/p/985d26b40199&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/985d26b40199&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html&lt;/a&gt;  &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直在用阿里的flexible布局，但是从来没总结过，今天看到一篇总结的不错就搬过来记录下。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="移动端 rem" scheme="http://blog.newbug.xyz/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF-rem/"/>
+    
+  </entry>
   
   <entry>
     <title>javascript中的this</title>
@@ -3640,41 +3859,6 @@ strong,em{font-style:normal;font-weight:bold;}
     
     
       <category term="css" scheme="http://blog.newbug.xyz/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>总结</title>
-    <link href="http://blog.newbug.xyz/2016/03/27/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
-    <id>http://blog.newbug.xyz/2016/03/27/工作总结/</id>
-    <published>2016-03-27T06:17:18.000Z</published>
-    <updated>2016-10-31T08:58:18.000Z</updated>
-    
-    <content type="html">&lt;p&gt;总是碰到各种各样的问题，还老是被批评，时刻总结一下总是个好习惯。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;代码规范&quot;&gt;&lt;a href=&quot;#代码规范&quot; class=&quot;headerlink&quot; title=&quot;代码规范&quot;&gt;&lt;/a&gt;代码规范&lt;/h3&gt;&lt;p&gt;因为代码规范的问题，我没少挨骂，对于一名工程师来说，写出规范代码是基本的要求，不仅能方便你后期的维护，还能让别人看懂你的代码。同时，代码规范涉及很多方面的内容，在此作出总结：&lt;/p&gt;
-&lt;p&gt;1.命名规范。类名可以多次使用，但是ID名只能使用一次。别让组长在html结构中找出重复的ID名字，也别让组长在css中找到重复的类名，所以为新元素命名的时候要注意检查原来的css中有没有这个类了。还有就是命名要用英文，别用拼音。&lt;/p&gt;
-&lt;p&gt;2.图片的使用规范。首先你应该根据最适合自己的方式切图，不要只是依靠UI切图，因为别人不懂如何才能更方便地布局。&lt;/p&gt;
-&lt;p&gt;3.注释规范。可能页面当中有很多你曾经引入的js或者css，但是最后你用压缩技术把他们压缩为一个js了，就不能把原来的删除，而要注释掉，这样是为了别人能看到你的引用内容。如果你复制这个页面的时候，很可能会忘记修改注释内容，我曾经因为觉得无所谓就被骂了几次。另外有一个问题就是不用的引入不要想着注释掉或者留着不碍事， 不用的东西也应该删除。&lt;/p&gt;
-&lt;p&gt;4.css书写规范。重复的样式应该去掉，相近的元素应该放在一起书写，方便修改。即使后面加入的元素也不要写在最后面，应该写在相近处。&lt;/p&gt;
-&lt;p&gt;5.js书写规范。js是比较复杂的东西，而且涉及功能，要写得简单明了，只用一次的函数不必封装，自己写就行了，多次使用的就需要封装起来，方便调用。写js要用ID名确定唯一性，不能用类名，切记切记。代码之间要有空行，运算符号之间要加空格，更规范，别人也看得舒服。&lt;/p&gt;
-&lt;p&gt;6.文件管理规范。不用的文件应该删除，图片尽量放上七牛上面进行引用。&lt;/p&gt;
-&lt;p&gt;以上是代码和文件规范方面的问题，希望自己能够从这些细节中渐渐改进，长点记性，从而让自己工作更有信心。&lt;/p&gt;
-&lt;h3 id=&quot;态度问题&quot;&gt;&lt;a href=&quot;#态度问题&quot; class=&quot;headerlink&quot; title=&quot;态度问题&quot;&gt;&lt;/a&gt;态度问题&lt;/h3&gt;&lt;p&gt;对于新人来说，代码写不好，经常出bug是正常现象，只要你态度端正，意识到自己的错误，在工作中再细心，认真一点，其实很多问题都可以避免的，在此总结我的态度问题。&lt;br&gt;1.做事马虎，不认真。其实我对工作是有激情的，就是太懒了，每次做新功能都是做完就好，不求完美，但求无错，问题是你觉得你做得完美了，但是别人眼中，却是错漏百出，特别是一些严谨的工程师。因为不认真检查，导致命名出错，代码重复，出bug。后来我发现其实只要认真检查一遍，就能找出问题并解决。&lt;/p&gt;
-&lt;p&gt;2.经常甩锅。做项目是一个多人协作的过程，当我出现问题的时候，我总想把责任推卸给别人，其实根本是自己的能力问题，导致做不出来产品需要的效果嘛，这样的人其实在职场中是非常令人反感的，特别是你的领导是一个不愿意甩锅的人。&lt;/p&gt;
-&lt;p&gt;3.不懂装懂。组长无数次提醒我，不懂的东西要问，做不能了的东西要说，别硬撑着，到时候出事了很麻烦，因为刚开始我觉得自己啥都能做，暂时不懂的东西可以慢慢弄懂。不过我忽略了这是职场，不是学校，没有时间给你慢慢弄懂的，因为测试等着你的产品测试，用户等着你的产品用啊，骚年。&lt;/p&gt;
-&lt;p&gt;主要就是上面几个态度的问题，一个做事严谨，肯负责任的人，才是能成为大工程师的人。&lt;/p&gt;
-&lt;h3 id=&quot;该优化的地方没有优化&quot;&gt;&lt;a href=&quot;#该优化的地方没有优化&quot; class=&quot;headerlink&quot; title=&quot;该优化的地方没有优化&quot;&gt;&lt;/a&gt;该优化的地方没有优化&lt;/h3&gt;&lt;p&gt;其实这也是懒惰的表现，因为完成了任务了嘛，但是我的组长是个非常严格的人。产品叫你加一个二维码，我加了，但是样式了ui稿有冲突，整体非常不协调，我觉得没事，反正我的目的达成了，可是组长看到了一顿骂，你看这网站的风格基本是圆润的，你突然搞了个标准90度大箭头在这里，二维码也是小气得可怜，另外这个网站完全没有做seo优化……&lt;br&gt;区分一个优秀的人和一个平庸的人很简单，就是看你做事的态度，区分一个工程师和码农的区别也很简单，就是看你对待程序的态度，是应付，还是为了做得更好。&lt;/p&gt;
-&lt;p&gt;其实代码没那么难，难得是你的态度，借此反思总结自身不足，保证以后不犯，也以此告诫各位前端新人，要保持严谨的态度对待你的程序。共勉&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;总是碰到各种各样的问题，还老是被批评，时刻总结一下总是个好习惯。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端总结" scheme="http://blog.newbug.xyz/categories/%E5%89%8D%E7%AB%AF%E6%80%BB%E7%BB%93/"/>
-    
     
   </entry>
   
