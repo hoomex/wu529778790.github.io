@@ -201,47 +201,6 @@
     <div class="post-content" id="post-content" itemprop="postContent" >
     
         <p>  总有些东西不清不楚，总有些只是不够系统。今天你的不努力，导致明天你的后悔不已！</p>
-<pre><code>&lt;!--more--&gt;
-</code></pre><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略(Same origin policy)，它是由Netscape提出的一个著名的安全策略。现在所有支持JavaScript的浏览器都会使用这个策略。所谓同源是指，域名，协议，端口相同。[2] 同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。[3]</p>
-<p>如果非同源，共有三种行为受到限制:  </p>
-<ol>
-<li>Cookie、LocalStorage 和 IndexDB 无法读取。</li>
-<li>DOM 无法获得。</li>
-<li><p>AJAX请求不能发送。  </p>
-<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>Asynchronous JavaScript and XML (Ajax) Ajax 允许在不干扰 Web 应用程序的显示和行为的情况下在后台进行数据检索。使用 XMLHttpRequest 函数获取数据，它是一种 API，允许客户端 JavaScript 通过 HTTP 连接到远程服务器。用JSON来传数据，靠JSONP来跨域。  </p>
-<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>(JavaScript Object Notation) 是一种轻量级的数据交换格式。JSON 依赖于 JavaScript 开发人员，因为它是 JavaScript 对象的字符串表示。例如，假设有一个含两个属性的 ticker 对象：symbol 和 price。这是在 JavaScript 中定义 ticker 对象的方式：<br>var ticker = {symbol: ‘IBM’, price: 91.42};<br>并且这是它的 JSON 表示方式：<br>{symbol: ‘IBM’, price: 91.42}<br>有关 JSON 和将其作为数据内部交换格式的信息。清单 1 定义了一个 JavaScript 函数，调用该函数时会显示 IBM 的股价。</p>
-<p>清单 1. 定义 showPrice 函数<br>function showPrice(data) {<br> alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);<br>}<br>可以将 JSON 数据作为参数传递，以调用该函数：<br>showPrice({symbol: ‘IBM’, price: 91.42}); // alerts: Symbol: IBM, Price: 91.42<br>现在准备将这两个步骤包含到 Web 页面，如清单 2 所示。清单 2. 在 Web 页面中包含 showPrice 函数和参数<br><script type="text/javascript"><br>function showPrice(data) {<br> alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);<br>}<br></script><br><script type="text/javascript">showPrice({symbol: ‘IBM’, price: 91.42});</script><br>至此，本文已展示了如何将静态 JSON 数据作为参数调用 JavaScript 函数。不过，通过在函数调用中动态包装 JSON 数据可以用动态数据调用函数，这是一种动态 JavaScript 插入的技术。要查看其效果，将下面一行放入名为 ticker.js 的独立 JavaScript 文件中。<br>showPrice({symbol: ‘IBM’, price: 91.42});<br>现在改变 Web 页面中的脚本，使其和清单 3 一样。清单 3. 动态 JavaScript 插入代码<br><script type="text/javascript"><br>// This is our function to be called with JSON data<br>function showPrice(data) {<br>   alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);<br>}<br>var url = “ticker.js”; // URL of the external script<br>// this shows dynamic script insertion<br>var script = document.createElement(‘script’);<br>script.setAttribute(‘src’, url);</p>
-<p>// load the script<br>document.getElementsByTagName(‘head’)[0].appendChild(script);<br></script><br>在清单 3 所示的例子中，动态插入的 JavaScript 代码位于 ticker.js 文件中，它将真正的 JSON 数据作为参数调用 showPrice()函数。<br>前面已经提到，同源策略不阻止将动态脚本元素插入文档中。也就是说，可以动态插入来自不同域的 JavaScript，并且这些域都携带 JSON 数据。这其实是真正的 JSONP（JSON with Padding）：打包在函数调用中的 JSON 数据。注意，为了完成该操作，Web 页面必须在插入时具有已经定义好的回调函数，也就是我们例子中的 showPrice()。<br>不过，所谓的 JSONP 服务（或 Remote JSON Service）是一种带有附加功能的 Web 服务，该功能支持在特定于用户的函数调用中打包返回的 JSON 数据。这种方法依赖于接受回调函数名作为请求参数的远程服务。然后该服务生成对该函数的调用，将 JSON 数据作为参数传递，在到达客户端时将其插入 Web 页面并开始执行。  </p>
-</li>
-</ol>
-<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>是JSON with Padding的略称。它是一个非官方的跨域数据交互协议协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问（这仅仅是JSONP简单的实现形式）  </p>
-<h2 id="JSONP是怎样产生的"><a href="#JSONP是怎样产生的" class="headerlink" title="JSONP是怎样产生的"></a>JSONP是怎样产生的</h2><p>通俗的阐释：</p>
-<p>1、一个众所周知的问题，Ajax直接请求普通文件存在跨域无权限访问的问题，甭管你是静态页面、动态网页、web服务、WCF，只要是跨域请求，一律不准；</p>
-<p>2、不过我们又发现，Web页面上调用js文件时则不受是否跨域的影响（不仅如此，我们还发现凡是拥有”src”这个属性的标签都拥有跨域的能力，比如<script>、<img>、<iframe>）；</p>
-<p>3、于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、属于未来的HTML5之Websocket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；</p>
-<p>4、恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被js原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</p>
-<p>5、这样子解决方案就呼之欲出了，web客户端通过与调用脚本一模一样的方式，来调用跨域服务器上动态生成的js格式文件（一般以JSON为后缀），显而易见，服务器之所以要动态生成JSON文件，目的就在于把客户端需要的数据装入进去。</p>
-<p>6、客户端在对JSON文件调用成功之后，也就获得了自己所需的数据，剩下的就是按照自己需求进行处理和展现了，这种获取远程数据的方式看起来非常像AJAX，但其实并不一样。</p>
-<p>7、为了便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作JSONP，该协议的一个要点就是允许用户传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住JSON数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了  </p>
-<p>JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。</p>
-<p>在“跨域”的问题上，我们发现src 属性并没有受到相关的限制，比如 img / script 等。  </p>
-<p>JSONP的基本思想是，网页通过添加一个<script>标签，设置这个script标签的src属性用于向服务器请求JSON数据 ，src属性的查询字符串一定要加一个callback函数，用来指定回调函数的名字 。而这个函数是在资源加载之前就已经在前端定义好的，这个函数接受一个参数并利用这个参数做一些事情。向服务器请求后，服务器会将JSON数据放在一个指定名字的回调函数里作为其参数传回来。这时，因为函数已经在前端定义好了，所以会直接调用。  </p>
-<p>首先，网页动态插入<script>元素，由它向跨源网址发出请求。   </p>
-<p>  function addScriptTag(src) {<br>    var script = document.createElement(‘script’);<br>    script.setAttribute(“type”,”text/javascript”);<br>    script.src = src;<br>    document.body.appendChild(script);<br>  }</p>
-<p>  window.onload = function () {<br>    addScriptTag(‘<a href="http://example.com/ip?callback=foo&#39;);//请求服务器数据并规定回调函数为foo">http://example.com/ip?callback=foo&#39;);//请求服务器数据并规定回调函数为foo</a><br>  }</p>
-<p>  function foo(data) {<br>    console.log(‘Your public IP address is: ‘ + data.ip);<br>  };<br>上面代码通过动态添加<script>元素，向服务器example.com发出请求。注意，该请求的查询字符串有一个callback参数，用来指定回调函数的名字，这对于JSONP是必需的。<br>服务器收到这个请求以后，会将数据放在回调函数的参数位置返回。  </p>
-<p>  foo({<br>  “ip”: “8.8.8.8”<br>  });  </p>
-<p>由于<script>元素请求的脚本，直接作为代码运行。这时，只要浏览器定义了foo函数，该函数就会立即调用。作为参数的JSON数据被视为JavaScript对象，而不是字符串，因此避免了使用JSON.parse的步骤。  </p>
-<h2 id="Jquery对JSONP的实现"><a href="#Jquery对JSONP的实现" class="headerlink" title="Jquery对JSONP的实现"></a>Jquery对JSONP的实现</h2><p>jQuery 拥有对 JSONP 回调的本地支持。如果指定了 JSONP 回调，就可以加载位于另一个域的 JSON 数据，回调的语法为：url?callback=?。<br>jQuery 自动将 ? 替换为要调用的生成函数名。清单 4 显示了该代码。<br>清单 4. 使用 JSONP 回调<br>  jQuery.getJSON(url+”&amp;callback=?”, function(data) {<br>      alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);<br>  });<br>为此，jQuery 将一个全局函数附加到插入脚本时需要调用的窗口对象。另外，jQuery 也能优化非跨域调用。如果向同一个域发出请求，jQuery 就将其转化为普通 Ajax 请求。<br>jQuery框架也当然支持JSONP，可以使用$.getJSON(url,[data],[callback])方法。<br><a href="http://api.jquery.com/jQuery.getJSON/">http://api.jquery.com/jQuery.getJSON/</a><br>要注意的是在url的后面必须添加一个callback参数，这样getJSON方法才会知道是用JSONP方式去访问服务，callback后面的那个问号是内部自动生成的一个回调函数名。  </p>
-<h2 id="使用JSONP支持的示例服务"><a href="#使用JSONP支持的示例服务" class="headerlink" title="使用JSONP支持的示例服务"></a>使用JSONP支持的示例服务</h2><p>在上一个例子中，使用了静态文件（ticker.js）将 JavaScript 动态插入到 Web 页面中。尽管返回了 JSONP 回复，但它不允许您在 URL 中定义回调函数名。这不是 JSONP 服务。因此，如何才能将其转换为真正的 JSONP 服务呢？可使用的方法很多。这里我们将分别使用 PHP 和 Java 展示两个示例。首先，假设您的服务在所请求的 URL 中接受了一个名为 callback 的参数。（参数名不重要，但是客户和服务器必须都同 意该名称）。另外假设向服务发送的请求是这样的：<br>  <a href="http://www.yourdomain.com/jsonp/ticker?symbol=IBM&amp;callback=showPrice">http://www.yourdomain.com/jsonp/ticker?symbol=IBM&amp;callback=showPrice</a><br>在这种情况下，symbol 是表示请求 ticker symbol 的请求参数，而 callback 是 Web 应用程序的回调函数的名称。使用清单 5 所示的代码可以通过 jQuery 的 JSONP 支持调用该服务。清单 5. 调用回调服务<br>  jQuery.getJSON(“<a href="http://www.yourdomain.com/jsonp/ticker?symbol=IBM&amp;callback=?">http://www.yourdomain.com/jsonp/ticker?symbol=IBM&amp;callback=?</a>“,<br>  function(data) {<br>      alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);<br>  });<br>注意，我们使用 ? 作为回调函数名，而非真实的函数名。因为 jQuery 会用生成的函数名替换 ?。所以您不用定义类似于 showPrice() 的函数。  </p>
-<h2 id="现成的-JSONP-服务"><a href="#现成的-JSONP-服务" class="headerlink" title="现成的 JSONP 服务"></a>现成的 JSONP 服务</h2><p>Digg API：来自 Digg 的头条新闻：</p>
-<p>  <a href="http://services.digg.com/stories/top?appkey=http%3A%2F%2Fmashup.com&amp;type=javascript">http://services.digg.com/stories/top?appkey=http%3A%2F%2Fmashup.com&amp;type=javascript</a><br>  &amp;callback=?<br>Geonames API：邮编的位置信息：</p>
-<p>  <a href="http://www.geonames.org/postalCodeLookupJSON?postalcode=10504&amp;country=US&amp;callback=?">http://www.geonames.org/postalCodeLookupJSON?postalcode=10504&amp;country=US&amp;callback=?</a><br>Flickr API：来自 Flickr 的最新猫图片：</p>
-<p>  <a href="http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any">http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any</a><br>  &amp;format=json&amp;jsoncallback=?  </p>
-<h2 id="使用-ajax方法来实现"><a href="#使用-ajax方法来实现" class="headerlink" title="使用$.ajax方法来实现"></a>使用$.ajax方法来实现</h2><p><a href="http://api.jquery.com/jQuery.ajax">http://api.jquery.com/jQuery.ajax</a>  </p>
-<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>(Cross-Origin Resource Sharing ) 跨来源资源共享（CORS）是一份浏览器技术的规范，提供了 Web 服务从不同网域传来沙盒脚本的方法，以避开浏览器的同源策略，是 JSONP 模式的现代版。与 JSONP 只能发GET要求不同，CORS 允许任何类型请求。用 CORS 可以让网页设计师用一般的 XMLHttpRequest，这种方式的错误处理比 JSONP 要来的好。另一方面，JSONP 可以在不支持 CORS 的老旧浏览器上运作。现代的浏览器都支持 CORS。  </p>
-<p>1.<a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html">http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html</a><br>2.baidu<br>3.MDN<br>4.wiki<br>5.<a href="https://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/">https://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/</a><br>6.<a href="http://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html">http://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html</a><br>7.<a href="https://segmentfault.com/a/1190000009844037#articleHeader0">https://segmentfault.com/a/1190000009844037#articleHeader0</a></p>
-</script></p>
     
     </div>
     
