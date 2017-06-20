@@ -48,6 +48,69 @@
   </entry>
   
   <entry>
+    <title>jsonp的一点笔记</title>
+    <link href="http://blog.newbug.xyz/2017/05/20/jsonp%E7%9A%84%E4%B8%80%E7%82%B9%E7%AC%94%E8%AE%B0/"/>
+    <id>http://blog.newbug.xyz/2017/05/20/jsonp的一点笔记/</id>
+    <published>2017-05-20T08:55:32.000Z</published>
+    <updated>2017-06-20T09:31:04.736Z</updated>
+    
+    <content type="html">&lt;p&gt;  总有些东西不清不楚，总有些只是不够系统。今天你的不努力，导致明天你的后悔不已！&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!--more--&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;同源策略&quot;&gt;&lt;a href=&quot;#同源策略&quot; class=&quot;headerlink&quot; title=&quot;同源策略&quot;&gt;&lt;/a&gt;同源策略&lt;/h2&gt;&lt;p&gt;同源策略(Same origin policy)，它是由Netscape提出的一个著名的安全策略。现在所有支持JavaScript的浏览器都会使用这个策略。所谓同源是指，域名，协议，端口相同。[2] 同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。[3]&lt;/p&gt;
+&lt;p&gt;如果非同源，共有三种行为受到限制:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Cookie、LocalStorage 和 IndexDB 无法读取。&lt;/li&gt;
+&lt;li&gt;DOM 无法获得。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AJAX请求不能发送。  &lt;/p&gt;
+&lt;h2 id=&quot;AJAX&quot;&gt;&lt;a href=&quot;#AJAX&quot; class=&quot;headerlink&quot; title=&quot;AJAX&quot;&gt;&lt;/a&gt;AJAX&lt;/h2&gt;&lt;p&gt;Asynchronous JavaScript and XML (Ajax) Ajax 允许在不干扰 Web 应用程序的显示和行为的情况下在后台进行数据检索。使用 XMLHttpRequest 函数获取数据，它是一种 API，允许客户端 JavaScript 通过 HTTP 连接到远程服务器。用JSON来传数据，靠JSONP来跨域。  &lt;/p&gt;
+&lt;h2 id=&quot;JSON&quot;&gt;&lt;a href=&quot;#JSON&quot; class=&quot;headerlink&quot; title=&quot;JSON&quot;&gt;&lt;/a&gt;JSON&lt;/h2&gt;&lt;p&gt;(JavaScript Object Notation) 是一种轻量级的数据交换格式。JSON 依赖于 JavaScript 开发人员，因为它是 JavaScript 对象的字符串表示。例如，假设有一个含两个属性的 ticker 对象：symbol 和 price。这是在 JavaScript 中定义 ticker 对象的方式：&lt;br&gt;var ticker = {symbol: ‘IBM’, price: 91.42};&lt;br&gt;并且这是它的 JSON 表示方式：&lt;br&gt;{symbol: ‘IBM’, price: 91.42}&lt;br&gt;有关 JSON 和将其作为数据内部交换格式的信息。清单 1 定义了一个 JavaScript 函数，调用该函数时会显示 IBM 的股价。&lt;/p&gt;
+&lt;p&gt;清单 1. 定义 showPrice 函数&lt;br&gt;function showPrice(data) {&lt;br&gt; alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);&lt;br&gt;}&lt;br&gt;可以将 JSON 数据作为参数传递，以调用该函数：&lt;br&gt;showPrice({symbol: ‘IBM’, price: 91.42}); // alerts: Symbol: IBM, Price: 91.42&lt;br&gt;现在准备将这两个步骤包含到 Web 页面，如清单 2 所示。清单 2. 在 Web 页面中包含 showPrice 函数和参数&lt;br&gt;&lt;script type=&quot;text/javascript&quot;&gt;&lt;br&gt;function showPrice(data) {&lt;br&gt; alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);&lt;br&gt;}&lt;br&gt;&lt;/script&gt;&lt;br&gt;&lt;script type=&quot;text/javascript&quot;&gt;showPrice({symbol: ‘IBM’, price: 91.42});&lt;/script&gt;&lt;br&gt;至此，本文已展示了如何将静态 JSON 数据作为参数调用 JavaScript 函数。不过，通过在函数调用中动态包装 JSON 数据可以用动态数据调用函数，这是一种动态 JavaScript 插入的技术。要查看其效果，将下面一行放入名为 ticker.js 的独立 JavaScript 文件中。&lt;br&gt;showPrice({symbol: ‘IBM’, price: 91.42});&lt;br&gt;现在改变 Web 页面中的脚本，使其和清单 3 一样。清单 3. 动态 JavaScript 插入代码&lt;br&gt;&lt;script type=&quot;text/javascript&quot;&gt;&lt;br&gt;// This is our function to be called with JSON data&lt;br&gt;function showPrice(data) {&lt;br&gt;   alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);&lt;br&gt;}&lt;br&gt;var url = “ticker.js”; // URL of the external script&lt;br&gt;// this shows dynamic script insertion&lt;br&gt;var script = document.createElement(‘script’);&lt;br&gt;script.setAttribute(‘src’, url);&lt;/p&gt;
+&lt;p&gt;// load the script&lt;br&gt;document.getElementsByTagName(‘head’)[0].appendChild(script);&lt;br&gt;&lt;/script&gt;&lt;br&gt;在清单 3 所示的例子中，动态插入的 JavaScript 代码位于 ticker.js 文件中，它将真正的 JSON 数据作为参数调用 showPrice()函数。&lt;br&gt;前面已经提到，同源策略不阻止将动态脚本元素插入文档中。也就是说，可以动态插入来自不同域的 JavaScript，并且这些域都携带 JSON 数据。这其实是真正的 JSONP（JSON with Padding）：打包在函数调用中的 JSON 数据。注意，为了完成该操作，Web 页面必须在插入时具有已经定义好的回调函数，也就是我们例子中的 showPrice()。&lt;br&gt;不过，所谓的 JSONP 服务（或 Remote JSON Service）是一种带有附加功能的 Web 服务，该功能支持在特定于用户的函数调用中打包返回的 JSON 数据。这种方法依赖于接受回调函数名作为请求参数的远程服务。然后该服务生成对该函数的调用，将 JSON 数据作为参数传递，在到达客户端时将其插入 Web 页面并开始执行。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;JSONP&quot;&gt;&lt;a href=&quot;#JSONP&quot; class=&quot;headerlink&quot; title=&quot;JSONP&quot;&gt;&lt;/a&gt;JSONP&lt;/h2&gt;&lt;p&gt;是JSON with Padding的略称。它是一个非官方的跨域数据交互协议协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问（这仅仅是JSONP简单的实现形式）  &lt;/p&gt;
+&lt;h2 id=&quot;JSONP是怎样产生的&quot;&gt;&lt;a href=&quot;#JSONP是怎样产生的&quot; class=&quot;headerlink&quot; title=&quot;JSONP是怎样产生的&quot;&gt;&lt;/a&gt;JSONP是怎样产生的&lt;/h2&gt;&lt;p&gt;通俗的阐释：&lt;/p&gt;
+&lt;p&gt;1、一个众所周知的问题，Ajax直接请求普通文件存在跨域无权限访问的问题，甭管你是静态页面、动态网页、web服务、WCF，只要是跨域请求，一律不准；&lt;/p&gt;
+&lt;p&gt;2、不过我们又发现，Web页面上调用js文件时则不受是否跨域的影响（不仅如此，我们还发现凡是拥有”src”这个属性的标签都拥有跨域的能力，比如&lt;script&gt;、&lt;img&gt;、&lt;iframe&gt;）；&lt;/p&gt;
+&lt;p&gt;3、于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、属于未来的HTML5之Websocket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；&lt;/p&gt;
+&lt;p&gt;4、恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被js原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；&lt;/p&gt;
+&lt;p&gt;5、这样子解决方案就呼之欲出了，web客户端通过与调用脚本一模一样的方式，来调用跨域服务器上动态生成的js格式文件（一般以JSON为后缀），显而易见，服务器之所以要动态生成JSON文件，目的就在于把客户端需要的数据装入进去。&lt;/p&gt;
+&lt;p&gt;6、客户端在对JSON文件调用成功之后，也就获得了自己所需的数据，剩下的就是按照自己需求进行处理和展现了，这种获取远程数据的方式看起来非常像AJAX，但其实并不一样。&lt;/p&gt;
+&lt;p&gt;7、为了便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作JSONP，该协议的一个要点就是允许用户传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住JSON数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了  &lt;/p&gt;
+&lt;p&gt;JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。&lt;/p&gt;
+&lt;p&gt;在“跨域”的问题上，我们发现src 属性并没有受到相关的限制，比如 img / script 等。  &lt;/p&gt;
+&lt;p&gt;JSONP的基本思想是，网页通过添加一个&lt;script&gt;标签，设置这个script标签的src属性用于向服务器请求JSON数据 ，src属性的查询字符串一定要加一个callback函数，用来指定回调函数的名字 。而这个函数是在资源加载之前就已经在前端定义好的，这个函数接受一个参数并利用这个参数做一些事情。向服务器请求后，服务器会将JSON数据放在一个指定名字的回调函数里作为其参数传回来。这时，因为函数已经在前端定义好了，所以会直接调用。  &lt;/p&gt;
+&lt;p&gt;首先，网页动态插入&lt;script&gt;元素，由它向跨源网址发出请求。   &lt;/p&gt;
+&lt;p&gt;  function addScriptTag(src) {&lt;br&gt;    var script = document.createElement(‘script’);&lt;br&gt;    script.setAttribute(“type”,”text/javascript”);&lt;br&gt;    script.src = src;&lt;br&gt;    document.body.appendChild(script);&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  window.onload = function () {&lt;br&gt;    addScriptTag(‘&lt;a href=&quot;http://example.com/ip?callback=foo&amp;#39;);//请求服务器数据并规定回调函数为foo&quot;&gt;http://example.com/ip?callback=foo&amp;#39;);//请求服务器数据并规定回调函数为foo&lt;/a&gt;&lt;br&gt;  }&lt;/p&gt;
+&lt;p&gt;  function foo(data) {&lt;br&gt;    console.log(‘Your public IP address is: ‘ + data.ip);&lt;br&gt;  };&lt;br&gt;上面代码通过动态添加&lt;script&gt;元素，向服务器example.com发出请求。注意，该请求的查询字符串有一个callback参数，用来指定回调函数的名字，这对于JSONP是必需的。&lt;br&gt;服务器收到这个请求以后，会将数据放在回调函数的参数位置返回。  &lt;/p&gt;
+&lt;p&gt;  foo({&lt;br&gt;  “ip”: “8.8.8.8”&lt;br&gt;  });  &lt;/p&gt;
+&lt;p&gt;由于&lt;script&gt;元素请求的脚本，直接作为代码运行。这时，只要浏览器定义了foo函数，该函数就会立即调用。作为参数的JSON数据被视为JavaScript对象，而不是字符串，因此避免了使用JSON.parse的步骤。  &lt;/p&gt;
+&lt;h2 id=&quot;Jquery对JSONP的实现&quot;&gt;&lt;a href=&quot;#Jquery对JSONP的实现&quot; class=&quot;headerlink&quot; title=&quot;Jquery对JSONP的实现&quot;&gt;&lt;/a&gt;Jquery对JSONP的实现&lt;/h2&gt;&lt;p&gt;jQuery 拥有对 JSONP 回调的本地支持。如果指定了 JSONP 回调，就可以加载位于另一个域的 JSON 数据，回调的语法为：url?callback=?。&lt;br&gt;jQuery 自动将 ? 替换为要调用的生成函数名。清单 4 显示了该代码。&lt;br&gt;清单 4. 使用 JSONP 回调&lt;br&gt;  jQuery.getJSON(url+”&amp;amp;callback=?”, function(data) {&lt;br&gt;      alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);&lt;br&gt;  });&lt;br&gt;为此，jQuery 将一个全局函数附加到插入脚本时需要调用的窗口对象。另外，jQuery 也能优化非跨域调用。如果向同一个域发出请求，jQuery 就将其转化为普通 Ajax 请求。&lt;br&gt;jQuery框架也当然支持JSONP，可以使用$.getJSON(url,[data],[callback])方法。&lt;br&gt;&lt;a href=&quot;http://api.jquery.com/jQuery.getJSON/&quot;&gt;http://api.jquery.com/jQuery.getJSON/&lt;/a&gt;&lt;br&gt;要注意的是在url的后面必须添加一个callback参数，这样getJSON方法才会知道是用JSONP方式去访问服务，callback后面的那个问号是内部自动生成的一个回调函数名。  &lt;/p&gt;
+&lt;h2 id=&quot;使用JSONP支持的示例服务&quot;&gt;&lt;a href=&quot;#使用JSONP支持的示例服务&quot; class=&quot;headerlink&quot; title=&quot;使用JSONP支持的示例服务&quot;&gt;&lt;/a&gt;使用JSONP支持的示例服务&lt;/h2&gt;&lt;p&gt;在上一个例子中，使用了静态文件（ticker.js）将 JavaScript 动态插入到 Web 页面中。尽管返回了 JSONP 回复，但它不允许您在 URL 中定义回调函数名。这不是 JSONP 服务。因此，如何才能将其转换为真正的 JSONP 服务呢？可使用的方法很多。这里我们将分别使用 PHP 和 Java 展示两个示例。首先，假设您的服务在所请求的 URL 中接受了一个名为 callback 的参数。（参数名不重要，但是客户和服务器必须都同 意该名称）。另外假设向服务发送的请求是这样的：&lt;br&gt;  &lt;a href=&quot;http://www.yourdomain.com/jsonp/ticker?symbol=IBM&amp;amp;callback=showPrice&quot;&gt;http://www.yourdomain.com/jsonp/ticker?symbol=IBM&amp;amp;callback=showPrice&lt;/a&gt;&lt;br&gt;在这种情况下，symbol 是表示请求 ticker symbol 的请求参数，而 callback 是 Web 应用程序的回调函数的名称。使用清单 5 所示的代码可以通过 jQuery 的 JSONP 支持调用该服务。清单 5. 调用回调服务&lt;br&gt;  jQuery.getJSON(“&lt;a href=&quot;http://www.yourdomain.com/jsonp/ticker?symbol=IBM&amp;amp;callback=?&quot;&gt;http://www.yourdomain.com/jsonp/ticker?symbol=IBM&amp;amp;callback=?&lt;/a&gt;“,&lt;br&gt;  function(data) {&lt;br&gt;      alert(“Symbol: “ + data.symbol + “, Price: “ + data.price);&lt;br&gt;  });&lt;br&gt;注意，我们使用 ? 作为回调函数名，而非真实的函数名。因为 jQuery 会用生成的函数名替换 ?。所以您不用定义类似于 showPrice() 的函数。  &lt;/p&gt;
+&lt;h2 id=&quot;现成的-JSONP-服务&quot;&gt;&lt;a href=&quot;#现成的-JSONP-服务&quot; class=&quot;headerlink&quot; title=&quot;现成的 JSONP 服务&quot;&gt;&lt;/a&gt;现成的 JSONP 服务&lt;/h2&gt;&lt;p&gt;Digg API：来自 Digg 的头条新闻：&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;http://services.digg.com/stories/top?appkey=http%3A%2F%2Fmashup.com&amp;amp;type=javascript&quot;&gt;http://services.digg.com/stories/top?appkey=http%3A%2F%2Fmashup.com&amp;amp;type=javascript&lt;/a&gt;&lt;br&gt;  &amp;amp;callback=?&lt;br&gt;Geonames API：邮编的位置信息：&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;http://www.geonames.org/postalCodeLookupJSON?postalcode=10504&amp;amp;country=US&amp;amp;callback=?&quot;&gt;http://www.geonames.org/postalCodeLookupJSON?postalcode=10504&amp;amp;country=US&amp;amp;callback=?&lt;/a&gt;&lt;br&gt;Flickr API：来自 Flickr 的最新猫图片：&lt;/p&gt;
+&lt;p&gt;  &lt;a href=&quot;http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;amp;tagmode=any&quot;&gt;http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;amp;tagmode=any&lt;/a&gt;&lt;br&gt;  &amp;amp;format=json&amp;amp;jsoncallback=?  &lt;/p&gt;
+&lt;h2 id=&quot;使用-ajax方法来实现&quot;&gt;&lt;a href=&quot;#使用-ajax方法来实现&quot; class=&quot;headerlink&quot; title=&quot;使用$.ajax方法来实现&quot;&gt;&lt;/a&gt;使用$.ajax方法来实现&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://api.jquery.com/jQuery.ajax&quot;&gt;http://api.jquery.com/jQuery.ajax&lt;/a&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;CORS&quot;&gt;&lt;a href=&quot;#CORS&quot; class=&quot;headerlink&quot; title=&quot;CORS&quot;&gt;&lt;/a&gt;CORS&lt;/h2&gt;&lt;p&gt;(Cross-Origin Resource Sharing ) 跨来源资源共享（CORS）是一份浏览器技术的规范，提供了 Web 服务从不同网域传来沙盒脚本的方法，以避开浏览器的同源策略，是 JSONP 模式的现代版。与 JSONP 只能发GET要求不同，CORS 允许任何类型请求。用 CORS 可以让网页设计师用一般的 XMLHttpRequest，这种方式的错误处理比 JSONP 要来的好。另一方面，JSONP 可以在不支持 CORS 的老旧浏览器上运作。现代的浏览器都支持 CORS。  &lt;/p&gt;
+&lt;p&gt;1.&lt;a href=&quot;http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html&quot;&gt;http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html&lt;/a&gt;&lt;br&gt;2.baidu&lt;br&gt;3.MDN&lt;br&gt;4.wiki&lt;br&gt;5.&lt;a href=&quot;https://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/&quot;&gt;https://www.ibm.com/developerworks/cn/web/wa-aj-jsonp1/&lt;/a&gt;&lt;br&gt;6.&lt;a href=&quot;http://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html&quot;&gt;http://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html&lt;/a&gt;&lt;br&gt;7.&lt;a href=&quot;https://segmentfault.com/a/1190000009844037#articleHeader0&quot;&gt;https://segmentfault.com/a/1190000009844037#articleHeader0&lt;/a&gt;&lt;/p&gt;
+&lt;/script&gt;&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  总有些东西不清不楚，总有些只是不够系统。今天你的不努力，导致明天你的后悔不已！&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!--more--&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;同源策略&quot;&gt;&lt;a href=&quot;#同源策略&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+    
+      <category term="jsonp" scheme="http://blog.newbug.xyz/tags/jsonp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>移动端rem布局(阿里)</title>
     <link href="http://blog.newbug.xyz/2017/05/07/%E7%A7%BB%E5%8A%A8%E7%AB%AFrem%E5%B8%83%E5%B1%80-%E9%98%BF%E9%87%8C/"/>
     <id>http://blog.newbug.xyz/2017/05/07/移动端rem布局-阿里/</id>
@@ -3358,264 +3421,6 @@ function create(){
     
     
       <category term="Ajax" scheme="http://blog.newbug.xyz/tags/Ajax/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js轮播图透明度切换</title>
-    <link href="http://blog.newbug.xyz/2016/04/25/js%E8%BD%AE%E6%92%AD%E5%9B%BE%E9%80%8F%E6%98%8E%E5%BA%A6%E5%88%87%E6%8D%A2/"/>
-    <id>http://blog.newbug.xyz/2016/04/25/js轮播图透明度切换/</id>
-    <published>2016-04-25T02:22:16.000Z</published>
-    <updated>2017-04-25T02:32:42.789Z</updated>
-    
-    <content type="html">&lt;p&gt;js轮播图透明度切换（带上下页和底部圆点切换）&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
-&amp;lt;head&amp;gt;
-    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;js轮播图透明度切换&amp;lt;/title&amp;gt;
-    &amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
-        * {
-            margin: 0;
-            padding: 0;
-            border: none;
-        }
-        li {
-            list-style: none;
-        }
-        #box {
-            height: 340px;
-            width: 790px;
-            position: relative;
-            margin: 100px auto;
-        }
-        #box #list1 {
-            height: 340px;
-            width: 790px;
-        }
-        #box #list1 li {
-            position: absolute;
-            font-size: 80px;
-            text-align: center;
-            height: 340px;
-            width: 790px;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            filter: alpha(opacity=0);
-        }
-        #box #list1 li img {
-            height: 340px;
-            width: 790px;
-        }
-        #shang,#xia {
-            height: 80px;
-            width: 50px;
-            color: #212121;
-            background: #ccc;
-            font-size: 60px;
-            font-weight: bold;
-            line-height: 80px;
-            text-align: center;
-            position: absolute;
-            top: 130px;
-            opacity: 0.8;
-            filter: alpha(opacity=80);
-            cursor: pointer;
-        }
-        #shang {
-            left: 0;
-        }
-        #xia {
-            right: 0;
-        }
-        #box #list2 {
-            height: 20px;
-            width: 195px;
-            position: absolute;
-            left: 297px;
-            bottom: 25px;
-            opacity: 0.8;
-            filter: alpha(opacity=80);
-        }
-        #box #list2 li {
-            height: 20px;
-            width: 20px;
-            background: #ccc;
-            border-radius: 50%;
-            float: left;
-            margin-right: 5px;
-            cursor: pointer;
-        }
-        #box #list2 li.active {
-            background: black;
-        }
-    &amp;lt;/style&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-    &amp;lt;div id=&amp;quot;box&amp;quot;&amp;gt;
-        &amp;lt;ul id=&amp;quot;list1&amp;quot;&amp;gt;
-            &amp;lt;li style=&amp;quot;background: red;&amp;quot;&amp;gt;1&amp;lt;/li&amp;gt;
-            &amp;lt;li style=&amp;quot;background: yellow;&amp;quot;&amp;gt;2&amp;lt;/li&amp;gt;
-            &amp;lt;li style=&amp;quot;background: green;&amp;quot;&amp;gt;3&amp;lt;/li&amp;gt;
-            &amp;lt;li style=&amp;quot;background: blue;&amp;quot;&amp;gt;4&amp;lt;/li&amp;gt;
-            &amp;lt;li style=&amp;quot;background: blueviolet;&amp;quot;&amp;gt;5&amp;lt;/li&amp;gt;
-            &amp;lt;li style=&amp;quot;background: brown;&amp;quot;&amp;gt;6&amp;lt;/li&amp;gt;
-            &amp;lt;li style=&amp;quot;background: orangered;&amp;quot;&amp;gt;7&amp;lt;/li&amp;gt;
-            &amp;lt;li style=&amp;quot;background: palevioletred;&amp;quot;&amp;gt;8&amp;lt;/li&amp;gt;               
-        &amp;lt;/ul&amp;gt;
-        &amp;lt;ul id=&amp;quot;list2&amp;quot;&amp;gt;
-            &amp;lt;li class=&amp;quot;active&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
-            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
-            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
-            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
-            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
-            &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;
-            &amp;lt;li style=&amp;quot;margin-right:0px;&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;
-        &amp;lt;/ul&amp;gt;
-        &amp;lt;div id=&amp;quot;shang&amp;quot;&amp;gt;
-            &amp;amp;lt;
-        &amp;lt;/div&amp;gt;
-        &amp;lt;div id=&amp;quot;xia&amp;quot;&amp;gt;
-            &amp;amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-        onload = function(){
-            var oBox = document.getElementById(&amp;apos;box&amp;apos;);
-            var oList1 = document.getElementById(&amp;apos;list1&amp;apos;);
-            var aLi1 = oList1.getElementsByTagName(&amp;apos;li&amp;apos;);
-            var oList2 = document.getElementById(&amp;apos;list2&amp;apos;);
-            var aLi2 = oList2.getElementsByTagName(&amp;apos;li&amp;apos;);
-            var oShang = document.getElementById(&amp;apos;shang&amp;apos;);
-            var oXia = document.getElementById(&amp;apos;xia&amp;apos;);
-            aLi1[0].style.opacity = 1;
-            aLi1[0].style.filter = &amp;apos;alpha(opacity=100)&amp;apos;;
-            var size = aLi1.length;
-            var i = 0;
-            var timer = setInterval(function(){
-                i++;
-                move();
-            },2000);
-            function move(){
-                if (i &amp;gt;= size ) {
-                    i = 0;
-                }
-                if (i &amp;lt; 0 ) {
-                    i = size - 1;
-                }
-                for (var j = 0; j &amp;lt; aLi1.length; j++) {
-                    if (j == i) {
-                        animate(aLi1[j],{opacity:100});
-                        aLi2[j].className = &amp;apos;active&amp;apos;;
-                    }else{
-                        animate(aLi1[j],{opacity:0});
-                        aLi2[j].className = &amp;apos;&amp;apos;;
-                    }
-                }
-            }
-            //前一张
-            oShang.onclick = function(e){
-                var evt = e || event;
-                evt.preventDefault();
-                i--;
-                move();
-            }
-            //后一张
-            oXia.onclick = function(e){
-                var evt = e || event;
-                evt.preventDefault();
-                i ++;
-                move();
-            }
-            //下面的圆点
-            for(var k = 0;k &amp;lt; aLi2.length; k ++){
-                aLi2[k].index = k;
-                aLi2[k].onmouseenter = function(){
-                    i = this.index;
-                    move();
-                }
-            }
-            oBox.onmouseenter = function(){
-                clearInterval(timer);
-            }
-            oBox.onmouseleave = function(){
-                timer = setInterval(function(){
-                    i ++;
-                    move();
-                },2000);
-            }
-
-
-
-
-
-
-
-
-/*************************缓冲运动可封装留着以后备用^_^*************************/
-            function getStyleAttr(obj, attr){
-                if (window.getComputedStyle){
-                    return getComputedStyle(obj, null)[attr]; 
-                }
-                else {
-                    return obj.currentStyle[attr];  
-                }
-            }
-            function animate(obj, json, fn){
-                clearInterval(obj.timer); 
-                obj.timer = setInterval(function(){
-                    var bStop = true; 
-                    for (var attr in json){
-                        var iTarget = json[attr]; 
-                        var current;
-                        if (attr == &amp;quot;opacity&amp;quot;){ 
-                            current = parseFloat(getStyleAttr(obj, attr))*100;
-                            current = Math.round(current);
-                        }
-                        else { 
-                            current = parseFloat(getStyleAttr(obj, attr));
-                            current = Math.round(current);
-                        }
-                        var speed = (iTarget-current)/8;    (400-393)/8
-                        speed = speed&amp;gt;0 ? Math.ceil(speed) : Math.floor(speed);
-                        if (current != iTarget){
-                            bStop = false; 
-                        }
-                        if (attr == &amp;quot;opacity&amp;quot;){ 
-                            obj.style[attr] = (current+speed)/100;
-                            obj.style.filter = &amp;quot;alpha(opacity=&amp;quot; + (current+speed) + &amp;quot;)&amp;quot;;
-                        }
-                        else { 
-                            obj.style[attr] = current+speed + &amp;quot;px&amp;quot;;
-                        }
-                    }
-                    if (bStop){
-                        console.log(&amp;quot;停止运动&amp;quot;);
-                        clearInterval(obj.timer); 
-                        if (fn) {
-                            fn(); 
-                        }
-                    }
-                }, 30);
-            }
-        }
-
-    &amp;lt;/script&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;js轮播图透明度切换（带上下页和底部圆点切换）&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://blog.newbug.xyz/tags/js/"/>
     
   </entry>
   
