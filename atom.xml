@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.newbug.xyz/"/>
-  <updated>2017-06-21T15:00:05.192Z</updated>
+  <updated>2017-06-21T15:01:08.147Z</updated>
   <id>http://blog.newbug.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.newbug.xyz/2017/06/21/ES6%E6%8E%8C%E6%8F%A1%E8%BF%99%E4%BA%9B%E5%B0%B1%E5%A4%9F%E4%BA%86/"/>
     <id>http://blog.newbug.xyz/2017/06/21/ES6掌握这些就够了/</id>
     <published>2017-06-21T13:02:58.000Z</published>
-    <updated>2017-06-21T15:00:05.192Z</updated>
+    <updated>2017-06-21T15:01:08.147Z</updated>
     
     <content type="html">&lt;p&gt;刚开始用vue或者react，很多时候我们都会把ES6这个大兄弟加入我们的技术栈中。但是ES6那么多那么多特性，我们需要全部都掌握吗？秉着二八原则，掌握好常用的，有用的这个可以让我们快速起飞。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -107,6 +107,7 @@ function step() {
 step();
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  }&lt;br&gt;生成器与迭代器最有趣、最令人激动的方面，或许就是可创建外观清晰的异步操作代码。你不必到处使用回调函数，而是可以建立貌似同步的代码，但实际上却使用 yield 来等待异步操作结束。  &lt;/p&gt;
 &lt;h1 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h1&gt;&lt;p&gt;ES6的特性远不止于此，但对于我们日常的开发开说。这已经是够够的了。还有很多有意思的方法。比如findIndex…等等。包括用set来完成面试题常客数组去重问题。我和我的小伙伴们都惊呆了!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/287e0bb867ae&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/287e0bb867ae&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
