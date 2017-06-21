@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6掌握这些就够了 | 神族九帝 | 永不言弃</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="ES6">
+  <meta name="description" content="刚开始用vue或者react，很多时候我们都会把ES6这个大兄弟加入我们的技术栈中。但是ES6那么多那么多特性，我们需要全部都掌握吗？秉着二八原则，掌握好常用的，有用的这个可以让我们快速起飞。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6掌握这些就够了">
+<meta property="og:url" content="http://blog.newbug.xyz/2017/06/21/ES6掌握这些就够了/index.html">
+<meta property="og:site_name" content="神族九帝">
+<meta property="og:description" content="刚开始用vue或者react，很多时候我们都会把ES6这个大兄弟加入我们的技术栈中。但是ES6那么多那么多特性，我们需要全部都掌握吗？秉着二八原则，掌握好常用的，有用的这个可以让我们快速起飞。">
+<meta property="og:updated_time" content="2017-06-21T15:00:05.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6掌握这些就够了">
+<meta name="twitter:description" content="刚开始用vue或者react，很多时候我们都会把ES6这个大兄弟加入我们的技术栈中。但是ES6那么多那么多特性，我们需要全部都掌握吗？秉着二八原则，掌握好常用的，有用的这个可以让我们快速起飞。">
+  
+    <link rel="alternative" href="/atom.xml" title="神族九帝" type="application/atom+xml">
+  
+  <meta name="summary" content="&lt;p&gt;刚开始用vue或者react，很多时候我们都会把ES6这个大兄弟加入我们的技术栈中。但是ES6那么多那么多特性，我们需要全部都掌握吗？秉着二八原则，掌握好常用的，有用的这个可以让我们快速起飞。&lt;/p&gt;">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu"  >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/logo.gif"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">wu529778790</h5>
+        <a href="mailto:529778790@qq.com" title="529778790@qq.com" class="mail">529778790@qq.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            归档
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            标签
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/wu529778790" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="http://weibo.com/3282218950" target="_blank" >
+            <i class="icon icon-lg icon-weibo"></i>
+            Weibo
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/shows" target="_blank" >
+            <i class="icon icon-lg icon-shows"></i>
+            H5导航
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a href='http://shenzjd.cn'>神族九帝</a> &copy; 2017</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/wu529778790" target="_blank">wu529778790</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ES6掌握这些就够了</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">ES6掌握这些就够了</h1>
+    <h5 class="subtitle">
+          
+            <time datetime="2017-06-21T13:02:58.000Z" itemprop="datePublished" class="page-time">
+  2017-06-21
+</time>
+
+ 
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-ES6掌握这些就够了" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meat flex-row">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#变量声明const和let"><span class="post-toc-number">1.</span> <span class="post-toc-text">变量声明const和let</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模板字符串"><span class="post-toc-number">2.</span> <span class="post-toc-text">模板字符串</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数"><span class="post-toc-number">3.</span> <span class="post-toc-text">函数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#说个小细节"><span class="post-toc-number">4.</span> <span class="post-toc-text">说个小细节</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展的对象功能"><span class="post-toc-number">5.</span> <span class="post-toc-text">扩展的对象功能</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#更方便的数据访问–解构"><span class="post-toc-number">6.</span> <span class="post-toc-text">更方便的数据访问–解构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Spread-Operator-展开运算符"><span class="post-toc-number">7.</span> <span class="post-toc-text">Spread Operator 展开运算符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#import和export"><span class="post-toc-number">8.</span> <span class="post-toc-text">import和export</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Promise"><span class="post-toc-number">9.</span> <span class="post-toc-text">Promise</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Generators"><span class="post-toc-number">10.</span> <span class="post-toc-text">Generators</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">11.</span> <span class="post-toc-text">总结</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <p>刚开始用vue或者react，很多时候我们都会把ES6这个大兄弟加入我们的技术栈中。但是ES6那么多那么多特性，我们需要全部都掌握吗？秉着二八原则，掌握好常用的，有用的这个可以让我们快速起飞。</p>
+<a id="more"></a>
+<h1 id="变量声明const和let"><a href="#变量声明const和let" class="headerlink" title="变量声明const和let"></a>变量声明const和let</h1><p>我们都是知道在es6之前，var关键字声明变量。无论生命在何处，都会被视为声明在函数的最顶部(不在函数内即在全局作用域的最顶部)。这就是函数变量提升。例如：<br>  function aa() {<br>    if(bool) {<br>      var test = ‘hello man’<br>    }else {<br>      console.log(test)<br>    }<br>  }  </p>
+<p>以上的代码实际是：<br>  function aa() {<br>    var test //变量提升<br>    if(bool) {<br>      test = ‘hello man’<br>    }else {<br>      //此处访问test值为undefined<br>      console.log(test)<br>    }<br>    //此处访问test值为undefined<br>  }<br>所以不用关心bool是否为true or false。实际上，无论如何test都会被创建声明。<br>接下来es6主角登场：<br>我们通常用let和const来声明，let表示变量、const表示常量。let和cosnt都是块级作用域。怎么理解这个块级作用域？  </p>
+<ul>
+<li>在一个函数内部  </li>
+<li><p>在一个代码块内部<br>说白了{}大括号内的代码块即为let和const的作用域。<br>看一下代码：<br>function aa() {<br>  if(bool) {</p>
+<pre><code>let test = &apos;hello man&apos;
+</code></pre><p>  }else {</p>
+<pre><code>//test 在此处访问不到
+console.log(test)
+</code></pre><p>  }<br>}<br>let的作用域是在它所在当前代码块，但不会被提升到当前函数的最顶部。<br>再来说说const。<br>const name = ‘lux’<br>name = ‘joe’ //再次赋值时会报错<br>说一道面试题<br>var funcs = []<br>for (var i = 0;i &lt; 10;i++) {<br>  funcs.push(function () {</p>
+<pre><code>console.log(i)
+</code></pre><p>  })<br>}<br>funcs.forEach(function(func) {<br>  func()<br>})<br>这样的面试题非常常见，很多同学一看就知道输出10十次<br>但是如果我们想依次输出0到9呢？两种解决办法。直接上代码。<br>//es5告诉我们可以利用闭包解决这个问题<br>var funcs = []<br>for (var i = 0; i &lt; 10;i++) {<br>  funcs.push((function(value) {</p>
+<pre><code>return function() {
+  console.log(value)
+}
+</code></pre><p>  }(i))<br>}<br>// es6<br>for (let i = 0; i &lt; 10; i++) {<br>  funcs.push(function() {</p>
+<pre><code>console.log(i)
+})
+</code></pre><p>}<br>达到相同的效果，es6简洁。  </p>
+<h1 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h1><p>es6模板字符串简直就是开发者的福音啊，解决了es5在字符串功能上的痛点。<br>第一个用途，基本的字符串格式化。将表达式嵌入字符串中进行拼接。用${}来界定。<br>//es5<br>var name = ‘lux’<br>console.log(‘hello’ + name)<br>//es6<br>const name = ‘lux’<br>console.log(<code>hello ${name}</code>) //hello lux<br>第二个用途，在es5时我们通过反斜杠()来做多行字符串或者字符串一行行拼接。es6反引号(<code>`)直接搞定。
+//es5
+var msg = &quot;Hi \
+man!
+&quot;
+//es6
+const template =</code><div><br>  <span>hello world</span><br>  </div>`<br>对于字符串es6当然也提供了很多厉害的方法。说几个常用的。<br>//1.includes: 判断是否包含后直接返回布尔值<br>let str = ‘hahay’<br>console.log(str.includes(‘y’))  //true<br>//2.repeat: 获取字符串重复n次<br>let s = ‘he’<br>console.log(s.repeat(3))  //‘hehehe’<br>//如果你带入小数，Math.floor(num)来处理  </p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>在es5我们给函数定义参数默认值是怎么样？<br>function action(num) {<br>  num = num || 200<br>  //当传入num时，num为传入的值<br>  //当没传入参数时，num即有了默认值200<br>  return num<br>}<br>但细心观察的同学们肯定会发现，num传入为0的时候就是false，此时num = 200 与我们的实际要的效果明显不一样<br>es6为参数提供了默认值。在定义函数时便初始化了这个参数，以便在参数没有被传递进去时使用。<br>function action(num = 200) {<br>  console.log(num)<br>}</p>
+<p>action() //200<br>action(300)  //300<br>#箭头函数<br>es6很有意思的一部分就是函数的快捷写法。也就是箭头函数。<br>箭头函数最直观的三个特点。</p>
+</li>
+<li>不需要function关键字来创建函数  </li>
+<li>省略return关键字  </li>
+<li><p>继承当前上下文的this关键字<br>//例如<br>[1,2,3].map(x = &gt; x + 1)<br>//等同于：<br>[1,2,3].map((function(x){<br>  return x + 1<br>  }).bind(this))  </p>
+<h1 id="说个小细节"><a href="#说个小细节" class="headerlink" title="说个小细节"></a>说个小细节</h1><p>当你的函数有且仅有一个参数的时候，是可以省略掉括号的。当你函数返回有且仅有一个表达式的时候可以省略{};例如：<br>var people = name = &gt; ‘hello’ + name<br>//参数name就没有括号<br>作为参考：<br>var people = (name, age) = &gt; {<br>  const fullName = ‘h’ + name<br>  return fullName<br>}</p>
+<h1 id="扩展的对象功能"><a href="#扩展的对象功能" class="headerlink" title="扩展的对象功能"></a>扩展的对象功能</h1><p>对象初始化简写<br>es5我们对于对象都是以键值对的形式书写，是有可能出现键值对重命名的。例如：<br>function people(name, age) {<br>  return {</p>
+<pre><code>name: name,
+age: age
+</code></pre><p>  }<br>}<br>键值对重名，es6可以简写如下：<br>function people(name, age){<br>  return {</p>
+<pre><code>name,
+age
+</code></pre><p>  }<br>}<br>es6同样改进了为对象字面量方法赋值的语法。es5为对象添加方法：<br>const people = {<br>  name: ‘lux’,<br>  getNAme: function() {</p>
+<pre><code>console.log(this.name)
+</code></pre><p>  }<br>}<br>es6通过省略冒号与function关键字，将这个语法变得更简洁<br>const people = {<br>  name: ‘lux’,<br>  getName () {</p>
+<pre><code>console.log(this.name)
+</code></pre><p>  }<br>}<br>es6对象提供了Object.assign()这个方法来实现浅复制。Object.assign()可以吧任意多个源对象自身可枚举的属性拷贝给目标对象，然后返回目标对象。第一个参数即为目标对象。在实际项目中，我们为了不改变源对象。一般会把目标对象传为{}<br>cosnt obj = Object.assign({}, objA, objB)  </p>
+<h1 id="更方便的数据访问–解构"><a href="#更方便的数据访问–解构" class="headerlink" title="更方便的数据访问–解构"></a>更方便的数据访问–解构</h1><p>数组和对象是js中最常用也是最重要表示形式。为了简化提取信息，es6新增了解构，这将是一个数据结构分解为更小的部分的过程。<br>es5我们提取对象中的信息形式如下：<br>const people = {<br>  name: ‘lux’,<br>  age: 20<br>}<br>const name = people.name<br>const age = people.age<br>console.log(name + ‘—‘ + age)<br>是不是感觉很熟悉，没错，在es6之前我们就是这样获取对象的信息的，一个一个获取。现在，解构能让我们从对象或者数组里面取出数据村委变量，例如：<br>//对象<br>cosnt people = {<br>  name: ‘lux’,<br>  age: 20<br>}<br>const { name, age } = people<br>console.log(<code>${name} --- ${age}</code>)<br>//数组<br>const color = [‘red’, ‘blue’]<br>const [first, second] = color<br>console.log(first) //‘red’<br>console.log(second) //‘blue’  </p>
+<h1 id="Spread-Operator-展开运算符"><a href="#Spread-Operator-展开运算符" class="headerlink" title="Spread Operator 展开运算符"></a>Spread Operator 展开运算符</h1><p>es6中另外一个好玩的特性就是Spread Operator 也是三个点儿…接下来就展示一下它的用途。<br>组装对象或者数组<br>//数组<br>const color = [‘red’, ‘yellow’]<br>const colorful = […color, ‘green’, ‘pink’]<br>console.log(colorgful)  //[red, yellow, green, pink]</p>
+<p>//对象<br>const alp = { first: ‘a’, second: ‘b’}<br>const alphabets = { …alp, third: ‘c’}<br>console.log(alphabets) //{ “first”: “a”, “second”: “b”, “third”: “c”}<br>有时候我们想获取数组或者对象除了前几项或者除了某几项的其他项<br>//数组<br>const number = [1,2,3,4,5]<br>const [first, …rest] = number<br>console.log(rest) //2,3,4,5<br>//对象<br>const user = {<br>  username: ‘lux’,<br>  gender: ‘female’,<br>  age: 19,<br>  address: ‘peking’<br>}<br>const { username, …rest } = uer<br>console.log(rest) //{ “address”: “peking”, “age”: 19, “gender”: “female”}<br>对于Object而言，还可以用于组合新的Object。(ES2017 stage-2 proposal) 当然如果有重复的属性名，右边覆盖左边。<br>const first = {<br>  a: 1,<br>  b: 2,<br>  c: 6<br>}<br>const second = {<br>  c: 3,<br>  d: 4<br>}<br>const total = { …first, …second }<br>console.log(total) //{ a: 1, b: 2, c: 3, d: 4 }</p>
+<h1 id="import和export"><a href="#import和export" class="headerlink" title="import和export"></a>import和export</h1><p>import导入模块、export导出模块<br>//全部导入<br>import people from ‘./example’<br>//有一种特殊情况，即允许你将整个模块当做单一对象进行导入<br>//该模块的所有导出都会作为对象的属性存在<br>import * as example from “./example.js”<br>console.log(example.name)<br>console.log(example.age)<br>console.log(example.getName())</p>
+<p>//导入部分<br>import { name, age } from ‘./example’</p>
+<p>//导出默认，有且只有一个默认<br>export default App</p>
+<p>//部分导出<br>export class App extend Component {} ;<br>以前有人问我，导入的时候有没有大括号的区别是什么：<br>1.当用export default people导出时，就用 import people 导入（不带大括号）</p>
+<p>2.一个文件里，有且只能有一个export default。但可以有多个export。</p>
+<p>3.当用export name 时，就用import { name }导入（记得带上大括号）</p>
+<p>4.当一个文件里，既有一个export default people, 又有多个export name 或者 export age时，导入就用 import people, { name, age }</p>
+<p>5.当一个文件里出现n多个 export 导出很多模块，导入时除了一个一个导入，也可以用import * as example  </p>
+<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>在promise之前代码过多的回调或者嵌套，可读性差，耦合度高，扩展性低。通过Promise机制，扁平化的代码机构，大大提高了代码可读性；用同步编程的方式来编写异步代码，保存现行的代码逻辑，极大地降低了代码耦合性而提高了程序的可扩展性。  </p>
+</li>
+</ul>
+<p>说白了就是用同步的方式去写异步代码。</p>
+<p>发起异步请求<br>  fetch(‘/api/todos’)<br>    .then(res =&gt; res.json())<br>    .then(data =&gt; ({ data }))<br>    .catch(err =&gt; ({ err }));<br>今天看到一篇关于面试题的很有意思。<br>  setTimeout(function() {<br>    console.log(1)<br>  }, 0);<br>  new Promise(function executor(resolve) {<br>    console.log(2);<br>    for( var i=0 ; i&lt;10000 ; i++ ) {<br>      i == 9999 &amp;&amp; resolve();<br>    }<br>    console.log(3);<br>  }).then(function() {<br>    console.log(4);<br>  });<br>  console.log(5);<br><a href="https://zhuanlan.zhihu.com/p/25407758" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/25407758</a><br>当然以上promise的知识点，这个只是冰山一角。需要更多地去学习应用。  </p>
+<h1 id="Generators"><a href="#Generators" class="headerlink" title="Generators"></a>Generators</h1><p>生成器（ generator）是能返回一个迭代器的函数。生成器函数也是一种函数，最直观的表现就是比普通的function多了个星号<em>，在其函数体内可以使用yield关键字,有意思的是函数会在每个yield后暂停。<br>这里生活中有一个比较形象的例子。咱们到银行办理业务时候都得向大厅的机器取一张排队号。你拿到你的排队号，机器并不会自动为你再出下一张票。也就是说取票机“暂停”住了，直到下一个人再次唤起才会继续吐票。<br>OK。说说迭代器。当你调用一个generator时，它将返回一个迭代器对象。这个迭代器对象拥有一个叫做next的方法来帮助你重启generator函数并得到下一个值。next方法不仅返回值，它返回的对象具有两个属性：done和value。value是你获得的值，done用来表明你的generator是否已经停止提供值。继续用刚刚取票的例子，每张排队号就是这里的value，打印票的纸是否用完就这是这里的done。<br>  // 生成器<br>  function </em>createIterator() {<br>      yield 1;<br>      yield 2;<br>      yield 3;<br>  }</p>
+<p>  // 生成器能像正规函数那样被调用，但会返回一个迭代器<br>  let iterator = createIterator();</p>
+<p>  console.log(iterator.next().value); // 1<br>  console.log(iterator.next().value); // 2<br>  console.log(iterator.next().value); // 3<br>那生成器和迭代器又有什么用处呢？<br>围绕着生成器的许多兴奋点都与异步编程直接相关。异步调用对于我们来说是很困难的事，我们的函数并不会等待异步调用完再执行，你可能会想到用回调函数，（当然还有其他方案比如Promise比如Async/await）。<br>生成器可以让我们的代码进行等待。就不用嵌套的回调函数。使用generator可以确保当异步调用在我们的generator函数运行一下行代码之前完成时暂停函数的执行。<br>那么问题来了，咱们也不能手动一直调用next()方法，你需要一个能够调用生成器并启动迭代器的方法。就像这样子的<br>  function run(taskDef) { //taskDef即一个生成器函数</p>
+<pre><code>// 创建迭代器，让它在别处可用
+let task = taskDef();
+
+// 启动任务
+let result = task.next();
+
+// 递归使用函数来保持对 next() 的调用
+function step() {
+
+    // 如果还有更多要做的
+    if (!result.done) {
+        result = task.next();
+        step();
+    }
+}
+
+// 开始处理过程
+step();
+</code></pre><p>  }<br>生成器与迭代器最有趣、最令人激动的方面，或许就是可创建外观清晰的异步操作代码。你不必到处使用回调函数，而是可以建立貌似同步的代码，但实际上却使用 yield 来等待异步操作结束。  </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ES6的特性远不止于此，但对于我们日常的开发开说。这已经是够够的了。还有很多有意思的方法。比如findIndex…等等。包括用set来完成面试题常客数组去重问题。我和我的小伙伴们都惊呆了!</p>
+
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="http://blog.newbug.xyz/2017/06/21/ES6掌握这些就够了/" target="_blank" rel="external">http://blog.newbug.xyz/2017/06/21/ES6掌握这些就够了/</a>
+                </p>
+                <footer><cite><a href="http://blog.newbug.xyz">@神族九帝</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2017/06/20/typeof-undefined-undefined-成立吗？/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">typeof(undefined) == undefined 成立吗？</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ES6掌握这些就够了" data-title="ES6掌握这些就够了" data-url="http://blog.newbug.xyz/2017/06/21/ES6掌握这些就够了/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wu529778790"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "ES6掌握这些就够了",
+    pic: "/img/logo.gif",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://blog.newbug.xyz/2017/06/21/ES6掌握这些就够了/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+<script src="http://s95.cnzz.com/z_stat.php?id=1259829398&web_id=1259829398"></script>
+
+
+
+
+
+</body>
+</html>
